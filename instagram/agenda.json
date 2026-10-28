@@ -22,8 +22,11 @@
    "formato": "story",
    "status": "publicado",
    "titulo": "Story do dia",
-   "midia": [],
-   "nota": "Story manual com sticker interativo (publicar no app, sem som da Postiz). No horário do post do feed, repostar com o sticker \"post novo\". Publicado à mão pelo Leonardo."
+   "midia": [
+    "midia/stories/so1-2026-10-28.jpg"
+   ],
+   "nota": "Sticker de enquete: “Tarefas” · “Impacto”. Story manual com sticker interativo (publicar no app). No horário do post do feed, repostar com o sticker \"post novo\".",
+   "legenda": "Bom dia · enquete\n\nVocê mostra tarefas ou impacto na sua avaliação?\n\nÀ noite tem dica no feed."
   },
   {
    "id": "o06",
@@ -105,8 +108,11 @@
    "formato": "story",
    "status": "manual",
    "titulo": "Story do dia",
-   "midia": [],
-   "nota": "Story manual com sticker interativo (publicar no app, sem som da Postiz). No horário do post do feed, repostar com o sticker \"post novo\"."
+   "midia": [
+    "midia/stories/so2-2026-10-29.jpg"
+   ],
+   "nota": "Sticker de enquete: “Sim” · “Não”. Story manual com sticker interativo (publicar no app). No horário do post do feed, repostar com o sticker \"post novo\".",
+   "legenda": "Bom dia · enquete\n\nAlguém do seu time está em 4 projetos?\n\nSem citar nomes rs"
   },
   {
    "id": "gh-1029-0830",
@@ -201,8 +207,11 @@
    "formato": "story",
    "status": "manual",
    "titulo": "Story do dia",
-   "midia": [],
-   "nota": "Story manual com sticker interativo (publicar no app, sem som da Postiz). No horário do post do feed, repostar com o sticker \"post novo\"."
+   "midia": [
+    "midia/stories/so3-2026-10-30.jpg"
+   ],
+   "nota": "Sticker de perguntas: “Pergunta pro Leo”. Story manual com sticker interativo (publicar no app). No horário do post do feed, repostar com o sticker \"post novo\".",
+   "legenda": "Leo responde\n\nManda sua dúvida de carreira ou portfólio.\n\nRespondo na série de novembro."
   },
   {
    "id": "gh-1030-0830",
@@ -295,8 +304,11 @@
    "formato": "story",
    "status": "manual",
    "titulo": "Story do dia",
-   "midia": [],
-   "nota": "Story manual com sticker interativo (publicar no app, sem som da Postiz). No horário do post do feed, repostar com o sticker \"post novo\"."
+   "midia": [
+    "midia/stories/so4-2026-10-31.jpg"
+   ],
+   "nota": "Sticker de quiz: “1 a 2” · “3 a 5” · “Perdi a conta”. Story manual com sticker interativo (publicar no app). No horário do post do feed, repostar com o sticker \"post novo\".",
+   "legenda": "Bom sábado · quiz\n\nQuantos projetos o seu time toca ao mesmo tempo?\n\nPerdi a conta também vale."
   },
   {
    "id": "o04",
@@ -389,8 +401,11 @@
    "formato": "story",
    "status": "manual",
    "titulo": "Story do dia",
-   "midia": [],
-   "nota": "Story manual com sticker interativo (publicar no app, sem som da Postiz). No horário do post do feed, repostar com o sticker \"post novo\"."
+   "midia": [
+    "midia/stories/so5-2026-11-01.jpg"
+   ],
+   "nota": "Sticker de enquete: “Bora!” · “Já ativei o sininho”. Story manual com sticker interativo (publicar no app). No horário do post do feed, repostar com o sticker \"post novo\".",
+   "legenda": "Domingo · enquete\n\nAmanhã começa a série diária. Bora?\n\nTe vejo amanhã!"
   },
   {
    "id": "gh-1101-1000",
@@ -480,8 +495,11 @@
    "formato": "story",
    "status": "manual",
    "titulo": "Enquete",
-   "midia": [],
-   "nota": "Story de abertura do dia, com enquete. Às 12h15, repostar o post do feed com o sticker \"post novo\"."
+   "midia": [
+    "midia/stories/s01-2026-11-02.jpg"
+   ],
+   "nota": "Sticker de enquete: “Até 3” · “Mais de 3”. Story de abertura do dia, com enquete. Às 12h15, repostar o post do feed com o sticker \"post novo\".",
+   "legenda": "Bom dia · enquete\n\nQuantos projetos o seu time toca ao mesmo tempo?\n\nPode ser sincero, seu chefe não está vendo."
   },
   {
    "id": "gh-1102-1000",
@@ -544,8 +562,11 @@
    "formato": "story-video",
    "status": "manual",
    "titulo": "Apresentação",
-   "midia": [],
-   "nota": "Story de apresentação do Leo 3D (10 s). Fixar nos Destaques como \"Leo\"."
+   "midia": [
+    "midia/stories/s03-story-leo-apresentacao.mp4"
+   ],
+   "nota": "Vídeo sem som: põe a música no app. Story de apresentação do Leo 3D (10 s). Fixar nos Destaques como \"Leo\".",
+   "legenda": "Mentoria e diagnóstico de projetos.\n\nOi! Eu sou o Leo.\nAqui eu falo de portfólio, PMO e carreira em produto.\nUm post por dia. Bora?\n\nSegue o @pontes_brain"
   },
   {
    "id": "gh-1102-2100",
@@ -700,8 +721,11 @@
    "formato": "story",
    "status": "manual",
    "titulo": "Caixinha",
-   "midia": [],
-   "nota": "Caixinha de perguntas. As respostas viram o post de sexta da semana 2."
+   "midia": [
+    "midia/stories/s02-2026-11-06.jpg"
+   ],
+   "nota": "Sticker de perguntas: “Pergunta pro Leo”. Caixinha de perguntas. As respostas viram o post de sexta da semana 2.",
+   "legenda": "Leo responde\n\nManda sua dúvida de carreira ou portfólio.\n\nAs melhores eu respondo na sexta que vem."
   },
   {
    "id": "d06",
@@ -736,8 +760,11 @@
    "formato": "story",
    "status": "manual",
    "titulo": "Story do dia",
-   "midia": [],
-   "nota": "Story de abertura do dia com sticker interativo. No horário do post do feed, repostar com o sticker \"post novo\"."
+   "midia": [
+    "midia/stories/s04-2026-11-09.jpg"
+   ],
+   "nota": "Sticker de enquete: “Tem, sim” · “Não que eu saiba”. Story de abertura do dia com sticker interativo. No horário do post do feed, repostar com o sticker \"post novo\".",
+   "legenda": "Bom dia · enquete\n\nTem projeto zumbi no seu portfólio?\n\nNão que eu saiba também conta rs"
   },
   {
    "id": "d08",
@@ -759,8 +786,11 @@
    "formato": "story",
    "status": "manual",
    "titulo": "Story do dia",
-   "midia": [],
-   "nota": "Story de abertura do dia com sticker interativo. No horário do post do feed, repostar com o sticker \"post novo\"."
+   "midia": [
+    "midia/stories/s05-2026-11-10.jpg"
+   ],
+   "nota": "Sticker de enquete: “Cabia” · “Tinha 40 slides”. Story de abertura do dia com sticker interativo. No horário do post do feed, repostar com o sticker \"post novo\".",
+   "legenda": "Bom dia · quiz\n\nSeu último business case cabia em uma página?\n\nHoje tem o modelo no feed."
   },
   {
    "id": "d09",
@@ -788,8 +818,11 @@
    "formato": "story",
    "status": "manual",
    "titulo": "Story do dia",
-   "midia": [],
-   "nota": "Story de abertura do dia com sticker interativo. No horário do post do feed, repostar com o sticker \"post novo\"."
+   "midia": [
+    "midia/stories/s06-2026-11-11.jpg"
+   ],
+   "nota": "Sticker de enquete: “Já fiz” · “Ainda não”. Story de abertura do dia com sticker interativo. No horário do post do feed, repostar com o sticker \"post novo\".",
+   "legenda": "Bom dia · enquete\n\nVocê já fez entrevista com case de produto?\n\nÀ noite tem dica no feed."
   },
   {
    "id": "d10",
@@ -811,8 +844,11 @@
    "formato": "story-video",
    "status": "manual",
    "titulo": "Leo explica",
-   "midia": [],
-   "nota": "Story animado do Leo falando, com trilha calma (Como encerrar um projeto zumbi). Repostar o post do dia com o sticker \"post novo\"."
+   "midia": [
+    "midia/stories/story-s26-2026-11-11.mp4"
+   ],
+   "nota": "Vídeo sem som: põe a música no app. Story animado do Leo falando (Como encerrar um projeto zumbi). Repostar o post do dia com o sticker \"post novo\".",
+   "legenda": "Leo explica · G1 Intake: Como encerrar um projeto zumbi.\n\nSabe aquele projeto que ninguém defende?\nDê uma data de revisão e um critério de saída.\nEncerrar também é gestão.\n\nPost completo no feed"
   },
   {
    "id": "s07",
@@ -821,8 +857,11 @@
    "formato": "story",
    "status": "manual",
    "titulo": "Story do dia",
-   "midia": [],
-   "nota": "Story de abertura do dia com sticker interativo. No horário do post do feed, repostar com o sticker \"post novo\"."
+   "midia": [
+    "midia/stories/s07-2026-11-12.jpg"
+   ],
+   "nota": "Sticker de pergunta: “Responda aqui”. Story de abertura do dia com sticker interativo. No horário do post do feed, repostar com o sticker \"post novo\".",
+   "legenda": "Bom dia · pergunta\n\nQual métrica de portfólio sua diretoria pede?\n\nSpoiler: não é % concluído."
   },
   {
    "id": "d11",
@@ -850,8 +889,11 @@
    "formato": "story",
    "status": "manual",
    "titulo": "Story do dia",
-   "midia": [],
-   "nota": "Story de abertura do dia com sticker interativo. No horário do post do feed, repostar com o sticker \"post novo\"."
+   "midia": [
+    "midia/stories/s08-2026-11-13.jpg"
+   ],
+   "nota": "Sticker de perguntas: “Pergunta pro Leo”. Story de abertura do dia com sticker interativo. No horário do post do feed, repostar com o sticker \"post novo\".",
+   "legenda": "Leo responde\n\nManda sua dúvida de carreira ou portfólio.\n\nRespondo na sexta que vem."
   },
   {
    "id": "d12",
@@ -873,8 +915,11 @@
    "formato": "story",
    "status": "manual",
    "titulo": "Story do dia",
-   "midia": [],
-   "nota": "Story de abertura do dia com sticker interativo. No horário do post do feed, repostar com o sticker \"post novo\"."
+   "midia": [
+    "midia/stories/s09-2026-11-14.jpg"
+   ],
+   "nota": "Sticker de enquete: “Toda semana” · “Quase nunca”. Story de abertura do dia com sticker interativo. No horário do post do feed, repostar com o sticker \"post novo\".",
+   "legenda": "Bom sábado · enquete\n\nSeu time conversa com usuário toda semana?\n\nSem julgamento, prometo."
   },
   {
    "id": "d13",
@@ -896,8 +941,11 @@
    "formato": "story",
    "status": "manual",
    "titulo": "Story do dia",
-   "midia": [],
-   "nota": "Story de abertura do dia com sticker interativo. No horário do post do feed, repostar com o sticker \"post novo\"."
+   "midia": [
+    "midia/stories/s10-2026-11-15.jpg"
+   ],
+   "nota": "Sticker de pergunta: “Responda aqui”. Story de abertura do dia com sticker interativo. No horário do post do feed, repostar com o sticker \"post novo\".",
+   "legenda": "Domingo · pergunta\n\nQual reunião você cancelaria amanhã?\n\nEu já sei a minha rs"
   },
   {
    "id": "d14",
@@ -919,8 +967,11 @@
    "formato": "story",
    "status": "manual",
    "titulo": "Story do dia",
-   "midia": [],
-   "nota": "Story de abertura do dia com sticker interativo. No horário do post do feed, repostar com o sticker \"post novo\"."
+   "midia": [
+    "midia/stories/s11-2026-11-16.jpg"
+   ],
+   "nota": "Sticker de quiz: projeto de R$ 100 mil/mês: “R$ 0” · “R$ 100 mil” · “R$ 300 mil”. Story de abertura do dia com sticker interativo. No horário do post do feed, repostar com o sticker \"post novo\".",
+   "legenda": "Bom dia · quiz\n\nQuanto custa 3 meses de atraso?\n\nA conta assusta."
   },
   {
    "id": "d15",
@@ -942,8 +993,11 @@
    "formato": "story",
    "status": "manual",
    "titulo": "Story do dia",
-   "midia": [],
-   "nota": "Story de abertura do dia com sticker interativo. No horário do post do feed, repostar com o sticker \"post novo\"."
+   "midia": [
+    "midia/stories/s12-2026-11-17.jpg"
+   ],
+   "nota": "Sticker de enquete: “PO” · “PM”. Story de abertura do dia com sticker interativo. No horário do post do feed, repostar com o sticker \"post novo\".",
+   "legenda": "Bom dia · enquete\n\nHoje você é mais PO ou PM?\n\nCarrossel novo no feed."
   },
   {
    "id": "d16",
@@ -970,8 +1024,11 @@
    "formato": "story",
    "status": "manual",
    "titulo": "Story do dia",
-   "midia": [],
-   "nota": "Story de abertura do dia com sticker interativo. No horário do post do feed, repostar com o sticker \"post novo\"."
+   "midia": [
+    "midia/stories/s13-2026-11-18.jpg"
+   ],
+   "nota": "Sticker de pergunta: “Responda aqui”. Story de abertura do dia com sticker interativo. No horário do post do feed, repostar com o sticker \"post novo\".",
+   "legenda": "Bom dia · pergunta\n\nO que você está fazendo para a próxima promoção?\n\nHora extra não vale rs"
   },
   {
    "id": "d17",
@@ -993,8 +1050,11 @@
    "formato": "story-video",
    "status": "manual",
    "titulo": "Leo explica",
-   "midia": [],
-   "nota": "Story animado do Leo falando, com trilha calma (Do status ao benefício). Repostar o post do dia com o sticker \"post novo\"."
+   "midia": [
+    "midia/stories/story-s27-2026-11-18.mp4"
+   ],
+   "nota": "Vídeo sem som: põe a música no app. Story animado do Leo falando (Do status ao benefício). Repostar o post do dia com o sticker \"post novo\".",
+   "legenda": "Leo explica · G4 Benefits: Do status ao benefício.\n\nProjeto 90% pronto gera quanto de valor?\nZero, até ser entregue!\nMeça o benefício aos 30, 90 e 180 dias.\n\nCarrossel completo no feed"
   },
   {
    "id": "s14",
@@ -1003,8 +1063,11 @@
    "formato": "story",
    "status": "manual",
    "titulo": "Story do dia",
-   "midia": [],
-   "nota": "Story de abertura do dia com sticker interativo. No horário do post do feed, repostar com o sticker \"post novo\"."
+   "midia": [
+    "midia/stories/s14-2026-11-19.jpg"
+   ],
+   "nota": "Sticker de enquete: “Mede” · “Entrega e esquece”. Story de abertura do dia com sticker interativo. No horário do post do feed, repostar com o sticker \"post novo\".",
+   "legenda": "Bom dia · enquete\n\nSua empresa mede o benefício depois da entrega?\n\nHoje é dia de G4."
   },
   {
    "id": "d18",
@@ -1032,8 +1095,11 @@
    "formato": "story",
    "status": "manual",
    "titulo": "Story do dia",
-   "midia": [],
-   "nota": "Story de abertura do dia com sticker interativo. No horário do post do feed, repostar com o sticker \"post novo\"."
+   "midia": [
+    "midia/stories/s15-2026-11-20.jpg"
+   ],
+   "nota": "Sticker de perguntas: “Pergunta pro Leo”. Story de abertura do dia com sticker interativo. No horário do post do feed, repostar com o sticker \"post novo\".",
+   "legenda": "Leo responde\n\nManda sua dúvida para o Leo.\n\nAs melhores viram post."
   },
   {
    "id": "d19",
@@ -1055,8 +1121,11 @@
    "formato": "story",
    "status": "manual",
    "titulo": "Story do dia",
-   "midia": [],
-   "nota": "Story de abertura do dia com sticker interativo. No horário do post do feed, repostar com o sticker \"post novo\"."
+   "midia": [
+    "midia/stories/s16-2026-11-21.jpg"
+   ],
+   "nota": "Sticker de pergunta: “Responda aqui”. Story de abertura do dia com sticker interativo. No horário do post do feed, repostar com o sticker \"post novo\".",
+   "legenda": "Bom sábado · pergunta\n\nA que você disse não esta semana?\n\nDizer não é estratégia."
   },
   {
    "id": "d20",
@@ -1078,8 +1147,11 @@
    "formato": "story",
    "status": "manual",
    "titulo": "Story do dia",
-   "midia": [],
-   "nota": "Story de abertura do dia com sticker interativo. No horário do post do feed, repostar com o sticker \"post novo\"."
+   "midia": [
+    "midia/stories/s17-2026-11-22.jpg"
+   ],
+   "nota": "Sticker de enquete: “Tive” · “Ainda procuro”. Story de abertura do dia com sticker interativo. No horário do post do feed, repostar com o sticker \"post novo\".",
+   "legenda": "Domingo · enquete\n\nVocê já teve um líder inesquecível?\n\nConta no post de hoje."
   },
   {
    "id": "d21",
@@ -1101,8 +1173,11 @@
    "formato": "story",
    "status": "manual",
    "titulo": "Story do dia",
-   "midia": [],
-   "nota": "Story de abertura do dia com sticker interativo. No horário do post do feed, repostar com o sticker \"post novo\"."
+   "midia": [
+    "midia/stories/s18-2026-11-23.jpg"
+   ],
+   "nota": "Sticker de enquete: “Várias” · “Nenhuma”. Story de abertura do dia com sticker interativo. No horário do post do feed, repostar com o sticker \"post novo\".",
+   "legenda": "Bom dia · enquete\n\nTem ideia no backlog há mais de um ano?\n\nVárias, né? rs"
   },
   {
    "id": "d22",
@@ -1124,8 +1199,11 @@
    "formato": "story",
    "status": "manual",
    "titulo": "Story do dia",
-   "midia": [],
-   "nota": "Story de abertura do dia com sticker interativo. No horário do post do feed, repostar com o sticker \"post novo\"."
+   "midia": [
+    "midia/stories/s19-2026-11-24.jpg"
+   ],
+   "nota": "Sticker de quiz: “RICE” · “MoSCoW” · “Custo do atraso” · “O mais barulhento”. Story de abertura do dia com sticker interativo. No horário do post do feed, repostar com o sticker \"post novo\".",
+   "legenda": "Bom dia · quiz\n\nQual método de priorização vocês usam?\n\nHoje explico os três."
   },
   {
    "id": "d23",
@@ -1152,8 +1230,11 @@
    "formato": "story",
    "status": "manual",
    "titulo": "Story do dia",
-   "midia": [],
-   "nota": "Story de abertura do dia com sticker interativo. No horário do post do feed, repostar com o sticker \"post novo\"."
+   "midia": [
+    "midia/stories/s20-2026-11-25.jpg"
+   ],
+   "nota": "Sticker de enquete: “Estou” · “Já fiz”. Story de abertura do dia com sticker interativo. No horário do post do feed, repostar com o sticker \"post novo\".",
+   "legenda": "Bom dia · enquete\n\nVocê está em transição para produto?\n\nÀ noite tem o passo a passo."
   },
   {
    "id": "d24",
@@ -1175,8 +1256,11 @@
    "formato": "story-video",
    "status": "manual",
    "titulo": "Leo explica",
-   "midia": [],
-   "nota": "Story animado do Leo falando, com trilha calma (Vagas fundador). Repostar o post do dia com o sticker \"post novo\"."
+   "midia": [
+    "midia/stories/story-s28-2026-11-25.mp4"
+   ],
+   "nota": "Vídeo sem som: põe a música no app. Story animado do Leo falando (Vagas fundador). Repostar o post do dia com o sticker \"post novo\".",
+   "legenda": "Vagas fundador: Mentoria e diagnóstico, vagas fundador.\n\nQuer ir além do conteúdo?\nMentoria 1:1 com 5 vagas fundador.\nDiagnóstico de PMO com 3 vagas. Chama no direct!\n\nLink na bio"
   },
   {
    "id": "s21",
@@ -1185,8 +1269,11 @@
    "formato": "story",
    "status": "manual",
    "titulo": "Story do dia",
-   "midia": [],
-   "nota": "Story de abertura do dia com sticker interativo. No horário do post do feed, repostar com o sticker \"post novo\"."
+   "midia": [
+    "midia/stories/s21-2026-11-26.jpg"
+   ],
+   "nota": "Sticker de enquete: “Já usa” · “Ainda não”. Story de abertura do dia com sticker interativo. No horário do post do feed, repostar com o sticker \"post novo\".",
+   "legenda": "Bom dia · enquete\n\nSeu PMO já usa IA?\n\nChecklist no feed."
   },
   {
    "id": "d25",
@@ -1214,8 +1301,11 @@
    "formato": "story",
    "status": "manual",
    "titulo": "Story do dia",
-   "midia": [],
-   "nota": "Story de abertura do dia com sticker interativo. No horário do post do feed, repostar com o sticker \"post novo\"."
+   "midia": [
+    "midia/stories/s22-2026-11-27.jpg"
+   ],
+   "nota": "Sticker de perguntas: “Pergunta pro Leo”. Story de abertura do dia com sticker interativo. No horário do post do feed, repostar com o sticker \"post novo\".",
+   "legenda": "Leo responde\n\nManda sua dúvida para o Leo.\n\nHoje respondo sobre PMP."
   },
   {
    "id": "d26",
@@ -1237,8 +1327,11 @@
    "formato": "story",
    "status": "manual",
    "titulo": "Story do dia",
-   "midia": [],
-   "nota": "Story de abertura do dia com sticker interativo. No horário do post do feed, repostar com o sticker \"post novo\"."
+   "midia": [
+    "midia/stories/s23-2026-11-28.jpg"
+   ],
+   "nota": "Sticker de enquete: “Mede” · “Nunca medi”. Story de abertura do dia com sticker interativo. No horário do post do feed, repostar com o sticker \"post novo\".",
+   "legenda": "Bom sábado · enquete\n\nVocê mede o que entrega depois de 90 dias?\n\nMedir é o fim."
   },
   {
    "id": "d27",
@@ -1260,8 +1353,11 @@
    "formato": "story",
    "status": "manual",
    "titulo": "Story do dia",
-   "midia": [],
-   "nota": "Story de abertura do dia com sticker interativo. No horário do post do feed, repostar com o sticker \"post novo\"."
+   "midia": [
+    "midia/stories/s24-2026-11-29.jpg"
+   ],
+   "nota": "Sticker de pergunta: “Responda aqui”. Story de abertura do dia com sticker interativo. No horário do post do feed, repostar com o sticker \"post novo\".",
+   "legenda": "Domingo · pergunta\n\nO que você quer aprender em dezembro?\n\nVou montar a série com isso."
   },
   {
    "id": "d28",
@@ -1283,8 +1379,11 @@
    "formato": "story",
    "status": "manual",
    "titulo": "Story do dia",
-   "midia": [],
-   "nota": "Story de abertura do dia com sticker interativo. No horário do post do feed, repostar com o sticker \"post novo\"."
+   "midia": [
+    "midia/stories/s25-2026-11-30.jpg"
+   ],
+   "nota": "Sticker de enquete: “G1/G2” · “G3/G4”. Story de abertura do dia com sticker interativo. No horário do post do feed, repostar com o sticker \"post novo\".",
+   "legenda": "Bom dia · enquete\n\nQual gate puxa a série de dezembro?\n\nVota aí!"
   },
   {
    "id": "d29",
