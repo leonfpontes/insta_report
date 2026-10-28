@@ -19,7 +19,8 @@
  * Variáveis: IG_TOKEN_<CONTA> (ex.: IG_TOKEN_PONTES_BRAIN), RESEND_API_KEY, ALERTA_EMAIL,
  * MIDIA_BASE (padrão: raw da main), AGORA (ISO, só para teste), SOMENTE (id de um post para
  * publicar já, ignorando a hora), SIMULAR=1 (não chama a API, só mostra o que faria),
- * VERIFICAR=1 (só confere o token de cada conta na API e a cota de publicação; não publica).
+ * VERIFICAR=1 (só confere o token de cada conta na API e a cota de publicação; não publica),
+ * TESTAR_ALERTA=1 (só manda um e-mail de teste para ALERTA_EMAIL; não publica).
  */
 import fs from "node:fs";
 import path from "node:path";
@@ -142,7 +143,7 @@ async function publicar(post, token) {
 async function enviarEmail(assunto, texto) {
   const key = process.env.RESEND_API_KEY;
   const to = process.env.ALERTA_EMAIL;
-  if (!key || !to) return console.log(`(sem e-mail configurado) ${assunto}`);
+  if (!key || !to) { console.log(`(sem e-mail configurado) ${assunto}`); return false; }
   const resposta = await fetch("https://api.resend.com/emails", {
     method: "POST",
     headers: { Authorization: `Bearer ${key}`, "Content-Type": "application/json" },
@@ -150,6 +151,16 @@ async function enviarEmail(assunto, texto) {
     signal: AbortSignal.timeout(15_000),
   });
   if (!resposta.ok) console.error(`Resend ${resposta.status}: ${await resposta.text()}`);
+  return resposta.ok;
+}
+
+async function testarAlerta() {
+  const ok = await enviarEmail(
+    "Instagram: alerta de teste",
+    "Teste do alerta do publicador do Instagram (insta_report). Se este e-mail chegou, os avisos de post que falhou e de token vencendo também vão chegar.",
+  );
+  console.log(ok ? `E-mail de teste enviado para ${process.env.ALERTA_EMAIL}.` : "O e-mail de teste não foi enviado.");
+  if (!ok) process.exitCode = 1;
 }
 
 /** Confere o token de cada conta da agenda sem publicar nada. */
@@ -176,6 +187,7 @@ async function verificar(agenda) {
 async function main() {
   const agenda = JSON.parse(fs.readFileSync(AGENDA, "utf8"));
   if (process.env.VERIFICAR === "1") return verificar(agenda);
+  if (process.env.TESTAR_ALERTA === "1") return testarAlerta();
   const fila = devidos(agenda);
   if (!fila.length) return console.log(`Nada para publicar (${agora.toISOString()}).`);
   let mudou = false;

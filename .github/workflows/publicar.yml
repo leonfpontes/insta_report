@@ -22,6 +22,10 @@ on:
         description: "Só conferir os tokens das contas, sem publicar"
         type: boolean
         default: false
+      testar_alerta:
+        description: "Só mandar um e-mail de alerta de teste, sem publicar"
+        type: boolean
+        default: false
 
 permissions:
   contents: write
@@ -51,6 +55,7 @@ jobs:
           SOMENTE: ${{ inputs.post }}
           SIMULAR: ${{ inputs.simular && '1' || '' }}
           VERIFICAR: ${{ inputs.verificar && '1' || '' }}
+          TESTAR_ALERTA: ${{ inputs.testar_alerta && '1' || '' }}
         run: node scripts/publicar.mjs
 
       - name: Gravar o resultado na agenda
