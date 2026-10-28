@@ -14,7 +14,7 @@ type P = IgMedia & { conta: Conta };
 const fmtOf = (p: IgMedia) => IGFMT[p.produto === "REELS" ? "REELS" : p.tipo || ""] || p.tipo || "";
 const COLS: { k: string; l: string }[] = [
   { k: "views", l: "Visualizações" }, { k: "reach", l: "Alcance" }, { k: "total_interactions", l: "Interações" },
-  { k: "saved", l: "Salvos" }, { k: "shares", l: "Compart." }, { k: "taxa", l: "Engajamento" },
+  { k: "curtidas", l: "Curtidas" }, { k: "comentarios", l: "Coment." }, { k: "saved", l: "Salvos" }, { k: "shares", l: "Compart." }, { k: "taxa", l: "Engajamento" },
 ];
 const SORTS: [string, string][] = [["quando", "Mais recentes"], ["score", "Desempenho"], ["views", "Visualizações"], ["reach", "Alcance"], ["total_interactions", "Interações"], ["curtidas", "Curtidas"], ["saved", "Salvos"], ["shares", "Compartilhamentos"]];
 
@@ -148,7 +148,7 @@ export function PublicadosView() {
                   </span>
                 </button>
                 <dl className="grid grid-cols-3 gap-1.5">
-                  {[["views", "Visualizações"], ["reach", "Alcance"], ["total_interactions", "Interações"]].map(([k, l]) => {
+                  {[["views", "Visualizações"], ["reach", "Alcance"], p.insights?.total_interactions == null ? ["curtidas", "Curtidas"] : ["total_interactions", "Interações"]].map(([k, l]) => {
                     const mm = c.m[k]; const L = mm ? lvlM(mm) : "flat";
                     return (
                       <div key={k} className={cn("flex flex-col gap-0.5 rounded-md bg-background px-2 py-1.5", L === "up" && "bg-ok-soft", L === "down" && "bg-crit-soft")}>
