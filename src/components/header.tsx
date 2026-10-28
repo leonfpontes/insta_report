@@ -99,8 +99,9 @@ export function Header({ onCheck, checking, onSair }: { onCheck: () => void; che
             );
           })}
         </div>
-        <ConexaoResumo className={cn("ml-auto", CONTAS.length <= 3 && "md:hidden")} />
-        <div className="flex items-center gap-2">
+        {/* No celular, a luz de cada conta fica no resumo das contas, logo abaixo; o topo fica numa linha só. */}
+        {CONTAS.length > 3 ? <ConexaoResumo className="ml-auto hidden md:flex" /> : null}
+        <div className="flex items-center gap-2 max-md:ml-auto">
           <Button variant="outline" className="hidden md:inline-flex" onClick={onCheck} disabled={checking}>
             <RefreshCw className={cn(checking && "animate-spin")} aria-hidden /> Checar agora
           </Button>

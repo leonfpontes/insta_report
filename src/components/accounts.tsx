@@ -162,7 +162,7 @@ function OverviewRow({ k }: { k: Conta }) {
       <button
         type="button"
         onClick={() => setAcc(k)}
-        className="grid w-full grid-cols-[auto_1fr_auto] items-center gap-x-3 gap-y-2 border-l-[3px] border-l-[var(--c)] px-4 py-3 text-left transition-colors hover:bg-accent/60 focus-visible:bg-accent focus-visible:outline-none md:grid-cols-[minmax(0,1.5fr)_repeat(4,minmax(0,1fr))_minmax(0,1.6fr)_auto] md:gap-x-4"
+        className="grid w-full grid-cols-[auto_1fr_auto_auto] items-center gap-x-3 gap-y-2 border-l-[3px] border-l-[var(--c)] px-4 py-3 text-left transition-colors hover:bg-accent/60 focus-visible:bg-accent focus-visible:outline-none md:grid-cols-[minmax(0,1.5fr)_repeat(4,minmax(0,1fr))_minmax(0,1.6fr)_auto] md:gap-x-4"
         aria-label={`${ACC[k].label}: ${cx.txt}. ${n(pf.followers_count)} seguidores, ${n(r7.reach)} contas alcançadas em 7 dias. Ver só esta conta.`}
       >
         <span className="flex min-w-0 items-center gap-3 max-md:contents">
@@ -201,7 +201,9 @@ function Cell({ v }: { v: React.ReactNode }) {
 }
 
 export function Accounts() {
-  const { acc } = usePainel();
+  const { m, acc } = usePainel();
+  const cxs = CONTAS.map((k) => m.conexao(k).cls);
+  const off = cxs.filter((c) => c === "off").length, on = cxs.filter((c) => c === "on").length;
   if (acc !== "all" || CONTAS.length < 2) {
     const k = acc === "all" ? CONTAS[0] : acc;
     return k ? <section aria-label="Conta"><AccountCard k={k} /></section> : null;
@@ -210,8 +212,8 @@ export function Accounts() {
   return (
     <Card className="gap-0 overflow-hidden py-0" aria-labelledby="contas-tit">
       <div className="flex items-baseline justify-between gap-3 border-b px-4 py-2.5">
-        <h2 id="contas-tit" className="text-sm font-medium text-ink">{CONTAS.length} contas</h2>
-        <span className="text-xs text-muted-foreground">Toque numa conta para ver os números dela</span>
+        <h2 id="contas-tit" className="text-sm font-medium text-ink">{CONTAS.length} contas <span className={cn("font-normal", off ? "text-crit" : "text-muted-foreground")}>· {off ? `${off} desconectada${off > 1 ? "s" : ""}` : `${on} conectada${on === 1 ? "" : "s"}`}</span></h2>
+        <span className="text-xs text-muted-foreground max-md:hidden">Clique numa conta para ver os números dela</span>
       </div>
       <div className="hidden grid-cols-[minmax(0,1.5fr)_repeat(4,minmax(0,1fr))_minmax(0,1.6fr)_auto] gap-x-4 border-b px-4 py-2 pl-[calc(1rem+3px)] md:grid" aria-hidden>
         <H c="Conta" /><H c="Seguidores · 7 dias" /><H c="Alcance 7 dias" /><H c="Interações 7 dias" /><H c="Na fila" /><H c="Próximo" /><span className="w-4" />
