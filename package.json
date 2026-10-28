@@ -3,8 +3,36 @@
   "private": true,
   "type": "module",
   "description": "Agenda, publicador e painel do Instagram de @pontes_brain e @girahuboficial",
-  "engines": { "node": ">=20" },
+  "engines": {
+    "node": ">=20"
+  },
   "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "preview": "vite preview",
     "check": "node --check scripts/publicar.mjs && node --check scripts/metricas.mjs && node --check scripts/renovar-token.mjs && node --check scripts/alerta.mjs && node --check lib/painel.mjs && for f in api/*.js; do node --check $f || exit 1; done"
+  },
+  "dependencies": {
+    "class-variance-authority": "0.7.1",
+    "clsx": "2.1.1",
+    "lucide-react": "^0.525.0",
+    "radix-ui": "^1.8.1",
+    "react": "19.1.1",
+    "react-dom": "19.1.1",
+    "recharts": "^3.8.0",
+    "sonner": "^2.0.8",
+    "tailwind-merge": "3.3.1",
+    "tw-animate-css": "1.3.5",
+    "vaul": "^1.1.2"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "4.1.11",
+    "@types/node": "22.15.30",
+    "@types/react": "19.1.8",
+    "@types/react-dom": "19.1.6",
+    "@vitejs/plugin-react": "4.6.0",
+    "tailwindcss": "4.1.11",
+    "typescript": "5.8.3",
+    "vite": "6.3.5"
   }
 }
