@@ -1,0 +1,835 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<title>Agenda do Instagram</title>
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@1&family=Roboto:wght@400;500&family=Roboto+Mono:wght@400;500&display=swap">
+<style>
+:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+body{margin:0}
+img{max-width:100%}
+/* Layout: painel de operação. Contas no topo (perfil + números de 7 dias), depois abas Fila / Calendário / Publicados / Execuções, filtradas por conta; detalhe em painel lateral. */
+:root{
+  /* Papel & Marinho (LP Noir, perfil_portfolio src/styles/lp-noir.css). */
+  --paper:#f6f3ec; --raised:#fbf9f4; --deep:#ece7dc; --ink:#14213d; --muted:#6b675f;
+  --line:color-mix(in srgb,#14213d 14%,#f6f3ec); --field:#857f75;
+  --acc-pb:#14213d; --acc-pb-soft:color-mix(in srgb,#14213d 10%,#fbf9f4); --acc-gh:#7a5c2e; --acc-gh-soft:color-mix(in srgb,#7a5c2e 15%,#fbf9f4);
+  --signal:#7a5c2e; --signal-ink:#6a4e25; --dot:#7a5c2e;
+  --ok:#2f6b4a; --warn:#8a5a00; --crit:#b3392b;
+  --f-body:Roboto, system-ui, -apple-system, "Segoe UI", sans-serif; --f-mono:"Roboto Mono", ui-monospace, Menlo, monospace;
+  --f-accent:"Instrument Serif", Georgia, "Times New Roman", serif;
+  --r-field:8px; --r-card:10px; --r-panel:12px;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --paper:#0f1a31; --raised:#14213d; --deep:color-mix(in srgb,#0f1a31 70%,#0a0a0b); --ink:#f1ede4; --muted:#9b968c;
+  --line:color-mix(in srgb,#f1ede4 14%,#0f1a31); --field:#6b675f;
+  --acc-pb:#f1ede4; --acc-pb-soft:color-mix(in srgb,#f1ede4 12%,#14213d); --acc-gh:#cfb48a; --acc-gh-soft:color-mix(in srgb,#cfb48a 18%,#14213d);
+  --signal:#cfb48a; --signal-ink:#cfb48a; --dot:#cfb48a;
+  --ok:#8fbf9f; --warn:#d9b26a; --crit:#e08a7a; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --paper:#0f1a31; --raised:#14213d; --deep:color-mix(in srgb,#0f1a31 70%,#0a0a0b); --ink:#f1ede4; --muted:#9b968c;
+  --line:color-mix(in srgb,#f1ede4 14%,#0f1a31); --field:#6b675f;
+  --acc-pb:#f1ede4; --acc-pb-soft:color-mix(in srgb,#f1ede4 12%,#14213d); --acc-gh:#cfb48a; --acc-gh-soft:color-mix(in srgb,#cfb48a 18%,#14213d);
+  --signal:#cfb48a; --signal-ink:#cfb48a; --dot:#cfb48a;
+  --ok:#8fbf9f; --warn:#d9b26a; --crit:#e08a7a; color-scheme:dark}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+body{background:var(--paper);color:var(--ink);font-family:var(--f-body);font-size:15px;line-height:1.45}
+a{color:inherit;text-underline-offset:3px}
+button{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--signal);outline-offset:2px}
+.wrap{max-width:1200px;margin:0 auto;padding-block:26px 48px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));display:flex;flex-direction:column;gap:20px}
+.num{font-family:var(--f-mono);font-variant-numeric:tabular-nums}
+.muted{color:var(--muted)}
+
+.head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:12px 20px}
+h1{font-weight:500;font-size:clamp(1.5rem,3vw,2rem);letter-spacing:-.015em;margin:0;text-wrap:balance}
+.sync{display:flex;flex-direction:column;align-items:flex-end;gap:6px;font-size:.8rem;color:var(--muted);text-align:right}
+.sync-row{display:flex;gap:10px;align-items:center;flex-wrap:wrap;justify-content:flex-end}
+.btn{border:1px solid var(--field);background:var(--raised);border-radius:var(--r-field);padding:7px 12px;cursor:pointer;font-size:.85rem;font-weight:500;white-space:nowrap}
+.btn:hover{border-color:var(--ink)}
+.brand{display:flex;align-items:center;gap:12px}.brand svg{width:40px;height:40px;flex:none}
+h1 em{font-family:var(--f-accent);font-style:italic;font-weight:400;color:var(--signal-ink);letter-spacing:0}
+.btn.primary{background:var(--ink);border-color:var(--ink);color:var(--paper)}
+.btn:disabled{opacity:.55;cursor:default}
+.btn.small{padding:4px 9px;font-size:.78rem}
+
+.accounts{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:14px}
+.acct{background:var(--raised);border:1px solid var(--line);border-radius:var(--r-panel);padding:16px;display:flex;flex-direction:column;gap:14px;min-width:0;border-top:3px solid var(--c)}
+.acct[data-a="pontes_brain"]{--c:var(--acc-pb);--soft:var(--acc-pb-soft)}
+.acct[data-a="GiraHub"]{--c:var(--acc-gh);--soft:var(--acc-gh-soft)}
+.who{display:flex;gap:12px;align-items:center;min-width:0}
+.avatar{width:52px;height:52px;border-radius:50%;object-fit:cover;flex:none;background:var(--soft);border:1px solid var(--line)}
+.who-txt{min-width:0;display:flex;flex-direction:column;gap:1px}
+.who-name{font-weight:500;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.who-user{font-size:.85rem;color:var(--muted)}
+.who-user a{color:var(--ink);font-weight:500}
+.who .via{margin-left:auto;align-self:flex-start;font-size:.68rem;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);white-space:nowrap}
+.figs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px 14px;margin:0}
+.fig{display:flex;flex-direction:column;gap:1px;min-width:0}
+.fig dt{font-size:.72rem;color:var(--muted);order:2}
+.fig dd{margin:0;font-family:var(--f-mono);font-variant-numeric:tabular-nums;font-size:1.25rem;font-weight:500;order:1}
+.fig dd small{font-size:.72rem;color:var(--ok);margin-left:4px}
+.fig dd small.down{color:var(--crit)}
+.figs-cap{font-size:.72rem;color:var(--muted);letter-spacing:.06em;text-transform:uppercase;margin:0 0 -6px}
+.acct-lines{display:flex;flex-direction:column;gap:4px;font-size:.85rem;border-top:1px solid var(--line);padding-top:10px}
+.acct-lines div{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.acct-lines b{font-weight:500}
+.alert{color:var(--crit);font-weight:500}
+.spark{display:block;width:100%;height:34px}
+
+.toolbar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between}
+.seg{display:inline-flex;border:1px solid var(--line);border-radius:var(--r-field);overflow:hidden;background:var(--raised);max-width:100%;overflow-x:auto}
+.seg button{border:0;background:transparent;padding:7px 12px;cursor:pointer;display:inline-flex;align-items:center;gap:6px;font-size:.85rem;white-space:nowrap}
+.seg button+button{border-left:1px solid var(--line)}
+.seg button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+.dot{width:9px;height:9px;border-radius:50%;flex:none;display:inline-block}
+.dot.pb{background:var(--acc-pb)}.dot.gh{background:var(--acc-gh)}
+
+.pill{display:inline-block;font-size:.68rem;letter-spacing:.05em;text-transform:uppercase;border-radius:6px;padding:2px 7px;border:1px solid var(--line);white-space:nowrap;font-weight:500}
+.pill.publicado{color:var(--ok);border-color:currentColor}
+.pill.agendado{color:var(--ink)}
+.pill.manual,.pill.pendente,.pill.atrasado{color:var(--warn);border-color:currentColor}
+.pill.manual{border-style:dashed}
+.pill.falhou{color:var(--crit);border-color:currentColor}
+
+.section-note{font-size:.82rem;color:var(--muted);margin:0}
+.empty{padding:36px 16px;text-align:center;color:var(--muted);border:1px dashed var(--line);border-radius:var(--r-panel)}
+
+/* Fila */
+.queue{display:flex;flex-direction:column;gap:18px}
+.qday h3{font-size:.76rem;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);margin:0 0 6px;font-weight:500}
+.qitems{display:flex;flex-direction:column;border:1px solid var(--line);border-radius:var(--r-panel);background:var(--raised);overflow:hidden}
+.qrow{display:grid;grid-template-columns:52px 52px minmax(0,1fr) auto;gap:12px;align-items:center;padding:8px 12px;border-left:3px solid var(--c)}
+.qrow+.qrow{border-top:1px solid var(--line)}
+.qrow[data-a="pontes_brain"]{--c:var(--acc-pb);--soft:var(--acc-pb-soft)}
+.qrow[data-a="GiraHub"]{--c:var(--acc-gh);--soft:var(--acc-gh-soft)}
+.qtime{font-family:var(--f-mono);font-variant-numeric:tabular-nums;font-size:.9rem}
+.thumb-s{width:52px;height:52px;border-radius:6px;object-fit:cover;background:var(--soft);display:block;border:1px solid var(--line)}
+.thumb-s.ph{display:flex;align-items:center;justify-content:center;font-size:.6rem;color:var(--muted);text-transform:uppercase;letter-spacing:.05em}
+.qmain{min-width:0;display:flex;flex-direction:column;gap:2px;text-align:left;background:none;border:0;padding:0;cursor:pointer}
+.qtitle{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-weight:500}
+.qmeta{font-size:.78rem;color:var(--muted);display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.qact{display:flex;gap:6px;align-items:center;flex-wrap:wrap;justify-content:flex-end}
+
+/* Calendário */
+.month{display:flex;align-items:center;gap:8px}
+.month h2{margin:0;font-weight:500;font-size:1.05rem;min-width:9em;text-align:center;text-transform:capitalize}
+.navb{border:1px solid var(--line);background:var(--raised);border-radius:var(--r-field);width:32px;height:32px;cursor:pointer}
+.cal{border:1px solid var(--line);border-radius:var(--r-panel);overflow:hidden;background:var(--raised)}
+.dow,.grid{display:grid;grid-template-columns:repeat(7,minmax(0,1fr))}
+.dow div{font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);padding:8px 10px;border-bottom:1px solid var(--line)}
+.day{min-height:116px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);padding:6px;display:flex;flex-direction:column;gap:4px;min-width:0}
+.day:nth-child(7n){border-right:0}
+.day.out{background:var(--deep)}
+.day.out .dn{opacity:.45}
+.dn{font-family:var(--f-mono);font-size:.74rem;color:var(--muted);display:flex;justify-content:space-between}
+.day.today .dn b{background:var(--ink);color:var(--paper);border-radius:6px;padding:0 6px}
+.ev{text-align:left;font-size:.72rem;line-height:1.25;border-radius:6px;padding:3px 6px;cursor:pointer;display:flex;gap:5px;align-items:baseline;min-width:0;width:100%;background:transparent;border:1.5px solid var(--c)}
+.ev[data-a="pontes_brain"]{--c:var(--acc-pb);--soft:var(--acc-pb-soft)}
+.ev[data-a="GiraHub"]{--c:var(--acc-gh);--soft:var(--acc-gh-soft)}
+.ev .t{font-family:var(--f-mono);font-variant-numeric:tabular-nums;flex:none}
+.ev .ttl{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;min-width:0}
+.ev.publicado{background:var(--soft);border-color:var(--soft)}
+.ev.publicado .t::after{content:" ✓";color:var(--ok)}
+.ev.manual,.ev.pendente{border-style:dashed}
+.ev.falhou,.ev.atrasado{border-color:var(--crit)}
+.more{font-size:.7rem;color:var(--muted);padding-left:4px;background:none;border:0;cursor:pointer;text-align:left}
+.legend{display:flex;flex-wrap:wrap;gap:14px;font-size:.76rem;color:var(--muted)}
+.legend i{display:inline-block;width:14px;height:10px;border-radius:3px;margin-right:5px;vertical-align:-1px}
+.lg-ag{border:1.5px solid var(--muted)}.lg-pub{background:var(--muted)}.lg-man{border:1.5px dashed var(--muted)}.lg-err{border:1.5px solid var(--crit)}
+
+/* Tabelas */
+.tbl-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:var(--r-panel);background:var(--raised)}
+table{border-collapse:collapse;width:100%;font-size:.84rem}
+th,td{padding:8px 10px;text-align:left;vertical-align:middle;border-bottom:1px solid var(--line)}
+tr:last-child td{border-bottom:0}
+th{font-size:.7rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:500;white-space:nowrap;background:var(--raised);position:sticky;top:0}
+th button{background:none;border:0;padding:0;cursor:pointer;letter-spacing:inherit;text-transform:inherit;color:inherit;font-weight:inherit;font-size:inherit}
+th button[aria-sort]::after{content:" ↓"}
+th button[aria-sort="ascending"]::after{content:" ↑"}
+td.n,th.n{text-align:right;font-family:var(--f-mono);font-variant-numeric:tabular-nums;white-space:nowrap}
+th.n button{text-align:right}
+td.cap{min-width:220px;max-width:360px}
+td.cap span{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.tbl-acc{display:flex;align-items:center;gap:6px;white-space:nowrap}
+.sub-h{font-size:.95rem;font-weight:500;margin:6px 0 -6px}
+.stack{display:flex;flex-direction:column;gap:14px}
+
+/* Detalhe */
+.panel{position:fixed;inset:0;background:color-mix(in oklab,var(--deep) 70%,transparent);display:flex;justify-content:flex-end;z-index:20}
+.sheet{background:var(--raised);width:min(480px,100%);height:100%;overflow:auto;padding:calc(20px + env(safe-area-inset-top,0px)) max(20px,env(safe-area-inset-right,0px)) calc(28px + env(safe-area-inset-bottom,0px)) 20px;display:flex;flex-direction:column;gap:14px;border-left:1px solid var(--line)}
+.sheet[data-a="pontes_brain"]{--c:var(--acc-pb)}.sheet[data-a="GiraHub"]{--c:var(--acc-gh)}
+.sheet-top{display:flex;justify-content:space-between;align-items:flex-start;gap:12px}
+.sheet h2{margin:0;font-weight:500;font-size:1.1rem;text-wrap:balance}
+.meta{display:grid;grid-template-columns:auto 1fr;gap:4px 14px;font-size:.85rem;margin:0}
+.meta dt{color:var(--muted)}.meta dd{margin:0;min-width:0;overflow-wrap:anywhere}
+.big-thumb{max-width:100%;border-radius:var(--r-card);border:1px solid var(--line);align-self:flex-start;max-height:420px}
+.cap-full{white-space:pre-wrap;font-size:.86rem;background:var(--paper);border:1px solid var(--line);border-radius:var(--r-card);padding:12px;margin:0;font-family:var(--f-body)}
+.mgrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;background:var(--paper);border:1px solid var(--line);border-radius:var(--r-card);padding:12px;margin:0}
+.confirm{display:flex;flex-direction:column;gap:8px;background:var(--paper);border:1px solid var(--line);border-radius:var(--r-card);padding:12px;font-size:.86rem}
+.confirm .row{display:flex;gap:8px;flex-wrap:wrap}
+.msg{font-size:.82rem}
+.msg.ok{color:var(--ok)}.msg.err{color:var(--crit)}
+
+/* Insights do post */
+.counts{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:6px;margin:0;text-align:center}
+.counts dd{margin:0;font-family:var(--f-mono);font-variant-numeric:tabular-nums;font-size:1.15rem;font-weight:500}
+.counts dt{font-size:.68rem;color:var(--muted)}
+.counts div{display:flex;flex-direction:column-reverse;gap:1px}
+.tabs{display:flex;border-bottom:1px solid var(--line);gap:4px}
+.tabs button{background:none;border:0;border-bottom:2px solid transparent;padding:8px 10px;cursor:pointer;font-size:.88rem;color:var(--muted);margin-bottom:-1px}
+.tabs button[aria-selected="true"]{color:var(--ink);border-bottom-color:var(--ink);font-weight:500}
+.cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin:0}
+.cards div{background:var(--paper);border:1px solid var(--line);border-radius:var(--r-card);padding:10px 12px;display:flex;flex-direction:column-reverse;gap:2px}
+.cards dt{font-size:.76rem;color:var(--muted)}
+.cards dd{margin:0;font-family:var(--f-mono);font-variant-numeric:tabular-nums;font-size:1.35rem;font-weight:500}
+.h4{font-size:.92rem;font-weight:500;margin:4px 0 0}
+.chips{display:flex;gap:6px;flex-wrap:wrap}
+.chips button{border:1px solid var(--line);background:transparent;border-radius:var(--r-field);padding:5px 10px;cursor:pointer;font-size:.8rem}
+.chips button[aria-pressed="true"]{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.chart{position:relative;touch-action:pan-y}
+.chart svg{display:block;width:100%;height:auto;overflow:visible}
+.chart .tip{position:absolute;top:0;transform:translateX(-50%);background:var(--ink);color:var(--paper);border-radius:6px;padding:4px 8px;font-size:.74rem;line-height:1.3;text-align:center;pointer-events:none;white-space:nowrap}
+.chart .tip b{font-family:var(--f-mono);font-size:.85rem;display:block}
+.bars{display:flex;flex-direction:column;gap:10px;margin:0}
+.bar dt{display:flex;justify-content:space-between;font-size:.84rem;margin-bottom:4px}
+.bar dt span{font-family:var(--f-mono);font-variant-numeric:tabular-nums}
+.bar dd{margin:0;height:8px;border-radius:4px;background:var(--deep);overflow:hidden}
+.bar dd i{display:block;height:100%;background:var(--c,var(--ink));border-radius:4px}
+.list2{display:flex;flex-direction:column;margin:0}
+.list2 div{display:flex;justify-content:space-between;padding:7px 0;border-bottom:1px solid var(--line);font-size:.88rem}
+.list2 div:last-child{border-bottom:0}
+.list2 dd{margin:0;font-family:var(--f-mono);font-variant-numeric:tabular-nums}
+.spark-cell{width:96px}
+.spark-cell svg{display:block;width:96px;height:28px}
+@media (max-width:720px){
+  .cal-view .dow{display:none}
+  .cal-view .grid{grid-template-columns:1fr}
+  .day{min-height:0;border-right:0}
+  .day.out,.day.blank{display:none}
+  .qrow{grid-template-columns:44px minmax(0,1fr);row-gap:6px}
+  .qrow .thumb-s{grid-row:span 2;width:44px;height:44px}
+  .qtime{display:none}
+  .qact{grid-column:2;justify-content:flex-start}
+  .sync{align-items:flex-start;text-align:left}
+  .sync-row{justify-content:flex-start}
+  .figs{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media (prefers-reduced-motion:no-preference){.btn,.ev{transition:background .15s,border-color .15s}}
+.login{max-width:360px;margin:12vh auto 0;display:flex;flex-direction:column;gap:14px}
+.login form{display:flex;flex-direction:column;gap:10px}
+.login label{font-size:.85rem;font-weight:500}
+.login input{font:inherit;color:var(--ink);background:var(--raised);border:1px solid var(--field);border-radius:var(--r-field);padding:10px 12px}
+.login .btn{padding:10px 12px}
+</style>
+</head>
+<body>
+
+<div class="wrap login" id="login" hidden>
+  <div class="brand"><svg viewBox="0 0 512 512" role="img" aria-label="LP"><g transform="translate(-16 0)"><g fill="none" stroke="var(--ink)" stroke-width="44" stroke-linejoin="miter"><path d="M178 118V372H300"/><path d="M178 140H290A72 72 0 0 1 290 284H222"/></g><circle cx="362" cy="372" r="26" fill="var(--dot)"/></g></svg><h1>Agenda do <em>Instagram</em></h1></div>
+  <form id="f-login">
+    <label for="senha">Senha do painel</label>
+    <input id="senha" name="senha" type="password" autocomplete="current-password" required>
+    <button class="btn primary" type="submit">Entrar</button>
+    <div id="login-msg" class="msg" role="status"></div>
+  </form>
+</div>
+
+<div class="wrap" id="app" hidden>
+  <div class="head">
+    <div>
+      <div class="brand"><svg viewBox="0 0 512 512" role="img" aria-label="LP"><g transform="translate(-16 0)"><g fill="none" stroke="var(--ink)" stroke-width="44" stroke-linejoin="miter"><path d="M178 118V372H300"/><path d="M178 140H290A72 72 0 0 1 290 284H222"/></g><circle cx="362" cy="372" r="26" fill="var(--dot)"/></g></svg><h1>Agenda do <em>Instagram</em></h1></div>
+      <p class="muted" style="margin:4px 0 0;font-size:.9rem">O que está na fila, o que já saiu e como cada post foi, por conta.</p>
+    </div>
+    <div class="sync">
+      <div class="sync-row"><span id="sync">Carregando…</span><button class="btn" id="b-refresh" type="button">Atualizar números</button><button class="btn" id="b-sair" type="button">Sair</button></div>
+      <div id="req" class="msg"></div>
+    </div>
+  </div>
+
+  <div class="accounts" id="accounts"></div>
+
+  <div class="toolbar">
+    <div class="seg" role="group" aria-label="Conta" id="f-acc">
+      <button type="button" id="fa-all" data-v="all" aria-pressed="true">Todas</button>
+      <button type="button" id="fa-pb" data-v="pontes_brain" aria-pressed="false"><span class="dot pb"></span>@pontes_brain</button>
+      <button type="button" id="fa-gh" data-v="GiraHub" aria-pressed="false"><span class="dot gh"></span>@girahuboficial</button>
+    </div>
+    <div class="seg" role="group" aria-label="Visão" id="f-view">
+      <button type="button" id="fv-fila" data-v="fila" aria-pressed="true">Fila</button>
+      <button type="button" id="fv-cal" data-v="calendario" aria-pressed="false">Calendário</button>
+      <button type="button" id="fv-pub" data-v="publicados" aria-pressed="false">Publicados</button>
+      <button type="button" id="fv-exe" data-v="execucoes" aria-pressed="false">Execuções</button>
+    </div>
+  </div>
+
+  <div id="view"></div>
+</div>
+
+<div class="panel" id="panel" hidden>
+  <div class="sheet" role="dialog" aria-modal="true" aria-labelledby="d-title">
+    <div class="sheet-top">
+      <div style="display:flex;flex-direction:column;gap:6px;min-width:0">
+        <span id="d-pill"></span>
+        <h2 id="d-title"></h2>
+      </div>
+      <button class="btn" id="d-close" type="button">Fechar</button>
+    </div>
+    <div id="d-body" style="display:flex;flex-direction:column;gap:14px"></div>
+  </div>
+</div>
+
+<script>
+const ACC = {
+  pontes_brain:{label:"@pontes_brain", user:"pontes_brain", cls:"pb"},
+  GiraHub:{label:"@girahuboficial", user:"girahuboficial", cls:"gh"}
+};
+const FMT = {post:"Post", carrossel:"Carrossel", story:"Story", "story-video":"Story vídeo", reel:"Reel"};
+const IGFMT = {IMAGE:"Post", CAROUSEL_ALBUM:"Carrossel", VIDEO:"Vídeo", REELS:"Reel"};
+const STATUS = {agendado:"Agendado", publicado:"Publicado", manual:"Postar à mão", pendente:"Não postado", falhou:"Falhou", atrasado:"Atrasado"};
+const MONTHS = ["janeiro","fevereiro","março","abril","maio","junho","julho","agosto","setembro","outubro","novembro","dezembro"];
+const DOW = ["Seg","Ter","Qua","Qui","Sex","Sáb","Dom"];
+const TZ = "America/Sao_Paulo";
+
+let D = {agenda:null, met:{}, img:{}, runs:null, lidoEm:null, manuais:{}};
+let S = {acc:"all", view:"fila", y:0, m:0, sort:{k:"quando", dir:-1}};
+let confirmId = null, actMsg = {};
+
+const $ = id => document.getElementById(id);
+const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const nf = new Intl.NumberFormat("pt-BR");
+const n = v => v==null ? "–" : nf.format(v);
+const pct = (a,b) => (a==null||!b) ? "–" : (100*a/b).toLocaleString("pt-BR",{maximumFractionDigits:1})+"%";
+const dayKey = d => new Intl.DateTimeFormat("en-CA",{timeZone:TZ}).format(new Date(d));
+const hm = d => new Intl.DateTimeFormat("pt-BR",{timeZone:TZ,hour:"2-digit",minute:"2-digit"}).format(new Date(d));
+const ddmm = d => new Intl.DateTimeFormat("pt-BR",{timeZone:TZ,day:"2-digit",month:"2-digit"}).format(new Date(d));
+const ddmmhm = d => `${ddmm(d)} ${hm(d)}`;
+const todayStr = dayKey(Date.now());
+{ const [y,m] = todayStr.split("-").map(Number); S.y=y; S.m=m-1; }
+try { const s = JSON.parse(localStorage.getItem("agenda-ig2")||"{}"); if (s.acc) S.acc=s.acc; } catch(e) {}
+function save(){ try{ localStorage.setItem("agenda-ig2", JSON.stringify({acc:S.acc})); }catch(e){} }
+const VIEWS = ["fila","calendario","publicados","execucoes"];
+function fromHash(){ const h = location.hash.slice(1); if (VIEWS.includes(h)) S.view = h; }
+fromHash();
+
+/* ---------- modelo ---------- */
+function igPosts(conta){ return D.met[conta]?.posts || []; }
+function igStories(conta){ return D.met[conta]?.stories || []; }
+function igById(id){ for (const c of Object.keys(ACC)) { const p = igPosts(c).find(x=>x.id===id) || igStories(c).find(x=>x.id===id); if (p) return p; } return null; }
+function detectedStory(p){
+  if (!(p.formato||"").startsWith("story")) return null;
+  return igStories(p.conta).filter(s => dayKey(s.quando)===dayKey(p.quando)).sort((a,b)=>a.quando.localeCompare(b.quando))[0] || null;
+}
+function effStatus(p){
+  if (p.status==="publicado") return "publicado";
+  if (p.status==="falhou") return "falhou";
+  if (p.status==="manual"){
+    if (D.manuais[p.id] || detectedStory(p)) return "publicado";
+    return dayKey(p.quando) < todayStr ? "pendente" : "manual";
+  }
+  if (p.status==="agendado" && Date.now() - new Date(p.quando) > 20*60000) return "atrasado";
+  return p.status;
+}
+function rows(){
+  const ag = D.agenda?.posts || [];
+  const out = ag.map(p => ({...p, eff:effStatus(p), kind:"agenda"}));
+  const known = new Set(ag.map(p=>p.midiaId).filter(Boolean));
+  for (const c of Object.keys(ACC)) for (const m of igPosts(c)) {
+    if (known.has(m.id)) continue;
+    out.push({id:"ig:"+m.id, conta:c, quando:m.quando, formato:m.produto==="REELS"?"reel":(m.tipo==="CAROUSEL_ALBUM"?"carrossel":"post"),
+      status:"publicado", eff:"publicado", titulo:(m.legenda||"").split("\n")[0].slice(0,90) || "Post sem legenda", legenda:m.legenda, link:m.link, midiaId:m.id, kind:"ig"});
+  }
+  return out.filter(r => S.acc==="all" || r.conta===S.acc);
+}
+function thumbOf(r){ return D.img[r.kind==="ig" ? r.id : r.id] || (r.midiaId && D.img["ig:"+r.midiaId]) || null; }
+function canPublish(r){ return r.kind==="agenda" && (r.status==="agendado" || r.status==="falhou") && D.agenda?.contas?.[r.conta]?.publicador==="proprio"; }
+function canMark(r){ return r.kind==="agenda" && r.status==="manual" && r.eff!=="publicado"; }
+
+/* ---------- contas ---------- */
+function spark(hist){
+  const pts = hist.filter(h=>h.seguidores!=null);
+  if (pts.length < 3) return "";
+  const vals = pts.map(h=>h.seguidores), lo = Math.min(...vals), hi = Math.max(...vals), span = hi-lo || 1;
+  const W=300, H=34, P=3;
+  const xy = vals.map((v,i)=>[P + i*(W-2*P)/(vals.length-1), H-P - (v-lo)*(H-2*P)/span]);
+  const line = xy.map((p,i)=>(i?"L":"M")+p[0].toFixed(1)+" "+p[1].toFixed(1)).join(" ");
+  const last = xy[xy.length-1];
+  return `<svg class="spark" viewBox="0 0 ${W} ${H}" preserveAspectRatio="none" role="img" aria-label="Seguidores de ${esc(pts[0].data)} a ${esc(pts[pts.length-1].data)}: ${vals[0]} para ${vals[vals.length-1]}">
+    <path d="${line} L${last[0]} ${H} L${xy[0][0]} ${H} Z" fill="var(--soft)" stroke="none"/>
+    <path d="${line}" fill="none" stroke="var(--c)" stroke-width="1.5" vector-effect="non-scaling-stroke"/>
+    <circle cx="${last[0]}" cy="${last[1]}" r="2.5" fill="var(--c)"/></svg>`;
+}
+function reachChart(k, m){
+  const d = Array.isArray(m.diario?.reach) ? m.diario.reach.filter(x=>x.dia) : [];
+  if (d.length < 2) return "";
+  const pts = d.map(x=>({t:new Date(x.dia+"T12:00:00Z").getTime(), v:x.valor||0}));
+  return `<div><p class="section-note" style="margin-bottom:2px">Contas alcançadas por dia, últimos ${d.length} dias</p>${lineChart("ch-acc-"+k, pts, "dia", 150)}</div>`;
+}
+function renderAccounts(){
+  const all = (D.agenda?.posts||[]).map(p=>({...p, eff:effStatus(p)}));
+  $("accounts").innerHTML = Object.entries(ACC).map(([k,a])=>{
+    const m = D.met[k] || {};
+    const pf = m.perfil || {};
+    const r7 = (m.resumo||{})["7d"] || {};
+    const hist = m.historico || [];
+    let delta = "";
+    if (hist.length > 1){
+      const ref = [...hist].reverse().find(h => (new Date(todayStr) - new Date(h.data)) >= 7*86400000) || hist[0];
+      const d = (pf.followers_count ?? 0) - (ref.seguidores ?? 0);
+      if (d) delta = `<small class="${d<0?"down":""}">${d>0?"+":""}${n(d)}</small>`;
+    }
+    const mine = all.filter(p=>p.conta===k);
+    const now = Date.now();
+    const next = mine.filter(p=>p.status==="agendado" && new Date(p.quando)>=now).sort((x,y)=>x.quando.localeCompare(y.quando))[0];
+    const lastPub = [...igPosts(k)].sort((x,y)=>y.quando.localeCompare(x.quando))[0];
+    const fails = mine.filter(p=>p.eff==="falhou"||p.eff==="atrasado").length;
+    const pend = mine.filter(p=>p.eff==="pendente").length;
+    const queued = mine.filter(p=>p.status==="agendado").length;
+    const photo = D.img["perfil:"+k];
+    const via = D.agenda?.contas?.[k]?.publicador === "proprio" ? "publicador próprio" : (D.agenda?.contas?.[k]?.publicador || "");
+    const r7err = r7.erro ? `<div class="muted">Resumo de 7 dias indisponível: ${esc(r7.erro)}</div>` : "";
+    return `<section class="acct" data-a="${k}" aria-label="${esc(a.label)}">
+      <div class="who">
+        ${photo?`<img class="avatar" src="${esc(photo)}" alt="Foto do perfil ${esc(a.label)}">`:`<span class="avatar" aria-hidden="true"></span>`}
+        <div class="who-txt">
+          <span class="who-name">${esc(pf.name || a.label)}</span>
+          <span class="who-user"><a href="https://www.instagram.com/${a.user}/" target="_blank" rel="noopener">${esc(a.label)} ↗</a></span>
+        </div>
+        <span class="via">${esc(via)}</span>
+      </div>
+      <dl class="figs">
+        <div class="fig"><dt>seguidores</dt><dd>${n(pf.followers_count)}${delta}</dd></div>
+        <div class="fig"><dt>posts no perfil</dt><dd>${n(pf.media_count)}</dd></div>
+        <div class="fig"><dt>na fila</dt><dd>${n(queued)}</dd></div>
+      </dl>
+      ${spark(hist)}
+      <p class="figs-cap">Últimos 7 dias</p>
+      ${reachChart(k, m)}
+      <dl class="figs">
+        <div class="fig"><dt>contas alcançadas</dt><dd>${n(r7.reach)}</dd></div>
+        <div class="fig"><dt>visualizações</dt><dd>${n(r7.views)}</dd></div>
+        <div class="fig"><dt>interações</dt><dd>${n(r7.total_interactions)}</dd></div>
+        <div class="fig"><dt>contas engajadas</dt><dd>${n(r7.accounts_engaged)}</dd></div>
+        <div class="fig"><dt>compartilhamentos</dt><dd>${n(r7.shares)}</dd></div>
+        <div class="fig"><dt>salvamentos</dt><dd>${n(r7.saves)}</dd></div>
+      </dl>
+      <div class="acct-lines">
+        ${r7err}
+        <div>Próximo: ${next?`<b>${ddmmhm(next.quando)}</b> · ${esc(FMT[next.formato]||next.formato)} · ${esc(next.titulo)}`:"<span class='muted'>nada na fila</span>"}</div>
+        <div>Último no perfil: ${lastPub?`<b>${ddmmhm(lastPub.quando)}</b> · <a href="${esc(lastPub.link)}" target="_blank" rel="noopener">${esc((lastPub.legenda||"post").split("\n")[0].slice(0,60))}</a>`:"<span class='muted'>sem dados ainda</span>"}</div>
+        ${fails?`<div class="alert">${fails} post${fails>1?"s":""} com falha ou atraso. Veja na Fila.</div>`:""}
+        ${pend?`<div style="color:var(--warn)">${pend} stor${pend>1?"ies":"y"} à mão sem registro de postagem.</div>`:""}
+      </div>
+    </section>`;
+  }).join("");
+}
+
+/* ---------- fila ---------- */
+function actionsHtml(r, compact){
+  const msg = actMsg[r.id];
+  if (confirmId===r.id) return `<span class="qact"><span class="msg">Publicar agora?</span><button type="button" class="btn small primary" data-go="${esc(r.id)}">Publicar</button><button type="button" class="btn small" data-cancel="1">Cancelar</button></span>`;
+  let h = "";
+  if (canPublish(r)) h += `<button type="button" class="btn small" data-pub="${esc(r.id)}">Publicar agora</button>`;
+  if (canMark(r)) h += `<button type="button" class="btn small" data-mark="${esc(r.id)}">Já postei</button>`;
+  if (r.link) h += `<a class="btn small" href="${esc(r.link)}" target="_blank" rel="noopener">Ver no Instagram ↗</a>`;
+  if (msg) h += `<span class="msg ${msg.cls}">${esc(msg.text)}</span>`;
+  return `<span class="qact">${h}</span>`;
+}
+function thumbHtml(r, cls){
+  const t = thumbOf(r);
+  return t ? `<img class="${cls}" src="${esc(t)}" alt="" loading="lazy">` : `<span class="${cls} ph">${esc(FMT[r.formato]||"")}</span>`;
+}
+function renderFila(){
+  const all = rows().filter(r=>r.kind==="agenda");
+  const attention = all.filter(r=>["falhou","atrasado","pendente"].includes(r.eff)).sort((a,b)=>a.quando.localeCompare(b.quando));
+  const cutoff = Date.now() - 3*3600000;
+  const up = all.filter(r=>new Date(r.quando) >= cutoff && !attention.includes(r)).sort((a,b)=>a.quando.localeCompare(b.quando));
+  const groups = {};
+  up.forEach(r=>{ (groups[dayKey(r.quando)] ||= []).push(r); });
+  const row = r => `<div class="qrow" data-a="${esc(r.conta)}">
+      ${thumbHtml(r,"thumb-s")}
+      <span class="qtime">${hm(r.quando)}</span>
+      <button type="button" class="qmain" data-id="${esc(r.id)}">
+        <span class="qtitle">${esc(r.titulo)}</span>
+        <span class="qmeta"><span class="pill ${r.eff}">${esc(STATUS[r.eff]||r.eff)}</span><span>${esc(FMT[r.formato]||r.formato)}${r.itens>1?` · ${r.itens} itens`:""}</span>${S.acc==="all"?`<span>${esc(ACC[r.conta]?.label)}</span>`:""}<span class="num">${ddmm(r.quando)} ${hm(r.quando)}</span>${r.erro?`<span style="color:var(--crit)">${esc(r.erro)}</span>`:""}</span>
+      </button>
+      ${actionsHtml(r)}
+    </div>`;
+  const dayLabel = d => { const dt = new Date(d+"T12:00:00Z"); return `${DOW[(dt.getUTCDay()+6)%7]} · ${d.slice(8,10)}/${d.slice(5,7)}${d===todayStr?" · hoje":""}`; };
+  let h = "";
+  if (attention.length) h += `<div class="qday"><h3 style="color:var(--crit)">Precisa de atenção</h3><div class="qitems">${attention.map(row).join("")}</div></div>`;
+  h += Object.keys(groups).length ? Object.entries(groups).map(([d,rs])=>`<div class="qday"><h3>${dayLabel(d)}</h3><div class="qitems">${rs.map(row).join("")}</div></div>`).join("")
+    : `<div class="empty">Nada na fila a partir de agora${S.acc==="all"?"":" para esta conta"}.</div>`;
+  h += `<p class="section-note">"Publicar agora" pede ao publicador para soltar o post na hora, sem esperar o horário. Leva de 2 a 5 minutos. Stories à mão aparecem como publicados quando o story do dia é detectado no perfil, ou quando você toca em "Já postei".</p>`;
+  $("view").className = "queue"; $("view").innerHTML = h;
+}
+
+/* ---------- calendário ---------- */
+function renderCal(){
+  const y=S.y, m=S.m;
+  const first = new Date(Date.UTC(y,m,1));
+  const lead = (first.getUTCDay()+6)%7;
+  const days = new Date(Date.UTC(y,m+1,0)).getUTCDate();
+  const total = Math.ceil((lead+days)/7)*7;
+  const byDay = {};
+  rows().forEach(r=>{ (byDay[dayKey(r.quando)] ||= []).push(r); });
+  Object.values(byDay).forEach(a=>a.sort((p,q)=>p.quando.localeCompare(q.quando)));
+  let cells = "";
+  for (let i=0;i<total;i++){
+    const d = new Date(Date.UTC(y,m,1+i-lead));
+    const ds = d.toISOString().slice(0,10);
+    const inM = d.getUTCMonth()===m;
+    const evs = byDay[ds]||[];
+    const shown = evs.slice(0,5);
+    cells += `<div class="day${inM?"":" out"}${ds===todayStr?" today":""}${inM&&!evs.length?" blank":""}">
+      <div class="dn"><b>${d.getUTCDate()}</b><span>${inM&&evs.length?DOW[(d.getUTCDay()+6)%7]:""}</span></div>
+      ${shown.map(r=>`<button type="button" class="ev ${r.eff}" data-a="${esc(r.conta)}" data-id="${esc(r.id)}" title="${esc(r.titulo)}"><span class="t">${hm(r.quando)}</span><span class="ttl">${esc(FMT[r.formato]||r.formato)} · ${esc(r.titulo)}</span></button>`).join("")}
+      ${evs.length>5?`<button type="button" class="more" data-day="${ds}">+${evs.length-5} no dia</button>`:""}
+    </div>`;
+  }
+  $("view").className = "stack";
+  $("view").innerHTML = `
+    <div class="toolbar"><div class="month"><button type="button" class="navb" id="prev" aria-label="Mês anterior">‹</button><h2>${MONTHS[m]} ${y}</h2><button type="button" class="navb" id="next" aria-label="Próximo mês">›</button></div>
+    <div class="legend"><span><i class="lg-ag"></i>Agendado</span><span><i class="lg-pub"></i>Publicado</span><span><i class="lg-man"></i>Story à mão</span><span><i class="lg-err"></i>Falha ou atraso</span></div></div>
+    <div class="cal cal-view"><div class="dow">${DOW.map(d=>`<div>${d}</div>`).join("")}</div><div class="grid">${cells}</div></div>`;
+}
+
+/* ---------- publicados ---------- */
+const COLS = [
+  {k:"quando", l:"Data", n:false},
+  {k:"reach", l:"Alcance", n:true},
+  {k:"views", l:"Views", n:true},
+  {k:"curtidas", l:"Curtidas", n:true},
+  {k:"comentarios", l:"Coment.", n:true},
+  {k:"saved", l:"Salvos", n:true},
+  {k:"shares", l:"Compart.", n:true},
+  {k:"total_interactions", l:"Interações", n:true},
+  {k:"taxa", l:"Engaj./alcance", n:true},
+];
+const val = (p,k) => k==="quando" ? p.quando : k==="curtidas"||k==="comentarios" ? p[k] : k==="taxa" ? (p.insights?.reach ? (p.insights.total_interactions||0)/p.insights.reach : null) : p.insights?.[k];
+function renderPub(){
+  const contas = Object.keys(ACC).filter(c => S.acc==="all" || c===S.acc);
+  const posts = contas.flatMap(c => igPosts(c).map(p=>({...p, conta:c})));
+  const {k, dir} = S.sort;
+  posts.sort((a,b)=>{ const x=val(a,k), y=val(b,k); if (x==null&&y==null) return 0; if (x==null) return 1; if (y==null) return -1; return (x<y?-1:x>y?1:0)*dir; });
+  const stories = contas.flatMap(c => igStories(c).map(p=>({...p, conta:c}))).sort((a,b)=>b.quando.localeCompare(a.quando));
+  const tot = f => posts.reduce((s,p)=>s+(val(p,f)||0),0);
+  const head = COLS.map(c=>`<th class="${c.n?"n":""}" scope="col"><button type="button" data-sort="${c.k}" ${S.sort.k===c.k?`aria-sort="${S.sort.dir>0?"ascending":"descending"}"`:""}>${c.l}</button></th>`).join("");
+  const accCell = p => `<span class="tbl-acc"><span class="dot ${ACC[p.conta].cls}"></span>${esc(ACC[p.conta].label)}</span>`;
+  const img = p => { const t = D.img["ig:"+p.id]; return t?`<img class="thumb-s" src="${esc(t)}" alt="" loading="lazy">`:`<span class="thumb-s ph">${esc(IGFMT[p.produto==="REELS"?"REELS":p.tipo]||"")}</span>`; };
+  const body = posts.map(p=>`<tr>
+      <td>${img(p)}</td>
+      ${S.acc==="all"?`<td>${accCell(p)}</td>`:""}
+      <td class="cap"><button type="button" class="qmain" data-ig="${esc(p.id)}" data-conta="${esc(p.conta)}"><span>${esc(p.legenda||"(sem legenda)")}</span></button><div class="muted" style="font-size:.74rem">${esc(IGFMT[p.produto==="REELS"?"REELS":p.tipo]||p.tipo)}${p.itens>1?` · ${p.itens} itens`:""} · <a href="${esc(p.link)}" target="_blank" rel="noopener">abrir ↗</a></div></td>
+      <td class="n">${ddmmhm(p.quando)}</td>
+      <td class="n">${n(p.insights?.reach)}</td><td class="n">${n(p.insights?.views)}</td><td class="n">${n(p.curtidas)}</td><td class="n">${n(p.comentarios)}</td>
+      <td class="n">${n(p.insights?.saved)}</td><td class="n">${n(p.insights?.shares)}</td><td class="n">${n(p.insights?.total_interactions)}</td>
+      <td class="n">${pct(p.insights?.total_interactions, p.insights?.reach)}</td>
+      <td class="spark-cell" style="--c:var(--acc-${ACC[p.conta].cls})" title="Visualizações desde a publicação">${sparkSvg(seriesOf(p,"views").map(x=>x.v))}</td></tr>`).join("");
+  const sBody = stories.map(s=>`<tr><td>${img(s)}</td>${S.acc==="all"?`<td>${accCell(s)}</td>`:""}<td class="n">${ddmmhm(s.quando)}</td><td class="n">${n(s.insights?.views)}</td><td class="n">${n(s.insights?.reach)}</td><td class="n">${n(s.insights?.replies)}</td><td class="n">${n(s.insights?.shares)}</td><td class="n">${n(s.insights?.total_interactions)}</td><td><a href="${esc(s.link)}" target="_blank" rel="noopener">abrir ↗</a></td></tr>`).join("");
+  const col = S.acc==="all";
+  $("view").className = "stack";
+  $("view").innerHTML = posts.length ? `
+    <p class="section-note">${posts.length} posts no feed · ${n(tot("reach"))} de alcance somado · ${n(tot("total_interactions"))} interações · ${n(tot("curtidas"))} curtidas. Números do Instagram, atualizados de hora em hora. Toque no título de uma coluna para ordenar.</p>
+    <div class="tbl-wrap"><table><thead><tr><th scope="col"><span class="sr" style="position:absolute;left:-9999px">Imagem</span></th>${col?`<th scope="col">Conta</th>`:""}<th scope="col">Post</th>${head}<th scope="col">Views no tempo</th></tr></thead><tbody>${body}</tbody></table></div>
+    <h3 class="sub-h">Stories dos últimos 30 dias</h3>
+    ${stories.length?`<div class="tbl-wrap"><table><thead><tr><th scope="col"><span style="position:absolute;left:-9999px">Imagem</span></th>${col?`<th scope="col">Conta</th>`:""}<th class="n" scope="col">Quando</th><th class="n" scope="col">Views</th><th class="n" scope="col">Alcance</th><th class="n" scope="col">Respostas</th><th class="n" scope="col">Compart.</th><th class="n" scope="col">Interações</th><th scope="col">Link</th></tr></thead><tbody>${sBody}</tbody></table></div>
+    <p class="section-note">O Instagram só entrega stories por 24 horas; o painel guarda os números de cada story que viu no ar.</p>`:`<div class="empty">Nenhum story registrado ainda.</div>`}`
+    : `<div class="empty">Os números dos posts publicados aparecem aqui depois da primeira coleta de métricas.</div>`;
+}
+
+/* ---------- execuções ---------- */
+function renderExe(){
+  const runs = D.runs?.runs || [];
+  const fails = (D.agenda?.posts||[]).filter(p => (S.acc==="all"||p.conta===S.acc) && (p.status==="falhou" || (p.erro && p.status!=="publicado")));
+  const RES = {success:["publicado","ok"], failure:["falhou","falhou"], cancelled:["agendado","cancelada"], skipped:["agendado","pulada"], in_progress:["agendado","rodando"], queued:["agendado","na fila"]};
+  const JOB = {publicar:"Publicação", metricas:"Métricas", "renovar-token":"Renovar token"};
+  const EV = {schedule:"automática", workflow_dispatch:"manual"};
+  $("view").className = "stack";
+  $("view").innerHTML = `
+    ${fails.length?`<h3 class="sub-h">Posts com erro</h3><div class="tbl-wrap"><table><thead><tr><th scope="col">Post</th><th scope="col">Conta</th><th class="n" scope="col">Hora marcada</th><th scope="col">Erro</th><th scope="col">Ação</th></tr></thead><tbody>
+      ${fails.map(p=>`<tr><td>${esc(p.titulo)}</td><td>${esc(ACC[p.conta]?.label)}</td><td class="n">${ddmmhm(p.quando)}</td><td style="color:var(--crit)">${esc(p.erro||"")}${p.tentativas?` <span class="muted">(${p.tentativas} tentativa${p.tentativas>1?"s":""})</span>`:""}</td><td>${actionsHtml({...p, kind:"agenda", eff:effStatus(p)})}</td></tr>`).join("")}
+    </tbody></table></div>`:`<p class="section-note">Nenhum post com erro na agenda.</p>`}
+    <h3 class="sub-h">Últimas rodadas do publicador</h3>
+    ${runs.length?`<div class="tbl-wrap"><table><thead><tr><th class="n" scope="col">Quando</th><th scope="col">Tarefa</th><th scope="col">Disparo</th><th scope="col">Resultado</th><th scope="col">Log</th></tr></thead><tbody>
+      ${runs.map(r=>{ const res = RES[r.resultado] || ["agendado", r.resultado||"–"]; return `<tr><td class="n">${r.quando?ddmmhm(r.quando):"–"}</td><td>${esc(JOB[r.job]||r.job||"–")}</td><td>${esc(EV[r.evento]||r.evento||"")}</td><td><span class="pill ${res[0]}">${esc(res[1])}</span></td><td>${r.link?`<a href="${esc(r.link)}" target="_blank" rel="noopener">ver no GitHub ↗</a>`:""}</td></tr>`; }).join("")}
+    </tbody></table></div>`:`<div class="empty">Nenhuma rodada do publicador ainda.</div>`}
+    <p class="section-note">O publicador roda no GitHub Actions a cada 10 minutos, coleta métricas de hora em hora e renova os tokens toda segunda. Se um post falhar 3 vezes, chega um e-mail de alerta.</p>`;
+}
+
+/* ---------- detalhe ---------- */
+/* ---------- gráficos ---------- */
+const SER = {t:0, views:1, reach:2, curtidas:3, total_interactions:4, saved:5, shares:6, comentarios:7};
+const SMETRICS = [["views","Visualizações"],["reach","Alcance"],["curtidas","Curtidas"],["total_interactions","Interações"]];
+const MES = ["jan","fev","mar","abr","mai","jun","jul","ago","set","out","nov","dez"];
+const dLabel = t => { const k = dayKey(t); return `${+k.slice(8,10)} de ${MES[+k.slice(5,7)-1]}`; };
+/** Pontos de uma métrica do post, começando em zero na hora da publicação (como no app). */
+function seriesOf(p, k){
+  const pts = (p.serie||[]).map(a=>({t:new Date(a[0]).getTime(), v:a[SER[k]]})).filter(x=>x.v!=null);
+  const t0 = new Date(p.quando).getTime();
+  if (!pts.length || pts[0].t > t0) pts.unshift({t:t0, v:0, origem:true});
+  return pts;
+}
+function niceMax(v){ if (v<=4) return 4; const e = 10**Math.floor(Math.log10(v)); for (const m of [1,2,2.5,5,10]) if (m*e >= v) return m*e; return 10*e; }
+const CHARTS = {};
+function lineChart(id, pts, fmtT, H=210){
+  const W=440, L=38, R=10, T=40, B=24;
+  CHARTS[id] = {pts, W, H, L, R, T, B, fmtT};
+  if (pts.length < 2) return `<p class="section-note">A linha aparece depois da primeira coleta.</p>`;
+  const t0=pts[0].t, t1=pts[pts.length-1].t, span=(t1-t0)||1;
+  const ymax = niceMax(Math.max(...pts.map(p=>p.v)));
+  const x = t => L + (t-t0)*(W-L-R)/span, y = v => H-B - v*(H-T-B)/ymax;
+  const d = pts.map((p,i)=>(i?"L":"M")+x(p.t).toFixed(1)+" "+y(p.v).toFixed(1)).join(" ");
+  const yt = [0, ymax/2, ymax];
+  const xt = [t0, t0+span/2, t1];
+  CHARTS[id].x = x; CHARTS[id].y = y;
+  return `<div class="chart" id="${id}">
+    <svg viewBox="0 0 ${W} ${H}" role="img" aria-label="${esc(fmtT==="hora"?"":"")}Linha de ${n(pts[0].v)} em ${dLabel(t0)} até ${n(pts[pts.length-1].v)} em ${dLabel(t1)}">
+      ${yt.map(v=>`<line x1="${L}" x2="${W-R}" y1="${y(v)}" y2="${y(v)}" stroke="var(--line)" stroke-width="1"/><text x="${L-6}" y="${y(v)+4}" text-anchor="end" font-size="11" fill="var(--muted)" font-family="Roboto Mono, monospace">${n(v)}</text>`).join("")}
+      ${xt.map((t,i)=>`<text x="${x(t)}" y="${H-6}" text-anchor="${["start","middle","end"][i]}" font-size="11" fill="var(--muted)">${span < 3*86400000 ? `${ddmm(t)} ${hm(t)}` : dLabel(t)}</text>`).join("")}
+      <path d="${d}" fill="none" stroke="var(--c,var(--ink))" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
+      ${fmtT==="hora"&&pts.length<=60?pts.map(p=>p.origem?"":`<circle cx="${x(p.t).toFixed(1)}" cy="${y(p.v).toFixed(1)}" r="2.5" fill="var(--c,var(--ink))"/>`).join(""):""}
+      <line class="cur" x1="0" x2="0" y1="${T-6}" y2="${H-B}" stroke="var(--muted)" stroke-dasharray="3 3" visibility="hidden"/>
+      <circle class="cur-dot" r="4.5" fill="var(--c,var(--ink))" stroke="var(--raised)" stroke-width="2" visibility="hidden"/>
+    </svg><div class="tip" hidden></div></div>`;
+}
+function bindCharts(root){
+  root.querySelectorAll(".chart").forEach(el=>{
+    const c = CHARTS[el.id]; if (!c || c.pts.length<2) return;
+    const svg = el.querySelector("svg"), tip = el.querySelector(".tip"), cur = svg.querySelector(".cur"), dot = svg.querySelector(".cur-dot");
+    const show = ev => {
+      const r = svg.getBoundingClientRect(); const px = (ev.clientX - r.left) * c.W / r.width;
+      let best = c.pts[0]; for (const p of c.pts) if (Math.abs(c.x(p.t)-px) < Math.abs(c.x(best.t)-px)) best = p;
+      const X = c.x(best.t), Y = c.y(best.v);
+      cur.setAttribute("x1",X); cur.setAttribute("x2",X); cur.setAttribute("visibility","visible");
+      dot.setAttribute("cx",X); dot.setAttribute("cy",Y); dot.setAttribute("visibility","visible");
+      tip.hidden = false; tip.innerHTML = `<b>${n(best.v)}</b>${best.origem?"publicação":(c.fmtT==="dia"?dLabel(best.t):`${dLabel(best.t)}, ${hm(best.t)}`)}`;
+      const left = Math.min(Math.max(X*r.width/c.W, 40), r.width-40); tip.style.left = left+"px";
+    };
+    const hide = () => { tip.hidden = true; cur.setAttribute("visibility","hidden"); dot.setAttribute("visibility","hidden"); };
+    svg.addEventListener("pointermove", show); svg.addEventListener("pointerdown", show); svg.addEventListener("pointerleave", hide);
+  });
+}
+function sparkSvg(vals, w=96, h=28){
+  if (vals.length < 2) return "";
+  const hi = Math.max(...vals) || 1, P=2;
+  const xy = vals.map((v,i)=>[P + i*(w-2*P)/(vals.length-1), h-P - v*(h-2*P)/hi]);
+  const line = xy.map((p,i)=>(i?"L":"M")+p[0].toFixed(1)+" "+p[1].toFixed(1)).join(" ");
+  const last = xy[xy.length-1];
+  return `<svg viewBox="0 0 ${w} ${h}" aria-hidden="true"><path d="${line}" fill="none" stroke="var(--c,var(--ink))" stroke-width="1.5" stroke-linejoin="round"/><circle cx="${last[0]}" cy="${last[1]}" r="2.2" fill="var(--c,var(--ink))"/></svg>`;
+}
+
+/* ---------- detalhe ---------- */
+function bars(entries, total){
+  const sum = total ?? entries.reduce((s,[,v])=>s+(v||0),0);
+  if (!sum) return "";
+  return `<dl class="bars">${entries.map(([k,v])=>`<div class="bar"><dt>${esc(k)}<span>${pct(v,sum)}</span></dt><dd><i style="width:${(100*(v||0)/sum).toFixed(1)}%"></i></dd></div>`).join("")}</dl>`;
+}
+const GEN = {F:"Mulheres", M:"Homens", U:"Não informado"};
+function publicoHtml(conta, ig){
+  const pub = D.met[conta]?.publico || {};
+  let h = "";
+  const ps = ig?.insights?.porSeguidor;
+  const fv = ps ? [["Seguidores", ps["views:FOLLOWER"] ?? ps["reach:FOLLOWER"]], ["Não seguidores", ps["views:NON_FOLLOWER"] ?? ps["reach:NON_FOLLOWER"]]] : null;
+  if (fv && (fv[0][1] || fv[1][1])) h += `<p class="h4">Quem visualizou este post</p>${bars(fv)}`;
+  const pa = pub.porSeguidor || {};
+  const fa = [["Seguidores", pa["views:FOLLOWER"]], ["Não seguidores", pa["views:NON_FOLLOWER"]]];
+  if (fa[0][1] || fa[1][1]) h += `<p class="h4">Quem viu a conta nos últimos 7 dias</p>${bars(fa)}`;
+  const demo = (pub.engajados && !pub.engajados.erro && Object.keys(pub.engajados.age||{}).length) ? ["engajados", pub.engajados] : (pub.seguidores && !pub.seguidores.erro && Object.keys(pub.seguidores.age||{}).length) ? ["seguidores", pub.seguidores] : null;
+  if (demo){
+    const cut = S.dcut || "age";
+    const raw = demo[1][cut] || {};
+    let ent = Object.entries(raw).map(([k,v])=>[k.split(":").pop(), v]);
+    if (cut==="gender") ent = ent.map(([k,v])=>[GEN[k]||k, v]);
+    ent.sort((a,b)=> cut==="age" ? a[0].localeCompare(b[0]) : b[1]-a[1]);
+    h += `<p class="h4">Detalhes do público da conta</p><p class="section-note">${demo[0]==="engajados"?"Quem interagiu com a conta neste mês":"Quem segue a conta"}. O Instagram não abre esses dados por post.</p>
+      <div class="chips" role="group" aria-label="Corte"><button type="button" data-cut="age" aria-pressed="${cut==="age"}">Idade</button><button type="button" data-cut="country" aria-pressed="${cut==="country"}">País</button><button type="button" data-cut="city" aria-pressed="${cut==="city"}">Cidade</button><button type="button" data-cut="gender" aria-pressed="${cut==="gender"}">Gênero</button></div>
+      ${bars(ent.slice(0,8)) || `<p class="section-note">Sem dados para este corte.</p>`}`;
+  } else {
+    h += `<p class="h4">Detalhes do público</p><p class="section-note">Idade, país, cidade e gênero aparecem aqui quando a conta passar de 100 seguidores. Antes disso o Instagram não libera esses dados pela API.</p>`;
+  }
+  return h || `<p class="section-note">Sem dados de público ainda.</p>`;
+}
+function insightsHtml(r, ig){
+  const i = ig.insights || {};
+  const tab = S.dtab || "geral";
+  const isStory = ig.produto==="STORY";
+  const counts = isStory
+    ? [["respostas", i.replies],["compart.", i.shares],["interações", i.total_interactions],["seguidores", i.follows],["perfil", i.profile_visits]]
+    : [["curtidas", ig.curtidas ?? i.likes],["comentários", ig.comentarios ?? i.comments],["compart.", i.shares],["salvos", i.saved],["interações", i.total_interactions]];
+  const isReel = ig.produto==="REELS";
+  const seg = ms => ms==null ? null : (ms/1000).toLocaleString("pt-BR",{maximumFractionDigits:1})+" s";
+  const min = ms => ms==null ? null : (ms/60000).toLocaleString("pt-BR",{maximumFractionDigits:1})+" min";
+  let body = "";
+  if (tab==="geral"){
+    const k = S.dmetric || "views";
+    const pts = seriesOf(ig, k);
+    body = `<p class="h4">Sumário</p>
+      <dl class="cards">
+        <div><dt>Visualizações</dt><dd>${n(i.views)}</dd></div>
+        <div><dt>Contas alcançadas</dt><dd>${n(i.reach)}</dd></div>
+        ${isReel
+          ? `<div><dt>Tempo médio assistido</dt><dd>${seg(i.ig_reels_avg_watch_time) ?? "–"}</dd></div><div><dt>Tempo total assistido</dt><dd>${min(i.ig_reels_video_view_total_time) ?? "–"}</dd></div>`
+          : `<div><dt>Visitas ao perfil</dt><dd>${n(i.profile_visits)}</dd></div><div><dt>Seguidores ganhos</dt><dd>${n(i.follows)}</dd></div>`}
+      </dl>
+      ${isStory?"":`<p class="h4">${esc(SMETRICS.find(m=>m[0]===k)[1])} ao longo do tempo</p>
+      <div class="chips" role="group" aria-label="Métrica">${SMETRICS.map(([mk,ml])=>`<button type="button" data-metric="${mk}" aria-pressed="${mk===k}">${ml}</button>`).join("")}</div>
+      ${lineChart("ch-post", pts, "hora")}
+      <p class="section-note">Um ponto por coleta: de hora em hora nas primeiras 48 horas, depois um por dia. O Instagram não guarda esse histórico, então a linha começa na primeira coleta do painel.</p>`}`;
+  } else if (tab==="eng"){
+    body = `${isReel?"":`<p class="h4">Ações após a visualização</p>
+      <dl class="list2"><div><dt>Seguidores</dt><dd>${n(i.follows)}</dd></div><div><dt>Visitas ao perfil</dt><dd>${n(i.profile_visits)}</dd></div></dl>`}
+      <p class="h4">Interações</p>
+      <dl class="list2">${isStory
+        ? `<div><dt>Respostas</dt><dd>${n(i.replies)}</dd></div><div><dt>Compartilhamentos</dt><dd>${n(i.shares)}</dd></div><div><dt>Total</dt><dd>${n(i.total_interactions)}</dd></div>`
+        : `<div><dt>Curtidas</dt><dd>${n(ig.curtidas ?? i.likes)}</dd></div><div><dt>Comentários</dt><dd>${n(ig.comentarios ?? i.comments)}</dd></div><div><dt>Compartilhamentos</dt><dd>${n(i.shares)}</dd></div><div><dt>Salvamentos</dt><dd>${n(i.saved)}</dd></div><div><dt>Total</dt><dd>${n(i.total_interactions)}</dd></div>`}</dl>
+      <p class="section-note">Engajamento sobre o alcance: ${pct(i.total_interactions, i.reach)}.${ig.produto==="REELS"&&i.ig_reels_avg_watch_time?` Tempo médio assistido: ${(i.ig_reels_avg_watch_time/1000).toLocaleString("pt-BR",{maximumFractionDigits:1})} s.`:""}</p>`;
+  } else {
+    body = publicoHtml(r.conta, ig);
+  }
+  return `<dl class="counts">${counts.map(([l,v])=>`<div><dt>${l}</dt><dd>${n(v)}</dd></div>`).join("")}</dl>
+    <div class="tabs" role="tablist">${[["geral","Visão geral"],["eng","Engajamento"],["pub","Público"]].map(([k,l])=>`<button type="button" role="tab" data-dtab="${k}" aria-selected="${tab===k}">${l}</button>`).join("")}</div>
+    ${body}`;
+}
+function openDetail(id){
+  const r = rows().find(x=>x.id===id) || (()=>{ const p=(D.agenda?.posts||[]).find(x=>x.id===id); return p?{...p,eff:effStatus(p),kind:"agenda"}:null; })();
+  if(!r) return;
+  if ($("panel").dataset.id !== id){ S.dtab = "geral"; S.dmetric = "views"; }
+  $("panel").dataset.id = id;
+  $("panel").querySelector(".sheet").dataset.a = r.conta;
+  $("d-pill").innerHTML = `<span class="pill ${r.eff}">${esc(STATUS[r.eff]||r.eff)}</span>`;
+  $("d-title").textContent = r.titulo;
+  const det = r.kind==="agenda" ? detectedStory(r) : null;
+  const ig = (r.midiaId ? igById(r.midiaId) : null) || det;
+  const items = [
+    ["Conta", esc(ACC[r.conta]?.label||r.conta)],
+    ["Hora marcada", `${ddmm(r.quando)}/${dayKey(r.quando).slice(0,4)} às ${hm(r.quando)} (Brasília)`],
+    ["Formato", esc((FMT[r.formato]||r.formato) + (r.itens>1?` · ${r.itens} itens`:""))],
+    ["Quem publica", r.status==="manual" ? "Você, no app" : r.kind==="ig" ? "Fora da agenda atual" : "Publicador próprio"],
+  ];
+  if (r.kind==="agenda") items.push(["Código", `<span class="num">${esc(r.id)}</span>`]);
+  if (r.publicadoEm) items.push(["Saiu às", ddmmhm(r.publicadoEm)]);
+  if (D.manuais[r.id]) items.push(["Registro", `Marcado como postado em ${ddmmhm(D.manuais[r.id].em)}`]);
+  if (det) items.push(["No perfil", `Story detectado às ${hm(det.quando)} · <a href="${esc(det.link)}" target="_blank" rel="noopener">abrir ↗</a>`]);
+  if (r.link) items.push(["No Instagram", `<a href="${esc(r.link)}" target="_blank" rel="noopener">abrir post ↗</a>`]);
+  if (r.erro) items.push(["Erro", `<span style="color:var(--crit)">${esc(r.erro)}</span>`]);
+  const t = thumbOf(r) || (det && D.img["ig:"+det.id]);
+  $("d-body").innerHTML = `
+    ${t?`<img class="big-thumb" src="${esc(t)}" alt="Prévia do post" style="max-height:300px">`:""}
+    ${ig?.insights ? insightsHtml(r, ig) : ""}
+    ${(canPublish(r)||canMark(r)||actMsg[r.id]||confirmId===r.id)?`<div>${actionsHtml({...r, link:null})}</div>`:""}
+    <dl class="meta">${items.map(([k,v])=>`<dt>${esc(k)}</dt><dd>${v}</dd>`).join("")}</dl>
+    ${r.legenda?`<pre class="cap-full">${esc(r.legenda)}</pre>`:""}
+    ${r.nota?`<p class="section-note">${esc(r.nota)}</p>`:""}`;
+  bindCharts($("d-body"));
+  if ($("panel").hidden){ $("panel").hidden = false; $("d-close").focus(); }
+}
+function closeDetail(){ $("panel").hidden = true; delete $("panel").dataset.id; }
+
+/* ---------- ações ---------- */
+async function post(rota, corpo){
+  const r = await fetch(rota, {method:"POST", headers:{"Content-Type":"application/json","X-Painel":"1"}, body:JSON.stringify(corpo||{}), credentials:"same-origin"});
+  const j = await r.json().catch(()=>({}));
+  if (r.status===401) { showLogin(); throw new Error(j.erro || "Entre de novo."); }
+  if (!r.ok) throw new Error(j.erro || "Não deu certo agora. Tente de novo em instantes.");
+  return j;
+}
+async function requestPublish(id){
+  const p = (D.agenda?.posts||[]).find(x=>x.id===id); if (!p) return;
+  confirmId = null; actMsg[id] = {cls:"", text:"Enviando…"}; render(); refreshDetail();
+  try {
+    await post("/api/publicar", {id});
+    actMsg[id] = {cls:"ok", text:"Publicador acionado. O post sai em 1 a 3 minutos."};
+    later(90_000); later(240_000);
+  } catch(e){ actMsg[id] = {cls:"err", text:e.message}; }
+  render(); refreshDetail();
+}
+async function markPosted(id){
+  actMsg[id] = {cls:"", text:"Registrando…"}; render(); refreshDetail();
+  try { await post("/api/manual", {id}); actMsg[id] = {cls:"ok", text:"Registrado."}; await load(); }
+  catch(e){ actMsg[id] = {cls:"err", text:e.message}; }
+  render(); refreshDetail();
+}
+async function refreshAll(){
+  const b = $("b-refresh"); b.disabled = true; $("req").className = "msg"; $("req").textContent = "Pedindo os números ao Instagram…";
+  try { await post("/api/metricas"); $("req").className="msg ok"; $("req").textContent = "Coleta iniciada. Os números novos chegam em cerca de 1 minuto."; later(75_000); }
+  catch(e){ $("req").className="msg err"; $("req").textContent = e.message; }
+  b.disabled = false;
+}
+function refreshDetail(){ const id = $("panel").dataset.id; if (id && !$("panel").hidden) openDetail(id); }
+
+/* ---------- render ---------- */
+function renderSync(){
+  const mt = Object.values(D.met).map(m=>m.coletadoEm).filter(Boolean).sort().pop();
+  const parts = [];
+  if (D.lidoEm) parts.push(`Agenda lida às ${hm(D.lidoEm)}`);
+  if (mt) parts.push(`números de ${ddmmhm(mt)}`);
+  $("sync").textContent = parts.length ? parts.join(" · ") : (D.agenda ? "" : "Carregando…");
+}
+function render(){
+  document.querySelectorAll("#f-acc button").forEach(b=>b.setAttribute("aria-pressed", b.dataset.v===S.acc));
+  document.querySelectorAll("#f-view button").forEach(b=>b.setAttribute("aria-pressed", b.dataset.v===S.view));
+  renderSync(); renderAccounts(); bindCharts($("accounts"));
+  if (!D.agenda){ $("view").className=""; $("view").innerHTML = `<div class="empty">A fila, o calendário e os números de cada post aparecem aqui assim que os dados do publicador carregarem.</div>`; return; }
+  ({fila:renderFila, calendario:renderCal, publicados:renderPub, execucoes:renderExe})[S.view]();
+}
+
+document.addEventListener("click", e=>{
+  const b = e.target.closest("button"); if(!b) return;
+  if (b.closest("#f-acc")) { S.acc=b.dataset.v; save(); render(); return; }
+  if (b.closest("#f-view")) { S.view=b.dataset.v; try{ history.replaceState(null,"","#"+S.view); }catch(_){ location.hash=S.view; } render(); return; }
+  if (b.id==="b-refresh") { refreshAll(); return; }
+  if (b.id==="b-sair") { post("/api/sair").catch(()=>{}).finally(showLogin); return; }
+  if (b.id==="prev"||b.id==="next"){ S.m += b.id==="prev"?-1:1; if(S.m<0){S.m=11;S.y--;} if(S.m>11){S.m=0;S.y++;} render(); return; }
+  if (b.dataset.day){ S.view="fila"; render(); return; }
+  if (b.dataset.ig){ const a=(D.agenda?.posts||[]).find(p=>p.midiaId===b.dataset.ig); openDetail(a ? a.id : "ig:"+b.dataset.ig); return; }
+  if (b.dataset.dtab){ S.dtab=b.dataset.dtab; refreshDetail(); return; }
+  if (b.dataset.metric){ S.dmetric=b.dataset.metric; refreshDetail(); return; }
+  if (b.dataset.cut){ S.dcut=b.dataset.cut; refreshDetail(); return; }
+  if (b.dataset.sort){ const k=b.dataset.sort; S.sort = {k, dir: S.sort.k===k ? -S.sort.dir : -1}; render(); return; }
+  if (b.dataset.pub){ confirmId=b.dataset.pub; delete actMsg[confirmId]; render(); refreshDetail(); return; }
+  if (b.dataset.go){ requestPublish(b.dataset.go); return; }
+  if (b.dataset.cancel){ confirmId=null; render(); refreshDetail(); return; }
+  if (b.dataset.mark){ markPosted(b.dataset.mark); return; }
+  if (b.dataset.id){ openDetail(b.dataset.id); return; }
+  if (b.id==="d-close") closeDetail();
+});
+$("panel").addEventListener("click", e=>{ if(e.target.id==="panel") closeDetail(); });
+document.addEventListener("keydown", e=>{ if(e.key==="Escape" && !$("panel").hidden) closeDetail(); });
+window.addEventListener("hashchange", ()=>{ fromHash(); render(); });
+
+function showLogin(){ $("app").hidden = true; $("login").hidden = false; $("senha").focus(); }
+let timers = [];
+function later(ms){ timers.push(setTimeout(()=>load().catch(()=>{}), ms)); }
+async function load(){
+  const r = await fetch("/api/dados", {credentials:"same-origin", cache:"no-store"});
+  if (r.status===401) { showLogin(); return; }
+  const j = await r.json().catch(()=>({}));
+  if (!r.ok) { $("sync").textContent = j.erro || "Não consegui ler a agenda agora."; return; }
+  D.agenda = j.agenda; D.met = j.metricas || {}; D.img = j.imagens || {}; D.runs = j.execucoes; D.lidoEm = j.lidoEm;
+  $("login").hidden = true; $("app").hidden = false;
+  render(); refreshDetail();
+}
+$("f-login").addEventListener("submit", async e=>{
+  e.preventDefault();
+  const m = $("login-msg"); m.className = "msg"; m.textContent = "Entrando…";
+  try {
+    const r = await fetch("/api/entrar", {method:"POST", headers:{"Content-Type":"application/json"}, body:JSON.stringify({senha:$("senha").value}), credentials:"same-origin"});
+    if (!r.ok) { const j = await r.json().catch(()=>({})); m.className = "msg err"; m.textContent = j.erro || "Não consegui entrar."; return; }
+    $("senha").value = ""; m.textContent = ""; await load();
+  } catch(_) { m.className = "msg err"; m.textContent = "Sem conexão. Tente de novo."; }
+});
+// Enquanto a aba está aberta, relê a agenda a cada 2 minutos.
+setInterval(()=>{ if (!document.hidden && !$("app").hidden) load().catch(()=>{}); }, 120_000);
+document.addEventListener("visibilitychange", ()=>{ if (!document.hidden && !$("app").hidden) load().catch(()=>{}); });
+
+render();
+load().catch(()=>{ $("app").hidden = false; $("sync").textContent = "Sem conexão com o painel."; });
+</script>
+</body>
+</html>

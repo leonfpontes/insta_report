@@ -1,0 +1,29 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "framework": null,
+  "buildCommand": "",
+  "outputDirectory": "public",
+  "ignoreCommand": "git diff --quiet HEAD^ HEAD -- . ':!instagram'",
+  "cleanUrls": true,
+  "images": {
+    "sizes": [640],
+    "formats": ["image/webp"],
+    "minimumCacheTTL": 86400,
+    "remotePatterns": [
+      { "protocol": "https", "hostname": "raw.githubusercontent.com", "pathname": "/leonfpontes/insta_report/**" },
+      { "protocol": "https", "hostname": "**.cdninstagram.com" },
+      { "protocol": "https", "hostname": "**.fbcdn.net" }
+    ]
+  },
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        { "key": "X-Content-Type-Options", "value": "nosniff" },
+        { "key": "X-Frame-Options", "value": "DENY" },
+        { "key": "Referrer-Policy", "value": "same-origin" },
+        { "key": "X-Robots-Tag", "value": "noindex, nofollow" }
+      ]
+    }
+  ]
+}
