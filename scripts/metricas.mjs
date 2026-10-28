@@ -111,6 +111,10 @@ function resumoMidia(m) {
     curtidas: m.like_count ?? null,
     comentarios: m.comments_count ?? null,
     itens: m.children?.data?.length ?? null,
+    // Cada imagem ou vídeo do carrossel (links temporários, renovados a cada coleta).
+    ...(m.children?.data?.some((c) => c.media_url)
+      ? { filhos: m.children.data.map((c) => (c.media_type === "VIDEO" ? { video: c.media_url, capa: c.thumbnail_url ?? null } : { img: c.media_url })) }
+      : {}),
     // Link temporário (expira em dias): o painel copia a imagem para ele na sincronização.
     imagem: m.thumbnail_url ?? (m.media_type === "VIDEO" ? null : m.media_url) ?? null,
   };
@@ -182,10 +186,14 @@ async function coletar(conta, token, anterior) {
     }
   }
 
-  const { data: midia = [] } = await api("/me/media", {
-    fields: "id,caption,media_type,media_product_type,permalink,timestamp,like_count,comments_count,media_url,thumbnail_url,children{id}",
-    limit: String(MAX_POSTS),
-  }, token);
+  const campos = "id,caption,media_type,media_product_type,permalink,timestamp,like_count,comments_count,media_url,thumbnail_url";
+  // Pede as mídias de cada carrossel; se a API recusar o campo aninhado, segue só com os ids.
+  const { data: midia = [] } = await api("/me/media", { fields: campos + ",children{id,media_type,media_url,thumbnail_url}", limit: String(MAX_POSTS) }, token)
+    .catch((error) => {
+      if (erroDeToken(error)) throw error;
+      console.log(`${conta}: mídias do carrossel recusadas (${error.message})`);
+      return api("/me/media", { fields: campos + ",children{id}", limit: String(MAX_POSTS) }, token);
+    });
   const limite = Date.now() - DIAS_INSIGHTS * 86400_000;
   r.posts = [];
   for (const m of midia) {
