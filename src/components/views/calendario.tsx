@@ -151,11 +151,13 @@ function Bloco({ e, h0, px, grande }: { e: ReturnType<typeof lanes>[number]; h0:
       onClick={() => open(r.id)}
       title={`${hm(r.quando)} · ${ACC[r.conta]?.label} · ${cleanTitle(r.titulo, r.legenda)}`}
       aria-label={`${hm(r.quando)}, ${ACC[r.conta]?.label}, ${FMT[r.formato] || r.formato}: ${cleanTitle(r.titulo, r.legenda)}`}
-      className={cn("absolute flex min-w-0 items-start gap-1.5 overflow-hidden rounded-md p-1 text-left text-xs leading-tight shadow-xs hover:z-10 hover:shadow-md focus-visible:z-10 focus-visible:ring-[3px] focus-visible:ring-ring/50 focus-visible:outline-none", tom(r))}
+      className={cn("absolute flex min-w-0 items-start gap-1.5 overflow-hidden rounded-md p-1 text-left max-md:p-0.5 text-xs leading-tight shadow-xs hover:z-10 hover:shadow-md focus-visible:z-10 focus-visible:ring-[3px] focus-visible:ring-ring/50 focus-visible:outline-none", tom(r))}
       style={{ top, height: alto, left: `calc(${(e.lane / e.de) * 100}% + 2px)`, width: `calc(${100 / e.de}% - 4px)` }}
     >
       {grande && thumb ? <PostPhoto conta={r.conta} src={thumb} size={Math.min(alto - 8, 34)} avatar={null} /> : null}
-      <span className="flex min-w-0 flex-col">
+      {/* Semana no celular: coluna estreita demais para texto, fica só a miniatura. */}
+      {!grande && thumb ? <img src={thumb} alt="" className="size-full rounded-sm object-cover md:hidden" /> : null}
+      <span className={cn("flex min-w-0 flex-col", !grande && thumb && "max-md:hidden")}>
         <span className="num flex items-center gap-1 font-medium text-ink">{hm(r.quando)}<Marcas r={r} /></span>
         <span className="truncate text-muted-foreground max-md:hidden">{FMT[r.formato] || r.formato} · {cleanTitle(r.titulo, r.legenda)}</span>
         {grande ? <span className="truncate text-muted-foreground md:hidden">{FMT[r.formato] || r.formato}</span> : null}
@@ -164,11 +166,13 @@ function Bloco({ e, h0, px, grande }: { e: ReturnType<typeof lanes>[number]; h0:
   );
 }
 
-function Grade({ colunas, cabecalho, rowsDe, hoje }: {
+function Grade({ colunas, cabecalho, rowsDe, hoje, foco }: {
   colunas: string[];
   cabecalho: (c: string) => React.ReactNode;
   rowsDe: (c: string) => Row[];
   hoje: (c: string) => boolean;
+  /** Muda quando a data mostrada muda, para a grade rolar de novo até o começo do dia. */
+  foco: string;
 }) {
   const desktop = useDesktop();
   const px = desktop ? HORA_PX_D : HORA_PX_M;
@@ -184,7 +188,7 @@ function Grade({ colunas, cabecalho, rowsDe, hoje }: {
   useLayoutEffect(() => {
     const alvo = colunas.some(hoje) ? agora - 90 : (Math.min(...mins, 9 * 60) - 30);
     box.current?.scrollTo({ top: Math.max(0, ((alvo - h0 * 60) / 60) * px) });
-  }, [colunas.join()]); // eslint-disable-line
+  }, [colunas.join(), foco]); // eslint-disable-line
   const grande = colunas.length <= 3;
   return (
     <div className="overflow-hidden rounded-xl border bg-card">
@@ -287,12 +291,12 @@ export function CalendarioView() {
 
       {modo === "mes" ? <Mes k={k} byDay={byDay} irDia={irDia} /> : null}
       {modo === "semana" ? (
-        <Grade colunas={semana} cabecalho={(d) => <CabDia d={d} onClick={() => irDia(d)} />} rowsDe={(d) => byDay.get(d) || []} hoje={(d) => d === today} />
+        <Grade colunas={semana} cabecalho={(d) => <CabDia d={d} onClick={() => irDia(d)} />} rowsDe={(d) => byDay.get(d) || []} hoje={(d) => d === today} foco={segunda(k)} />
       ) : null}
       {modo === "dia" ? (
         <>
           {!doDia.length ? <p className="text-sm text-muted-foreground">Nada marcado neste dia{q ? " com essa busca" : ""}.</p> : null}
-          <Grade colunas={ativas} cabecalho={(c) => <CabConta k={c} />} rowsDe={(c) => doDia.filter((r) => r.conta === c)} hoje={() => k === today} />
+          <Grade colunas={ativas} cabecalho={(c) => <CabConta k={c} />} rowsDe={(c) => doDia.filter((r) => r.conta === c)} hoje={() => k === today} foco={k} />
         </>
       ) : null}
       <Legend />
