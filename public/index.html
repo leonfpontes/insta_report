@@ -18,7 +18,7 @@ img{max-width:100%}
   --paper:#f6f3ec; --raised:#fbf9f4; --deep:#ece7dc; --ink:#14213d; --text:#1d2433; --muted:#6b675f;
   --line:color-mix(in srgb,#14213d 12%,#f6f3ec); --field:color-mix(in srgb,#14213d 28%,#f6f3ec);
   --bronze:#7a5c2e; --bronze-soft:color-mix(in srgb,#7a5c2e 13%,#fbf9f4);
-  --acc-pb:#14213d; --acc-pb-soft:color-mix(in srgb,#14213d 8%,#fbf9f4); --acc-gh:#7a5c2e; --acc-gh-soft:color-mix(in srgb,#7a5c2e 14%,#fbf9f4);
+  --acc-pb:#14213d; --acc-pb-soft:color-mix(in srgb,#14213d 8%,#fbf9f4); --acc-gh:#7a5c2e; --acc-gh-soft:color-mix(in srgb,#7a5c2e 14%,#fbf9f4); --acc-lp:#4f6b5a; --acc-lp-soft:color-mix(in srgb,#4f6b5a 13%,#fbf9f4);
   --signal:#7a5c2e; --signal-ink:#6a4e25; --dot:#7a5c2e;
   --ok:#2f6b4a; --ok-soft:color-mix(in srgb,#2f6b4a 13%,#fbf9f4); --live:#2f9e5b;
   --warn:#8a5a00; --warn-soft:color-mix(in srgb,#8a5a00 12%,#fbf9f4);
@@ -72,10 +72,11 @@ h1 em{font-family:var(--f-accent);font-style:italic;font-weight:400;color:var(--
 .btn:disabled{opacity:.55;cursor:default}
 .btn.small{padding:4px 9px;font-size:.78rem}
 
-.accounts{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:14px}
+.accounts{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr));gap:14px}
 .acct{background:var(--raised);border:1px solid var(--line);border-radius:var(--r-panel);padding:16px;display:flex;flex-direction:column;gap:14px;min-width:0;box-shadow:inset 0 3px 0 var(--c)}
 [data-a="pontes_brain"]{--c:var(--acc-pb);--soft:var(--acc-pb-soft)}
 [data-a="GiraHub"]{--c:var(--acc-gh);--soft:var(--acc-gh-soft)}
+[data-a="leopontesrp"]{--c:var(--acc-lp);--soft:var(--acc-lp-soft)}
 .who{display:flex;gap:12px;align-items:center;min-width:0}
 .avatar{width:52px;height:52px;border-radius:50%;object-fit:cover;flex:none;background:var(--soft);border:2px solid var(--raised);box-shadow:0 0 0 1.5px var(--c)}
 .who-txt{min-width:0;display:flex;flex-direction:column;gap:1px}
@@ -115,7 +116,7 @@ h1 em{font-family:var(--f-accent);font-style:italic;font-weight:400;color:var(--
 .seg button[aria-pressed="true"]{background:var(--bronze-soft);color:var(--ink);font-weight:500;box-shadow:inset 0 -2px 0 var(--bronze)}
 .seg img{width:20px;height:20px;border-radius:50%;object-fit:cover}
 .dot{width:9px;height:9px;border-radius:50%;flex:none;display:inline-block}
-.dot.pb{background:var(--acc-pb)}.dot.gh{background:var(--acc-gh)}
+.dot.pb{background:var(--acc-pb)}.dot.gh{background:var(--acc-gh)}.dot.lp{background:var(--acc-lp)}
 
 .pill{display:inline-block;font-size:.68rem;letter-spacing:.05em;text-transform:uppercase;border-radius:6px;padding:2px 7px;border:1px solid var(--line);white-space:nowrap;font-weight:500}
 .pill.publicado{color:var(--ok);border-color:currentColor}
@@ -290,9 +291,12 @@ td.cap .qmain span{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:v
   .top-in{gap:8px}
   h1{font-size:1.05rem}
   .brand svg{width:28px;height:28px}
-  .conns{order:3;width:100%;margin-left:0;display:grid;grid-template-columns:1fr 1fr}
+  .conns{order:3;width:100%;margin-left:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(110px,1fr))}
   .top-act{margin-left:auto}
+  .conn{overflow:hidden;padding-right:8px;gap:6px}
+  .conn .c-txt{overflow:hidden}
   .conn .c-txt b{overflow:hidden;text-overflow:ellipsis}
+  .conn .c-txt span{overflow:hidden;text-overflow:ellipsis}
   .cal-view .dow{display:none}
   .cal-view .grid{grid-template-columns:1fr}
   .day{min-height:0;border-right:0}
@@ -351,6 +355,7 @@ td.cap .qmain span{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:v
         <button type="button" id="fa-all" data-v="all" aria-pressed="true">Todas</button>
         <button type="button" id="fa-pb" data-v="pontes_brain" aria-pressed="false"><span class="dot pb"></span>@pontes_brain</button>
         <button type="button" id="fa-gh" data-v="GiraHub" aria-pressed="false"><span class="dot gh"></span>@girahuboficial</button>
+        <button type="button" id="fa-lp" data-v="leopontesrp" aria-pressed="false"><span class="dot lp"></span>@leopontesrp</button>
       </div>
       <div class="seg" role="group" aria-label="Visão" id="f-view">
         <button type="button" id="fv-fila" data-v="fila" aria-pressed="true">Fila</button>
@@ -380,7 +385,8 @@ td.cap .qmain span{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:v
 <script>
 const ACC = {
   pontes_brain:{label:"@pontes_brain", user:"pontes_brain", cls:"pb"},
-  GiraHub:{label:"@girahuboficial", user:"girahuboficial", cls:"gh"}
+  GiraHub:{label:"@girahuboficial", user:"girahuboficial", cls:"gh"},
+  leopontesrp:{label:"@leopontesrp", user:"leopontesrp", cls:"lp"}
 };
 const FMT = {post:"Post", carrossel:"Carrossel", story:"Story", "story-video":"Story vídeo", reel:"Reel"};
 const IGFMT = {IMAGE:"Post", CAROUSEL_ALBUM:"Carrossel", VIDEO:"Vídeo", REELS:"Reel"};
@@ -1045,7 +1051,7 @@ function renderSync(){
 }
 function render(){
   CMP.clear();
-  for (const [id,k] of [["fa-pb","pontes_brain"],["fa-gh","GiraHub"]]){
+  for (const [id,k] of [["fa-pb","pontes_brain"],["fa-gh","GiraHub"],["fa-lp","leopontesrp"]]){
     const ph = D.img["perfil:"+k] || "", el = $(id);
     if (el.dataset.ph !== ph){ el.dataset.ph = ph; el.innerHTML = (ph?`<img src="${esc(ph)}" alt="">`:`<span class="dot ${ACC[k].cls}"></span>`) + esc(ACC[k].label); }
   }

@@ -7,7 +7,7 @@
 const PAINEL = process.env.PAINEL_URL ?? "https://instagram.leopontes.com.br";
 const REMETENTE = "Agenda Instagram <alertas@leopontes.com.br>";
 const COR = { papel: "#f6f3ec", cartao: "#fbf9f4", fio: "#ddd8cc", marinho: "#14213d", bronze: "#7a5c2e", texto: "#14213d", suave: "#6b675f", erro: "#b3392b", aviso: "#8a5a00" };
-const CONTAS = { pontes_brain: "@pontes_brain", GiraHub: "@girahuboficial" };
+const CONTAS = { pontes_brain: "@pontes_brain", GiraHub: "@girahuboficial", leopontesrp: "@leopontesrp" };
 const FORMATOS = { post: "Post", carrossel: "Carrossel", story: "Story", "story-video": "Story em vídeo", reel: "Reel" };
 
 export const linkLog = () =>
