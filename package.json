@@ -2,7 +2,7 @@
   "name": "insta_report",
   "private": true,
   "type": "module",
-  "description": "Agenda, publicador e painel do Instagram de @pontes_brain e @girahuboficial",
+  "description": "Agenda, publicador e painel do Instagram de @pontes_brain, @girahuboficial e @leopontesrp",
   "engines": {
     "node": ">=20"
   },
@@ -10,7 +10,8 @@
     "dev": "vite",
     "build": "tsc -b && vite build",
     "preview": "vite preview",
-    "check": "node --check scripts/publicar.mjs && node --check scripts/metricas.mjs && node --check scripts/renovar-token.mjs && node --check scripts/alerta.mjs && node --check lib/painel.mjs && for f in api/*.js; do node --check $f || exit 1; done"
+    "local": "node scripts/painel-local.mjs",
+    "check": "node --check scripts/publicar.mjs && node --check scripts/metricas.mjs && node --check scripts/renovar-token.mjs && node --check scripts/alerta.mjs && node --check scripts/painel-local.mjs && node --check lib/painel.mjs && for f in api/*.js; do node --check $f || exit 1; done"
   },
   "dependencies": {
     "class-variance-authority": "0.7.1",
