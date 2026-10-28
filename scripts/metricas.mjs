@@ -9,6 +9,9 @@
  * Insights pedem a permissão instagram_business_manage_insights no token. Sem ela, cada parte
  * que falhar fica com o motivo em "erro" e o resto do arquivo sai normalmente.
  *
+ * Cada rodada também grava a conexão de cada conta ("conexao": token aceito ou não, e quando foi
+ * checado), que o painel mostra como a luz verde ou vermelha ao lado do perfil.
+ *
  * Também guarda um histórico diário de seguidores e posts (um ponto por dia, o último da rodada),
  * que a API não devolve para contas com menos de 100 seguidores.
  */
@@ -34,8 +37,15 @@ async function api(rota, params, token) {
   url.search = new URLSearchParams({ ...params, access_token: token }).toString();
   const resposta = await fetch(url, { signal: AbortSignal.timeout(30_000) });
   const json = await resposta.json().catch(() => ({}));
-  if (!resposta.ok || json.error) throw new Error(json.error?.message ?? `HTTP ${resposta.status}`);
+  if (!resposta.ok || json.error) {
+    throw Object.assign(new Error(json.error?.message ?? `HTTP ${resposta.status}`), { codigo: json.error?.code ?? null });
+  }
   return json;
+}
+
+/** Token recusado (código 190 da Graph API, sessão expirada ou token inválido)? */
+export function erroDeToken(error) {
+  return error?.codigo === 190 || error?.codigo === 102 || /access token|oauth|session has expired/i.test(error?.message ?? "");
 }
 
 /** Converte a resposta de /insights em {metrica: valor}. */
@@ -269,13 +279,16 @@ async function main() {
   const saida = { geradoEm: new Date().toISOString(), contas: {} };
   for (const conta of Object.keys(agenda.contas ?? {})) {
     const token = process.env[tokenEnv(conta)];
+    const verificadoEm = new Date().toISOString();
     if (!token) {
-      saida.contas[conta] = { ...anterior.contas?.[conta], erro: `sem o segredo ${tokenEnv(conta)}` };
+      const erro = `sem o segredo ${tokenEnv(conta)}`;
+      saida.contas[conta] = { ...anterior.contas?.[conta], erro, conexao: { ok: false, tipo: "token", erro, verificadoEm } };
       continue;
     }
     try {
       saida.contas[conta] = await coletar(conta, token, anterior.contas?.[conta]);
       const c = saida.contas[conta];
+      c.conexao = { ok: true, verificadoEm, usuario: c.perfil.username ?? null };
       const comInsights = c.posts.filter((p) => p.insights).length;
       console.log(`${conta}: @${c.perfil.username}, ${c.perfil.followers_count} seguidores, ${c.posts.length} posts (${comInsights} com insights), ${c.stories.length} stories no ar`);
       const erro = c.posts.find((p) => p.erroInsights)?.erroInsights;
@@ -286,7 +299,8 @@ async function main() {
       for (const [k, v] of Object.entries(c.diario ?? {})) console.log(`${conta} diário ${k}: ${Array.isArray(v) ? v.length + " dias" : v.erro}`);
       if (c.erroStories) console.log(`${conta}: stories recusados (${c.erroStories})`);
     } catch (error) {
-      saida.contas[conta] = { ...anterior.contas?.[conta], erro: error.message };
+      const tipo = erroDeToken(error) ? "token" : "api";
+      saida.contas[conta] = { ...anterior.contas?.[conta], erro: error.message, conexao: { ok: false, tipo, erro: error.message, verificadoEm } };
       console.log(`${conta}: falhou (${error.message})`);
     }
   }

@@ -7,74 +7,89 @@
 <title>Agenda do Instagram</title>
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@1&family=Roboto:wght@400;500&family=Roboto+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@1&family=Roboto:wght@400;500;700&family=Roboto+Mono:wght@400;500&display=swap">
+<meta name="theme-color" content="#f6f3ec">
 <style>
-:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
 body{margin:0}
 img{max-width:100%}
-/* Layout: painel de operação. Contas no topo (perfil + números de 7 dias), depois abas Fila / Calendário / Publicados / Execuções, filtradas por conta; detalhe em painel lateral. */
+/* Layout: painel de operação. Barra fixa no topo com a luz de conexão de cada conta, contas (perfil + números de 7 dias), depois abas Fila / Calendário / Publicados / Execuções, filtradas por conta; detalhe em painel lateral. Só tema claro, como o site: papel no fundo, marinho e bronze como cores de apoio. */
 :root{
-  /* Papel & Marinho (LP Noir, perfil_portfolio src/styles/lp-noir.css). */
-  --paper:#f6f3ec; --raised:#fbf9f4; --deep:#ece7dc; --ink:#14213d; --muted:#6b675f;
-  --line:color-mix(in srgb,#14213d 14%,#f6f3ec); --field:#857f75;
-  --acc-pb:#14213d; --acc-pb-soft:color-mix(in srgb,#14213d 10%,#fbf9f4); --acc-gh:#7a5c2e; --acc-gh-soft:color-mix(in srgb,#7a5c2e 15%,#fbf9f4);
+  /* Papel & Marinho (perfil_portfolio src/styles/lp-noir.css). */
+  --paper:#f6f3ec; --raised:#fbf9f4; --deep:#ece7dc; --ink:#14213d; --text:#1d2433; --muted:#6b675f;
+  --line:color-mix(in srgb,#14213d 12%,#f6f3ec); --field:color-mix(in srgb,#14213d 28%,#f6f3ec);
+  --bronze:#7a5c2e; --bronze-soft:color-mix(in srgb,#7a5c2e 13%,#fbf9f4);
+  --acc-pb:#14213d; --acc-pb-soft:color-mix(in srgb,#14213d 8%,#fbf9f4); --acc-gh:#7a5c2e; --acc-gh-soft:color-mix(in srgb,#7a5c2e 14%,#fbf9f4);
   --signal:#7a5c2e; --signal-ink:#6a4e25; --dot:#7a5c2e;
-  --ok:#2f6b4a; --warn:#8a5a00; --crit:#b3392b;
+  --ok:#2f6b4a; --ok-soft:color-mix(in srgb,#2f6b4a 13%,#fbf9f4); --live:#2f9e5b;
+  --warn:#8a5a00; --warn-soft:color-mix(in srgb,#8a5a00 12%,#fbf9f4);
+  --crit:#b3392b; --crit-soft:color-mix(in srgb,#b3392b 11%,#fbf9f4);
   --f-body:Roboto, system-ui, -apple-system, "Segoe UI", sans-serif; --f-mono:"Roboto Mono", ui-monospace, Menlo, monospace;
   --f-accent:"Instrument Serif", Georgia, "Times New Roman", serif;
   --r-field:8px; --r-card:10px; --r-panel:12px;
+  color-scheme:light;
 }
-@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
-  --paper:#0f1a31; --raised:#14213d; --deep:color-mix(in srgb,#0f1a31 70%,#0a0a0b); --ink:#f1ede4; --muted:#9b968c;
-  --line:color-mix(in srgb,#f1ede4 14%,#0f1a31); --field:#6b675f;
-  --acc-pb:#f1ede4; --acc-pb-soft:color-mix(in srgb,#f1ede4 12%,#14213d); --acc-gh:#cfb48a; --acc-gh-soft:color-mix(in srgb,#cfb48a 18%,#14213d);
-  --signal:#cfb48a; --signal-ink:#cfb48a; --dot:#cfb48a;
-  --ok:#8fbf9f; --warn:#d9b26a; --crit:#e08a7a; color-scheme:dark}}
-:root[data-theme="dark"]{
-  --paper:#0f1a31; --raised:#14213d; --deep:color-mix(in srgb,#0f1a31 70%,#0a0a0b); --ink:#f1ede4; --muted:#9b968c;
-  --line:color-mix(in srgb,#f1ede4 14%,#0f1a31); --field:#6b675f;
-  --acc-pb:#f1ede4; --acc-pb-soft:color-mix(in srgb,#f1ede4 12%,#14213d); --acc-gh:#cfb48a; --acc-gh-soft:color-mix(in srgb,#cfb48a 18%,#14213d);
-  --signal:#cfb48a; --signal-ink:#cfb48a; --dot:#cfb48a;
-  --ok:#8fbf9f; --warn:#d9b26a; --crit:#e08a7a; color-scheme:dark}
 *{box-sizing:border-box}
 [hidden]{display:none!important}
-body{background:var(--paper);color:var(--ink);font-family:var(--f-body);font-size:15px;line-height:1.45}
+html{padding-bottom:env(safe-area-inset-bottom,0px);background:var(--paper)}
+body{background:var(--paper);color:var(--text);font-family:var(--f-body);font-size:15px;line-height:1.45;-webkit-text-size-adjust:100%}
 a{color:inherit;text-underline-offset:3px}
 button{font:inherit;color:inherit}
 :focus-visible{outline:2px solid var(--signal);outline-offset:2px}
-.wrap{max-width:1200px;margin:0 auto;padding-block:26px 48px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));display:flex;flex-direction:column;gap:20px}
+.gut{padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.wrap{max-width:1200px;margin:0 auto;padding-block:20px 48px;display:flex;flex-direction:column;gap:20px}
 .num{font-family:var(--f-mono);font-variant-numeric:tabular-nums}
 .muted{color:var(--muted)}
 
-.head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:12px 20px}
-h1{font-weight:500;font-size:clamp(1.5rem,3vw,2rem);letter-spacing:-.015em;margin:0;text-wrap:balance}
-.sync{display:flex;flex-direction:column;align-items:flex-end;gap:6px;font-size:.8rem;color:var(--muted);text-align:right}
-.sync-row{display:flex;gap:10px;align-items:center;flex-wrap:wrap;justify-content:flex-end}
-.btn{border:1px solid var(--field);background:var(--raised);border-radius:var(--r-field);padding:7px 12px;cursor:pointer;font-size:.85rem;font-weight:500;white-space:nowrap}
+/* Barra do topo, sempre visível */
+.top{position:sticky;top:0;z-index:15;background:color-mix(in srgb,var(--paper) 88%,transparent);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);padding-top:env(safe-area-inset-top,0px)}
+.top-in{max-width:1200px;margin:0 auto;padding-block:10px;display:flex;align-items:center;gap:10px 16px;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:10px;min-width:0}.brand svg{width:34px;height:34px;flex:none}
+h1{font-weight:500;font-size:1.2rem;letter-spacing:-.01em;margin:0;white-space:nowrap;color:var(--ink)}
+h1 em{font-family:var(--f-accent);font-style:italic;font-weight:400;color:var(--signal-ink);letter-spacing:0;font-size:1.12em}
+.conns{display:flex;gap:8px;flex-wrap:wrap;margin-left:auto}
+.conn{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--line);background:var(--raised);border-radius:var(--r-field);padding:4px 10px 4px 4px;font-size:.8rem;cursor:pointer;min-width:0}
+.conn img,.conn .av0{width:26px;height:26px;border-radius:50%;object-fit:cover;flex:none;background:var(--deep)}
+.conn .c-txt{display:flex;flex-direction:column;line-height:1.15;min-width:0}
+.conn .c-txt b{font-weight:500;white-space:nowrap}
+.conn .c-txt span{font-size:.7rem;color:var(--muted);white-space:nowrap}
+.conn.on{border-color:color-mix(in srgb,var(--live) 35%,var(--line))}
+.conn.off{border-color:color-mix(in srgb,var(--crit) 55%,var(--line));background:var(--crit-soft)}
+.conn.off .c-txt span{color:var(--crit)}
+.lamp{width:10px;height:10px;border-radius:50%;flex:none;background:var(--muted);box-shadow:0 0 0 3px color-mix(in srgb,var(--muted) 18%,transparent)}
+.lamp.on{background:var(--live);box-shadow:0 0 0 3px color-mix(in srgb,var(--live) 22%,transparent)}
+.lamp.off{background:var(--crit);box-shadow:0 0 0 3px color-mix(in srgb,var(--crit) 22%,transparent)}
+.lamp.velho{background:var(--warn);box-shadow:0 0 0 3px color-mix(in srgb,var(--warn) 22%,transparent)}
+@media (prefers-reduced-motion:no-preference){.lamp.on{animation:pulso 2.6s ease-in-out infinite}.lamp.off{animation:pulso 1.2s ease-in-out infinite}}
+@keyframes pulso{50%{box-shadow:0 0 0 6px transparent}}
+.top-act{display:flex;gap:8px;align-items:center}
+
+.head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:8px 20px}
+.head p{margin:0;font-size:.9rem;color:var(--muted)}
+.sync{font-size:.8rem;color:var(--muted)}
+.btn{border:1px solid var(--field);background:var(--raised);border-radius:var(--r-field);padding:7px 12px;cursor:pointer;font-size:.85rem;font-weight:500;white-space:nowrap;color:var(--ink)}
 .btn:hover{border-color:var(--ink)}
-.brand{display:flex;align-items:center;gap:12px}.brand svg{width:40px;height:40px;flex:none}
-h1 em{font-family:var(--f-accent);font-style:italic;font-weight:400;color:var(--signal-ink);letter-spacing:0}
 .btn.primary{background:var(--ink);border-color:var(--ink);color:var(--paper)}
 .btn:disabled{opacity:.55;cursor:default}
 .btn.small{padding:4px 9px;font-size:.78rem}
 
 .accounts{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:14px}
-.acct{background:var(--raised);border:1px solid var(--line);border-radius:var(--r-panel);padding:16px;display:flex;flex-direction:column;gap:14px;min-width:0;border-top:3px solid var(--c)}
-.acct[data-a="pontes_brain"]{--c:var(--acc-pb);--soft:var(--acc-pb-soft)}
-.acct[data-a="GiraHub"]{--c:var(--acc-gh);--soft:var(--acc-gh-soft)}
+.acct{background:var(--raised);border:1px solid var(--line);border-radius:var(--r-panel);padding:16px;display:flex;flex-direction:column;gap:14px;min-width:0;box-shadow:inset 0 3px 0 var(--c)}
+[data-a="pontes_brain"]{--c:var(--acc-pb);--soft:var(--acc-pb-soft)}
+[data-a="GiraHub"]{--c:var(--acc-gh);--soft:var(--acc-gh-soft)}
 .who{display:flex;gap:12px;align-items:center;min-width:0}
-.avatar{width:52px;height:52px;border-radius:50%;object-fit:cover;flex:none;background:var(--soft);border:1px solid var(--line)}
+.avatar{width:52px;height:52px;border-radius:50%;object-fit:cover;flex:none;background:var(--soft);border:2px solid var(--raised);box-shadow:0 0 0 1.5px var(--c)}
 .who-txt{min-width:0;display:flex;flex-direction:column;gap:1px}
-.who-name{font-weight:500;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.who-name{font-weight:500;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:var(--ink)}
 .who-user{font-size:.85rem;color:var(--muted)}
 .who-user a{color:var(--ink);font-weight:500}
-.who .via{margin-left:auto;align-self:flex-start;font-size:.68rem;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);white-space:nowrap}
+.status{margin-left:auto;align-self:flex-start;display:flex;flex-direction:column;align-items:flex-end;gap:2px;font-size:.74rem;color:var(--muted);text-align:right}
+.status b{display:inline-flex;align-items:center;gap:7px;font-weight:500;font-size:.8rem;color:var(--ok)}
+.status b.off{color:var(--crit)}.status b.velho{color:var(--warn)}
+.conn-err{font-size:.82rem;color:var(--crit);background:var(--crit-soft);border-radius:var(--r-field);padding:8px 10px;margin:0}
 .figs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px 14px;margin:0}
-.fig{display:flex;flex-direction:column;gap:1px;min-width:0}
+.fig{display:flex;flex-direction:column;gap:2px;min-width:0}
 .fig dt{font-size:.72rem;color:var(--muted);order:2}
-.fig dd{margin:0;font-family:var(--f-mono);font-variant-numeric:tabular-nums;font-size:1.25rem;font-weight:500;order:1}
-.fig dd small{font-size:.72rem;color:var(--ok);margin-left:4px}
-.fig dd small.down{color:var(--crit)}
+.fig dd{margin:0;font-family:var(--f-mono);font-variant-numeric:tabular-nums;font-size:1.25rem;font-weight:500;order:1;color:var(--ink);display:flex;align-items:baseline;gap:6px;flex-wrap:wrap}
 .figs-cap{font-size:.72rem;color:var(--muted);letter-spacing:.06em;text-transform:uppercase;margin:0 0 -6px}
 .acct-lines{display:flex;flex-direction:column;gap:4px;font-size:.85rem;border-top:1px solid var(--line);padding-top:10px}
 .acct-lines div{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
@@ -82,11 +97,23 @@ h1 em{font-family:var(--f-accent);font-style:italic;font-weight:400;color:var(--
 .alert{color:var(--crit);font-weight:500}
 .spark{display:block;width:100%;height:34px}
 
+/* Variação: verde sobe, vermelho cai, cinza fica na média */
+.dlt{font-family:var(--f-mono);font-variant-numeric:tabular-nums;font-size:.72rem;font-weight:500;border-radius:5px;padding:1px 5px;white-space:nowrap;line-height:1.4}
+.dlt.up{color:var(--ok);background:var(--ok-soft)}
+.dlt.down{color:var(--crit);background:var(--crit-soft)}
+.dlt.flat{color:var(--muted);background:var(--deep)}
+.verd{display:inline-flex;align-items:center;gap:5px;font-size:.72rem;font-weight:500;letter-spacing:.02em;border-radius:6px;padding:2px 8px;white-space:nowrap}
+.verd.up{color:var(--paper);background:var(--ok)}
+.verd.down{color:var(--paper);background:var(--crit)}
+.verd.flat{color:var(--ink);background:var(--deep)}
+.verd.cedo{color:var(--muted);border:1px dashed var(--field)}
+
 .toolbar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between}
-.seg{display:inline-flex;border:1px solid var(--line);border-radius:var(--r-field);overflow:hidden;background:var(--raised);max-width:100%;overflow-x:auto}
-.seg button{border:0;background:transparent;padding:7px 12px;cursor:pointer;display:inline-flex;align-items:center;gap:6px;font-size:.85rem;white-space:nowrap}
+.seg{display:inline-flex;border:1px solid var(--line);border-radius:var(--r-field);background:var(--raised);max-width:100%;overflow-x:auto;scrollbar-width:none}
+.seg button{border:0;background:transparent;padding:8px 12px;cursor:pointer;display:inline-flex;align-items:center;gap:7px;font-size:.85rem;white-space:nowrap;color:var(--muted);box-shadow:inset 0 -2px 0 transparent}
 .seg button+button{border-left:1px solid var(--line)}
-.seg button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+.seg button[aria-pressed="true"]{background:var(--bronze-soft);color:var(--ink);font-weight:500;box-shadow:inset 0 -2px 0 var(--bronze)}
+.seg img{width:20px;height:20px;border-radius:50%;object-fit:cover}
 .dot{width:9px;height:9px;border-radius:50%;flex:none;display:inline-block}
 .dot.pb{background:var(--acc-pb)}.dot.gh{background:var(--acc-gh)}
 
@@ -100,50 +127,63 @@ h1 em{font-family:var(--f-accent);font-style:italic;font-weight:400;color:var(--
 .section-note{font-size:.82rem;color:var(--muted);margin:0}
 .empty{padding:36px 16px;text-align:center;color:var(--muted);border:1px dashed var(--line);border-radius:var(--r-panel)}
 
+/* Foto do post com o avatar da conta no canto */
+.ph-wrap{position:relative;display:block;flex:none;width:var(--s,56px);height:var(--s,56px)}
+.ph-wrap .thumb{width:100%;height:100%;border-radius:8px;object-fit:cover;background:var(--soft);display:flex;align-items:center;justify-content:center;font-size:.6rem;color:var(--muted);text-transform:uppercase;letter-spacing:.05em;border:1px solid var(--line)}
+.ph-wrap .mini{position:absolute;right:-5px;bottom:-5px;width:calc(var(--s,56px)*.42);height:calc(var(--s,56px)*.42);min-width:16px;min-height:16px;border-radius:50%;object-fit:cover;border:2px solid var(--raised);background:var(--c);box-shadow:0 0 0 1px var(--c)}
+.tbl-acc{display:flex;align-items:center;gap:7px;white-space:nowrap}
+.tbl-acc img{width:22px;height:22px;border-radius:50%;object-fit:cover;box-shadow:0 0 0 1.5px var(--c)}
+
 /* Fila */
 .queue{display:flex;flex-direction:column;gap:18px}
 .qday h3{font-size:.76rem;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);margin:0 0 6px;font-weight:500}
 .qitems{display:flex;flex-direction:column;border:1px solid var(--line);border-radius:var(--r-panel);background:var(--raised);overflow:hidden}
-.qrow{display:grid;grid-template-columns:52px 52px minmax(0,1fr) auto;gap:12px;align-items:center;padding:8px 12px;border-left:3px solid var(--c)}
+.qrow{display:grid;grid-template-columns:auto 48px minmax(0,1fr) auto;gap:14px;align-items:center;padding:10px 14px 10px 12px;border-left:3px solid var(--c)}
 .qrow+.qrow{border-top:1px solid var(--line)}
-.qrow[data-a="pontes_brain"]{--c:var(--acc-pb);--soft:var(--acc-pb-soft)}
-.qrow[data-a="GiraHub"]{--c:var(--acc-gh);--soft:var(--acc-gh-soft)}
-.qtime{font-family:var(--f-mono);font-variant-numeric:tabular-nums;font-size:.9rem}
-.thumb-s{width:52px;height:52px;border-radius:6px;object-fit:cover;background:var(--soft);display:block;border:1px solid var(--line)}
-.thumb-s.ph{display:flex;align-items:center;justify-content:center;font-size:.6rem;color:var(--muted);text-transform:uppercase;letter-spacing:.05em}
-.qmain{min-width:0;display:flex;flex-direction:column;gap:2px;text-align:left;background:none;border:0;padding:0;cursor:pointer}
-.qtitle{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-weight:500}
+.qtime{font-family:var(--f-mono);font-variant-numeric:tabular-nums;font-size:.9rem;color:var(--ink)}
+.qmain{min-width:0;display:flex;flex-direction:column;gap:3px;text-align:left;background:none;border:0;padding:0;cursor:pointer}
+.qtitle{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-weight:500;color:var(--ink)}
 .qmeta{font-size:.78rem;color:var(--muted);display:flex;gap:8px;flex-wrap:wrap;align-items:center}
 .qact{display:flex;gap:6px;align-items:center;flex-wrap:wrap;justify-content:flex-end}
 
 /* Calendário */
 .month{display:flex;align-items:center;gap:8px}
-.month h2{margin:0;font-weight:500;font-size:1.05rem;min-width:9em;text-align:center;text-transform:capitalize}
-.navb{border:1px solid var(--line);background:var(--raised);border-radius:var(--r-field);width:32px;height:32px;cursor:pointer}
+.month h2{margin:0;font-weight:500;font-size:1.05rem;min-width:9em;text-align:center;text-transform:capitalize;color:var(--ink)}
+.navb{border:1px solid var(--line);background:var(--raised);border-radius:var(--r-field);width:36px;height:36px;cursor:pointer;color:var(--ink)}
 .cal{border:1px solid var(--line);border-radius:var(--r-panel);overflow:hidden;background:var(--raised)}
 .dow,.grid{display:grid;grid-template-columns:repeat(7,minmax(0,1fr))}
 .dow div{font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);padding:8px 10px;border-bottom:1px solid var(--line)}
-.day{min-height:116px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);padding:6px;display:flex;flex-direction:column;gap:4px;min-width:0}
+.day{min-height:120px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);padding:6px;display:flex;flex-direction:column;gap:4px;min-width:0}
 .day:nth-child(7n){border-right:0}
 .day.out{background:var(--deep)}
 .day.out .dn{opacity:.45}
 .dn{font-family:var(--f-mono);font-size:.74rem;color:var(--muted);display:flex;justify-content:space-between}
-.day.today .dn b{background:var(--ink);color:var(--paper);border-radius:6px;padding:0 6px}
-.ev{text-align:left;font-size:.72rem;line-height:1.25;border-radius:6px;padding:3px 6px;cursor:pointer;display:flex;gap:5px;align-items:baseline;min-width:0;width:100%;background:transparent;border:1.5px solid var(--c)}
-.ev[data-a="pontes_brain"]{--c:var(--acc-pb);--soft:var(--acc-pb-soft)}
-.ev[data-a="GiraHub"]{--c:var(--acc-gh);--soft:var(--acc-gh-soft)}
-.ev .t{font-family:var(--f-mono);font-variant-numeric:tabular-nums;flex:none}
-.ev .ttl{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;min-width:0}
-.ev.publicado{background:var(--soft);border-color:var(--soft)}
-.ev.publicado .t::after{content:" ✓";color:var(--ok)}
-.ev.manual,.ev.pendente{border-style:dashed}
-.ev.falhou,.ev.atrasado{border-color:var(--crit)}
+.day.today{background:var(--bronze-soft)}
+.day.today .dn b{background:var(--bronze);color:var(--paper);border-radius:6px;padding:0 6px}
+.ev{text-align:left;font-size:.72rem;line-height:1.25;border-radius:7px;padding:3px;cursor:pointer;display:flex;gap:6px;align-items:center;min-width:0;width:100%;background:var(--raised);border:1px solid var(--line);border-left:3px solid var(--c)}
+.ev .ph-wrap{--s:28px}
+.ev .ph-wrap .thumb{border-radius:5px}
+.ev .ph-wrap .mini{border-width:1.5px;right:-4px;bottom:-4px}
+.ev .ev-txt{display:flex;flex-direction:column;min-width:0;gap:1px}
+.ev .t{font-family:var(--f-mono);font-variant-numeric:tabular-nums;flex:none;color:var(--ink);display:flex;gap:4px;align-items:center}
+.ev .ttl{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;min-width:0;color:var(--muted)}
+.ev.publicado{background:var(--soft)}
+.ev.publicado .t::after{content:"✓";color:var(--ok);font-weight:700}
+.ev.manual,.ev.pendente{border-style:dashed;border-left-style:solid}
+.ev.falhou,.ev.atrasado{border-color:var(--crit);background:var(--crit-soft)}
+.ev .arrow{font-size:.7rem;font-weight:700}
+.ev .arrow.up{color:var(--ok)}.ev .arrow.down{color:var(--crit)}
 .more{font-size:.7rem;color:var(--muted);padding-left:4px;background:none;border:0;cursor:pointer;text-align:left}
 .legend{display:flex;flex-wrap:wrap;gap:14px;font-size:.76rem;color:var(--muted)}
 .legend i{display:inline-block;width:14px;height:10px;border-radius:3px;margin-right:5px;vertical-align:-1px}
 .lg-ag{border:1.5px solid var(--muted)}.lg-pub{background:var(--muted)}.lg-man{border:1.5px dashed var(--muted)}.lg-err{border:1.5px solid var(--crit)}
 
-/* Tabelas */
+/* Publicados */
+.score{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px}
+.score div{background:var(--raised);border:1px solid var(--line);border-radius:var(--r-card);padding:12px 14px;display:flex;flex-direction:column;gap:2px}
+.score dd{margin:0;font-family:var(--f-mono);font-size:1.5rem;font-weight:500}
+.score dt{font-size:.78rem;color:var(--muted)}
+.score .s-up dd{color:var(--ok)}.score .s-down dd{color:var(--crit)}.score .s-flat dd{color:var(--ink)}
 .tbl-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:var(--r-panel);background:var(--raised)}
 table{border-collapse:collapse;width:100%;font-size:.84rem}
 th,td{padding:8px 10px;text-align:left;vertical-align:middle;border-bottom:1px solid var(--line)}
@@ -153,45 +193,69 @@ th button{background:none;border:0;padding:0;cursor:pointer;letter-spacing:inher
 th button[aria-sort]::after{content:" ↓"}
 th button[aria-sort="ascending"]::after{content:" ↑"}
 td.n,th.n{text-align:right;font-family:var(--f-mono);font-variant-numeric:tabular-nums;white-space:nowrap}
+td.n{color:var(--ink)}
+td.n .dlt{display:block;width:max-content;margin:2px 0 0 auto}
+td.n.up{background:color-mix(in srgb,var(--ok) 7%,transparent)}
+td.n.down{background:color-mix(in srgb,var(--crit) 6%,transparent)}
 th.n button{text-align:right}
-td.cap{min-width:220px;max-width:360px}
-td.cap span{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
-.tbl-acc{display:flex;align-items:center;gap:6px;white-space:nowrap}
-.sub-h{font-size:.95rem;font-weight:500;margin:6px 0 -6px}
+td.cap{min-width:220px;max-width:340px}
+td.cap .qmain span{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;color:var(--ink)}
+.sub-h{font-size:.95rem;font-weight:500;margin:6px 0 -6px;color:var(--ink)}
 .stack{display:flex;flex-direction:column;gap:14px}
+.sortbar{display:none;align-items:center;gap:8px;font-size:.85rem;color:var(--muted)}
+.sortbar select{font:inherit;color:var(--ink);background:var(--raised);border:1px solid var(--field);border-radius:var(--r-field);padding:6px 8px}
+.pcards{display:none;flex-direction:column;gap:10px}
+.pcard{background:var(--raised);border:1px solid var(--line);border-radius:var(--r-panel);padding:12px;display:flex;flex-direction:column;gap:10px;border-left:3px solid var(--c)}
+.pcard.up{border-left-color:var(--ok)}.pcard.down{border-left-color:var(--crit)}
+.pc-top{display:flex;gap:12px;align-items:flex-start;min-width:0}
+.pc-top .qmain{flex:1}
+.pc-top .qtitle{white-space:normal;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}
+.pc-m{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px;margin:0}
+.pc-m div{display:flex;flex-direction:column;gap:2px;padding:7px 8px;border-radius:8px;background:var(--paper);min-width:0}
+.pc-m div.up{background:var(--ok-soft)}.pc-m div.down{background:var(--crit-soft)}
+.pc-m dt{font-size:.68rem;color:var(--muted);order:3}
+.pc-m dd{margin:0;font-family:var(--f-mono);font-variant-numeric:tabular-nums;font-size:1rem;font-weight:500;color:var(--ink)}
+.pc-m .dlt{background:none;padding:0;font-size:.7rem}
 
 /* Detalhe */
-.panel{position:fixed;inset:0;background:color-mix(in oklab,var(--deep) 70%,transparent);display:flex;justify-content:flex-end;z-index:20}
-.sheet{background:var(--raised);width:min(480px,100%);height:100%;overflow:auto;padding:calc(20px + env(safe-area-inset-top,0px)) max(20px,env(safe-area-inset-right,0px)) calc(28px + env(safe-area-inset-bottom,0px)) 20px;display:flex;flex-direction:column;gap:14px;border-left:1px solid var(--line)}
-.sheet[data-a="pontes_brain"]{--c:var(--acc-pb)}.sheet[data-a="GiraHub"]{--c:var(--acc-gh)}
+.panel{position:fixed;inset:0;background:color-mix(in srgb,var(--ink) 28%,transparent);display:flex;justify-content:flex-end;z-index:20}
+.sheet{background:var(--raised);width:min(500px,100%);height:100%;overflow:auto;padding:calc(20px + env(safe-area-inset-top,0px)) max(20px,env(safe-area-inset-right,0px)) calc(28px + env(safe-area-inset-bottom,0px)) max(20px,env(safe-area-inset-left,0px));display:flex;flex-direction:column;gap:14px;border-left:1px solid var(--line);box-shadow:-12px 0 40px color-mix(in srgb,var(--ink) 12%,transparent)}
 .sheet-top{display:flex;justify-content:space-between;align-items:flex-start;gap:12px}
-.sheet h2{margin:0;font-weight:500;font-size:1.1rem;text-wrap:balance}
+.sheet h2{margin:0;font-weight:500;font-size:1.1rem;text-wrap:balance;color:var(--ink)}
 .meta{display:grid;grid-template-columns:auto 1fr;gap:4px 14px;font-size:.85rem;margin:0}
 .meta dt{color:var(--muted)}.meta dd{margin:0;min-width:0;overflow-wrap:anywhere}
-.big-thumb{max-width:100%;border-radius:var(--r-card);border:1px solid var(--line);align-self:flex-start;max-height:420px}
+.big-thumb{max-width:100%;border-radius:var(--r-card);border:1px solid var(--line);align-self:flex-start;max-height:300px}
 .cap-full{white-space:pre-wrap;font-size:.86rem;background:var(--paper);border:1px solid var(--line);border-radius:var(--r-card);padding:12px;margin:0;font-family:var(--f-body)}
-.mgrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;background:var(--paper);border:1px solid var(--line);border-radius:var(--r-card);padding:12px;margin:0}
 .confirm{display:flex;flex-direction:column;gap:8px;background:var(--paper);border:1px solid var(--line);border-radius:var(--r-card);padding:12px;font-size:.86rem}
-.confirm .row{display:flex;gap:8px;flex-wrap:wrap}
 .msg{font-size:.82rem}
 .msg.ok{color:var(--ok)}.msg.err{color:var(--crit)}
+.cmp{display:flex;flex-direction:column;gap:8px;margin:0;background:var(--paper);border:1px solid var(--line);border-radius:var(--r-card);padding:12px}
+.cmp-row{display:grid;grid-template-columns:9.5em minmax(0,1fr) auto;gap:10px;align-items:center;font-size:.84rem}
+.cmp-row dt{color:var(--muted)}
+.cmp-row dd{margin:0}
+.cmp-bar{position:relative;height:10px;border-radius:5px;background:var(--deep)}
+.cmp-bar i{position:absolute;left:0;top:0;bottom:0;border-radius:5px;background:var(--muted)}
+.cmp-bar i.up{background:var(--ok)}.cmp-bar i.down{background:var(--crit)}
+.cmp-bar b{position:absolute;top:-3px;bottom:-3px;width:2px;background:var(--ink);border-radius:1px}
+.cmp-list{display:flex;flex-direction:column;gap:9px;margin:0}
+.cmp-v{font-family:var(--f-mono);font-variant-numeric:tabular-nums;font-size:.8rem;text-align:right;white-space:nowrap}
 
 /* Insights do post */
 .counts{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:6px;margin:0;text-align:center}
-.counts dd{margin:0;font-family:var(--f-mono);font-variant-numeric:tabular-nums;font-size:1.15rem;font-weight:500}
+.counts dd{margin:0;font-family:var(--f-mono);font-variant-numeric:tabular-nums;font-size:1.15rem;font-weight:500;color:var(--ink)}
 .counts dt{font-size:.68rem;color:var(--muted)}
-.counts div{display:flex;flex-direction:column-reverse;gap:1px}
+.counts div{display:flex;flex-direction:column-reverse;align-items:center;gap:2px}
 .tabs{display:flex;border-bottom:1px solid var(--line);gap:4px}
 .tabs button{background:none;border:0;border-bottom:2px solid transparent;padding:8px 10px;cursor:pointer;font-size:.88rem;color:var(--muted);margin-bottom:-1px}
-.tabs button[aria-selected="true"]{color:var(--ink);border-bottom-color:var(--ink);font-weight:500}
+.tabs button[aria-selected="true"]{color:var(--ink);border-bottom-color:var(--bronze);font-weight:500}
 .cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin:0}
 .cards div{background:var(--paper);border:1px solid var(--line);border-radius:var(--r-card);padding:10px 12px;display:flex;flex-direction:column-reverse;gap:2px}
 .cards dt{font-size:.76rem;color:var(--muted)}
-.cards dd{margin:0;font-family:var(--f-mono);font-variant-numeric:tabular-nums;font-size:1.35rem;font-weight:500}
-.h4{font-size:.92rem;font-weight:500;margin:4px 0 0}
+.cards dd{margin:0;font-family:var(--f-mono);font-variant-numeric:tabular-nums;font-size:1.35rem;font-weight:500;color:var(--ink);display:flex;gap:6px;align-items:baseline;flex-wrap:wrap}
+.h4{font-size:.92rem;font-weight:500;margin:4px 0 0;color:var(--ink)}
 .chips{display:flex;gap:6px;flex-wrap:wrap}
-.chips button{border:1px solid var(--line);background:transparent;border-radius:var(--r-field);padding:5px 10px;cursor:pointer;font-size:.8rem}
-.chips button[aria-pressed="true"]{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.chips button{border:1px solid var(--line);background:transparent;border-radius:var(--r-field);padding:6px 10px;cursor:pointer;font-size:.8rem;color:var(--muted)}
+.chips button[aria-pressed="true"]{background:var(--bronze-soft);color:var(--ink);border-color:var(--bronze);font-weight:500}
 .chart{position:relative;touch-action:pan-y}
 .chart svg{display:block;width:100%;height:auto;overflow:visible}
 .chart .tip{position:absolute;top:0;transform:translateX(-50%);background:var(--ink);color:var(--paper);border-radius:6px;padding:4px 8px;font-size:.74rem;line-height:1.3;text-align:center;pointer-events:none;white-space:nowrap}
@@ -208,29 +272,40 @@ td.cap span{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical
 .spark-cell{width:96px}
 .spark-cell svg{display:block;width:96px;height:28px}
 @media (max-width:720px){
+  .top-in{gap:8px}
+  h1{font-size:1.05rem}
+  .brand svg{width:28px;height:28px}
+  .conns{order:3;width:100%;margin-left:0;display:grid;grid-template-columns:1fr 1fr}
+  .top-act{margin-left:auto}
+  .conn .c-txt b{overflow:hidden;text-overflow:ellipsis}
   .cal-view .dow{display:none}
   .cal-view .grid{grid-template-columns:1fr}
   .day{min-height:0;border-right:0}
   .day.out,.day.blank{display:none}
-  .qrow{grid-template-columns:44px minmax(0,1fr);row-gap:6px}
-  .qrow .thumb-s{grid-row:span 2;width:44px;height:44px}
+  .ev{font-size:.82rem;padding:5px}
+  .ev .ph-wrap{--s:40px}
+  .qrow{grid-template-columns:auto minmax(0,1fr);column-gap:12px;row-gap:8px;padding:10px 12px}
+  .qrow .ph-wrap{grid-row:span 2}
   .qtime{display:none}
   .qact{grid-column:2;justify-content:flex-start}
-  .sync{align-items:flex-start;text-align:left}
-  .sync-row{justify-content:flex-start}
   .figs{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .tbl-pub{display:none}
+  .pcards,.sortbar{display:flex}
+  .counts{grid-template-columns:repeat(3,minmax(0,1fr));row-gap:10px}
+  .btn{padding:8px 12px}
 }
-@media (prefers-reduced-motion:no-preference){.btn,.ev{transition:background .15s,border-color .15s}}
+@media (prefers-reduced-motion:no-preference){.btn,.ev,.seg button{transition:background .15s,border-color .15s}}
 .login{max-width:360px;margin:12vh auto 0;display:flex;flex-direction:column;gap:14px}
 .login form{display:flex;flex-direction:column;gap:10px}
 .login label{font-size:.85rem;font-weight:500}
 .login input{font:inherit;color:var(--ink);background:var(--raised);border:1px solid var(--field);border-radius:var(--r-field);padding:10px 12px}
 .login .btn{padding:10px 12px}
+.login h1{font-size:1.6rem}
 </style>
 </head>
 <body>
 
-<div class="wrap login" id="login" hidden>
+<div class="wrap login gut" id="login" hidden>
   <div class="brand"><svg viewBox="0 0 512 512" role="img" aria-label="LP"><g transform="translate(-16 0)"><g fill="none" stroke="var(--ink)" stroke-width="44" stroke-linejoin="miter"><path d="M178 118V372H300"/><path d="M178 140H290A72 72 0 0 1 290 284H222"/></g><circle cx="362" cy="372" r="26" fill="var(--dot)"/></g></svg><h1>Agenda do <em>Instagram</em></h1></div>
   <form id="f-login">
     <label for="senha">Senha do painel</label>
@@ -240,35 +315,38 @@ td.cap span{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical
   </form>
 </div>
 
-<div class="wrap" id="app" hidden>
-  <div class="head">
-    <div>
+<div id="app" hidden>
+  <header class="top gut">
+    <div class="top-in">
       <div class="brand"><svg viewBox="0 0 512 512" role="img" aria-label="LP"><g transform="translate(-16 0)"><g fill="none" stroke="var(--ink)" stroke-width="44" stroke-linejoin="miter"><path d="M178 118V372H300"/><path d="M178 140H290A72 72 0 0 1 290 284H222"/></g><circle cx="362" cy="372" r="26" fill="var(--dot)"/></g></svg><h1>Agenda do <em>Instagram</em></h1></div>
-      <p class="muted" style="margin:4px 0 0;font-size:.9rem">O que está na fila, o que já saiu e como cada post foi, por conta.</p>
+      <div class="conns" id="conns" aria-label="Conexão das contas com o Instagram"></div>
+      <div class="top-act"><button class="btn" id="b-refresh" type="button">Atualizar</button><button class="btn" id="b-sair" type="button">Sair</button></div>
     </div>
-    <div class="sync">
-      <div class="sync-row"><span id="sync">Carregando…</span><button class="btn" id="b-refresh" type="button">Atualizar números</button><button class="btn" id="b-sair" type="button">Sair</button></div>
-      <div id="req" class="msg"></div>
+  </header>
+  <main class="wrap gut">
+    <div class="head">
+      <p>O que está na fila, o que já saiu e como cada post foi perto dos anteriores.</p>
+      <div><span class="sync" id="sync">Carregando…</span> <span id="req" class="msg"></span></div>
     </div>
-  </div>
 
-  <div class="accounts" id="accounts"></div>
+    <div class="accounts" id="accounts"></div>
 
-  <div class="toolbar">
-    <div class="seg" role="group" aria-label="Conta" id="f-acc">
-      <button type="button" id="fa-all" data-v="all" aria-pressed="true">Todas</button>
-      <button type="button" id="fa-pb" data-v="pontes_brain" aria-pressed="false"><span class="dot pb"></span>@pontes_brain</button>
-      <button type="button" id="fa-gh" data-v="GiraHub" aria-pressed="false"><span class="dot gh"></span>@girahuboficial</button>
+    <div class="toolbar">
+      <div class="seg" role="group" aria-label="Conta" id="f-acc">
+        <button type="button" id="fa-all" data-v="all" aria-pressed="true">Todas</button>
+        <button type="button" id="fa-pb" data-v="pontes_brain" aria-pressed="false"><span class="dot pb"></span>@pontes_brain</button>
+        <button type="button" id="fa-gh" data-v="GiraHub" aria-pressed="false"><span class="dot gh"></span>@girahuboficial</button>
+      </div>
+      <div class="seg" role="group" aria-label="Visão" id="f-view">
+        <button type="button" id="fv-fila" data-v="fila" aria-pressed="true">Fila</button>
+        <button type="button" id="fv-cal" data-v="calendario" aria-pressed="false">Calendário</button>
+        <button type="button" id="fv-pub" data-v="publicados" aria-pressed="false">Publicados</button>
+        <button type="button" id="fv-exe" data-v="execucoes" aria-pressed="false">Execuções</button>
+      </div>
     </div>
-    <div class="seg" role="group" aria-label="Visão" id="f-view">
-      <button type="button" id="fv-fila" data-v="fila" aria-pressed="true">Fila</button>
-      <button type="button" id="fv-cal" data-v="calendario" aria-pressed="false">Calendário</button>
-      <button type="button" id="fv-pub" data-v="publicados" aria-pressed="false">Publicados</button>
-      <button type="button" id="fv-exe" data-v="execucoes" aria-pressed="false">Execuções</button>
-    </div>
-  </div>
 
-  <div id="view"></div>
+    <div id="view"></div>
+  </main>
 </div>
 
 <div class="panel" id="panel" hidden>
@@ -346,7 +424,114 @@ function rows(){
   }
   return out.filter(r => S.acc==="all" || r.conta===S.acc);
 }
-function thumbOf(r){ return D.img[r.kind==="ig" ? r.id : r.id] || (r.midiaId && D.img["ig:"+r.midiaId]) || null; }
+function thumbOf(r){
+  const det = r.kind==="agenda" ? detectedStory(r) : null;
+  return D.img[r.id] || (r.midiaId && D.img["ig:"+r.midiaId]) || (det && D.img["ig:"+det.id]) || null;
+}
+/** Foto do post com o avatar da conta no canto, como no feed. */
+function photoHtml(conta, url, label, size){
+  const av = D.img["perfil:"+conta];
+  return `<span class="ph-wrap"${size?` style="--s:${size}px"`:""}>${url?`<img class="thumb" src="${esc(url)}" alt="" loading="lazy">`:`<span class="thumb">${esc(label||"")}</span>`}${av?`<img class="mini" src="${esc(av)}" alt="${esc(ACC[conta]?.label||"")}" loading="lazy">`:`<span class="mini" aria-hidden="true"></span>`}</span>`;
+}
+
+/* ---------- conexão ---------- */
+// A coleta de métricas (de hora em hora) chama /me com o token de cada conta e grava se ele valeu.
+function conexao(k){
+  const c = D.met[k]?.conexao;
+  if (!c?.verificadoEm) return {cls:"", lamp:"", txt:"Sem checagem", sub:"", det:"A primeira checagem do token chega com a próxima coleta de números."};
+  const sub = dayKey(c.verificadoEm)===todayStr ? hm(c.verificadoEm) : ddmmhm(c.verificadoEm);
+  if (!c.ok && c.tipo!=="api") return {cls:"off", lamp:"off", txt:"Desconectado", sub, det:`O Instagram recusou o token desta conta (${c.erro||"sem detalhe"}). Nada desta conta é publicado até o token ser renovado.`};
+  if (!c.ok) return {cls:"velho", lamp:"velho", txt:"Instagram não respondeu", sub, det:`O token não foi recusado, mas a última chamada à API falhou: ${c.erro||"sem detalhe"}.`};
+  if (Date.now() - new Date(c.verificadoEm) > 3*3600000) return {cls:"velho", lamp:"velho", txt:"Sem checagem recente", sub, det:"A coleta de hora em hora não rodou nas últimas 3 horas. Toque em Atualizar para checar agora."};
+  return {cls:"on", lamp:"on", txt:"Conectado", sub, det:`Token aceito pelo Instagram na checagem das ${hm(c.verificadoEm)}.`};
+}
+function renderConns(){
+  $("conns").innerHTML = Object.entries(ACC).map(([k,a])=>{
+    const c = conexao(k), ph = D.img["perfil:"+k];
+    return `<button type="button" class="conn ${c.cls}" data-conn="${k}" data-a="${k}" title="${esc(c.det)}" aria-label="${esc(a.label)}: ${esc(c.txt)}${c.sub?", checado "+esc(c.sub):""}">
+      ${ph?`<img src="${esc(ph)}" alt="">`:`<span class="av0"></span>`}<span class="lamp ${c.lamp}" aria-hidden="true"></span>
+      <span class="c-txt"><b>${esc(a.label)}</b><span>${esc(c.txt)}${c.sub?" · "+esc(c.sub):""}</span></span></button>`;
+  }).join("");
+}
+
+/* ---------- comparação com os posts anteriores ---------- */
+const HORA = 3600000, DIA = 86400000;
+const CMPK = [["views","Visualizações","Views"],["reach","Alcance","Alcance"],["total_interactions","Interações","Interações"],["curtidas","Curtidas","Curtidas"],["saved","Salvamentos","Salvos"],["shares","Compartilhamentos","Compart."],["comentarios","Comentários","Coment."]];
+const STK = [["views","Visualizações"],["reach","Alcance"],["replies","Respostas"],["shares","Compartilhamentos"],["total_interactions","Interações"]];
+const lvl = d => d >= .15 ? "up" : d <= -.15 ? "down" : "flat";
+// Com números pequenos, 1 curtida a mais não é tendência: diferença menor que 2 conta como na média.
+const lvlM = m => Math.abs(m.v - m.base) < 2 ? "flat" : lvl(m.d);
+const pctAbs = d => { const v = Math.round(Math.abs(d)*100); return v > 999 ? ">999%" : v+"%"; };
+function dlt(c){
+  if (!c) return "";
+  const l = lvlM(c);
+  const t = l==="up" ? "▲ "+pctAbs(c.d) : l==="down" ? "▼ "+pctAbs(c.d) : Math.abs(c.v-c.base) < 2 ? "= média" : "≈ "+(c.d>=0?"+":"−")+pctAbs(c.d);
+  return `<span class="dlt ${l}" title="Média: ${n(Math.round(c.base))}">${t}</span>`;
+}
+function verdHtml(c){
+  if (!c || c.lvl==="cedo") return `<span class="verd cedo">${c && c.age < HORA ? "Cedo para comparar" : "Sem base para comparar"}</span>`;
+  if (c.lvl==="up") return `<span class="verd up">▲ ${pctAbs(c.d)} acima da média</span>`;
+  if (c.lvl==="down") return `<span class="verd down">▼ ${pctAbs(c.d)} abaixo da média</span>`;
+  return `<span class="verd flat">= Na média</span>`;
+}
+const idadeTxt = a => a >= 7*DIA ? "números finais" : a < 48*HORA ? `com ${Math.max(1,Math.round(a/HORA))} h de vida` : `com ${Math.round(a/DIA)} dias de vida`;
+/** Valor de um post anterior quando ele tinha a mesma idade, pela série de coletas. */
+function atAge(q, k, age){
+  const t0 = new Date(q.quando).getTime();
+  if (Date.now() - t0 < age) return null;
+  const cur = val(q,k);
+  if (age >= 7*DIA) return cur;
+  const pts = seriesOf(q,k).filter(x=>!x.origem).map(x=>({a:x.t-t0, v:x.v}));
+  let lo = null, hi = null;
+  for (const p of pts){ if (p.a <= age) lo = p; else if (!hi) hi = p; }
+  if (lo && hi) return lo.v + (hi.v-lo.v)*(age-lo.a)/((hi.a-lo.a)||1);
+  if (!lo && hi && hi.a <= Math.max(2*age, age+3*HORA)) return hi.v*age/hi.a;
+  if (lo && !hi && age - lo.a < 6*HORA) return lo.v;
+  return age >= 3*DIA ? cur : null;
+}
+const CMP = new Map();
+function fechar(out, keys){
+  const main = keys.map(k=>out.m[k]).filter(Boolean).map(m=>lvlM(m)==="flat" && Math.abs(m.v-m.base) < 2 ? 0 : m.d);
+  out.d = main.length ? main.reduce((s,x)=>s+x,0)/main.length : null;
+  out.lvl = out.d==null ? "cedo" : lvl(out.d);
+  return out;
+}
+/** Cada número do post contra a média dos 5 posts anteriores da conta, na mesma idade. */
+function compare(p, conta){
+  const key = conta+"|"+p.id; if (CMP.has(key)) return CMP.get(key);
+  const t = new Date(p.quando).getTime(), age = Date.now() - t;
+  const prev = igPosts(conta).filter(q=>q.id!==p.id && new Date(q.quando).getTime() < t).sort((a,b)=>b.quando.localeCompare(a.quando)).slice(0,5);
+  const out = {age, n:prev.length, m:{}};
+  if (age >= HORA) for (const [k] of CMPK){
+    const v = val(p,k); if (v==null) continue;
+    const vals = prev.map(q=>atAge(q,k,age)).filter(x=>x!=null);
+    if (!vals.length) continue;
+    const base = vals.reduce((s,x)=>s+x,0)/vals.length;
+    out.m[k] = {v, base, d: base>0 ? (v-base)/base : (v>0 ? 1 : 0), n:vals.length};
+  }
+  CMP.set(key, fechar(out, ["views","reach","total_interactions"])); return out;
+}
+/** Story contra os 5 stories anteriores da conta (stories duram 24 h, então são números finais). */
+function compareStory(s, conta){
+  const key = conta+"|s|"+s.id; if (CMP.has(key)) return CMP.get(key);
+  const t = new Date(s.quando).getTime();
+  const prev = igStories(conta).filter(q=>q.id!==s.id && new Date(q.quando).getTime() < t).sort((a,b)=>b.quando.localeCompare(a.quando)).slice(0,5);
+  const out = {age:Date.now()-t, n:prev.length, m:{}, story:true};
+  for (const [k] of STK){
+    const v = s.insights?.[k]; if (v==null) continue;
+    const vals = prev.map(q=>q.insights?.[k]).filter(x=>x!=null);
+    if (!vals.length) continue;
+    const base = vals.reduce((a,x)=>a+x,0)/vals.length;
+    out.m[k] = {v, base, d: base>0 ? (v-base)/base : (v>0 ? 1 : 0), n:vals.length};
+  }
+  CMP.set(key, fechar(out, ["views","reach"])); return out;
+}
+function cmpOfRow(r){
+  const det = r.kind==="agenda" ? detectedStory(r) : null;
+  const ig = (r.midiaId ? igById(r.midiaId) : null) || det;
+  if (!ig) return null;
+  return ig.produto==="STORY" ? compareStory(ig, r.conta) : compare(ig, r.conta);
+}
 function canPublish(r){ return r.kind==="agenda" && (r.status==="agendado" || r.status==="falhou") && D.agenda?.contas?.[r.conta]?.publicador==="proprio"; }
 function canMark(r){ return r.kind==="agenda" && r.status==="manual" && r.eff!=="publicado"; }
 
@@ -381,7 +566,7 @@ function renderAccounts(){
     if (hist.length > 1){
       const ref = [...hist].reverse().find(h => (new Date(todayStr) - new Date(h.data)) >= 7*86400000) || hist[0];
       const d = (pf.followers_count ?? 0) - (ref.seguidores ?? 0);
-      if (d) delta = `<small class="${d<0?"down":""}">${d>0?"+":""}${n(d)}</small>`;
+      if (d) delta = `<span class="dlt ${d<0?"down":"up"}" title="Nos últimos 7 dias">${d>0?"+":""}${n(d)}</span>`;
     }
     const mine = all.filter(p=>p.conta===k);
     const now = Date.now();
@@ -391,7 +576,10 @@ function renderAccounts(){
     const pend = mine.filter(p=>p.eff==="pendente").length;
     const queued = mine.filter(p=>p.status==="agendado").length;
     const photo = D.img["perfil:"+k];
-    const via = D.agenda?.contas?.[k]?.publicador === "proprio" ? "publicador próprio" : (D.agenda?.contas?.[k]?.publicador || "");
+    const cx = conexao(k);
+    const r28 = (m.resumo||{})["28d"] || {};
+    const d7 = key => { const v = r7[key], t = r28[key]; if (v==null || t==null || r7.erro || r28.erro) return ""; const base = (t-v)/3; return base>0 && base >= v*.1 ? dlt({v, base, d:(v-base)/base}) : ""; };
+    const tem28 = ["reach","views","total_interactions"].some(key => d7(key));
     const r7err = r7.erro ? `<div class="muted">Resumo de 7 dias indisponível: ${esc(r7.erro)}</div>` : "";
     return `<section class="acct" data-a="${k}" aria-label="${esc(a.label)}">
       <div class="who">
@@ -400,26 +588,28 @@ function renderAccounts(){
           <span class="who-name">${esc(pf.name || a.label)}</span>
           <span class="who-user"><a href="https://www.instagram.com/${a.user}/" target="_blank" rel="noopener">${esc(a.label)} ↗</a></span>
         </div>
-        <span class="via">${esc(via)}</span>
+        <div class="status"><b class="${cx.cls}"><span class="lamp ${cx.lamp}" aria-hidden="true"></span>${esc(cx.txt)}</b><span>${cx.sub?"checado "+esc(cx.sub):""}</span></div>
       </div>
+      ${cx.cls==="off"||cx.cls==="velho"?`<p class="conn-err">${esc(cx.det)}</p>`:""}
       <dl class="figs">
         <div class="fig"><dt>seguidores</dt><dd>${n(pf.followers_count)}${delta}</dd></div>
         <div class="fig"><dt>posts no perfil</dt><dd>${n(pf.media_count)}</dd></div>
         <div class="fig"><dt>na fila</dt><dd>${n(queued)}</dd></div>
       </dl>
       ${spark(hist)}
-      <p class="figs-cap">Últimos 7 dias</p>
+      <p class="figs-cap">Últimos 7 dias${tem28?", perto da média semanal das 3 semanas anteriores":""}</p>
       ${reachChart(k, m)}
       <dl class="figs">
-        <div class="fig"><dt>contas alcançadas</dt><dd>${n(r7.reach)}</dd></div>
-        <div class="fig"><dt>visualizações</dt><dd>${n(r7.views)}</dd></div>
-        <div class="fig"><dt>interações</dt><dd>${n(r7.total_interactions)}</dd></div>
-        <div class="fig"><dt>contas engajadas</dt><dd>${n(r7.accounts_engaged)}</dd></div>
-        <div class="fig"><dt>compartilhamentos</dt><dd>${n(r7.shares)}</dd></div>
-        <div class="fig"><dt>salvamentos</dt><dd>${n(r7.saves)}</dd></div>
+        <div class="fig"><dt>contas alcançadas</dt><dd>${n(r7.reach)}${d7("reach")}</dd></div>
+        <div class="fig"><dt>visualizações</dt><dd>${n(r7.views)}${d7("views")}</dd></div>
+        <div class="fig"><dt>interações</dt><dd>${n(r7.total_interactions)}${d7("total_interactions")}</dd></div>
+        <div class="fig"><dt>contas engajadas</dt><dd>${n(r7.accounts_engaged)}${d7("accounts_engaged")}</dd></div>
+        <div class="fig"><dt>compartilhamentos</dt><dd>${n(r7.shares)}${d7("shares")}</dd></div>
+        <div class="fig"><dt>salvamentos</dt><dd>${n(r7.saves)}${d7("saves")}</dd></div>
       </dl>
       <div class="acct-lines">
         ${r7err}
+        ${tem28||r7err?"":`<div class="muted" style="white-space:normal">A seta contra as semanas anteriores aparece quando a conta tiver um mês de números.</div>`}
         <div>Próximo: ${next?`<b>${ddmmhm(next.quando)}</b> · ${esc(FMT[next.formato]||next.formato)} · ${esc(next.titulo)}`:"<span class='muted'>nada na fila</span>"}</div>
         <div>Último no perfil: ${lastPub?`<b>${ddmmhm(lastPub.quando)}</b> · <a href="${esc(lastPub.link)}" target="_blank" rel="noopener">${esc((lastPub.legenda||"post").split("\n")[0].slice(0,60))}</a>`:"<span class='muted'>sem dados ainda</span>"}</div>
         ${fails?`<div class="alert">${fails} post${fails>1?"s":""} com falha ou atraso. Veja na Fila.</div>`:""}
@@ -440,10 +630,6 @@ function actionsHtml(r, compact){
   if (msg) h += `<span class="msg ${msg.cls}">${esc(msg.text)}</span>`;
   return `<span class="qact">${h}</span>`;
 }
-function thumbHtml(r, cls){
-  const t = thumbOf(r);
-  return t ? `<img class="${cls}" src="${esc(t)}" alt="" loading="lazy">` : `<span class="${cls} ph">${esc(FMT[r.formato]||"")}</span>`;
-}
 function renderFila(){
   const all = rows().filter(r=>r.kind==="agenda");
   const attention = all.filter(r=>["falhou","atrasado","pendente"].includes(r.eff)).sort((a,b)=>a.quando.localeCompare(b.quando));
@@ -452,11 +638,11 @@ function renderFila(){
   const groups = {};
   up.forEach(r=>{ (groups[dayKey(r.quando)] ||= []).push(r); });
   const row = r => `<div class="qrow" data-a="${esc(r.conta)}">
-      ${thumbHtml(r,"thumb-s")}
+      ${photoHtml(r.conta, thumbOf(r), FMT[r.formato])}
       <span class="qtime">${hm(r.quando)}</span>
       <button type="button" class="qmain" data-id="${esc(r.id)}">
         <span class="qtitle">${esc(r.titulo)}</span>
-        <span class="qmeta"><span class="pill ${r.eff}">${esc(STATUS[r.eff]||r.eff)}</span><span>${esc(FMT[r.formato]||r.formato)}${r.itens>1?` · ${r.itens} itens`:""}</span>${S.acc==="all"?`<span>${esc(ACC[r.conta]?.label)}</span>`:""}<span class="num">${ddmm(r.quando)} ${hm(r.quando)}</span>${r.erro?`<span style="color:var(--crit)">${esc(r.erro)}</span>`:""}</span>
+        <span class="qmeta"><span class="pill ${r.eff}">${esc(STATUS[r.eff]||r.eff)}</span>${r.eff==="publicado"?(c=>c?verdHtml(c):"")(cmpOfRow(r)):""}<span>${esc(FMT[r.formato]||r.formato)}${r.itens>1?` · ${r.itens} itens`:""}</span>${S.acc==="all"?`<span>${esc(ACC[r.conta]?.label)}</span>`:""}<span class="num">${ddmm(r.quando)} ${hm(r.quando)}</span>${r.erro?`<span style="color:var(--crit)">${esc(r.erro)}</span>`:""}</span>
       </button>
       ${actionsHtml(r)}
     </div>`;
@@ -488,14 +674,15 @@ function renderCal(){
     const shown = evs.slice(0,5);
     cells += `<div class="day${inM?"":" out"}${ds===todayStr?" today":""}${inM&&!evs.length?" blank":""}">
       <div class="dn"><b>${d.getUTCDate()}</b><span>${inM&&evs.length?DOW[(d.getUTCDay()+6)%7]:""}</span></div>
-      ${shown.map(r=>`<button type="button" class="ev ${r.eff}" data-a="${esc(r.conta)}" data-id="${esc(r.id)}" title="${esc(r.titulo)}"><span class="t">${hm(r.quando)}</span><span class="ttl">${esc(FMT[r.formato]||r.formato)} · ${esc(r.titulo)}</span></button>`).join("")}
+      ${shown.map(r=>{ const c = r.eff==="publicado" ? cmpOfRow(r) : null; const ar = c && (c.lvl==="up"||c.lvl==="down") ? `<span class="arrow ${c.lvl}" aria-label="${c.lvl==="up"?"acima":"abaixo"} da média">${c.lvl==="up"?"▲":"▼"}</span>` : "";
+        return `<button type="button" class="ev ${r.eff}" data-a="${esc(r.conta)}" data-id="${esc(r.id)}" title="${esc(r.titulo)}">${photoHtml(r.conta, thumbOf(r), "")}<span class="ev-txt"><span class="t">${hm(r.quando)}${ar}</span><span class="ttl">${esc(FMT[r.formato]||r.formato)} · ${esc(r.titulo)}</span></span></button>`; }).join("")}
       ${evs.length>5?`<button type="button" class="more" data-day="${ds}">+${evs.length-5} no dia</button>`:""}
     </div>`;
   }
   $("view").className = "stack";
   $("view").innerHTML = `
     <div class="toolbar"><div class="month"><button type="button" class="navb" id="prev" aria-label="Mês anterior">‹</button><h2>${MONTHS[m]} ${y}</h2><button type="button" class="navb" id="next" aria-label="Próximo mês">›</button></div>
-    <div class="legend"><span><i class="lg-ag"></i>Agendado</span><span><i class="lg-pub"></i>Publicado</span><span><i class="lg-man"></i>Story à mão</span><span><i class="lg-err"></i>Falha ou atraso</span></div></div>
+    <div class="legend"><span><i class="lg-ag"></i>Agendado</span><span><i class="lg-pub"></i>Publicado</span><span><i class="lg-man"></i>Story à mão</span><span><i class="lg-err"></i>Falha ou atraso</span><span><b style="color:var(--ok)">▲</b> <b style="color:var(--crit)">▼</b> acima ou abaixo da média</span></div></div>
     <div class="cal cal-view"><div class="dow">${DOW.map(d=>`<div>${d}</div>`).join("")}</div><div class="grid">${cells}</div></div>`;
 }
 
@@ -511,35 +698,58 @@ const COLS = [
   {k:"total_interactions", l:"Interações", n:true},
   {k:"taxa", l:"Engaj./alcance", n:true},
 ];
-const val = (p,k) => k==="quando" ? p.quando : k==="curtidas"||k==="comentarios" ? p[k] : k==="taxa" ? (p.insights?.reach ? (p.insights.total_interactions||0)/p.insights.reach : null) : p.insights?.[k];
+const val = (p,k) => k==="quando" ? p.quando : k==="curtidas"||k==="comentarios" ? p[k] : k==="taxa" ? (p.insights?.reach ? (p.insights.total_interactions||0)/p.insights.reach : null) : k==="score" ? compare(p, p.conta).d : p.insights?.[k];
 function renderPub(){
   const contas = Object.keys(ACC).filter(c => S.acc==="all" || c===S.acc);
   const posts = contas.flatMap(c => igPosts(c).map(p=>({...p, conta:c})));
   const {k, dir} = S.sort;
   posts.sort((a,b)=>{ const x=val(a,k), y=val(b,k); if (x==null&&y==null) return 0; if (x==null) return 1; if (y==null) return -1; return (x<y?-1:x>y?1:0)*dir; });
   const stories = contas.flatMap(c => igStories(c).map(p=>({...p, conta:c}))).sort((a,b)=>b.quando.localeCompare(a.quando));
-  const tot = f => posts.reduce((s,p)=>s+(val(p,f)||0),0);
   const head = COLS.map(c=>`<th class="${c.n?"n":""}" scope="col"><button type="button" data-sort="${c.k}" ${S.sort.k===c.k?`aria-sort="${S.sort.dir>0?"ascending":"descending"}"`:""}>${c.l}</button></th>`).join("");
-  const accCell = p => `<span class="tbl-acc"><span class="dot ${ACC[p.conta].cls}"></span>${esc(ACC[p.conta].label)}</span>`;
-  const img = p => { const t = D.img["ig:"+p.id]; return t?`<img class="thumb-s" src="${esc(t)}" alt="" loading="lazy">`:`<span class="thumb-s ph">${esc(IGFMT[p.produto==="REELS"?"REELS":p.tipo]||"")}</span>`; };
-  const body = posts.map(p=>`<tr>
-      <td>${img(p)}</td>
+  const accCell = p => { const av = D.img["perfil:"+p.conta]; return `<span class="tbl-acc" title="${esc(ACC[p.conta].label)}">${av?`<img src="${esc(av)}" alt="${esc(ACC[p.conta].label)}">`:`<span class="dot ${ACC[p.conta].cls}"></span>${esc(ACC[p.conta].label)}`}</span>`; };
+  const fmtOf = p => IGFMT[p.produto==="REELS"?"REELS":p.tipo] || p.tipo || "";
+  const img = (p, size) => photoHtml(p.conta, D.img["ig:"+p.id], fmtOf(p), size);
+  const cell = (p, c, key) => { const m = c.m[key]; return `<td class="n ${m?lvlM(m):""}">${n(val(p,key))}${dlt(m)}</td>`; };
+  const cmps = new Map(posts.map(p=>[p.id, compare(p, p.conta)]));
+  // Placar dos últimos 30 dias.
+  const recentes = posts.filter(p => Date.now() - new Date(p.quando) < 30*DIA);
+  const cont = {up:0, flat:0, down:0, cedo:0};
+  recentes.forEach(p => cont[cmps.get(p.id).lvl]++);
+  const body = posts.map(p=>{ const c = cmps.get(p.id); return `<tr data-a="${esc(p.conta)}">
+      <td>${img(p, 48)}</td>
       ${S.acc==="all"?`<td>${accCell(p)}</td>`:""}
-      <td class="cap"><button type="button" class="qmain" data-ig="${esc(p.id)}" data-conta="${esc(p.conta)}"><span>${esc(p.legenda||"(sem legenda)")}</span></button><div class="muted" style="font-size:.74rem">${esc(IGFMT[p.produto==="REELS"?"REELS":p.tipo]||p.tipo)}${p.itens>1?` · ${p.itens} itens`:""} · <a href="${esc(p.link)}" target="_blank" rel="noopener">abrir ↗</a></div></td>
+      <td class="cap"><button type="button" class="qmain" data-ig="${esc(p.id)}" data-conta="${esc(p.conta)}"><span>${esc(p.legenda||"(sem legenda)")}</span></button><div class="muted" style="font-size:.74rem">${esc(fmtOf(p))}${p.itens>1?` · ${p.itens} itens`:""} · <a href="${esc(p.link)}" target="_blank" rel="noopener">abrir ↗</a></div></td>
+      <td>${verdHtml(c)}</td>
       <td class="n">${ddmmhm(p.quando)}</td>
-      <td class="n">${n(p.insights?.reach)}</td><td class="n">${n(p.insights?.views)}</td><td class="n">${n(p.curtidas)}</td><td class="n">${n(p.comentarios)}</td>
-      <td class="n">${n(p.insights?.saved)}</td><td class="n">${n(p.insights?.shares)}</td><td class="n">${n(p.insights?.total_interactions)}</td>
+      ${cell(p,c,"reach")}${cell(p,c,"views")}${cell(p,c,"curtidas")}${cell(p,c,"comentarios")}${cell(p,c,"saved")}${cell(p,c,"shares")}${cell(p,c,"total_interactions")}
       <td class="n">${pct(p.insights?.total_interactions, p.insights?.reach)}</td>
-      <td class="spark-cell" style="--c:var(--acc-${ACC[p.conta].cls})" title="Visualizações desde a publicação">${sparkSvg(seriesOf(p,"views").map(x=>x.v))}</td></tr>`).join("");
-  const sBody = stories.map(s=>`<tr><td>${img(s)}</td>${S.acc==="all"?`<td>${accCell(s)}</td>`:""}<td class="n">${ddmmhm(s.quando)}</td><td class="n">${n(s.insights?.views)}</td><td class="n">${n(s.insights?.reach)}</td><td class="n">${n(s.insights?.replies)}</td><td class="n">${n(s.insights?.shares)}</td><td class="n">${n(s.insights?.total_interactions)}</td><td><a href="${esc(s.link)}" target="_blank" rel="noopener">abrir ↗</a></td></tr>`).join("");
+      <td class="spark-cell" style="--c:var(--acc-${ACC[p.conta].cls})" title="Visualizações desde a publicação">${sparkSvg(seriesOf(p,"views").map(x=>x.v))}</td></tr>`; }).join("");
+  const MK = [["views","Views"],["reach","Alcance"],["total_interactions","Interações"],["curtidas","Curtidas"],["saved","Salvos"],["shares","Compart."]];
+  const cards = posts.map(p=>{ const c = cmps.get(p.id); return `<article class="pcard ${c.lvl}" data-a="${esc(p.conta)}">
+      <div class="pc-top">${img(p, 64)}<button type="button" class="qmain" data-ig="${esc(p.id)}" data-conta="${esc(p.conta)}">
+        <span class="qtitle">${esc((p.legenda||"(sem legenda)").split("\n")[0])}</span>
+        <span class="qmeta">${verdHtml(c)}<span>${esc(fmtOf(p))} · ${ddmmhm(p.quando)}</span></span></button></div>
+      <dl class="pc-m">${MK.map(([key,l])=>{ const m = c.m[key]; return `<div class="${m?lvlM(m):""}"><dt>${l}</dt><dd>${n(val(p,key))}</dd>${dlt(m)}</div>`; }).join("")}</dl>
+    </article>`; }).join("");
+  const SORTS = [["quando","Mais recentes"],["score","Desempenho"],["views","Views"],["reach","Alcance"],["total_interactions","Interações"],["curtidas","Curtidas"],["saved","Salvos"],["shares","Compartilhamentos"]];
+  const sCell = (s, c, key) => { const m = c.m[key]; return `<td class="n ${m?lvlM(m):""}">${n(s.insights?.[key])}${dlt(m)}</td>`; };
+  const sBody = stories.map(s=>{ const c = compareStory(s, s.conta); return `<tr data-a="${esc(s.conta)}"><td>${photoHtml(s.conta, D.img["ig:"+s.id], "Story", 44)}</td>${S.acc==="all"?`<td>${accCell(s)}</td>`:""}<td>${verdHtml(c)}</td><td class="n">${ddmmhm(s.quando)}</td>${sCell(s,c,"views")}${sCell(s,c,"reach")}${sCell(s,c,"replies")}${sCell(s,c,"shares")}${sCell(s,c,"total_interactions")}<td><a href="${esc(s.link)}" target="_blank" rel="noopener">abrir ↗</a></td></tr>`; }).join("");
   const col = S.acc==="all";
   $("view").className = "stack";
   $("view").innerHTML = posts.length ? `
-    <p class="section-note">${posts.length} posts no feed · ${n(tot("reach"))} de alcance somado · ${n(tot("total_interactions"))} interações · ${n(tot("curtidas"))} curtidas. Números do Instagram, atualizados de hora em hora. Toque no título de uma coluna para ordenar.</p>
-    <div class="tbl-wrap"><table><thead><tr><th scope="col"><span class="sr" style="position:absolute;left:-9999px">Imagem</span></th>${col?`<th scope="col">Conta</th>`:""}<th scope="col">Post</th>${head}<th scope="col">Views no tempo</th></tr></thead><tbody>${body}</tbody></table></div>
+    <dl class="score" aria-label="Posts dos últimos 30 dias">
+      <div class="s-up"><dt>acima da média</dt><dd>${cont.up}</dd></div>
+      <div class="s-flat"><dt>na média</dt><dd>${cont.flat}</dd></div>
+      <div class="s-down"><dt>abaixo da média</dt><dd>${cont.down}</dd></div>
+      <div><dt>cedo ou sem base</dt><dd class="muted">${cont.cedo}</dd></div>
+    </dl>
+    <p class="section-note">Cada post é comparado com a média dos 5 posts anteriores da mesma conta (ou dos que houver), quando eles tinham a mesma idade: verde ▲ é 15% ou mais acima, vermelho ▼ é 15% ou mais abaixo, cinza é na média. O selo geral junta views, alcance e interações. Números do Instagram, de hora em hora.</p>
+    <label class="sortbar">Ordenar por <select id="sort-sel">${SORTS.map(([v,l])=>`<option value="${v}"${S.sort.k===v?" selected":""}>${l}</option>`).join("")}</select></label>
+    <div class="pcards">${cards}</div>
+    <div class="tbl-wrap tbl-pub"><table><thead><tr><th scope="col"><span style="position:absolute;left:-9999px">Imagem</span></th>${col?`<th scope="col">Conta</th>`:""}<th scope="col">Post</th><th scope="col"><button type="button" data-sort="score" ${S.sort.k==="score"?`aria-sort="${S.sort.dir>0?"ascending":"descending"}"`:""}>Desempenho</button></th>${head}<th scope="col">Views no tempo</th></tr></thead><tbody>${body}</tbody></table></div>
     <h3 class="sub-h">Stories dos últimos 30 dias</h3>
-    ${stories.length?`<div class="tbl-wrap"><table><thead><tr><th scope="col"><span style="position:absolute;left:-9999px">Imagem</span></th>${col?`<th scope="col">Conta</th>`:""}<th class="n" scope="col">Quando</th><th class="n" scope="col">Views</th><th class="n" scope="col">Alcance</th><th class="n" scope="col">Respostas</th><th class="n" scope="col">Compart.</th><th class="n" scope="col">Interações</th><th scope="col">Link</th></tr></thead><tbody>${sBody}</tbody></table></div>
-    <p class="section-note">O Instagram só entrega stories por 24 horas; o painel guarda os números de cada story que viu no ar.</p>`:`<div class="empty">Nenhum story registrado ainda.</div>`}`
+    ${stories.length?`<div class="tbl-wrap"><table><thead><tr><th scope="col"><span style="position:absolute;left:-9999px">Imagem</span></th>${col?`<th scope="col">Conta</th>`:""}<th scope="col">Desempenho</th><th class="n" scope="col">Quando</th><th class="n" scope="col">Views</th><th class="n" scope="col">Alcance</th><th class="n" scope="col">Respostas</th><th class="n" scope="col">Compart.</th><th class="n" scope="col">Interações</th><th scope="col">Link</th></tr></thead><tbody>${sBody}</tbody></table></div>
+    <p class="section-note">Stories são comparados com os 5 stories anteriores da conta. O Instagram só entrega stories por 24 horas; o painel guarda os números de cada story que viu no ar.</p>`:`<div class="empty">Nenhum story registrado ainda.</div>`}`
     : `<div class="empty">Os números dos posts publicados aparecem aqui depois da primeira coleta de métricas.</div>`;
 }
 
@@ -696,6 +906,17 @@ function insightsHtml(r, ig){
     <div class="tabs" role="tablist">${[["geral","Visão geral"],["eng","Engajamento"],["pub","Público"]].map(([k,l])=>`<button type="button" role="tab" data-dtab="${k}" aria-selected="${tab===k}">${l}</button>`).join("")}</div>
     ${body}`;
 }
+function cmpHtml(c, isStory){
+  if (!c) return "";
+  const keys = isStory ? STK : CMPK;
+  const linhas = keys.filter(([k])=>c.m[k]).map(([k,l])=>{
+    const m = c.m[k], mx = Math.max(m.v, m.base)*1.15 || 1, L = lvlM(m);
+    return `<div class="cmp-row"><dt>${l}</dt><dd><div class="cmp-bar" role="img" aria-label="${n(m.v)} contra a média de ${n(Math.round(m.base))}"><i class="${L}" style="width:${(100*m.v/mx).toFixed(1)}%"></i><b style="left:${(100*m.base/mx).toFixed(1)}%"></b></div></dd><span class="cmp-v">${n(m.v)} ${dlt(m)}</span></div>`;
+  }).join("");
+  const head = `<div style="display:flex;justify-content:space-between;gap:8px;align-items:center;flex-wrap:wrap"><p class="h4" style="margin:0">Perto dos anteriores</p>${verdHtml(c)}</div>`;
+  if (!linhas) return `<div class="cmp">${head}<p class="section-note">${c.age < HORA ? "Com menos de 1 hora no ar ainda não dá para comparar." : "Faltam posts anteriores com números para comparar."}</p></div>`;
+  return `<div class="cmp">${head}<dl class="cmp-list">${linhas}</dl><p class="section-note">Barra: este ${isStory?"story":"post"}. Traço escuro: ${(q=>q===1?(isStory?"o story anterior":"o post anterior "+idadeTxt(c.age)):`média dos ${q} ${isStory?"stories anteriores":"posts anteriores "+idadeTxt(c.age)}`)(Math.max(...Object.values(c.m).map(m=>m.n)))}.</p></div>`;
+}
 function openDetail(id){
   const r = rows().find(x=>x.id===id) || (()=>{ const p=(D.agenda?.posts||[]).find(x=>x.id===id); return p?{...p,eff:effStatus(p),kind:"agenda"}:null; })();
   if(!r) return;
@@ -721,7 +942,7 @@ function openDetail(id){
   const t = thumbOf(r) || (det && D.img["ig:"+det.id]);
   $("d-body").innerHTML = `
     ${t?`<img class="big-thumb" src="${esc(t)}" alt="Prévia do post" style="max-height:300px">`:""}
-    ${ig?.insights ? insightsHtml(r, ig) : ""}
+    ${ig?.insights ? cmpHtml(ig.produto==="STORY" ? compareStory(ig, r.conta) : compare(ig, r.conta), ig.produto==="STORY") + insightsHtml(r, ig) : ""}
     ${(canPublish(r)||canMark(r)||actMsg[r.id]||confirmId===r.id)?`<div>${actionsHtml({...r, link:null})}</div>`:""}
     <dl class="meta">${items.map(([k,v])=>`<dt>${esc(k)}</dt><dd>${v}</dd>`).join("")}</dl>
     ${r.legenda?`<pre class="cap-full">${esc(r.legenda)}</pre>`:""}
@@ -756,8 +977,8 @@ async function markPosted(id){
   render(); refreshDetail();
 }
 async function refreshAll(){
-  const b = $("b-refresh"); b.disabled = true; $("req").className = "msg"; $("req").textContent = "Pedindo os números ao Instagram…";
-  try { await post("/api/metricas"); $("req").className="msg ok"; $("req").textContent = "Coleta iniciada. Os números novos chegam em cerca de 1 minuto."; later(75_000); }
+  const b = $("b-refresh"); b.disabled = true; $("req").className = "msg"; $("req").textContent = "Checando os tokens e pedindo os números ao Instagram…";
+  try { await post("/api/metricas"); $("req").className="msg ok"; $("req").textContent = "Checagem iniciada. A luz e os números novos chegam em cerca de 1 minuto."; later(75_000); }
   catch(e){ $("req").className="msg err"; $("req").textContent = e.message; }
   b.disabled = false;
 }
@@ -772,6 +993,12 @@ function renderSync(){
   $("sync").textContent = parts.length ? parts.join(" · ") : (D.agenda ? "" : "Carregando…");
 }
 function render(){
+  CMP.clear();
+  for (const [id,k] of [["fa-pb","pontes_brain"],["fa-gh","GiraHub"]]){
+    const ph = D.img["perfil:"+k] || "", el = $(id);
+    if (el.dataset.ph !== ph){ el.dataset.ph = ph; el.innerHTML = (ph?`<img src="${esc(ph)}" alt="">`:`<span class="dot ${ACC[k].cls}"></span>`) + esc(ACC[k].label); }
+  }
+  renderConns();
   document.querySelectorAll("#f-acc button").forEach(b=>b.setAttribute("aria-pressed", b.dataset.v===S.acc));
   document.querySelectorAll("#f-view button").forEach(b=>b.setAttribute("aria-pressed", b.dataset.v===S.view));
   renderSync(); renderAccounts(); bindCharts($("accounts"));
@@ -784,6 +1011,7 @@ document.addEventListener("click", e=>{
   if (b.closest("#f-acc")) { S.acc=b.dataset.v; save(); render(); return; }
   if (b.closest("#f-view")) { S.view=b.dataset.v; try{ history.replaceState(null,"","#"+S.view); }catch(_){ location.hash=S.view; } render(); return; }
   if (b.id==="b-refresh") { refreshAll(); return; }
+  if (b.dataset.conn) { S.acc=b.dataset.conn; save(); render(); document.querySelector(`.acct[data-a="${b.dataset.conn}"]`)?.scrollIntoView({behavior:"smooth", block:"center"}); return; }
   if (b.id==="b-sair") { post("/api/sair").catch(()=>{}).finally(showLogin); return; }
   if (b.id==="prev"||b.id==="next"){ S.m += b.id==="prev"?-1:1; if(S.m<0){S.m=11;S.y--;} if(S.m>11){S.m=0;S.y++;} render(); return; }
   if (b.dataset.day){ S.view="fila"; render(); return; }
@@ -799,6 +1027,7 @@ document.addEventListener("click", e=>{
   if (b.dataset.id){ openDetail(b.dataset.id); return; }
   if (b.id==="d-close") closeDetail();
 });
+document.addEventListener("change", e=>{ if (e.target.id==="sort-sel"){ S.sort = {k:e.target.value, dir:-1}; render(); } });
 $("panel").addEventListener("click", e=>{ if(e.target.id==="panel") closeDetail(); });
 document.addEventListener("keydown", e=>{ if(e.key==="Escape" && !$("panel").hidden) closeDetail(); });
 window.addEventListener("hashchange", ()=>{ fromHash(); render(); });
