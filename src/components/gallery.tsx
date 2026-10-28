@@ -1,16 +1,28 @@
 import { useEffect, useRef, useState } from "react";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { ChevronLeft, ChevronRight, Expand } from "lucide-react";
+import { Lightbox } from "@/components/lightbox";
 import { Button } from "@/components/ui/button";
 import type { GalItem } from "@/lib/model";
 import { cn } from "@/lib/utils";
 
 /** Carrossel do detalhe: desliza com o dedo, setas no computador, pontos e contador. */
-export function Gallery({ items, single }: { items: GalItem[] | null; single?: string | null }) {
+export function Gallery({ items, single, titulo = "Mídia do post" }: { items: GalItem[] | null; single?: string | null; titulo?: string }) {
   const track = useRef<HTMLDivElement>(null);
   const [i, setI] = useState(0);
+  const [lb, setLb] = useState<number | null>(null);
   const k = items?.length || 0;
   useEffect(() => { setI(0); track.current?.scrollTo({ left: 0 }); }, [items]);
-  if (!k) return single ? <img src={single} alt="Prévia do post" className="max-h-80 self-start rounded-lg border" /> : null;
+  const abrir = (j: number) => { track.current?.querySelectorAll("video").forEach((v) => v.pause()); setLb(j); };
+  const caixa = (lista: GalItem[]) => <Lightbox items={lista} start={lb ?? 0} open={lb !== null} onOpenChange={(o) => !o && setLb(null)} titulo={titulo} />;
+  if (!k) return single ? (
+    <>
+      <button type="button" onClick={() => abrir(0)} className="group relative self-start overflow-hidden rounded-lg border focus-visible:ring-[3px] focus-visible:ring-ring/50 focus-visible:outline-none" aria-label="Ver a imagem em tela cheia">
+        <img src={single} alt="Prévia do post" className="max-h-80 transition-transform group-hover:scale-[1.02]" />
+        <Amplia />
+      </button>
+      {caixa([{ img: single }])}
+    </>
+  ) : null;
   const go = (j: number) => { const t = track.current; if (!t) return; j = Math.max(0, Math.min(k - 1, j)); t.scrollTo({ left: j * t.clientWidth, behavior: "smooth" }); };
   const onScroll = () => {
     const t = track.current; if (!t) return;
@@ -32,9 +44,17 @@ export function Gallery({ items, single }: { items: GalItem[] | null; single?: s
         {items!.map((m, j) => (
           <figure key={j} className="m-0 flex aspect-[4/5] max-h-[62vh] w-full shrink-0 snap-center items-center justify-center">
             {m.video ? (
-              <video src={m.video} poster={m.capa} controls playsInline muted preload="metadata" aria-label={`Vídeo ${j + 1} de ${k}`} className="size-full object-contain" />
+              <span className="relative size-full">
+                <video src={m.video} poster={m.capa} controls playsInline muted preload="metadata" aria-label={`Vídeo ${j + 1} de ${k}`} className="size-full object-contain" />
+                <button type="button" onClick={() => abrir(j)} className="absolute top-2 right-2 inline-flex items-center gap-1.5 rounded-md bg-black/55 px-2.5 py-1.5 text-sm font-medium text-white hover:bg-black/70 focus-visible:ring-[3px] focus-visible:ring-ring/50 focus-visible:outline-none" aria-label={`Ver o vídeo ${j + 1} em tela cheia`}>
+                  <Expand className="size-4" aria-hidden />Tela cheia
+                </button>
+              </span>
             ) : (
-              <img src={m.img} alt={`Imagem ${j + 1} de ${k}`} loading={j < 2 ? "eager" : "lazy"} className="size-full object-contain" />
+              <button type="button" onClick={() => abrir(j)} className="group relative size-full cursor-zoom-in focus-visible:outline-none" aria-label={`Ver a imagem ${j + 1} de ${k} em tela cheia`}>
+                <img src={m.img} alt={`Imagem ${j + 1} de ${k}`} loading={j < 2 ? "eager" : "lazy"} className="size-full object-contain" />
+                <Amplia />
+              </button>
             )}
           </figure>
         ))}
@@ -54,6 +74,16 @@ export function Gallery({ items, single }: { items: GalItem[] | null; single?: s
           </div>
         </>
       ) : null}
+      {caixa(items!)}
     </div>
+  );
+}
+
+/** Selo "ampliar" no canto da mídia, mais visível no hover. */
+function Amplia() {
+  return (
+    <span className="pointer-events-none absolute top-2 right-2 inline-flex items-center gap-1.5 rounded-md bg-black/55 px-2 py-1 text-xs font-medium text-white opacity-80 transition-opacity group-hover:opacity-100" aria-hidden>
+      <Expand className="size-3.5" />Ampliar
+    </span>
   );
 }
