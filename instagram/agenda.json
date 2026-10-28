@@ -93,7 +93,9 @@
    "midia": [
     "midia/girahub/gh-1028-2000-01.jpg"
    ],
-   "postizId": "cmvi89e560i0yta0y9x7pvd9o"
+   "postizId": "cmvi89e560i0yta0y9x7pvd9o",
+   "tentativas": 1,
+   "erro": "/me/media: Only photo or video can be accepted as media type. (The media could not be fetched from this URI: https://cdn.jsdelivr.net/gh/leonfpontes/insta_report@92cb6a8b7ddd51ba60dd3703e87163b4e0bfc8f1/instagram/midia/girahub/gh-1028-2000-01.jpg.Please check the limitations section in our development document for more information: https://developers.facebook.com/docs/instagram-platform/instagram-graph-api/reference/ig-user/media#creating)"
   },
   {
    "id": "gh-1028-2100",
