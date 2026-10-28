@@ -102,15 +102,17 @@ function midiaParams(arquivo) {
 async function montar(post, token) {
   const arquivos = post.midia;
   if (!arquivos?.length) throw new Error("post sem mídia");
+  // Collab: convite para até 3 contas; o post só aparece no perfil delas depois do aceite.
+  const colab = post.colaboradores?.length ? { collaborators: JSON.stringify(post.colaboradores) } : {};
   if (post.formato === "story" || post.formato === "story-video") {
     return (await api("POST", "/me/media", { media_type: "STORIES", ...midiaParams(arquivos[0]) }, token)).id;
   }
   if (post.formato === "reel") {
     const capa = post.capa ? { cover_url: urlMidia(post.capa) } : {};
-    return (await api("POST", "/me/media", { media_type: "REELS", caption: post.legenda, ...capa, ...midiaParams(arquivos[0]) }, token)).id;
+    return (await api("POST", "/me/media", { media_type: "REELS", caption: post.legenda, ...colab, ...capa, ...midiaParams(arquivos[0]) }, token)).id;
   }
   if (arquivos.length === 1) {
-    return (await api("POST", "/me/media", { caption: post.legenda, ...midiaParams(arquivos[0]) }, token)).id;
+    return (await api("POST", "/me/media", { caption: post.legenda, ...colab, ...midiaParams(arquivos[0]) }, token)).id;
   }
   if (arquivos.length > 20) throw new Error("carrossel com mais de 20 itens");
   const filhos = [];
@@ -120,7 +122,7 @@ async function montar(post, token) {
     filhos.push(id);
   }
   for (const id of filhos) await aguardarContainer(id, token);
-  return (await api("POST", "/me/media", { media_type: "CAROUSEL", children: filhos.join(","), caption: post.legenda }, token)).id;
+  return (await api("POST", "/me/media", { media_type: "CAROUSEL", children: filhos.join(","), caption: post.legenda, ...colab }, token)).id;
 }
 
 /** Já está no perfil? Evita post duplicado se outro publicador (ex.: Postiz) soltou antes. */
