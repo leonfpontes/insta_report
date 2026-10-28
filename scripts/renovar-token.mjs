@@ -42,7 +42,7 @@ if (problemas.length) {
     await fetch("https://api.resend.com/emails", {
       method: "POST",
       headers: { Authorization: `Bearer ${key}`, "Content-Type": "application/json" },
-      body: JSON.stringify({ from: "Agenda Instagram <monitor@app.leopontes.com.br>", to: [to], subject: "Instagram: token precisa de atenção", text: problemas.join("\n") }),
+      body: JSON.stringify({ from: "Agenda Instagram <alertas@leopontes.com.br>", to: [to], subject: "Instagram: token precisa de atenção", text: problemas.join("\n") }),
     });
   }
   process.exitCode = 1;
