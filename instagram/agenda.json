@@ -1408,14 +1408,17 @@
    "conta": "leopontesrp",
    "quando": "2026-10-28T18:12:00-03:00",
    "formato": "post",
-   "status": "agendado",
+   "status": "publicado",
    "titulo": "Noite das alianças, com a cidade ao fundo",
    "legenda": "Noite de trocar alianças. 💍\n\nJantar especial, a cidade acesa lá embaixo e a melhor companhia do lado, @camilacgod. Aprendendo a viver a vida, um momento desses de cada vez. ✨\n\n#aliancas #noiteespecial #momentos",
    "midia": [
     "midia/leopontesrp/lp-1028-1812.jpg"
    ],
    "tentativas": 1,
-   "erro": "/me/media: Invalid user id (The following user(s) cannot be accessed: camilacgod)"
+   "erro": null,
+   "publicadoEm": "2026-10-28T21:21:17.414Z",
+   "midiaId": "17922570423443489",
+   "link": "https://www.instagram.com/p/DfDYpWImhcs/"
   }
  ]
 }
