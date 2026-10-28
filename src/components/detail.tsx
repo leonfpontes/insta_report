@@ -185,7 +185,7 @@ function Body({ r }: { r: Row }) {
   const story = r.formato.startsWith("story");
   return (
     <div className="flex flex-col gap-5">
-      {m.gallery(r) || capa ? <Gallery items={m.gallery(r)} single={capa} /> : (
+      {m.gallery(r) || capa ? <Gallery items={m.gallery(r)} single={capa} titulo={`${ACC[r.conta]?.label ?? r.conta} · ${cleanTitle(r.titulo, r.legenda)}`} /> : (
         <div className="flex aspect-[4/5] max-h-72 flex-col items-center justify-center gap-1 rounded-xl border border-dashed bg-muted/50 p-6 text-center text-sm text-muted-foreground">
           <b className="font-medium text-ink">A arte deste {story ? "story" : "post"} ainda não está na agenda</b>
           Quando a mídia entrar na agenda, ela aparece aqui para ver e baixar.
