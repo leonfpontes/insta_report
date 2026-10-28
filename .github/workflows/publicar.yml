@@ -3,7 +3,7 @@ name: Publicar
 # A cada 10 minutos publica o que chegou na hora em instagram/agenda.json (scripts/publicar.mjs)
 # e grava o resultado de volta na main (commit "[instagram]", que a Vercel ignora). O botão
 # "Publicar agora" do painel dispara este workflow com o id do post.
-# Segredos: IG_TOKEN_PONTES_BRAIN, IG_TOKEN_GIRAHUB, RESEND_API_KEY, ALERTA_EMAIL.
+# Segredos: IG_TOKEN_PONTES_BRAIN, IG_TOKEN_GIRAHUB, IG_TOKEN_LEOPONTESRP, RESEND_API_KEY, ALERTA_EMAIL.
 # O GitHub pode atrasar o agendamento alguns minutos em horário de pico.
 
 on:
@@ -50,6 +50,7 @@ jobs:
         env:
           IG_TOKEN_PONTES_BRAIN: ${{ secrets.IG_TOKEN_PONTES_BRAIN }}
           IG_TOKEN_GIRAHUB: ${{ secrets.IG_TOKEN_GIRAHUB }}
+          IG_TOKEN_LEOPONTESRP: ${{ secrets.IG_TOKEN_LEOPONTESRP }}
           RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
           ALERTA_EMAIL: ${{ secrets.ALERTA_EMAIL }}
           SOMENTE: ${{ inputs.post }}
