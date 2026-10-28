@@ -1,7 +1,6 @@
 import { useMemo, useState } from "react";
-import { ChevronRight, Search, TriangleAlert } from "lucide-react";
+import { ChevronRight, TriangleAlert } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
 import { Empty, PostPhoto, StatusBadge, Verdict } from "@/components/bits";
 import { MarkButton, PublishButton } from "@/components/actions";
 import { usePainel } from "@/lib/ctx";
@@ -12,7 +11,7 @@ import { cn } from "@/lib/utils";
 const acaoNaLinha = (r: Row) => ["falhou", "atrasado"].includes(r.eff) || +new Date(r.quando) - Date.now() < 24 * HORA;
 
 export function QueueRow({ r, showDate }: { r: Row; showDate?: boolean }) {
-  const { m, acc, open, saindo } = usePainel();
+  const { m, ativas, open, saindo } = usePainel();
   const c = r.eff === "publicado" ? m.cmpOfRow(r) : null;
   const inline = acaoNaLinha(r);
   return (
@@ -28,7 +27,7 @@ export function QueueRow({ r, showDate }: { r: Row; showDate?: boolean }) {
               <StatusBadge eff={r.eff} saindo={!!saindo[r.id]} />
               {c ? <Verdict c={c} compact /> : null}
               <span>{FMT[r.formato] || r.formato}{r.itens && r.itens > 1 ? ` · ${r.itens} itens` : ""}</span>
-              {acc === "all" ? <span>{ACC[r.conta].label}</span> : null}
+              {ativas.length > 1 ? <span>{ACC[r.conta].label}</span> : null}
             </span>
             {r.erro ? <span className="text-sm text-crit">{r.erro}</span> : null}
           </span>
@@ -58,12 +57,11 @@ function Group({ title, rows, tone, note }: { title: string; rows: Row[]; tone?:
 }
 
 export function FilaView() {
-  const { m, acc } = usePainel();
-  const [q, setQ] = useState("");
+  const { m, ativas, todas, q } = usePainel();
   const [dias, setDias] = useState(5);
   const today = todayStr();
   const { attention, byDay, restantes } = useMemo(() => {
-    const all = m.rows(acc).filter((r) => r.kind === "agenda");
+    const all = m.rows(ativas).filter((r) => r.kind === "agenda");
     const busca = q.trim().toLowerCase();
     const hit = (r: Row) => !busca || (r.titulo + " " + (r.legenda || "")).toLowerCase().includes(busca);
     const attention = all.filter((r) => ["falhou", "atrasado", "pendente"].includes(r.eff) && hit(r)).sort((a, b) => a.quando.localeCompare(b.quando));
@@ -72,7 +70,7 @@ export function FilaView() {
     const byDay = new Map<string, Row[]>();
     up.forEach((r) => { const k = dayKey(r.quando); byDay.set(k, [...(byDay.get(k) || []), r]); });
     return { attention, byDay, restantes: up.length };
-  }, [m, acc, q, today]);
+  }, [m, ativas.join(), q, today]); // eslint-disable-line
   const keys = [...byDay.keys()];
   const shown = q ? keys : keys.filter((k) => k <= addDays(today, dias - 1));
   const hidden = keys.length - shown.length;
@@ -82,13 +80,9 @@ export function FilaView() {
 
   return (
     <div className="flex flex-col gap-5">
-      <div className="relative">
-        <Search className="pointer-events-none absolute top-1/2 left-3 size-4 -translate-y-1/2 text-muted-foreground" aria-hidden />
-        <Input id="busca-fila" type="search" value={q} onChange={(e) => setQ(e.target.value)} placeholder="Buscar na fila pelo título ou legenda" className="h-10 bg-card pl-9" aria-label="Buscar na fila" />
-      </div>
       {attention.length ? <Group title="Precisa de atenção" rows={attention} tone="crit" /> : null}
       {!restantes && !attention.length ? (
-        <Empty>{q ? "Nada na fila com essa busca." : `Nada na fila a partir de hoje${acc === "all" ? "" : " para esta conta"}.`}</Empty>
+        <Empty>{q ? "Nada na fila com essa busca." : `Nada na fila a partir de hoje${todas ? "" : ativas.length > 1 ? " para estas contas" : " para esta conta"}.`}</Empty>
       ) : null}
       {shown.map((k) => (
         <Group key={k} title={dayTitle(k)} rows={byDay.get(k)!} note={k === today && nextUp ? `próximo às ${hm(nextUp.quando)}` : undefined} />

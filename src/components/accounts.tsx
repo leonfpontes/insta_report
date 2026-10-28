@@ -6,7 +6,7 @@ import { Lamp } from "@/components/bits";
 import { TimeLine } from "@/components/timeline";
 import { usePainel } from "@/lib/ctx";
 import { useDesktop } from "@/hooks/use-media";
-import { ACC, CONTAS, FMT, cleanTitle, ddmmhm, lvl, n, pctAbs, todayStr, type Conta } from "@/lib/model";
+import { ACC, FMT, cleanTitle, ddmmhm, lvl, n, pctAbs, todayStr, type Conta } from "@/lib/model";
 import { cn } from "@/lib/utils";
 
 /** Variação da semana contra a média semanal das 3 semanas anteriores (só com 28 dias de dados). */
@@ -63,7 +63,7 @@ function useConta(k: Conta) {
 }
 
 function AccountCard({ k }: { k: Conta }) {
-  const { setAcc } = usePainel();
+  const { so } = usePainel();
   const desktop = useDesktop();
   const [open, setOpen] = useState(false);
   const { pf, r7, r28, seg, next, last, fails, pend, queued, cx, photo, reach, reachPts, temReach } = useConta(k);
@@ -102,7 +102,7 @@ function AccountCard({ k }: { k: Conta }) {
         {cx.cls === "off" || cx.cls === "velho" ? <p className="mx-4 mb-3 rounded-md bg-crit-soft px-3 py-2 text-sm text-crit">{cx.det}</p> : null}
         {fails || pend ? (
           <div className="mx-4 mb-3 flex flex-col gap-1 rounded-md bg-warn-soft px-3 py-2 text-sm">
-            {fails ? <button type="button" className="inline-flex items-center gap-1.5 text-left font-medium text-crit underline-offset-3 hover:underline" onClick={() => { setAcc(k); location.hash = "fila"; }}><TriangleAlert className="size-4" aria-hidden />{fails} post{fails > 1 ? "s" : ""} com falha ou atraso. Ver na Fila.</button> : null}
+            {fails ? <button type="button" className="inline-flex items-center gap-1.5 text-left font-medium text-crit underline-offset-3 hover:underline" onClick={() => { so(k); location.hash = "fila"; }}><TriangleAlert className="size-4" aria-hidden />{fails} post{fails > 1 ? "s" : ""} com falha ou atraso. Ver na Fila.</button> : null}
             {pend ? <span className="text-warn">{pend} stor{pend > 1 ? "ies" : "y"} à mão sem registro de postagem.</span> : null}
           </div>
         ) : null}
@@ -153,7 +153,7 @@ function AccountCard({ k }: { k: Conta }) {
 
 /** Uma linha por conta no modo "Todas": cabe qualquer número de contas sem empurrar a fila para baixo. */
 function OverviewRow({ k }: { k: Conta }) {
-  const { setAcc } = usePainel();
+  const { so } = usePainel();
   const { pf, r7, r28, seg, next, fails, pend, queued, cx, photo } = useConta(k);
   const d = weekDelta(r7, r28, "reach");
   const tone = cx.cls === "off" ? "text-crit" : cx.cls === "velho" ? "text-warn" : "text-muted-foreground";
@@ -161,7 +161,7 @@ function OverviewRow({ k }: { k: Conta }) {
     <li data-a={k}>
       <button
         type="button"
-        onClick={() => setAcc(k)}
+        onClick={() => so(k)}
         className="grid w-full grid-cols-[auto_1fr_auto_auto] items-center gap-x-3 gap-y-2 border-l-[3px] border-l-[var(--c)] px-4 py-3 text-left transition-colors hover:bg-accent/60 focus-visible:bg-accent focus-visible:outline-none md:grid-cols-[minmax(0,1.5fr)_repeat(4,minmax(0,1fr))_minmax(0,1.6fr)_auto] md:gap-x-4"
         aria-label={`${ACC[k].label}: ${cx.txt}. ${n(pf.followers_count)} seguidores, ${n(r7.reach)} contas alcançadas em 7 dias. Ver só esta conta.`}
       >
@@ -201,24 +201,24 @@ function Cell({ v }: { v: React.ReactNode }) {
 }
 
 export function Accounts() {
-  const { m, acc } = usePainel();
-  const cxs = CONTAS.map((k) => m.conexao(k).cls);
+  const { m, ativas } = usePainel();
+  const cxs = ativas.map((k) => m.conexao(k).cls);
   const off = cxs.filter((c) => c === "off").length, on = cxs.filter((c) => c === "on").length;
-  if (acc !== "all" || CONTAS.length < 2) {
-    const k = acc === "all" ? CONTAS[0] : acc;
+  if (ativas.length < 2) {
+    const k = ativas[0];
     return k ? <section aria-label="Conta"><AccountCard k={k} /></section> : null;
   }
   const H = ({ c, r }: { c: string; r?: boolean }) => <span className={cn("text-xs font-medium tracking-wide text-muted-foreground uppercase", r && "")}>{c}</span>;
   return (
     <Card className="gap-0 overflow-hidden py-0" aria-labelledby="contas-tit">
       <div className="flex items-baseline justify-between gap-3 border-b px-4 py-2.5">
-        <h2 id="contas-tit" className="text-sm font-medium text-ink">{CONTAS.length} contas <span className={cn("font-normal", off ? "text-crit" : "text-muted-foreground")}>· {off ? `${off} desconectada${off > 1 ? "s" : ""}` : `${on} conectada${on === 1 ? "" : "s"}`}</span></h2>
+        <h2 id="contas-tit" className="text-sm font-medium text-ink">{ativas.length} contas <span className={cn("font-normal", off ? "text-crit" : "text-muted-foreground")}>· {off ? `${off} desconectada${off > 1 ? "s" : ""}` : `${on} conectada${on === 1 ? "" : "s"}`}</span></h2>
         <span className="text-xs text-muted-foreground max-md:hidden">Clique numa conta para ver os números dela</span>
       </div>
       <div className="hidden grid-cols-[minmax(0,1.5fr)_repeat(4,minmax(0,1fr))_minmax(0,1.6fr)_auto] gap-x-4 border-b px-4 py-2 pl-[calc(1rem+3px)] md:grid" aria-hidden>
         <H c="Conta" /><H c="Seguidores · 7 dias" /><H c="Alcance 7 dias" /><H c="Interações 7 dias" /><H c="Na fila" /><H c="Próximo" /><span className="w-4" />
       </div>
-      <ul className="divide-y">{CONTAS.map((k) => <OverviewRow key={k} k={k} />)}</ul>
+      <ul className="divide-y">{ativas.map((k) => <OverviewRow key={k} k={k} />)}</ul>
     </Card>
   );
 }

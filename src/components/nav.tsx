@@ -1,9 +1,8 @@
-import { Activity, BarChart3, CalendarDays, ListTodo } from "lucide-react";
+import { Activity, BarChart3, CalendarDays, ListTodo, Search } from "lucide-react";
 import { TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
+import { Input } from "@/components/ui/input";
 import { usePainel, type View } from "@/lib/ctx";
 
-import { ACC, CONTAS, type Conta } from "@/lib/model";
 import { cn } from "@/lib/utils";
 
 const ITEMS: { v: View; l: string; Icon: typeof ListTodo }[] = [
@@ -15,8 +14,8 @@ const ITEMS: { v: View; l: string; Icon: typeof ListTodo }[] = [
 
 /** Contador de itens que pedem atenção, para o selo da aba Fila. */
 function useAtencao() {
-  const { m, acc } = usePainel();
-  return m.rows(acc).filter((r) => r.kind === "agenda" && ["falhou", "atrasado", "pendente"].includes(r.eff)).length;
+  const { m, ativas } = usePainel();
+  return m.rows(ativas).filter((r) => r.kind === "agenda" && ["falhou", "atrasado", "pendente"].includes(r.eff)).length;
 }
 
 /** Abas do computador; o painel de cada aba está em App (TabsContent). */
@@ -60,22 +59,23 @@ export function BottomNav({ view, setView }: { view: View; setView: (v: View) =>
   );
 }
 
-/** Filtro de conta. No celular, as contas não escolhidas ficam só com a foto para caberem 3 ou mais numa linha. */
-export function AccountFilter() {
-  const { m, acc, setAcc } = usePainel();
+const BUSCA: Record<View, string> = {
+  fila: "Buscar na fila",
+  calendario: "Buscar no calendário",
+  publicados: "Buscar nos publicados",
+  execucoes: "Buscar nos posts com erro",
+};
+
+/** Busca (a mesma em todas as visões) e, no computador, as abas ao lado. */
+export function Toolbar({ view }: { view: View }) {
+  const { q, setQ } = usePainel();
   return (
-    <ToggleGroup type="single" variant="outline" value={acc} onValueChange={(v) => v && setAcc(v as Conta | "all")} aria-label="Conta" className="no-scrollbar w-full justify-start overflow-x-auto md:w-auto [&>*]:bg-card [&>*[data-state=on]]:bg-accent">
-      <ToggleGroupItem value="all" className="h-10 px-3">Todas</ToggleGroupItem>
-      {CONTAS.map((k) => {
-        const av = m.avatar(k);
-        const on = acc === k;
-        return (
-          <ToggleGroupItem key={k} value={k} data-a={k} className={cn("h-10 gap-2 px-2.5 md:px-3", !on && "max-md:flex-none")} aria-label={ACC[k].label} title={ACC[k].label}>
-            {av ? <img src={av} alt="" className="size-6 rounded-full object-cover shadow-[0_0_0_1.5px_var(--c)] md:size-5" /> : <span className="size-6 rounded-full bg-[var(--c)] md:size-5" />}
-            <span className={cn("max-w-32 truncate", !on && "max-md:sr-only")}>{ACC[k].short}</span>
-          </ToggleGroupItem>
-        );
-      })}
-    </ToggleGroup>
+    <div className="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
+      <div className="relative md:w-80 lg:w-96">
+        <Search className="pointer-events-none absolute top-1/2 left-3 size-4 -translate-y-1/2 text-muted-foreground" aria-hidden />
+        <Input id="busca" type="search" value={q} onChange={(e) => setQ(e.target.value)} placeholder={`${BUSCA[view]}…`} className="h-10 bg-card pl-9" aria-label={`${BUSCA[view]} pelo título ou legenda`} />
+      </div>
+      <ViewTabs />
+    </div>
   );
 }

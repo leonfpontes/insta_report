@@ -36,3 +36,18 @@ export async function entrar(senha: string) {
     throw new Error(j.erro || "Não consegui entrar.");
   }
 }
+
+export type Rodada = Dados["execucoes"]["runs"][number];
+export interface Rodadas { runs: Rodada[]; total: number; pagina: number; porPagina: number }
+
+/** Histórico das rodadas, em páginas; de e ate são datas AAAA-MM-DD no horário de Brasília. */
+export async function lerExecucoes(pagina: number, de?: string, ate?: string): Promise<Rodadas> {
+  const p = new URLSearchParams({ pagina: String(pagina) });
+  if (de) p.set("de", de);
+  if (ate) p.set("ate", ate);
+  const r = await fetch("/api/execucoes?" + p, { credentials: "same-origin", cache: "no-store" });
+  if (r.status === 401) throw new SemSessao();
+  const j = await r.json().catch(() => ({}));
+  if (!r.ok) throw new Error(j.erro || "Não consegui ler as rodadas agora.");
+  return j as Rodadas;
+}

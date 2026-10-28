@@ -1,14 +1,13 @@
 import { useMemo, useState } from "react";
-import { ArrowDown, ArrowUp, ChevronDown, ExternalLink, Info, Search } from "lucide-react";
+import { ArrowDown, ArrowUp, ChevronDown, ExternalLink, Info } from "lucide-react";
 import { Card } from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { Delta, Empty, PostPhoto, Verdict } from "@/components/bits";
 import { usePainel } from "@/lib/ctx";
 import { useDesktop } from "@/hooks/use-media";
-import { ACC, CONTAS, DIA, IGFMT, cleanTitle, ddmmhm, lvlM, n, pct, val, type Cmp, type Conta, type IgMedia } from "@/lib/model";
+import { ACC, DIA, IGFMT, cleanTitle, ddmmhm, lvlM, n, pct, val, type Cmp, type Conta, type IgMedia } from "@/lib/model";
 import { cn } from "@/lib/utils";
 
 type P = IgMedia & { conta: Conta };
@@ -53,12 +52,11 @@ function NumCell({ p, c, k }: { p: P; c: Cmp; k: string }) {
 }
 
 export function PublicadosView() {
-  const { m, acc, open } = usePainel();
+  const { m, ativas, open, q } = usePainel();
   const desktop = useDesktop();
   const [sort, setSort] = useState<{ k: string; dir: 1 | -1 }>({ k: "quando", dir: -1 });
-  const [q, setQ] = useState("");
-  const contas = CONTAS.filter((c) => acc === "all" || c === acc);
-  const posts: P[] = useMemo(() => contas.flatMap((c) => m.igPosts(c).map((p) => ({ ...p, conta: c }))), [m, acc]); // eslint-disable-line
+  const contas = ativas;
+  const posts: P[] = useMemo(() => contas.flatMap((c) => m.igPosts(c).map((p) => ({ ...p, conta: c }))), [m, ativas.join()]); // eslint-disable-line
   const cmps = useMemo(() => new Map(posts.map((p) => [p.id, m.compare(p, p.conta)])), [posts, m]);
   const busca = q.trim().toLowerCase();
   const list = posts.filter((p) => !busca || (p.legenda || "").toLowerCase().includes(busca));
@@ -94,10 +92,6 @@ export function PublicadosView() {
       </section>
 
       <div className="flex flex-col gap-2 md:flex-row md:items-center">
-        <div className="relative flex-1">
-          <Search className="pointer-events-none absolute top-1/2 left-3 size-4 -translate-y-1/2 text-muted-foreground" aria-hidden />
-          <Input id="busca-pub" type="search" value={q} onChange={(e) => setQ(e.target.value)} placeholder="Buscar pela legenda" className="h-10 bg-card pl-9" aria-label="Buscar posts publicados" />
-        </div>
         {!desktop ? (
           <Select value={sort.k} onValueChange={(k) => setSort({ k, dir: -1 })}>
             <SelectTrigger className="h-10 w-full bg-card" aria-label="Ordenar por"><span className="text-muted-foreground">Ordenar:</span> <SelectValue /></SelectTrigger>
@@ -127,7 +121,7 @@ export function PublicadosView() {
                         <PostPhoto conta={p.conta} src={m.d.imagens["ig:" + p.id]} label={fmtOf(p)} size={44} avatar={m.avatar(p.conta)} />
                         <div className="flex min-w-0 flex-col gap-0.5">
                           <button type="button" onClick={() => openP(p)} className="line-clamp-2 text-left font-medium text-ink hover:underline">{cleanTitle((p.legenda || "(sem legenda)").split("\n")[0])}</button>
-                          <span className="text-xs text-muted-foreground">{fmtOf(p)}{p.itens && p.itens > 1 ? ` · ${p.itens} itens` : ""}{acc === "all" ? ` · ${ACC[p.conta].label}` : ""}</span>
+                          <span className="text-xs text-muted-foreground">{fmtOf(p)}{p.itens && p.itens > 1 ? ` · ${p.itens} itens` : ""}{contas.length > 1 ? ` · ${ACC[p.conta].label}` : ""}</span>
                         </div>
                       </div>
                     </TableCell>
@@ -180,7 +174,7 @@ export function PublicadosView() {
                 <Card key={s.id} data-a={s.conta} className="flex-row items-center gap-3 px-3 py-2.5">
                   <PostPhoto conta={s.conta} src={m.d.imagens["ig:" + s.id]} label="Story" size={44} avatar={m.avatar(s.conta)} />
                   <div className="flex min-w-0 flex-1 flex-col gap-1">
-                    <span className="flex flex-wrap items-center gap-2 text-sm"><span className="num text-ink">{ddmmhm(s.quando)}</span><Verdict c={c} compact />{acc === "all" ? <span className="text-muted-foreground">{ACC[s.conta].label}</span> : null}</span>
+                    <span className="flex flex-wrap items-center gap-2 text-sm"><span className="num text-ink">{ddmmhm(s.quando)}</span><Verdict c={c} compact />{contas.length > 1 ? <span className="text-muted-foreground">{ACC[s.conta].label}</span> : null}</span>
                     <span className="flex flex-wrap gap-x-3 text-sm text-muted-foreground">
                       <span><b className="num font-medium text-ink">{n(s.insights?.views)}</b> visualizações <Delta m={c.m.views} /></span>
                       <span><b className="num font-medium text-ink">{n(s.insights?.reach)}</b> alcance <Delta m={c.m.reach} /></span>

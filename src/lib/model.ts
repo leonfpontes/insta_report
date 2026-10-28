@@ -63,6 +63,8 @@ export interface Dados {
   metricas: Partial<Record<Conta, ContaMet>>;
   imagens: Record<string, string>;
   galeria: Record<string, GalItem[]>;
+  /** Mídias originais de cada post (agenda: id; Instagram: ig:<id>). */
+  arquivos?: Record<string, { url: string; nome: string }[]>;
   execucoes: { runs: { id: number; quando: string; evento: string; job: string; resultado: string; link: string }[] };
   lidoEm: string;
 }
@@ -134,7 +136,7 @@ export class Model {
     return p.status as Eff;
   }
   /** Agenda + posts que só aparecem no Instagram, filtrados por conta. */
-  rows(acc: Conta | "all"): Row[] {
+  rows(contas: Conta[] | "all"): Row[] {
     const ag = this.d.agenda?.posts || [];
     const out: Row[] = ag.map((p) => ({ ...p, eff: this.effStatus(p), kind: "agenda" as const }));
     const known = new Set(ag.map((p) => p.midiaId).filter(Boolean));
@@ -146,7 +148,7 @@ export class Model {
         legenda: m.legenda, link: m.link, midiaId: m.id, kind: "ig", itens: m.itens ?? undefined,
       });
     }
-    return out.filter((r) => acc === "all" || r.conta === acc);
+    return contas === "all" ? out : out.filter((r) => contas.includes(r.conta));
   }
   rowById(id: string): Row | null { return this.rows("all").find((r) => r.id === id) || null; }
   thumbOf(r: Row) {
@@ -157,6 +159,12 @@ export class Model {
   igOfRow(r: Row) {
     const det = r.kind === "agenda" ? this.detectedStory(r) : null;
     return (r.midiaId ? this.igById(r.midiaId) : null) || det;
+  }
+  /** Mídias originais para baixar: as da agenda; senão as do post ou story no Instagram. */
+  arquivosOf(r: Row) {
+    const a = this.d.arquivos || {};
+    const ig = this.igOfRow(r);
+    return a[r.id] || (r.midiaId && a["ig:" + r.midiaId]) || (ig && a["ig:" + ig.id]) || [];
   }
   gallery(r: Row) { return this.d.galeria[r.id] || (r.midiaId && this.d.galeria["ig:" + r.midiaId]) || null; }
   canPublish(r: Row) { return r.kind === "agenda" && (r.status === "agendado" || r.status === "falhou") && this.d.agenda?.contas?.[r.conta]?.publicador === "proprio"; }
