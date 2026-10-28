@@ -66,6 +66,7 @@ letra ou número trocado por `_`. Exemplo: `GiraHub` → `IG_TOKEN_GIRAHUB`.
 | `midia` | sim | Caminhos relativos a `instagram/`, na ordem em que aparecem |
 | `capa` | não | Só para `reel`: imagem JPEG usada como capa |
 | `nota` | não | Instruções para a pessoa que vai postar à mão (sticker, música, link) |
+| `colaboradores` | não | Collab: lista de até 3 usuários (sem @). Vale para post, carrossel e reel. O post só aparece no perfil da pessoa depois que ela aceita o convite |
 
 ### Campos escritos pelo publicador
 

@@ -88,6 +88,7 @@ Na maior parte das tarefas, **o seu trabalho é editar a agenda e as mídias, po
 | `legenda` | O texto do post |
 | `midia` | Caminhos relativos a `instagram/`, na ordem |
 | `nota` | Instruções para quem posta à mão. Ex.: "Sticker de enquete: Sim · Não" |
+| `colaboradores` | Collab: até 3 @ sem arroba, ex. `["camilacgod"]`. Feed e reel. A pessoa recebe convite e precisa aceitar |
 
 Use `manual` para story com sticker, enquete, link ou música, que a API não aceita.
 
