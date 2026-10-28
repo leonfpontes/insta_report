@@ -814,6 +814,13 @@ async function load(){
   D.agenda = j.agenda; D.met = j.metricas || {}; D.img = j.imagens || {}; D.runs = j.execucoes; D.lidoEm = j.lidoEm;
   $("login").hidden = true; $("app").hidden = false;
   render(); refreshDetail();
+  // Link do e-mail de alerta: #post-<id> abre o detalhe do post.
+  const h = decodeURIComponent(location.hash.slice(1));
+  if (h.startsWith("post-") && $("panel").hidden) {
+    const id = h.slice(5);
+    if ((D.agenda?.posts||[]).some(p=>p.id===id)) { S.view = "fila"; render(); openDetail(id); }
+    try { history.replaceState(null, "", "#"+S.view); } catch(_) {}
+  }
 }
 $("f-login").addEventListener("submit", async e=>{
   e.preventDefault();

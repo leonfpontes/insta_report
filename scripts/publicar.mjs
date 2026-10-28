@@ -24,6 +24,7 @@
  */
 import fs from "node:fs";
 import path from "node:path";
+import { enviarAlerta } from "./alerta.mjs";
 
 const AGENDA = process.env.AGENDA_ARQUIVO ?? "instagram/agenda.json";
 // jsDelivr no commit exato da rodada: devolve o tipo certo (video/mp4, image/jpeg), que o raw
@@ -140,25 +141,18 @@ async function publicar(post, token) {
   return { midiaId: id, link: permalink ?? null };
 }
 
-async function enviarEmail(assunto, texto) {
-  const key = process.env.RESEND_API_KEY;
-  const to = process.env.ALERTA_EMAIL;
-  if (!key || !to) { console.log(`(sem e-mail configurado) ${assunto}`); return false; }
-  const resposta = await fetch("https://api.resend.com/emails", {
-    method: "POST",
-    headers: { Authorization: `Bearer ${key}`, "Content-Type": "application/json" },
-    body: JSON.stringify({ from: "Agenda Instagram <alertas@leopontes.com.br>", to: [to], subject: assunto, text: texto }),
-    signal: AbortSignal.timeout(15_000),
-  });
-  if (!resposta.ok) console.error(`Resend ${resposta.status}: ${await resposta.text()}`);
-  return resposta.ok;
-}
-
 async function testarAlerta() {
-  const ok = await enviarEmail(
-    "Instagram: alerta de teste",
-    "Teste do alerta do publicador do Instagram (insta_report). Se este e-mail chegou, os avisos de post que falhou e de token vencendo também vão chegar.",
-  );
+  const ok = await enviarAlerta({
+    assunto: "Instagram: alerta de teste",
+    titulo: "Alerta de teste",
+    resumo: "É assim que chega um aviso quando um post não sai. O post abaixo é só um exemplo: nada falhou.",
+    itens: [{
+      conta: "pontes_brain", id: "exemplo", quando: new Date().toISOString(), formato: "carrossel",
+      titulo: "Exemplo: carrossel das 19h", tentativas: 3,
+      erro: "/me/media: Media download has failed. The media URI doesn't meet our requirements.",
+    }],
+    tipo: "aviso",
+  });
   console.log(ok ? `E-mail de teste enviado para ${process.env.ALERTA_EMAIL}.` : "O e-mail de teste não foi enviado.");
   if (!ok) process.exitCode = 1;
 }
@@ -196,13 +190,13 @@ async function main() {
     const rotulo = `${post.id} [${post.conta}] ${post.quando}`;
     if (!SOMENTE && atrasado(post)) {
       Object.assign(post, { status: "falhou", erro: `passou mais de ${JANELA_HORAS} h da hora marcada sem publicar` });
-      falhas.push(`${rotulo}: ${post.erro}`);
+      falhas.push({ ...post, erro: post.erro });
       mudou = true;
       continue;
     }
     const token = process.env[tokenEnv(post.conta)];
     if (!token && !SIMULAR) {
-      falhas.push(`${rotulo}: falta o segredo ${tokenEnv(post.conta)}`);
+      falhas.push({ ...post, erro: `falta o segredo ${tokenEnv(post.conta)}` });
       continue;
     }
     if (SIMULAR) {
@@ -219,17 +213,20 @@ async function main() {
       console.error(`ERRO ${rotulo} (tentativa ${post.tentativas}): ${error.message}`);
       if (post.tentativas >= MAX_TENTATIVAS) {
         post.status = "falhou";
-        falhas.push(`${rotulo}: ${error.message}`);
+        falhas.push({ ...post });
       }
     }
     mudou = true;
   }
   if (mudou && !SIMULAR) fs.writeFileSync(AGENDA, JSON.stringify(agenda, null, 1) + "\n");
   if (falhas.length) {
-    await enviarEmail(
-      `Instagram: ${falhas.length} post(s) não saíram`,
-      `${falhas.join("\n")}\n\nVeja a agenda em instagram/agenda.json e o log em Actions → Publicar.`,
-    );
+    const um = falhas.length === 1;
+    await enviarAlerta({
+      assunto: um ? `Instagram: não saiu "${falhas[0].titulo ?? falhas[0].id}"` : `Instagram: ${falhas.length} posts não saíram`,
+      titulo: um ? "Um post não foi publicado" : `${falhas.length} posts não foram publicados`,
+      resumo: "O publicador tentou e desistiu. O post fica como Falhou na agenda até você publicar de novo pelo painel ou mudar o horário.",
+      itens: falhas,
+    });
     process.exitCode = 1;
   }
 }
