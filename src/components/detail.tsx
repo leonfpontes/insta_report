@@ -1,5 +1,6 @@
 import { useRef, useState } from "react";
-import { ExternalLink, X } from "lucide-react";
+import { Copy, ExternalLink, X } from "lucide-react";
+import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Drawer, DrawerContent, DrawerDescription, DrawerTitle } from "@/components/ui/drawer";
@@ -10,6 +11,7 @@ import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/component
 import { Delta, StatusBadge, Verdict } from "@/components/bits";
 import { MarkButton, PublishButton } from "@/components/actions";
 import { Gallery } from "@/components/gallery";
+import { DownloadButton } from "@/components/downloads";
 import { TimeLine } from "@/components/timeline";
 import { usePainel } from "@/lib/ctx";
 import { useDesktop } from "@/hooks/use-media";
@@ -178,25 +180,35 @@ function Body({ r }: { r: Row }) {
   if (det) items.push(["No perfil", <>Story detectado às {hm(det.quando)} · <a href={det.link} target="_blank" rel="noopener" className="underline">abrir</a></>]);
   if (r.erro) items.push(["Erro", <span className="text-crit">{r.erro}</span>]);
   if (r.kind === "agenda") items.push(["Código", <span className="num">{r.id}</span>]);
-  const acts = m.canPublish(r) || m.canMark(r);
+  const arqs = m.arquivosOf(r);
+  const capa = m.thumbOf(r) || (det && m.d.imagens["ig:" + det.id]);
+  const story = r.formato.startsWith("story");
   return (
     <div className="flex flex-col gap-5">
-      <Gallery items={m.gallery(r)} single={m.thumbOf(r) || (det && m.d.imagens["ig:" + det.id])} />
-      {acts || r.link ? (
-        <div className="flex flex-wrap gap-2">
-          {m.canPublish(r) ? <PublishButton r={r} size="default" /> : null}
-          {m.canMark(r) ? <MarkButton r={r} size="default" /> : null}
-          {r.link ? <Button asChild variant="outline"><a href={r.link} target="_blank" rel="noopener"><ExternalLink aria-hidden />Ver no Instagram</a></Button> : null}
+      {m.gallery(r) || capa ? <Gallery items={m.gallery(r)} single={capa} /> : (
+        <div className="flex aspect-[4/5] max-h-72 flex-col items-center justify-center gap-1 rounded-xl border border-dashed bg-muted/50 p-6 text-center text-sm text-muted-foreground">
+          <b className="font-medium text-ink">A arte deste {story ? "story" : "post"} ainda não está na agenda</b>
+          Quando a mídia entrar na agenda, ela aparece aqui para ver e baixar.
         </div>
-      ) : r.status === "manual" ? <p className="text-sm text-muted-foreground">“Já postei” fica disponível no dia do story.</p> : null}
+      )}
+      <div className="flex flex-wrap gap-2">
+        {m.canPublish(r) ? <PublishButton r={r} size="default" /> : null}
+        {m.canMark(r) ? <MarkButton r={r} size="default" /> : null}
+        <DownloadButton arquivos={arqs} nomeZip={`${r.conta}-${dayKey(r.quando)}-${r.id.replace(/^ig:/, "")}`} />
+        {r.link ? <Button asChild variant="outline"><a href={r.link} target="_blank" rel="noopener"><ExternalLink aria-hidden />Ver no Instagram</a></Button> : null}
+      </div>
+      {r.status === "manual" && !m.canMark(r) && r.eff !== "publicado" ? <p className="-mt-2 text-sm text-muted-foreground">“Já postei” fica disponível no dia do story.</p> : null}
       {ig?.insights ? (<><Comparacao c={m.cmpOf(ig, r.conta)} /><Insights r={r} ig={ig} /></>) : null}
       <dl className="grid grid-cols-[auto_minmax(0,1fr)] gap-x-4 gap-y-1.5 text-sm">
         {items.map(([k, v]) => <div key={k} className="contents"><dt className="text-muted-foreground">{k}</dt><dd className="break-words">{v}</dd></div>)}
       </dl>
       {r.legenda ? (
-        <Collapsible defaultOpen={!ig?.insights}>
-          <CollapsibleTrigger asChild><Button variant="secondary" size="sm" className="w-fit">Legenda completa</Button></CollapsibleTrigger>
-          <CollapsibleContent><pre className="mt-2 rounded-lg border bg-background p-3 font-sans text-sm whitespace-pre-wrap">{r.legenda}</pre></CollapsibleContent>
+        <Collapsible defaultOpen={story || !ig?.insights}>
+          <CollapsibleTrigger asChild><Button variant="secondary" size="sm" className="w-fit">{story ? "Texto do story" : "Legenda completa"}</Button></CollapsibleTrigger>
+          <CollapsibleContent className="flex flex-col items-start gap-2">
+            <pre className="mt-2 w-full rounded-lg border bg-background p-3 font-sans text-sm whitespace-pre-wrap">{r.legenda}</pre>
+            <Button variant="ghost" size="sm" onClick={() => navigator.clipboard.writeText(r.legenda || "").then(() => toast.success("Texto copiado"), () => toast.error("Não consegui copiar"))}><Copy aria-hidden />Copiar texto</Button>
+          </CollapsibleContent>
         </Collapsible>
       ) : null}
       {r.nota ? <p className="text-sm text-muted-foreground">{r.nota}</p> : null}

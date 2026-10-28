@@ -7,7 +7,7 @@ import { Tabs, TabsContent } from "@/components/ui/tabs";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Header } from "@/components/header";
 import { Accounts } from "@/components/accounts";
-import { AccountFilter, BottomNav, ViewTabs } from "@/components/nav";
+import { BottomNav, Toolbar } from "@/components/nav";
 import { Detail } from "@/components/detail";
 import { Login } from "@/components/login";
 import { FilaView } from "@/components/views/fila";
@@ -16,10 +16,10 @@ import { PublicadosView } from "@/components/views/publicados";
 import { ExecucoesView } from "@/components/views/execucoes";
 import { PainelCtx, VIEWS, type Painel, type View } from "@/lib/ctx";
 import { acao, lerDados, SemSessao } from "@/lib/api";
-import { Model, type Conta, type Dados } from "@/lib/model";
+import { CONTAS, Model, type Conta, type Dados } from "@/lib/model";
 
-const KEY = "agenda-ig3";
-function lerPref(): { acc?: Conta | "all" } { try { return JSON.parse(localStorage.getItem(KEY) || "{}"); } catch { return {}; } }
+const KEY = "agenda-ig4";
+function lerPref(): { sel?: Conta[] } { try { return JSON.parse(localStorage.getItem(KEY) || "{}"); } catch { return {}; } }
 function salvarPref(p: object) { try { localStorage.setItem(KEY, JSON.stringify(p)); } catch { /* sem armazenamento */ } }
 
 /** #fila, #calendario… escolhem a visão; #post-<id> (link do e-mail de alerta) abre o post. */
@@ -34,7 +34,8 @@ export default function App() {
   const [estado, setEstado] = useState<"carregando" | "login" | "ok" | "erro">("carregando");
   const [erro, setErro] = useState("");
   const [d, setD] = useState<Dados | null>(null);
-  const [acc, setAccS] = useState<Conta | "all">(() => lerPref().acc || "all");
+  const [selS, setSelS] = useState<Conta[]>(() => (Array.isArray(lerPref().sel) ? lerPref().sel! : []));
+  const [q, setQ] = useState("");
   const [view, setViewS] = useState<View>(() => fromHash().view || "fila");
   const [detail, setDetail] = useState<string | null>(null);
   const [saindo, setSaindo] = useState<Record<string, number>>({});
@@ -93,13 +94,17 @@ export default function App() {
     const el = document.getElementById("vista"); const top = el ? el.getBoundingClientRect().top + window.scrollY - 140 : 0;
     if (window.scrollY > top) window.scrollTo({ top });
   };
-  const setAcc = (a: Conta | "all") => { setAccS(a); salvarPref({ acc: a }); };
+  const setSel = (s: Conta[]) => { setSelS(s); salvarPref({ sel: s }); };
+  const toggle = (k: Conta) => setSel(selS.includes(k) ? selS.filter((x) => x !== k) : [...selS, k]);
+  const so = (k: Conta) => setSel([k]);
 
   const sair = () => { acao("/api/sair").catch(() => {}).finally(() => { setEstado("login"); setD(null); }); };
   const falha = (e: unknown) => { if (e instanceof SemSessao) { setEstado("login"); return; } toast.error((e as Error).message); };
 
   const ctx: Painel | null = m && {
-    m, acc, setAcc, saindo,
+    m, saindo, toggle, so, q, setQ,
+    // Contas que saíram da agenda não contam na seleção.
+    ...(() => { const sel = selS.filter((k) => CONTAS.includes(k)); const todas = !sel.length || sel.length === CONTAS.length; return { sel, todas, ativas: todas ? [...CONTAS] : CONTAS.filter((k) => sel.includes(k)) }; })(),
     open: (id) => setDetail(id),
     publicar: async (id) => {
       try {
@@ -141,10 +146,7 @@ export default function App() {
           {erro ? <p className="rounded-md bg-crit-soft px-3 py-2 text-sm text-crit">{erro} Mostrando a última leitura.</p> : null}
           <Accounts />
           <Tabs id="vista" value={view} onValueChange={(v) => setView(v as View)} className="scroll-mt-36 gap-5">
-            <div className="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
-              <AccountFilter />
-              <ViewTabs />
-            </div>
+            <Toolbar view={view} />
             <h1 className="sr-only">Agenda do Instagram: {({ fila: "Fila", calendario: "Calendário", publicados: "Publicados", execucoes: "Execuções" } as const)[view]}</h1>
             {VIEWS.map((v) => (
               <TabsContent key={v} value={v} forceMount hidden={view !== v} className="focus-visible:outline-none">
