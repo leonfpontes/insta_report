@@ -224,6 +224,21 @@ td.cap .qmain span{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:v
 .sheet h2{margin:0;font-weight:500;font-size:1.1rem;text-wrap:balance;color:var(--ink)}
 .meta{display:grid;grid-template-columns:auto 1fr;gap:4px 14px;font-size:.85rem;margin:0}
 .meta dt{color:var(--muted)}.meta dd{margin:0;min-width:0;overflow-wrap:anywhere}
+/* Carrossel do detalhe: desliza com o dedo, setas no computador, pontos e contador */
+.gal{position:relative;display:flex;flex-direction:column;gap:8px}
+.gal-track{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;border-radius:var(--r-card);border:1px solid var(--line);background:var(--deep);scrollbar-width:none;overscroll-behavior-x:contain}
+.gal-track::-webkit-scrollbar{display:none}
+.gal-item{flex:0 0 100%;scroll-snap-align:center;margin:0;display:flex;align-items:center;justify-content:center;aspect-ratio:4/5;max-height:70vh}
+.gal-item img,.gal-item video{width:100%;height:100%;object-fit:contain;display:block}
+.gal-foot{display:flex;align-items:center;justify-content:center;gap:12px}
+.gal-count{font-family:var(--f-mono);font-size:.78rem;color:var(--muted);min-width:3em}
+.gal-nav{position:absolute;top:calc(50% - 22px);width:36px;height:36px;border-radius:50%;border:1px solid var(--line);background:color-mix(in srgb,var(--raised) 92%,transparent);color:var(--ink);font-size:1.2rem;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 8px color-mix(in srgb,var(--ink) 15%,transparent)}
+.gal-nav.prev{left:8px}.gal-nav.next{right:8px}
+.gal-nav:disabled{opacity:0;pointer-events:none}
+@media (hover:none){.gal-nav{display:none}}
+.gal-dots{display:flex;justify-content:center;gap:6px}
+.gal-dots button{width:8px;height:8px;border-radius:50%;border:0;padding:0;background:var(--field);cursor:pointer}
+.gal-dots button[aria-current="true"]{background:var(--bronze);width:20px;border-radius:4px}
 .big-thumb{max-width:100%;border-radius:var(--r-card);border:1px solid var(--line);align-self:flex-start;max-height:300px}
 .cap-full{white-space:pre-wrap;font-size:.86rem;background:var(--paper);border:1px solid var(--line);border-radius:var(--r-card);padding:12px;margin:0;font-family:var(--f-body)}
 .confirm{display:flex;flex-direction:column;gap:8px;background:var(--paper);border:1px solid var(--line);border-radius:var(--r-card);padding:12px;font-size:.86rem}
@@ -374,7 +389,7 @@ const MONTHS = ["janeiro","fevereiro","março","abril","maio","junho","julho","a
 const DOW = ["Seg","Ter","Qua","Qui","Sex","Sáb","Dom"];
 const TZ = "America/Sao_Paulo";
 
-let D = {agenda:null, met:{}, img:{}, runs:null, lidoEm:null, manuais:{}};
+let D = {agenda:null, met:{}, img:{}, gal:{}, runs:null, lidoEm:null, manuais:{}};
 let S = {acc:"all", view:"fila", y:0, m:0, sort:{k:"quando", dir:-1}};
 let confirmId = null, actMsg = {};
 
@@ -941,15 +956,51 @@ function openDetail(id){
   if (r.erro) items.push(["Erro", `<span style="color:var(--crit)">${esc(r.erro)}</span>`]);
   const t = thumbOf(r) || (det && D.img["ig:"+det.id]);
   $("d-body").innerHTML = `
-    ${t?`<img class="big-thumb" src="${esc(t)}" alt="Prévia do post" style="max-height:300px">`:""}
+    ${galHtml(r, t)}
     ${ig?.insights ? cmpHtml(ig.produto==="STORY" ? compareStory(ig, r.conta) : compare(ig, r.conta), ig.produto==="STORY") + insightsHtml(r, ig) : ""}
     ${(canPublish(r)||canMark(r)||actMsg[r.id]||confirmId===r.id)?`<div>${actionsHtml({...r, link:null})}</div>`:""}
     <dl class="meta">${items.map(([k,v])=>`<dt>${esc(k)}</dt><dd>${v}</dd>`).join("")}</dl>
     ${r.legenda?`<pre class="cap-full">${esc(r.legenda)}</pre>`:""}
     ${r.nota?`<p class="section-note">${esc(r.nota)}</p>`:""}`;
-  bindCharts($("d-body"));
+  bindCharts($("d-body")); bindGal($("d-body"));
   if ($("panel").hidden){ $("panel").hidden = false; $("d-close").focus(); }
 }
+/** Todas as imagens (e vídeos) do post; com uma imagem só, mostra a prévia simples. */
+function galHtml(r, t){
+  const its = D.gal[r.id] || (r.midiaId && D.gal["ig:"+r.midiaId]) || null;
+  if (!its?.length) return t ? `<img class="big-thumb" src="${esc(t)}" alt="Prévia do post">` : "";
+  const k = its.length, i0 = Math.min(S.gal?.[r.id] || 0, k-1);
+  const item = (m, i) => `<figure class="gal-item">${m.video
+    ? `<video src="${esc(m.video)}"${m.capa?` poster="${esc(m.capa)}"`:""} controls playsinline muted preload="metadata" aria-label="Vídeo ${i+1} de ${k}"></video>`
+    : `<img src="${esc(m.img)}" alt="Imagem ${i+1} de ${k}" ${i<2?"":`loading="lazy"`}>`}</figure>`;
+  return `<div class="gal" data-gal-id="${esc(r.id)}" data-i="${i0}">
+    <div class="gal-track" tabindex="0" aria-label="${k>1?`Carrossel com ${k} itens`:"Mídia do post"}">${its.map(item).join("")}</div>
+    ${k>1?`
+    <button type="button" class="gal-nav prev" data-gal="-1" aria-label="Imagem anterior"${i0===0?" disabled":""}>‹</button>
+    <button type="button" class="gal-nav next" data-gal="1" aria-label="Próxima imagem"${i0===k-1?" disabled":""}>›</button>
+    <div class="gal-foot"><div class="gal-dots">${its.map((_,i)=>`<button type="button" data-gal-i="${i}" aria-label="Ir para ${i+1} de ${k}"${i===i0?' aria-current="true"':""}></button>`).join("")}</div><span class="gal-count" aria-live="polite">${i0+1} de ${k}</span></div>`:""}
+  </div>`;
+}
+function bindGal(root){
+  root.querySelectorAll(".gal").forEach(g=>{
+    const tr = g.querySelector(".gal-track"), k = tr.children.length, id = g.dataset.galId;
+    if (k < 2) return;
+    const i0 = +g.dataset.i || 0;
+    if (i0) { tr.style.scrollBehavior = "auto"; tr.scrollLeft = i0 * tr.clientWidth; tr.style.scrollBehavior = ""; }
+    let raf = 0;
+    tr.addEventListener("scroll", ()=>{ cancelAnimationFrame(raf); raf = requestAnimationFrame(()=>{
+      const i = Math.round(tr.scrollLeft / (tr.clientWidth || 1));
+      if (i === +g.dataset.i) return;
+      g.dataset.i = i; (S.gal ||= {})[id] = i;
+      g.querySelector(".gal-count").textContent = `${i+1} de ${k}`;
+      g.querySelectorAll(".gal-dots button").forEach((b,j)=> j===i ? b.setAttribute("aria-current","true") : b.removeAttribute("aria-current"));
+      g.querySelector(".prev").disabled = i===0; g.querySelector(".next").disabled = i===k-1;
+      tr.querySelectorAll("video").forEach(v=>{ if (!v.paused) v.pause(); });
+    }); });
+    tr.addEventListener("keydown", e=>{ if (e.key==="ArrowRight"||e.key==="ArrowLeft"){ e.preventDefault(); galGo(g, (+g.dataset.i||0) + (e.key==="ArrowRight"?1:-1)); } });
+  });
+}
+function galGo(g, i){ const tr = g.querySelector(".gal-track"); i = Math.max(0, Math.min(tr.children.length-1, i)); tr.scrollTo({left: i*tr.clientWidth}); }
 function closeDetail(){ $("panel").hidden = true; delete $("panel").dataset.id; }
 
 /* ---------- ações ---------- */
@@ -1016,6 +1067,8 @@ document.addEventListener("click", e=>{
   if (b.id==="prev"||b.id==="next"){ S.m += b.id==="prev"?-1:1; if(S.m<0){S.m=11;S.y--;} if(S.m>11){S.m=0;S.y++;} render(); return; }
   if (b.dataset.day){ S.view="fila"; render(); return; }
   if (b.dataset.ig){ const a=(D.agenda?.posts||[]).find(p=>p.midiaId===b.dataset.ig); openDetail(a ? a.id : "ig:"+b.dataset.ig); return; }
+  if (b.dataset.gal){ const g = b.closest(".gal"); galGo(g, (+g.dataset.i||0) + +b.dataset.gal); return; }
+  if (b.dataset.galI){ galGo(b.closest(".gal"), +b.dataset.galI); return; }
   if (b.dataset.dtab){ S.dtab=b.dataset.dtab; refreshDetail(); return; }
   if (b.dataset.metric){ S.dmetric=b.dataset.metric; refreshDetail(); return; }
   if (b.dataset.cut){ S.dcut=b.dataset.cut; refreshDetail(); return; }
@@ -1040,7 +1093,7 @@ async function load(){
   if (r.status===401) { showLogin(); return; }
   const j = await r.json().catch(()=>({}));
   if (!r.ok) { $("sync").textContent = j.erro || "Não consegui ler a agenda agora."; return; }
-  D.agenda = j.agenda; D.met = j.metricas || {}; D.img = j.imagens || {}; D.runs = j.execucoes; D.lidoEm = j.lidoEm;
+  D.agenda = j.agenda; D.met = j.metricas || {}; D.img = j.imagens || {}; D.gal = j.galeria || {}; D.runs = j.execucoes; D.lidoEm = j.lidoEm;
   $("login").hidden = true; $("app").hidden = false;
   render(); refreshDetail();
   // Link do e-mail de alerta: #post-<id> abre o detalhe do post.
