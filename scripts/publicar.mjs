@@ -147,7 +147,7 @@ async function enviarEmail(assunto, texto) {
   const resposta = await fetch("https://api.resend.com/emails", {
     method: "POST",
     headers: { Authorization: `Bearer ${key}`, "Content-Type": "application/json" },
-    body: JSON.stringify({ from: "Agenda Instagram <monitor@app.leopontes.com.br>", to: [to], subject: assunto, text: texto }),
+    body: JSON.stringify({ from: "Agenda Instagram <alertas@leopontes.com.br>", to: [to], subject: assunto, text: texto }),
     signal: AbortSignal.timeout(15_000),
   });
   if (!resposta.ok) console.error(`Resend ${resposta.status}: ${await resposta.text()}`);
