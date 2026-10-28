@@ -1,6 +1,6 @@
 # insta_report
 
-Agenda, publicador e painel do Instagram de **@pontes_brain** e **@girahuboficial**. É gratuito
+Agenda, publicador e painel do Instagram de **@pontes_brain**, **@girahuboficial** e **@leopontesrp**. É gratuito
 de ponta a ponta: GitHub Actions publica e coleta os números, a Vercel serve o painel em
 **instagram.leopontes.com.br**.
 
@@ -32,7 +32,7 @@ GitHub, em Settings → Secrets and variables → Actions:
 
 | Segredo | Para quê |
 | --- | --- |
-| `IG_TOKEN_PONTES_BRAIN`, `IG_TOKEN_GIRAHUB` | Token da API do Instagram de cada conta |
+| `IG_TOKEN_PONTES_BRAIN`, `IG_TOKEN_GIRAHUB`, `IG_TOKEN_LEOPONTESRP` | Token da API do Instagram de cada conta |
 | `RESEND_API_KEY`, `ALERTA_EMAIL` | E-mail de alerta quando um post falha ou o token precisa de atenção |
 | `GH_SECRETS_TOKEN` | Opcional: token fino deste repositório com "Secrets: Read and write", para o token do Instagram se renovar sozinho |
 

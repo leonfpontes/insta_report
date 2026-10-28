@@ -24,6 +24,7 @@ jobs:
         env:
           IG_TOKEN_PONTES_BRAIN: ${{ secrets.IG_TOKEN_PONTES_BRAIN }}
           IG_TOKEN_GIRAHUB: ${{ secrets.IG_TOKEN_GIRAHUB }}
+          IG_TOKEN_LEOPONTESRP: ${{ secrets.IG_TOKEN_LEOPONTESRP }}
           GH_TOKEN: ${{ secrets.GH_SECRETS_TOKEN }}
           RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
           ALERTA_EMAIL: ${{ secrets.ALERTA_EMAIL }}
