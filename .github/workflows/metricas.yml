@@ -1,0 +1,51 @@
+name: Métricas
+
+# De hora em hora grava as métricas das contas em instagram/metricas.json e a foto de cada perfil
+# em instagram/perfil/ (scripts/metricas.mjs). O botão "Atualizar números" do painel dispara este
+# workflow. Sem os tokens das contas, a rodada não faz nada.
+
+on:
+  schedule:
+    - cron: "7 * * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: metricas
+  cancel-in-progress: false
+
+jobs:
+  metricas:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          sparse-checkout: |
+            scripts
+            instagram/agenda.json
+            instagram/metricas.json
+            instagram/perfil
+          sparse-checkout-cone-mode: false
+
+      - name: Coletar métricas
+        id: coleta
+        env:
+          IG_TOKEN_PONTES_BRAIN: ${{ secrets.IG_TOKEN_PONTES_BRAIN }}
+          IG_TOKEN_GIRAHUB: ${{ secrets.IG_TOKEN_GIRAHUB }}
+        run: |
+          if [ -z "$IG_TOKEN_PONTES_BRAIN$IG_TOKEN_GIRAHUB" ]; then echo "Sem tokens das contas: nada a coletar."; exit 0; fi
+          node scripts/metricas.mjs
+
+      - name: Gravar as métricas
+        if: github.ref == 'refs/heads/main'
+        run: |
+          git config user.name "insta-report"
+          git config user.email "insta-report@users.noreply.github.com"
+          git add instagram/metricas.json instagram/perfil
+          git diff --cached --quiet && exit 0
+          git commit -m "[instagram] atualiza métricas"
+          for i in 1 2 3; do git pull --rebase -q origin main && git push -q origin HEAD:main && exit 0; sleep 5; done
+          exit 1

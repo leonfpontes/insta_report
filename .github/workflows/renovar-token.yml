@@ -1,0 +1,30 @@
+name: Renovar token
+
+# Toda segunda renova os tokens do Instagram (vencem em 60 dias). Se a Meta devolver um token
+# novo, grava no segredo com GH_SECRETS_TOKEN (token fino deste repositório com
+# "Secrets: Read and write"); sem ele, manda e-mail para trocar à mão.
+
+on:
+  schedule:
+    - cron: "0 12 * * 1"
+  workflow_dispatch:
+
+jobs:
+  renovar-token:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          sparse-checkout: |
+            scripts
+            instagram/agenda.json
+          sparse-checkout-cone-mode: false
+      - name: Renovar tokens
+        env:
+          IG_TOKEN_PONTES_BRAIN: ${{ secrets.IG_TOKEN_PONTES_BRAIN }}
+          IG_TOKEN_GIRAHUB: ${{ secrets.IG_TOKEN_GIRAHUB }}
+          GH_TOKEN: ${{ secrets.GH_SECRETS_TOKEN }}
+          RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
+          ALERTA_EMAIL: ${{ secrets.ALERTA_EMAIL }}
+        run: node scripts/renovar-token.mjs
