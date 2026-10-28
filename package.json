@@ -5,6 +5,6 @@
   "description": "Agenda, publicador e painel do Instagram de @pontes_brain e @girahuboficial",
   "engines": { "node": ">=20" },
   "scripts": {
-    "check": "node --check scripts/publicar.mjs && node --check scripts/metricas.mjs && node --check scripts/renovar-token.mjs && node --check lib/painel.mjs && for f in api/*.js; do node --check $f || exit 1; done"
+    "check": "node --check scripts/publicar.mjs && node --check scripts/metricas.mjs && node --check scripts/renovar-token.mjs && node --check scripts/alerta.mjs && node --check lib/painel.mjs && for f in api/*.js; do node --check $f || exit 1; done"
   }
 }
