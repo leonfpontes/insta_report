@@ -9,7 +9,7 @@ de ponta a ponta: GitHub Actions publica e coleta os números, a Vercel serve o 
 ```
 instagram/agenda.json ──(Publicar, a cada 10 min)──▶ API do Instagram ──▶ status de volta na agenda
 API do Instagram ──(Métricas, de hora em hora)──▶ instagram/metricas.json + instagram/perfil/
-painel (public/index.html) ──▶ api/dados.js ──▶ lê agenda e métricas na main pelo GitHub
+painel (src/, React) ──▶ api/dados.js ──▶ lê agenda e métricas na main pelo GitHub
 botões do painel ──▶ api/publicar.js · api/manual.js · api/metricas.js ──▶ GitHub (workflow ou commit)
 ```
 
@@ -21,7 +21,9 @@ botões do painel ──▶ api/publicar.js · api/manual.js · api/metricas.js 
 - `scripts/publicar.mjs`, `scripts/metricas.mjs`, `scripts/renovar-token.mjs`: rodam nos
   workflows `Publicar`, `Métricas` e `Renovar token` (`.github/workflows/`). Os commits deles
   começam com `[instagram]` e mexem só em `instagram/`, que a Vercel não reconstrói.
-- `public/index.html` + `api/`: o painel. Entra com senha; a sessão dura 30 dias.
+- `src/` + `api/`: o painel. A interface é React + Vite com shadcn/ui (componentes em
+  `src/components/ui`, tema Papel & Marinho em `src/index.css`); a Vercel roda `npm run build`
+  e serve `dist/`. Entra com senha; a sessão dura 30 dias.
 - `lib/painel.mjs`: monta os dados que o painel mostra.
 
 ## Segredos
@@ -57,5 +59,7 @@ Nunca cole tokens em chat ou em arquivo do repositório.
 
 ## Testar localmente
 
-`npm run check` confere a sintaxe dos scripts e das rotas. Para rodar o painel com a Vercel:
-`npx vercel dev`, com `PAINEL_SENHA` e `GITHUB_TOKEN` num `.env.local`, que não vai para o Git.
+`npm run check` confere a sintaxe dos scripts e das rotas, e `npm run build` confere os tipos e
+gera o painel em `dist/`. Para mexer na interface: `npx vercel dev` (porta 3000, com as rotas) e,
+noutro terminal, `npm run dev`, que abre o painel com recarga instantânea e manda `/api` para a
+porta 3000. Para só rodar o painel com a Vercel: `npx vercel dev`, com `PAINEL_SENHA` e `GITHUB_TOKEN` num `.env.local`, que não vai para o Git.
