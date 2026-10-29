@@ -9,6 +9,9 @@ name: Publicar
 on:
   schedule:
     - cron: "*/10 * * * *"
+  # Mesmo que o botão do painel, quando o token da Vercel não tem permissão de Actions (api/_lib.js).
+  repository_dispatch:
+    types: [publicar]
   workflow_dispatch:
     inputs:
       post:
@@ -53,7 +56,7 @@ jobs:
           IG_TOKEN_LEOPONTESRP: ${{ secrets.IG_TOKEN_LEOPONTESRP }}
           RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
           ALERTA_EMAIL: ${{ secrets.ALERTA_EMAIL }}
-          SOMENTE: ${{ inputs.post }}
+          SOMENTE: ${{ inputs.post || github.event.client_payload.post }}
           SIMULAR: ${{ inputs.simular && '1' || '' }}
           VERIFICAR: ${{ inputs.verificar && '1' || '' }}
           TESTAR_ALERTA: ${{ inputs.testar_alerta && '1' || '' }}
