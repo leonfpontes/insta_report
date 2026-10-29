@@ -22,6 +22,7 @@ import { cn } from "@/lib/utils";
 const BADGE: Record<PedidoStatus, string> = {
   novo: "border-input/60 bg-card text-ink",
   producao: "border-ink/30 bg-accent text-ink",
+  duvida: "border-warn bg-warn text-white",
   proposta: "border-bronze bg-bronze text-white",
   ajuste: "border-warn/50 bg-warn-soft text-warn",
   aprovado: "border-ok/40 bg-ok-soft text-ok",
@@ -173,7 +174,10 @@ function Corpo({ p, onClose }: { p: Pedido; onClose: () => void }) {
   };
 
   const proposta = p.status === "proposta";
-  const aberto = ["novo", "producao", "ajuste"].includes(p.status);
+  const aberto = ["novo", "producao", "duvida", "ajuste"].includes(p.status);
+  const duvida = p.status === "duvida";
+  // Na dúvida, a caixa de resposta já vem aberta.
+  const escrevendo = modo === "ajuste" || duvida;
   return (
     <>
       <div className="flex flex-col gap-6">
@@ -192,7 +196,7 @@ function Corpo({ p, onClose }: { p: Pedido; onClose: () => void }) {
         {aberto ? (
           <div className="flex gap-2.5 rounded-lg border border-dashed px-3 py-3 text-sm text-muted-foreground">
             {p.status === "producao" ? <Loader2 className="size-5 shrink-0 animate-spin text-ink" aria-hidden /> : <MessageSquare className="size-5 shrink-0 text-ink" aria-hidden />}
-            <p>{p.status === "producao" ? "O Claude está trabalhando neste pedido agora." : p.status === "ajuste" ? `O Claude vai refazer a proposta com o seu ajuste. ${RITMO}` : `Na fila. ${RITMO}`}</p>
+            <p>{p.status === "producao" ? "O Claude está trabalhando neste pedido agora." : duvida ? "O Claude precisa de uma resposta sua para continuar. Veja a pergunta na conversa e responda abaixo." : p.status === "ajuste" ? `O Claude vai refazer a proposta com o seu ajuste. ${RITMO}` : `Na fila. ${RITMO}`}</p>
           </div>
         ) : null}
 
@@ -216,10 +220,10 @@ function Corpo({ p, onClose }: { p: Pedido; onClose: () => void }) {
 
       {proposta || (aberto && p.status !== "producao") ? (
         <div className="sticky bottom-0 -mx-4 mt-6 flex flex-col gap-2 border-t bg-card/95 px-4 pt-3 pb-[calc(12px+env(safe-area-inset-bottom,0px))] backdrop-blur-md md:-mx-5 md:px-5">
-          {modo === "ajuste" ? (
+          {escrevendo ? (
             <div className="flex flex-col gap-2">
-              <Label htmlFor={`msg-${p.id}`} className="text-sm text-ink">{proposta ? "O que precisa mudar?" : "Quer acrescentar algum detalhe?"}</Label>
-              <Textarea id={`msg-${p.id}`} value={msg} onChange={(e) => setMsg(e.target.value)} rows={2} maxLength={4000} className="bg-background text-base" placeholder={proposta ? "Ex.: troque a 3ª foto, legenda mais curta e sem emoji." : "Ex.: use a foto 2 como capa."} autoFocus />
+              <Label htmlFor={`msg-${p.id}`} className="text-sm text-ink">{proposta ? "O que precisa mudar?" : duvida ? "Sua resposta" : "Quer acrescentar algum detalhe?"}</Label>
+              <Textarea id={`msg-${p.id}`} value={msg} onChange={(e) => setMsg(e.target.value)} rows={2} maxLength={4000} className="bg-background text-base" placeholder={proposta ? "Ex.: troque a 3ª foto, legenda mais curta e sem emoji." : "Ex.: use a foto 2 como capa."} autoFocus={!duvida} />
             </div>
           ) : null}
           <div className="flex flex-wrap items-center gap-2">
@@ -231,16 +235,16 @@ function Corpo({ p, onClose }: { p: Pedido; onClose: () => void }) {
                 <Button size="lg" variant="outline" className="h-11 flex-1 md:flex-none" onClick={() => setModo("ajuste")} disabled={!!busy}>Pedir ajuste</Button>
               </>
             ) : null}
-            {aberto && modo !== "ajuste" ? (
+            {aberto && !escrevendo ? (
               <Button size="lg" variant="outline" className="h-11 flex-1 md:flex-none" onClick={() => setModo("ajuste")} disabled={!!busy}>Acrescentar um detalhe</Button>
             ) : null}
-            {modo === "ajuste" ? (
+            {escrevendo ? (
               <>
                 <Button size="lg" className="h-11 flex-1 md:flex-none" disabled={!msg.trim() || !!busy}
-                  onClick={() => fazer("ajuste", { acao: "comentar", texto: msg }, proposta ? "Ajuste enviado" : "Detalhe acrescentado", proposta ? RITMO : undefined)}>
-                  {busy === "ajuste" ? <Loader2 className="animate-spin" aria-hidden /> : null}{proposta ? "Enviar ajuste" : "Acrescentar"}
+                  onClick={() => fazer("ajuste", { acao: "comentar", texto: msg }, proposta ? "Ajuste enviado" : duvida ? "Resposta enviada" : "Detalhe acrescentado", proposta || duvida ? RITMO : undefined)}>
+                  {busy === "ajuste" ? <Loader2 className="animate-spin" aria-hidden /> : null}{proposta ? "Enviar ajuste" : duvida ? "Responder" : "Acrescentar"}
                 </Button>
-                <Button size="lg" variant="ghost" className="h-11" onClick={() => { setModo(""); setMsg(""); }}>Voltar</Button>
+                {!duvida ? <Button size="lg" variant="ghost" className="h-11" onClick={() => { setModo(""); setMsg(""); }}>Voltar</Button> : null}
               </>
             ) : null}
           </div>
@@ -288,7 +292,7 @@ export function PedidoDetalhe({ id, onClose }: { id: string | null; onClose: () 
       <Button variant="outline" size="icon" onClick={onClose} aria-label="Fechar"><X aria-hidden /></Button>
     </div>
   ) : null;
-  const body = show ? <div className="flex flex-1 flex-col overflow-y-auto px-4 pt-4 md:px-5" data-a={show.conta}><Corpo key={show.id} p={show} onClose={onClose} />{!["proposta", "novo", "ajuste"].includes(show.status) ? <div className="h-[calc(24px+env(safe-area-inset-bottom,0px))] shrink-0" /> : null}</div> : null;
+  const body = show ? <div className="flex flex-1 flex-col overflow-y-auto px-4 pt-4 md:px-5" data-a={show.conta}><Corpo key={show.id} p={show} onClose={onClose} />{!["proposta", "novo", "duvida", "ajuste"].includes(show.status) ? <div className="h-[calc(24px+env(safe-area-inset-bottom,0px))] shrink-0" /> : null}</div> : null;
   if (desktop)
     return (
       <Sheet open={!!p} onOpenChange={(o) => !o && onClose()}>

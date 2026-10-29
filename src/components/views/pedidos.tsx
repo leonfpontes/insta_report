@@ -231,7 +231,7 @@ function Linha({ p, onOpen }: { p: Pedido; onOpen: () => void }) {
   const temVideo = p.anexos.some((a) => a.tipo === "video");
   const n = p.proposta?.posts?.length || 0;
   return (
-    <li data-a={p.conta} className={cn("border-l-[3px] border-l-[var(--c)]", p.status === "proposta" && "bg-[color-mix(in_srgb,var(--bronze)_6%,var(--card))]")}>
+    <li data-a={p.conta} className={cn("border-l-[3px] border-l-[var(--c)]", (p.status === "proposta" || p.status === "duvida") && "bg-[color-mix(in_srgb,var(--bronze)_6%,var(--card))]")}>
       <button type="button" onClick={onOpen} className="flex w-full items-start gap-3 px-3 py-3 text-left focus-visible:outline-none md:items-center md:px-4 [&:focus-visible_.t]:underline">
         <span className="relative block size-[52px] shrink-0 overflow-hidden rounded-md border bg-muted">
           {src ? <img src={src} alt="" loading="lazy" className="size-full object-cover" /> : (
@@ -276,14 +276,14 @@ export function PedidosView() {
       .filter((p) => !t || [p.texto, ...(p.proposta?.posts || []).flatMap((x) => [x.titulo, x.legenda])].some((s) => s?.toLowerCase().includes(t)))
       .sort((a, b) => Date.parse(b.atualizadoEm || b.criadoEm) - Date.parse(a.atualizadoEm || a.criadoEm));
   }, [m, ativas, todas, q]);
-  const paraAprovar = lista.filter((p) => p.status === "proposta");
-  const andamento = lista.filter((p) => ABERTO.includes(p.status));
+  const paraAprovar = lista.filter((p) => p.status === "proposta" || p.status === "duvida");
+  const andamento = lista.filter((p) => ABERTO.includes(p.status) && p.status !== "duvida");
   const fechados = lista.filter((p) => p.status === "aprovado" || p.status === "recusado");
 
   return (
     <div className="flex flex-col gap-6">
       {/* O que espera o Leonardo vem antes do quadro de pedido novo. */}
-      <Grupo titulo="Para aprovar" itens={paraAprovar} abrir={setAberto} />
+      <Grupo titulo="Esperando você" itens={paraAprovar} abrir={setAberto} />
       <Composer />
       <Grupo titulo="Em andamento" itens={andamento} abrir={setAberto} />
       {fechados.length ? (

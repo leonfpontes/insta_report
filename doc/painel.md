@@ -59,6 +59,14 @@ regra estão em [metricas.md](metricas.md#comparação-acima-ou-abaixo-da-média
 Cada rodada dos workflows (Publicação, Coleta de números, Renovação de token), com o resultado e
 o link para o log no GitHub. Filtra por data e pagina de 20 em 20 (`api/execucoes.js`).
 
+### Pedidos
+
+Onde o Leonardo pede posts ao Claude. No topo, **Esperando você**: propostas prontas para aprovar e
+dúvidas do Claude. Depois o quadro **Novo pedido** (conta, texto, fotos e vídeos, formato e
+horário), **Em andamento** e, recolhidos, os **Encerrados**. A proposta abre como no feed, com a
+hora e a legenda editáveis, e os botões **Aprovar e agendar** e **Pedir ajuste**. O selo bronze na
+aba conta o que espera o Leonardo. Formato, status e o trabalho do Claude: [pedidos.md](pedidos.md).
+
 ### No celular
 
 | Fila | Detalhe | Calendário | Publicados |
@@ -74,6 +82,7 @@ tabela de publicados vira cartões.
 | --- | --- |
 | `/#fila`, `/#calendario`, `/#publicados`, `/#execucoes` | A visão |
 | `/#post-<id>` | O detalhe de um post da agenda (é o link do e-mail de alerta) |
+| `/#pedidos`, `/#pedido-<id>` | A aba Pedidos, ou um pedido aberto |
 
 ## Rotas da API
 
@@ -84,11 +93,13 @@ cabeçalho `X-Painel: 1`, que um formulário de outro site não consegue mandar.
 | --- | --- | --- |
 | `/api/entrar` | POST `{senha}` | Confere `PAINEL_SENHA` e grava o cookie `sessao` (HttpOnly, Secure, SameSite=Strict, 30 dias). Senha errada espera 1,2 s |
 | `/api/sair` | POST | Apaga o cookie |
-| `/api/dados` | GET | Lê `agenda.json`, `metricas.json` e as 30 últimas rodadas no GitHub e devolve o JSON montado por `lib/painel.mjs` |
+| `/api/dados` | GET | Lê `agenda.json`, `metricas.json`, `pedidos.json` e as 30 últimas rodadas no GitHub e devolve o JSON montado por `lib/painel.mjs` |
 | `/api/execucoes` | GET `?pagina=&de=&ate=` | Rodadas dos workflows, 20 por página, com filtro de data (AAAA-MM-DD, horário de Brasília) |
 | `/api/publicar` | POST `{id}` | Dispara o workflow Publicar com `post=<id>`. Só para `agendado` ou `falhou` de conta `proprio` |
 | `/api/manual` | POST `{id}` | Marca um story `manual` como `publicado` na agenda. Relê e tenta de novo se a agenda mudou no meio |
 | `/api/metricas` | POST | Dispara o workflow Métricas |
+| `/api/pedidos` | POST `{acao, id, …}` | Cria, comenta, aprova ou recusa um pedido de publicação ([pedidos.md](pedidos.md#rotas)) |
+| `/api/anexo` | POST `{pedido, nome, parte, total, dados}` | Grava uma parte de anexo de até 2,8 MB em `instagram/pedidos/<pedido>/` |
 
 ## O que `lib/painel.mjs` entrega
 

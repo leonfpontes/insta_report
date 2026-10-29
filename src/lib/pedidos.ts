@@ -5,7 +5,7 @@
 import { acao } from "./api";
 import { TZ } from "./model";
 
-export type PedidoStatus = "novo" | "producao" | "proposta" | "ajuste" | "aprovado" | "recusado";
+export type PedidoStatus = "novo" | "producao" | "duvida" | "proposta" | "ajuste" | "aprovado" | "recusado";
 
 export interface Anexo {
   arquivo: string; nome: string; tipo: "imagem" | "video"; bytes: number; partes: number;
@@ -27,12 +27,13 @@ export interface Pedido {
 export const PEDIDO_STATUS: Record<PedidoStatus, string> = {
   novo: "Na fila do Claude",
   producao: "Em produção",
+  duvida: "O Claude perguntou",
   proposta: "Para aprovar",
   ajuste: "Ajuste pedido",
   aprovado: "Aprovado",
   recusado: "Recusado",
 };
-export const ABERTO: PedidoStatus[] = ["novo", "producao", "ajuste"];
+export const ABERTO: PedidoStatus[] = ["novo", "producao", "duvida", "ajuste"];
 
 /** Quando o Claude olha os pedidos (a tarefa agendada de doc/pedidos.md). */
 export const RITMO = "O Claude olha os pedidos a cada hora, das 7h às 23h.";

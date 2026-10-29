@@ -23,7 +23,7 @@ function useAtencao() {
 /** Pedidos com proposta esperando o Leonardo, para o selo da aba Pedidos. */
 function useParaAprovar() {
   const { m } = usePainel();
-  return (m.d.pedidos || []).filter((p) => p.status === "proposta").length;
+  return (m.d.pedidos || []).filter((p) => p.status === "proposta" || p.status === "duvida").length;
 }
 
 /** Abas do computador; o painel de cada aba está em App (TabsContent). */

@@ -79,10 +79,12 @@ async function comentar(b) {
   if (!msg) throw new Recusa(400, "Escreva o que precisa mudar.");
   await mudar(ARQ, { pedidos: [] }, (dados) => {
     const p = achar(dados, id);
-    if (!["novo", "proposta", "ajuste"].includes(p.status)) throw new Recusa(409, "Este pedido já foi encerrado.");
+    if (!["novo", "duvida", "proposta", "ajuste"].includes(p.status)) throw new Recusa(409, "Este pedido já foi encerrado.");
     p.conversa = [...(p.conversa ?? []), { de: "leonardo", em: agora(), texto: msg }];
-    // Comentário num pedido que ainda não começou só acrescenta detalhe; numa proposta, pede ajuste.
+    // Comentário num pedido que ainda não começou só acrescenta detalhe; numa proposta, pede ajuste;
+    // numa dúvida do Claude, é a resposta e o pedido volta para a fila.
     if (p.status === "proposta") p.status = "ajuste";
+    if (p.status === "duvida") p.status = "novo";
     p.atualizadoEm = agora();
   }, `[pedido] ${id} ajuste pedido`);
 }
