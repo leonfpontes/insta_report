@@ -51,7 +51,7 @@ export function PostPhoto({ conta, src, label, size = 56, avatar }: { conta: Con
 const STATUS_CLS: Record<Eff, string> = {
   publicado: "border-ok/40 bg-ok-soft text-ok",
   agendado: "border-input/60 bg-card text-ink",
-  manual: "border-warn/50 border-dashed bg-warn-soft text-warn",
+  manual: "border-manual border-dashed bg-manual-soft text-foreground",
   pendente: "border-warn/50 bg-warn-soft text-warn",
   atrasado: "border-crit/40 bg-crit-soft text-crit",
   falhou: "border-crit/40 bg-crit-soft text-crit",

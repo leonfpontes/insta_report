@@ -155,6 +155,11 @@ export class Model {
     const det = r.kind === "agenda" ? this.detectedStory(r) : null;
     return this.d.imagens[r.id] || (r.midiaId && this.d.imagens["ig:" + r.midiaId]) || (det && this.d.imagens["ig:" + det.id]) || null;
   }
+  /** Quando o post foi ao ar de fato (Instagram, publicador ou story detectado); antes disso, a hora marcada. */
+  noAr(r: Row) {
+    if (r.eff !== "publicado") return r.quando;
+    return this.igOfRow(r)?.quando || r.publicadoEm || r.quando;
+  }
   avatar(c: Conta) { return this.d.imagens["perfil:" + c] || null; }
   igOfRow(r: Row) {
     const det = r.kind === "agenda" ? this.detectedStory(r) : null;

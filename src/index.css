@@ -36,6 +36,9 @@
   --live: #23874b;
   --warn: #8a5a00;
   --warn-soft: #f2eadb;
+  /* Post à mão: cinza neutro, para não lembrar a cor de nenhuma conta. */
+  --manual: #a3a3a0;
+  --manual-soft: #efefee;
   --crit: #b3392b;
   --crit-soft: #f5e4df;
   --acc-pb: #14213d;
@@ -79,6 +82,8 @@
   --color-live: var(--live);
   --color-warn: var(--warn);
   --color-warn-soft: var(--warn-soft);
+  --color-manual: var(--manual);
+  --color-manual-soft: var(--manual-soft);
   --color-crit: var(--crit);
   --color-crit-soft: var(--crit-soft);
   --color-acc-pb: var(--acc-pb);

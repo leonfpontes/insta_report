@@ -5,7 +5,6 @@ import { Button } from "@/components/ui/button";
 import { Calendar } from "@/components/ui/calendar";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
-import { PostPhoto } from "@/components/bits";
 import { usePainel } from "@/lib/ctx";
 import { useDesktop } from "@/hooks/use-media";
 import { ACC, DOW, DOW_LONGO, FMT, MES, MONTHS, addDays, cleanTitle, dayKey, hm, todayStr, type Conta, type Row } from "@/lib/model";
@@ -43,7 +42,7 @@ function Legend() {
       {ativas.length > 1 ? ativas.map((k) => <span key={k} data-a={k}><i className={cn(i, "w-1 bg-[var(--c)]")} />{ACC[k].label}</span>) : null}
       <span><i className={cn(i, "border-[1.5px] border-input")} />Agendado</span>
       <span><i className={cn(i, "border border-ok/40 bg-ok-soft")} />Publicado</span>
-      <span><i className={cn(i, "border-[1.5px] border-dashed border-warn")} />Story à mão</span>
+      <span><i className={cn(i, "border-[1.5px] border-dashed border-manual bg-manual-soft")} />Story à mão</span>
       <span><i className={cn(i, "border-[1.5px] border-crit bg-crit-soft")} />Falha ou atraso</span>
     </div>
   );
@@ -52,7 +51,7 @@ function Legend() {
 const tom = (r: Row) => cn(
   "border border-l-[3px] border-l-[var(--c)] bg-card",
   r.eff === "publicado" && "bg-ok-soft",
-  (r.eff === "manual" || r.eff === "pendente") && "border-dashed border-warn/70",
+  (r.eff === "manual" || r.eff === "pendente") && "border-[1.5px] border-l-[3px] border-dashed border-manual border-l-[var(--c)] bg-manual-soft [border-left-style:solid]",
   (r.eff === "falhou" || r.eff === "atrasado") && "border-crit bg-crit-soft",
 );
 
@@ -95,14 +94,14 @@ function Mes({ k, byDay, irDia }: { k: string; byDay: Map<string, Row[]>; irDia:
               {evs.slice(0, extra > 0 ? lim - 1 : lim).map((r) => desktop ? (
                 <button key={r.id} type="button" data-a={r.conta} onClick={() => open(r.id)} title={`${ACC[r.conta]?.label} · ${cleanTitle(r.titulo, r.legenda)}`}
                   className={cn("flex w-full min-w-0 items-center gap-1.5 rounded-sm px-1 py-0.5 text-left text-xs hover:bg-accent focus-visible:ring-[3px] focus-visible:ring-ring/50 focus-visible:outline-none", (r.eff === "falhou" || r.eff === "atrasado") && "bg-crit-soft text-crit")}>
-                  <span className={cn("size-2 shrink-0 rounded-full bg-[var(--c)]", (r.eff === "manual" || r.eff === "pendente") && "border-[1.5px] border-[var(--c)] bg-transparent")} aria-hidden />
+                  <span className={cn("size-2 shrink-0 rounded-full bg-[var(--c)]", (r.eff === "manual" || r.eff === "pendente") && "border-[1.5px] border-dashed border-manual bg-manual-soft")} aria-hidden />
                   <span className="num shrink-0 text-muted-foreground">{hm(r.quando)}</span>
                   <span className="truncate text-ink">{cleanTitle(r.titulo, r.legenda)}</span>
                   <Marcas r={r} />
                 </button>
               ) : (
                 <button key={r.id} type="button" data-a={r.conta} onClick={() => open(r.id)} aria-label={`${hm(r.quando)} ${ACC[r.conta]?.label}: ${cleanTitle(r.titulo, r.legenda)}`}
-                  className={cn("h-1.5 w-full rounded-full bg-[var(--c)]", r.eff === "publicado" && "opacity-50", (r.eff === "manual" || r.eff === "pendente") && "border border-dashed border-[var(--c)] bg-transparent", (r.eff === "falhou" || r.eff === "atrasado") && "bg-crit")} />
+                  className={cn("h-1.5 w-full rounded-full bg-[var(--c)]", r.eff === "publicado" && "opacity-50", (r.eff === "manual" || r.eff === "pendente") && "border border-dashed border-manual bg-manual-soft", (r.eff === "falhou" || r.eff === "atrasado") && "bg-crit")} />
               ))}
               {extra > 0 ? (
                 <button type="button" onClick={() => irDia(d)} className="rounded-sm px-1 text-left text-xs font-medium text-ink hover:bg-accent max-md:text-center">
@@ -139,11 +138,14 @@ function lanes(rows: Row[]) {
 }
 
 function Bloco({ e, h0, px, grande }: { e: ReturnType<typeof lanes>[number]; h0: number; px: number; grande: boolean }) {
-  const { m, open } = usePainel();
+  const { m, open, ativas } = usePainel();
   const { r } = e;
   const top = ((e.ini - h0 * 60) / 60) * px;
   const alto = Math.max(26, (DUR / 60) * px - 2);
   const thumb = m.thumbOf(r);
+  // No Dia cada coluna já é uma conta; na Semana as contas se misturam e a foto de perfil diz de quem é.
+  const foto = !grande && ativas.length !== 1 && e.de <= 2 ? m.avatar(r.conta) : null;
+  const t = Math.min(alto - 8, 34);
   return (
     <button
       type="button"
@@ -154,11 +156,19 @@ function Bloco({ e, h0, px, grande }: { e: ReturnType<typeof lanes>[number]; h0:
       className={cn("absolute flex min-w-0 items-start gap-1.5 overflow-hidden rounded-md p-1 text-left max-md:p-0.5 text-xs leading-tight shadow-xs hover:z-10 hover:shadow-md focus-visible:z-10 focus-visible:ring-[3px] focus-visible:ring-ring/50 focus-visible:outline-none", tom(r))}
       style={{ top, height: alto, left: `calc(${(e.lane / e.de) * 100}% + 2px)`, width: `calc(${100 / e.de}% - 4px)` }}
     >
-      {grande && thumb ? <PostPhoto conta={r.conta} src={thumb} size={Math.min(alto - 8, 34)} avatar={null} /> : null}
-      {/* Semana no celular: coluna estreita demais para texto, fica só a miniatura. */}
-      {!grande && thumb ? <img src={thumb} alt="" className="size-full rounded-sm object-cover md:hidden" /> : null}
+      {grande && thumb ? <img src={thumb} alt="" loading="lazy" className="shrink-0 rounded-md border object-cover" style={{ width: t, height: t }} /> : null}
+      {/* Semana no celular: coluna estreita demais para texto, fica só a miniatura, com a foto da conta no canto. */}
+      {!grande && thumb ? (
+        <span className="relative size-full md:hidden">
+          <img src={thumb} alt="" className="size-full rounded-sm object-cover" />
+          {foto ? <img src={foto} alt="" className="absolute right-0.5 bottom-0.5 size-3.5 rounded-full object-cover ring-1 ring-card" /> : null}
+        </span>
+      ) : null}
       <span className={cn("flex min-w-0 flex-col", !grande && thumb && "max-md:hidden")}>
-        <span className="num flex items-center gap-1 font-medium text-ink">{hm(r.quando)}<Marcas r={r} /></span>
+        <span className="num flex items-center gap-1 font-medium text-ink">
+          {foto ? <img src={foto} alt="" className="size-3.5 shrink-0 rounded-full object-cover ring-1 ring-[var(--c)] max-md:hidden" /> : null}
+          {hm(r.quando)}<Marcas r={r} />
+        </span>
         <span className="truncate text-muted-foreground max-md:hidden">{FMT[r.formato] || r.formato} · {cleanTitle(r.titulo, r.legenda)}</span>
         {grande ? <span className="truncate text-muted-foreground md:hidden">{FMT[r.formato] || r.formato}</span> : null}
       </span>
@@ -252,7 +262,9 @@ export function CalendarioView() {
   const byDay = useMemo(() => {
     const map = new Map<string, Row[]>();
     const busca = q.trim().toLowerCase();
-    m.rows(ativas).filter((r) => !busca || (r.titulo + " " + (r.legenda || "")).toLowerCase().includes(busca)).forEach((r) => { const d = dayKey(r.quando); map.set(d, [...(map.get(d) || []), r]); });
+    m.rows(ativas).filter((r) => !busca || (r.titulo + " " + (r.legenda || "")).toLowerCase().includes(busca))
+      // Post antecipado ou atrasado aparece na hora em que saiu, não na marcada.
+      .map((r) => ({ ...r, quando: m.noAr(r) })).forEach((r) => { const d = dayKey(r.quando); map.set(d, [...(map.get(d) || []), r]); });
     map.forEach((a) => a.sort((p, x) => p.quando.localeCompare(x.quando)));
     return map;
   }, [m, ativas.join(), q]); // eslint-disable-line
