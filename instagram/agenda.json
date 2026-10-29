@@ -150,7 +150,7 @@
   {
    "id": "gh-1029-1200",
    "conta": "GiraHub",
-   "quando": "2026-10-29T12:00:00-03:00",
+   "quando": "2026-10-29T21:00:00-03:00",
    "formato": "carrossel",
    "status": "agendado",
    "titulo": "Carrossel — Financeiro do terreiro: 5 hábitos",
@@ -210,10 +210,10 @@
   {
    "id": "gh-1029-2100",
    "conta": "GiraHub",
-   "quando": "2026-10-29T21:00:00-03:00",
+   "quando": "2026-11-04T12:00:00-03:00",
    "formato": "reel",
    "status": "agendado",
-   "titulo": "Reels 29/10 — Relatório da gira: quem veio, quem atendeu",
+   "titulo": "Reels 04/11 — Relatório da gira: quem veio, quem atendeu",
    "legenda": "Quantos vieram na gira de sábado? E quantos faltaram?\n\nO relatório da gira do GiraHub responde na hora: total de senhas, quem foi atendido, quem não veio e quem chegou sem senha.\nCada atendimento com o médium e o cambone da noite. E baixa em PDF para guardar na pasta da casa.\n\nManda pra quem cuida da secretaria do terreiro.\n\n🌐 girahub.com.br (link na bio)\n\n#GestãoDeTerreiro #Umbanda #GiraHub",
    "midia": [
     "midia/girahub/gh-1029-2100.mp4"
@@ -249,7 +249,7 @@
   {
    "id": "gh-1030-1200",
    "conta": "GiraHub",
-   "quando": "2026-10-30T12:00:00-03:00",
+   "quando": "2026-10-30T21:00:00-03:00",
    "formato": "carrossel",
    "status": "agendado",
    "titulo": "Carrossel — Gira lotou: fila de espera e horário marcado",
@@ -307,7 +307,7 @@
   {
    "id": "gh-1030-2100",
    "conta": "GiraHub",
-   "quando": "2026-10-30T21:00:00-03:00",
+   "quando": "2026-10-30T12:00:00-03:00",
    "formato": "reel",
    "status": "agendado",
    "titulo": "Reels 30/10 — Associados: quem ajuda a casa sem ser da corrente",
@@ -404,7 +404,7 @@
   {
    "id": "gh-1031-2100",
    "conta": "GiraHub",
-   "quando": "2026-10-31T21:00:00-03:00",
+   "quando": "2026-10-31T12:00:00-03:00",
    "formato": "reel",
    "status": "agendado",
    "titulo": "Reels 31/10 — Senha com horário marcado",
@@ -498,7 +498,7 @@
   {
    "id": "gh-1101-2100",
    "conta": "GiraHub",
-   "quando": "2026-11-01T21:00:00-03:00",
+   "quando": "2026-11-01T12:00:00-03:00",
    "formato": "reel",
    "status": "agendado",
    "titulo": "Reels 01/11 — Site do terreiro",
@@ -592,7 +592,7 @@
   {
    "id": "gh-1102-2100",
    "conta": "GiraHub",
-   "quando": "2026-11-02T21:00:00-03:00",
+   "quando": "2026-11-02T12:00:00-03:00",
    "formato": "reel",
    "status": "agendado",
    "titulo": "Reels 02/11 — A casa é feita de muitas mãos",
@@ -624,7 +624,7 @@
   {
    "id": "gh-1103-1200",
    "conta": "GiraHub",
-   "quando": "2026-11-03T12:00:00-03:00",
+   "quando": "2026-11-03T21:00:00-03:00",
    "formato": "carrossel",
    "status": "agendado",
    "titulo": "Carrossel — A senha com a cara da sua casa",
@@ -681,7 +681,7 @@
   {
    "id": "gh-1103-2100",
    "conta": "GiraHub",
-   "quando": "2026-11-03T21:00:00-03:00",
+   "quando": "2026-11-03T12:00:00-03:00",
    "formato": "reel",
    "status": "agendado",
    "titulo": "Reels 03/11 — Relatórios de atendimento",
