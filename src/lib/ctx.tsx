@@ -1,8 +1,8 @@
 import { createContext, useContext } from "react";
 import type { Conta, Model } from "./model";
 
-export type View = "fila" | "calendario" | "publicados" | "execucoes";
-export const VIEWS: View[] = ["fila", "calendario", "publicados", "execucoes"];
+export type View = "ranking" | "fila" | "calendario" | "publicados" | "execucoes";
+export const VIEWS: View[] = ["ranking", "fila", "calendario", "publicados", "execucoes"];
 
 export interface Painel {
   m: Model;
