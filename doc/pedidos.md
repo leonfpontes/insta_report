@@ -119,8 +119,9 @@ O que o Claude **nunca** faz num pedido:
 
 ## Quem processa
 
-Uma tarefa agendada do Claude, no projeto "Mentoria Leonardo", roda de hora em hora das 7h às 23h
-(Brasília) e segue a seção acima. Ela não faz nada quando não há pedido `novo` nem `ajuste`. O
+Tarefas agendadas do Claude, no projeto "Mentoria Leonardo", rodam a cada 15 minutos (aos minutos
+02, 17, 32 e 47) das 7h às 23h59 de Brasília e seguem a seção acima. São quatro tarefas de hora em
+hora, porque o intervalo mínimo de uma tarefa é de 1 hora. Ela não faz nada quando não há pedido `novo` nem `ajuste`. O
 texto que o painel mostra sobre esse ritmo fica em `src/lib/pedidos.ts` (`RITMO`); mude os dois
 juntos.
 

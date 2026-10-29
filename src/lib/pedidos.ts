@@ -36,7 +36,7 @@ export const PEDIDO_STATUS: Record<PedidoStatus, string> = {
 export const ABERTO: PedidoStatus[] = ["novo", "producao", "duvida", "ajuste"];
 
 /** Quando o Claude olha os pedidos (a tarefa agendada de doc/pedidos.md). */
-export const RITMO = "O Claude olha os pedidos a cada hora, das 7h às 23h.";
+export const RITMO = "O Claude olha os pedidos a cada 15 minutos, das 7h às 23h59.";
 
 /** Id no horário de Brasília: pd-AAAAMMDD-HHMMSS. */
 export function novoId(d = new Date()) {
