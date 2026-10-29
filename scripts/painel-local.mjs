@@ -7,7 +7,8 @@
  *   npm run local, e noutro terminal npm run dev  → painel com recarga instantânea (porta 5173)
  *
  * Os botões "Publicar agora" e "Checar agora" não disparam nada: o pedido aparece no terminal.
- * "Já postei" grava de verdade na agenda local (desfaça com git checkout se for só teste).
+ * "Já postei" grava de verdade na agenda local (desfaça com git checkout se for só teste). Os pedidos
+ * gravam em instagram/pedidos.json e instagram/pedidos/ (apague os dois depois do teste).
  * A aba Execuções fica vazia, porque não há GitHub Actions aqui.
  */
 import http from "node:http";
@@ -42,6 +43,7 @@ globalThis.fetch = async (url, op = {}) => {
     }
     if (metodo === "PUT") {
       const b = JSON.parse(op.body);
+      fs.mkdirSync(path.dirname(arquivo), { recursive: true });
       fs.writeFileSync(arquivo, Buffer.from(b.content, "base64"));
       console.log("gravou", path.relative(RAIZ, arquivo), "·", b.message);
       return json({});

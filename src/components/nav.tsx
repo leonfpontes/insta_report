@@ -1,4 +1,4 @@
-import { Activity, BarChart3, CalendarDays, ListTodo, Search, Trophy } from "lucide-react";
+import { Activity, BarChart3, CalendarDays, Inbox, ListTodo, Search, Trophy } from "lucide-react";
 import { TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Input } from "@/components/ui/input";
 import { usePainel, type View } from "@/lib/ctx";
@@ -8,6 +8,7 @@ import { cn } from "@/lib/utils";
 const ITEMS: { v: View; l: string; Icon: typeof ListTodo }[] = [
   { v: "ranking", l: "Ranking", Icon: Trophy },
   { v: "fila", l: "Fila", Icon: ListTodo },
+  { v: "pedidos", l: "Pedidos", Icon: Inbox },
   { v: "calendario", l: "Calendário", Icon: CalendarDays },
   { v: "publicados", l: "Publicados", Icon: BarChart3 },
   { v: "execucoes", l: "Execuções", Icon: Activity },
@@ -19,15 +20,23 @@ function useAtencao() {
   return m.rows(ativas).filter((r) => r.kind === "agenda" && ["falhou", "atrasado", "pendente"].includes(r.eff)).length;
 }
 
+/** Pedidos com proposta esperando o Leonardo, para o selo da aba Pedidos. */
+function useParaAprovar() {
+  const { m } = usePainel();
+  return (m.d.pedidos || []).filter((p) => p.status === "proposta" || p.status === "duvida").length;
+}
+
 /** Abas do computador; o painel de cada aba está em App (TabsContent). */
 export function ViewTabs() {
   const at = useAtencao();
+  const ap = useParaAprovar();
   return (
       <TabsList className="hidden h-10 bg-secondary md:inline-flex">
         {ITEMS.map(({ v, l, Icon }) => (
           <TabsTrigger key={v} value={v} className="h-full px-3">
             <Icon aria-hidden />{l}
             {v === "fila" && at ? <span className="num ml-1 rounded-sm bg-crit px-1.5 text-xs text-white">{at}</span> : null}
+            {v === "pedidos" && ap ? <span className="num ml-1 rounded-sm bg-bronze px-1.5 text-xs text-white" aria-label={`${ap} para aprovar`}>{ap}</span> : null}
           </TabsTrigger>
         ))}
       </TabsList>
@@ -37,6 +46,7 @@ export function ViewTabs() {
 /** Abas presas embaixo da tela no celular, ao alcance do polegar. */
 export function BottomNav({ view, setView }: { view: View; setView: (v: View) => void }) {
   const at = useAtencao();
+  const ap = useParaAprovar();
   return (
     <nav aria-label="Visões do painel" className="pb-safe fixed inset-x-0 bottom-0 z-30 border-t bg-card/95 backdrop-blur-md md:hidden">
       <ul className="grid" style={{ gridTemplateColumns: `repeat(${ITEMS.length}, minmax(0, 1fr))`, paddingLeft: "env(safe-area-inset-left,0px)", paddingRight: "env(safe-area-inset-right,0px)" }}>
@@ -52,6 +62,7 @@ export function BottomNav({ view, setView }: { view: View; setView: (v: View) =>
               <Icon className="size-5" aria-hidden />
               {l}
               {v === "fila" && at ? <span className="num absolute top-2 left-[calc(50%+6px)] min-w-5 rounded-sm bg-crit px-1 text-center text-xs leading-5 text-white" aria-label={`${at} pedem atenção`}>{at}</span> : null}
+              {v === "pedidos" && ap ? <span className="num absolute top-2 left-[calc(50%+6px)] min-w-5 rounded-sm bg-bronze px-1 text-center text-xs leading-5 text-white" aria-label={`${ap} para aprovar`}>{ap}</span> : null}
             </button>
           </li>
         ))}
@@ -63,6 +74,7 @@ export function BottomNav({ view, setView }: { view: View; setView: (v: View) =>
 const BUSCA: Record<View, string> = {
   ranking: "Buscar no ranking",
   fila: "Buscar na fila",
+  pedidos: "Buscar nos pedidos",
   calendario: "Buscar no calendário",
   publicados: "Buscar nos publicados",
   execucoes: "Buscar nos posts com erro",

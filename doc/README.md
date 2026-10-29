@@ -6,6 +6,7 @@
 | [agenda.md](agenda.md) | Quem agenda | Formato de `agenda.json`, formatos, status, mídia e a checagem antes do PR |
 | [publicador.md](publicador.md) | Dev | Como o workflow Publicar escolhe, publica, tenta de novo e desiste |
 | [metricas.md](metricas.md) | Dev, análise | O que é coletado, o formato de `metricas.json` e a regra de comparação |
+| [pedidos.md](pedidos.md) | Agentes de IA, todos | Pedidos de publicação: formato, status e como o Claude processa |
 | [painel.md](painel.md) | Todos | Cada tela do painel, links diretos, rotas da API e segurança |
 | [alertas.md](alertas.md) | Operação | Quando chega e-mail, o que ele diz e como configurar |
 | [contas-e-tokens.md](contas-e-tokens.md) | Operação | Ligar uma conta nova, renovação e token recusado |
