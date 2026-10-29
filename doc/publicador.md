@@ -60,9 +60,12 @@ sequenceDiagram
   A->>A: commit [instagram] e push na main
 ```
 
-- **URL da mídia:** `https://cdn.jsdelivr.net/gh/leonfpontes/insta_report@<GITHUB_SHA>/instagram/<arquivo>`.
-  O commit fixo evita cache velho, e o jsDelivr manda o `Content-Type` certo para vídeo, o que
-  o raw do GitHub não faz.
+- **URL da mídia:** `https://instagram.leopontes.com.br/m/<GITHUB_SHA>/<arquivo>`. A regra `/m/`
+  do `vercel.json` busca o arquivo no raw do GitHub, no commit da rodada, e devolve o
+  `Content-Type` certo para vídeo, o que o raw sozinho não faz. Na última tentativa, a reserva é
+  `https://cdn.jsdelivr.net/gh/leonfpontes/insta_report@<GITHUB_SHA>/instagram/<arquivo>`. O
+  jsDelivr deixou de ser o principal porque, com o repositório acima de 50 MB, às vezes responde
+  403 "Package size exceeded".
 - **Sem post duplicado:** antes de criar o container, o script procura nos últimos 15 posts do
   perfil um com a legenda começando igual (80 primeiros caracteres). Se achar, só grava o link.
   Stories não passam por essa checagem.
