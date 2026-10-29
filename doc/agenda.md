@@ -67,7 +67,7 @@ letra ou número trocado por `_`. Exemplo: `GiraHub` → `IG_TOKEN_GIRAHUB`.
 | `capa` | não | Só para `reel`: imagem JPEG usada como capa |
 | `nota` | não | Instruções para a pessoa que vai postar à mão (sticker, música, link) |
 | `colaboradores` | não | Collab: lista de até 3 usuários (sem @). Vale para post, carrossel e reel. O post só aparece no perfil da pessoa depois que ela aceita o convite |
-| `marcacoes` | não | Marca pessoas nas fotos: lista de `{ "usuario": "camilacgod", "foto": 1, "x": 0.4, "y": 0.5 }`. `foto` é a posição na `midia` (começa em 1, padrão 1); `x` e `y` vão de 0 a 1 a partir do canto de cima à esquerda (padrão 0.5). Só imagens de post e carrossel. Se a API recusar uma marcação, o post sai sem ela e o log da rodada diz qual foi |
+| `marcacoes` | não | Marca pessoas nas fotos: lista de `{ "usuario": "camilacgod", "foto": 1, "x": 0.4, "y": 0.5 }`. `foto` é a posição na `midia` (começa em 1, padrão 1); `x` e `y` vão de 0 a 1 a partir do canto de cima à esquerda (padrão 0.5). Vale para imagens de post e carrossel e para reel (no reel, sem posição: `x` e `y` são ignorados). Se a API recusar uma marcação, o post sai sem ela e o log da rodada diz qual foi |
 
 ### Campos escritos pelo publicador
 

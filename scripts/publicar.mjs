@@ -98,17 +98,18 @@ function midiaParams(arquivo) {
   return ehVideo(arquivo) ? { video_url: urlMidia(arquivo) } : { image_url: urlMidia(arquivo) };
 }
 
-/** Marcações da foto de índice `i` (0 = primeira), no formato de `user_tags` da API. */
-function userTags(post, i) {
+/** Marcações da foto de índice `i` (0 = primeira), no formato de `user_tags` da API. Reel vai sem posição. */
+function userTags(post, i, reel) {
   const tags = (post.marcacoes ?? [])
     .filter((m) => (m.foto ?? 1) === i + 1)
-    .map((m) => ({ username: m.usuario, x: m.x ?? 0.5, y: m.y ?? 0.5 }));
+    .map((m) => (reel ? { username: m.usuario } : { username: m.usuario, x: m.x ?? 0.5, y: m.y ?? 0.5 }));
   return tags.length ? JSON.stringify(tags) : null;
 }
 
-/** Cria o container de uma imagem com as marcações; se a API recusar, cria sem elas para o post não falhar. */
+/** Cria o container de uma imagem ou reel com as marcações; se a API recusar, cria sem elas para o post não falhar. */
 async function criarComMarcacao(params, post, i, token) {
-  const tags = params.image_url ? userTags(post, i) : null;
+  const reel = params.media_type === "REELS";
+  const tags = params.image_url || reel ? userTags(post, i, reel) : null;
   if (!tags) return api("POST", "/me/media", params, token);
   try {
     return await api("POST", "/me/media", { ...params, user_tags: tags }, token);
@@ -129,7 +130,7 @@ async function montar(post, token) {
   }
   if (post.formato === "reel") {
     const capa = post.capa ? { cover_url: urlMidia(post.capa) } : {};
-    return (await api("POST", "/me/media", { media_type: "REELS", caption: post.legenda, ...colab, ...capa, ...midiaParams(arquivos[0]) }, token)).id;
+    return (await criarComMarcacao({ media_type: "REELS", caption: post.legenda, ...colab, ...capa, ...midiaParams(arquivos[0]) }, post, 0, token)).id;
   }
   if (arquivos.length === 1) {
     return (await criarComMarcacao({ caption: post.legenda, ...colab, ...midiaParams(arquivos[0]) }, post, 0, token)).id;
