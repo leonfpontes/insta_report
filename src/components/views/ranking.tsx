@@ -1,5 +1,5 @@
 import { lazy, Suspense, useMemo, useState } from "react";
-import { ChevronDown, Flame, Info, TrendingDown, TrendingUp } from "lucide-react";
+import { ChevronDown, ChevronLeft, ChevronRight, Flame, Info, TrendingDown, TrendingUp } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
@@ -109,6 +109,7 @@ export function RankingView() {
   const [per, setPerS] = useState(ini.per || "90");
   const [fmt, setFmtS] = useState(ini.fmt || "todos");
   const [todos, setTodos] = useState(false);
+  const [sel, setSel] = useState<string | null>(null);
   const salvar = (o: { k?: string; per?: string; fmt?: string }) => { try { localStorage.setItem(KEY, JSON.stringify({ k, per, fmt, ...o })); } catch { /* ignora */ } };
   const setK = (v: string) => { setKS(v); salvar({ k: v }); };
   const setPer = (v: string) => { setPerS(v); salvar({ per: v }); };
@@ -120,6 +121,10 @@ export function RankingView() {
   const valor = (it: RankItem) => (k === "taxa" ? (it.v * 100).toLocaleString("pt-BR", { maximumFractionDigits: 1 }) + "%" : n(it.v));
   const openP = (it: RankItem) => { const a = (m.d.agenda?.posts || []).find((x) => x.midiaId === it.p.id); open(a ? a.id : "ig:" + it.p.id); };
   const comBase = r.itens.filter((i) => i.x != null);
+  // Ordem do gráfico (por data), para as setas passarem de um ponto ao vizinho.
+  const cron = [...comBase].sort((a, b) => a.p.quando.localeCompare(b.p.quando));
+  const si = cron.findIndex((i) => i.p.id === sel);
+  const atual = si >= 0 ? cron[si] : null;
   const melhores = comBase.filter((i) => i.nivel !== "flop");
   const lista = todos ? melhores : melhores.slice(0, 10);
   const semPosts = !ativas.some((c) => m.igPosts(c).length);
@@ -161,11 +166,24 @@ export function RankingView() {
       <Card className="gap-3 px-3 py-4 md:px-5">
         <div className="flex flex-col gap-0.5">
           <h2 className="text-base font-medium text-ink">{met.l} de cada post contra o normal da conta</h2>
-          <p className="text-sm text-muted-foreground">Cada ponto é um post. Acima da faixa verde, fora da curva; abaixo da vermelha, flop. Toque num ponto para abrir.</p>
+          <p className="text-sm text-muted-foreground">Cada ponto é um post. Acima da faixa verde, fora da curva; abaixo da vermelha, flop. Toque em qualquer lugar do gráfico para ver o post mais perto.</p>
         </div>
         <Suspense fallback={<Skeleton className="w-full" style={{ height: desktop ? 300 : 240 }} />}>
-          <RankChart itens={r.itens} contas={ativas} valor={valor} onPick={openP} height={desktop ? 300 : 240} />
+          <RankChart itens={r.itens} contas={ativas} valor={valor} sel={atual?.p.id ?? null} onSelect={(it) => setSel(it.p.id)} height={desktop ? 300 : 260} dica={desktop} />
         </Suspense>
+        {atual ? (
+          <div className="flex flex-col gap-2 rounded-lg border bg-background" aria-live="polite">
+            <ul><Linha it={atual} valor={valor(atual)} contas={ativas.length} onOpen={() => openP(atual)} flop={atual.nivel === "flop"} /></ul>
+            <div className="flex items-center gap-2 border-t px-2 py-2">
+              <Button variant="outline" size="icon" className="size-11 bg-card" disabled={si <= 0} onClick={() => setSel(cron[si - 1].p.id)} aria-label="Post anterior no gráfico"><ChevronLeft aria-hidden /></Button>
+              <span className="num flex-1 text-center text-sm text-muted-foreground">{si + 1} de {cron.length}</span>
+              <Button variant="outline" size="icon" className="size-11 bg-card" disabled={si >= cron.length - 1} onClick={() => setSel(cron[si + 1].p.id)} aria-label="Próximo post no gráfico"><ChevronRight aria-hidden /></Button>
+              <Button className="h-11" onClick={() => openP(atual)}>Abrir post</Button>
+            </div>
+          </div>
+        ) : cron.length > 1 ? (
+          <Button variant="outline" className="h-11 self-start bg-card" onClick={() => setSel(cron[cron.length - 1].p.id)}>Ver os posts um a um</Button>
+        ) : null}
         {ativas.length > 1 ? (
           <div className="flex flex-wrap gap-x-4 gap-y-1 text-sm text-muted-foreground">
             {ativas.map((c) => <span key={c} data-a={c} className="inline-flex items-center gap-1.5"><i className="size-2.5 rounded-full bg-[var(--c)]" aria-hidden />{ACC[c].label}</span>)}
