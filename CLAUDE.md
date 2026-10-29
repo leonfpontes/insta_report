@@ -44,7 +44,9 @@ Na maior parte das tarefas, **o seu trabalho é editar a agenda e as mídias, po
 
 1. Crie uma branch a partir da `main` atualizada.
 2. Grave as mídias em `instagram/midia/<pasta-da-conta>/`: imagem em **JPEG**, vídeo em **MP4**
-   (H.264). PNG não publica.
+   (H.264). PNG não publica. **Cada arquivo com no máximo 20 MB**: acima disso o jsDelivr
+   recusa (403), o vídeo não abre no painel e o Instagram não consegue baixar. Para vídeo,
+   reencode com `ffmpeg -i in.mp4 -c:v libx264 -crf 20 -maxrate 4800k -bufsize 9600k -c:a copy -movflags +faststart out.mp4`.
 3. Acrescente os posts **no fim** de `posts` em `instagram/agenda.json`:
 
    ```json

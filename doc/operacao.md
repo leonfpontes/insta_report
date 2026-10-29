@@ -18,7 +18,7 @@ O que fazer no dia a dia e quando algo dá errado.
 | --- | --- | --- |
 | Post ficou `agendado` depois da hora | O GitHub atrasou o agendamento | Esperar até 20 min. Se não sair, **Publicar agora** |
 | Post virou `falhou` com "passou mais de 6 h" | O Actions ficou parado ou a conta estava pausada | Mudar o `quando` e voltar o `status` para `agendado`, ou **Publicar agora** |
-| "Media download has failed" | A mídia não estava na `main` na hora, é PNG ou a URL tem caractere estranho | Confirmar o arquivo na `main` em JPEG/MP4 e **Publicar agora** |
+| "Media download has failed", ou vídeo que não abre no painel | A mídia não estava na `main` na hora, é PNG, tem mais de 20 MB (o jsDelivr recusa) ou a URL tem caractere estranho | Confirmar o arquivo na `main` em JPEG/MP4 e **Publicar agora** |
 | "aspect ratio" | Proporção fora do aceito | Refazer a mídia (feed 4:5 a 1,91:1; reel e story 9:16) |
 | Luz vermelha na conta | Token vencido ou revogado | [contas-e-tokens.md](contas-e-tokens.md#token-recusado) |
 | Luz vermelha com "api" | Instabilidade da API | Esperar a próxima coleta ou **Checar agora** |
