@@ -1826,6 +1826,20 @@
     "midia/girahub/gh-1110-1900-05.jpg"
    ],
    "nota": "Aprovado pelo Leonardo no Trello: https://trello.com/c/DN9MCpAD"
+  },
+  {
+   "id": "gh-1030-0800",
+   "conta": "GiraHub",
+   "quando": "2026-10-30T08:00:00-03:00",
+   "formato": "reel",
+   "status": "agendado",
+   "titulo": "Reels 30/10 — Preto Velho: senha da gira no celular",
+   "legenda": "Senha da gira no celular: até o Preto Velho aprendeu. E na sua casa, ainda tem fila no portão? 🤍\n\nCom o GiraHub, o consulente abre o link no celular, escolhe a gira e já sai com a senha. Sem papelzinho, sem madrugada na porta. Já vem no plano Gratuito.\n\nManda pra quem cuida da porta da sua casa.\n\n🎵 Música: \"Bossa Antigua\" – Kevin MacLeod (incompetech.com), CC BY 4.0 (creativecommons.org/licenses/by/4.0)\n\n🌐 girahub.com.br (link na bio)\n\n#GestãoDeTerreiro #Umbanda #GiraHub",
+   "midia": [
+    "midia/girahub/gh-1030-0800.mp4"
+   ],
+   "capa": "midia/girahub/gh-1030-0800-capa.jpg",
+   "nota": "Teste de 10 s com balão de fala; Leonardo pediu \"pode agendar o preto velho\" em 29/10."
   }
  ]
 }
