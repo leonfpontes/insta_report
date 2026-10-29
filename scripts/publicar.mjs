@@ -27,14 +27,15 @@ import path from "node:path";
 import { enviarAlerta } from "./alerta.mjs";
 
 const AGENDA = process.env.AGENDA_ARQUIVO ?? "instagram/agenda.json";
-// jsDelivr no commit exato da rodada: devolve o tipo certo (video/mp4, image/jpeg), que o raw
-// do GitHub não manda para vídeo, e um commit fixo nunca fica preso em cache velho.
+// Mídia no commit exato da rodada, que nunca fica presa em cache velho. A principal é o /m/ do
+// painel (vercel.json): busca no raw do GitHub e devolve o tipo certo (video/mp4, image/jpeg).
+// A reserva é o jsDelivr, usado na última tentativa; ele recusa às vezes repositório acima de 50 MB.
 const REPO = process.env.GITHUB_REPOSITORY ?? "leonfpontes/insta_report";
-const MIDIA_BASE =
-  process.env.MIDIA_BASE ??
-  (process.env.GITHUB_SHA
-    ? `https://cdn.jsdelivr.net/gh/${REPO}@${process.env.GITHUB_SHA}/instagram/`
-    : `https://raw.githubusercontent.com/${REPO}/main/instagram/`);
+const SITE = process.env.SITE_URL ?? "https://instagram.leopontes.com.br";
+const BASES = process.env.GITHUB_SHA
+  ? [`${SITE}/m/${process.env.GITHUB_SHA}/`, `https://cdn.jsdelivr.net/gh/${REPO}@${process.env.GITHUB_SHA}/instagram/`]
+  : [`https://raw.githubusercontent.com/${REPO}/main/instagram/`];
+let MIDIA_BASE = process.env.MIDIA_BASE ?? BASES[0];
 const GRAPH = "https://graph.instagram.com/v23.0";
 const JANELA_HORAS = Number(process.env.JANELA_HORAS ?? 6);
 const MAX_TENTATIVAS = 3;
@@ -222,6 +223,7 @@ async function main() {
       falhas.push({ ...post, erro: `falta o segredo ${tokenEnv(post.conta)}` });
       continue;
     }
+    if (!process.env.MIDIA_BASE) MIDIA_BASE = BASES[(post.tentativas ?? 0) >= MAX_TENTATIVAS - 1 ? BASES.length - 1 : 0];
     if (SIMULAR) {
       console.log(`SIMULAR ${rotulo}: ${post.formato}, ${post.midia.map(urlMidia).join(" ")}`);
       continue;

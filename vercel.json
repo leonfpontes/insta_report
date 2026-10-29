@@ -5,6 +5,9 @@
   "outputDirectory": "dist",
   "ignoreCommand": "git diff --quiet HEAD^ HEAD -- . ':!instagram'",
   "cleanUrls": true,
+  "rewrites": [
+    { "source": "/m/:sha/:path*", "destination": "https://raw.githubusercontent.com/leonfpontes/insta_report/:sha/instagram/:path*" }
+  ],
   "images": {
     "sizes": [640, 1080],
     "formats": ["image/webp"],
@@ -16,6 +19,14 @@
     ]
   },
   "headers": [
+    {
+      "source": "/m/(.*)\\.mp4",
+      "headers": [{ "key": "Content-Type", "value": "video/mp4" }]
+    },
+    {
+      "source": "/m/(.*)\\.jpe?g",
+      "headers": [{ "key": "Content-Type", "value": "image/jpeg" }]
+    },
     {
       "source": "/(.*)",
       "headers": [
