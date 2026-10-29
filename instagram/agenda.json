@@ -1449,6 +1449,27 @@
     "midia/leopontesrp/lp-1031-1900-01.jpg",
     "midia/leopontesrp/lp-1031-1900-02.jpg"
    ]
+  },
+  {
+   "id": "lp-1030-1800",
+   "conta": "leopontesrp",
+   "quando": "2026-10-30T18:00:00-03:00",
+   "formato": "carrossel",
+   "status": "agendado",
+   "titulo": "Rockfeller Caffè: xícaras gigantes, eu e a Camila",
+   "legenda": "Pedi um cafezinho. Veio uma piscina. ☕😳\n\nTarde no Rockfeller Caffè, cenário de Friends, sofá laranja e tudo. Eu ainda tentando entender a xícara; a @camilacgod já tinha entendido tudo. Could this BE any bigger? 😂\n\nAprendendo a viver a vida, um gole (gigante) de cada vez. ❤️\n\n#rockfellercaffe #friends #centralperk #cafe #juntos #momentos",
+   "midia": [
+    "midia/leopontesrp/lp-1030-1800-01.jpg",
+    "midia/leopontesrp/lp-1030-1800-02.jpg"
+   ],
+   "marcacoes": [
+    {
+     "usuario": "camilacgod",
+     "foto": 2,
+     "x": 0.47,
+     "y": 0.42
+    }
+   ]
   }
  ]
 }
