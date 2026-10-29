@@ -105,14 +105,18 @@
    "conta": "GiraHub",
    "quando": "2026-10-28T21:00:00-03:00",
    "formato": "reel",
-   "status": "agendado",
+   "status": "publicado",
    "titulo": "Reels 28/10 — Mensalidade dos médiuns sem constrangimento",
    "legenda": "Mensalidade do terreiro sem constrangimento: ninguém precisa ser cobrado na frente da corrente.\n\nO mês da casa num olhar: quanto era esperado, quanto entrou e o que está em aberto.\nCada médium com o seu cartão: pago, isento ou pendente, registrado pela direção.\n\nManda pra quem cuida das mensalidades da sua casa 🤍\n\n🌐 girahub.com.br (link na bio)\n\n#GestãoDeTerreiro #Umbanda #GiraHub",
    "midia": [
     "midia/girahub/gh-1028-2100.mp4"
    ],
    "postizId": "cmvkz9k8b0wpwmk0y5hbx0rp8",
-   "capa": "midia/girahub/gh-1028-2100-capa.jpg"
+   "capa": "midia/girahub/gh-1028-2100-capa.jpg",
+   "publicadoEm": "2026-10-29T00:39:46.101Z",
+   "midiaId": "18634841530046839",
+   "link": "https://www.instagram.com/reel/DfDvU0_EblV/",
+   "erro": null
   },
   {
    "id": "so2",
