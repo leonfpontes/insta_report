@@ -181,8 +181,8 @@
     "midia/o02-2026-10-29-06.jpg"
    ],
    "postizId": "cmvrewuqb42okp71c507ovz0v",
-   "tentativas": 4,
-   "erro": "/me/media: Only photo or video can be accepted as media type. (The media could not be fetched from this URI: https://cdn.jsdelivr.net/gh/leonfpontes/insta_report@5e4940fc857b1e8cdf7e3e7c0084c3eefaa31dfe/instagram/midia/o02-2026-10-29-04.jpg.Please check the limitations section in our development document for more information: https://developers.facebook.com/docs/instagram-platform/instagram-graph-api/reference/ig-user/media#creating)"
+   "tentativas": 5,
+   "erro": "/me/media: Only photo or video can be accepted as media type. (The media could not be fetched from this URI: https://cdn.jsdelivr.net/gh/leonfpontes/insta_report@80b40e66608f52516aec7b311347e88fff363c87/instagram/midia/o02-2026-10-29-01.jpg.Please check the limitations section in our development document for more information: https://developers.facebook.com/docs/instagram-platform/instagram-graph-api/reference/ig-user/media#creating)"
   },
   {
    "id": "gh-1029-1230",
