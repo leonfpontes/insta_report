@@ -15,6 +15,7 @@ import { PedidosView } from "@/components/views/pedidos";
 import { CalendarioView } from "@/components/views/calendario";
 import { PublicadosView } from "@/components/views/publicados";
 import { ExecucoesView } from "@/components/views/execucoes";
+import { RankingView } from "@/components/views/ranking";
 import { PainelCtx, VIEWS, type Painel, type View } from "@/lib/ctx";
 import { acao, lerDados, SemSessao } from "@/lib/api";
 import { CONTAS, Model, type Conta, type Dados } from "@/lib/model";
@@ -151,10 +152,10 @@ export default function App() {
           <Accounts />
           <Tabs id="vista" value={view} onValueChange={(v) => setView(v as View)} className="scroll-mt-36 gap-5">
             <Toolbar view={view} />
-            <h1 className="sr-only">Agenda do Instagram: {({ fila: "Fila", pedidos: "Pedidos", calendario: "Calendário", publicados: "Publicados", execucoes: "Execuções" } as const)[view]}</h1>
+            <h1 className="sr-only">Agenda do Instagram: {({ ranking: "Ranking", fila: "Fila", pedidos: "Pedidos", calendario: "Calendário", publicados: "Publicados", execucoes: "Execuções" } as const)[view]}</h1>
             {VIEWS.map((v) => (
               <TabsContent key={v} value={v} forceMount hidden={view !== v} className="focus-visible:outline-none">
-                {view === v ? (v === "fila" ? <FilaView /> : v === "pedidos" ? <PedidosView /> : v === "calendario" ? <CalendarioView /> : v === "publicados" ? <PublicadosView /> : <ExecucoesView />) : null}
+                {view === v ? (v === "ranking" ? <RankingView /> : v === "fila" ? <FilaView /> : v === "pedidos" ? <PedidosView /> : v === "calendario" ? <CalendarioView /> : v === "publicados" ? <PublicadosView /> : <ExecucoesView />) : null}
               </TabsContent>
             ))}
           </Tabs>

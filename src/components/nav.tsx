@@ -1,4 +1,4 @@
-import { Activity, BarChart3, CalendarDays, Inbox, ListTodo, Search } from "lucide-react";
+import { Activity, BarChart3, CalendarDays, Inbox, ListTodo, Search, Trophy } from "lucide-react";
 import { TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Input } from "@/components/ui/input";
 import { usePainel, type View } from "@/lib/ctx";
@@ -6,6 +6,7 @@ import { usePainel, type View } from "@/lib/ctx";
 import { cn } from "@/lib/utils";
 
 const ITEMS: { v: View; l: string; Icon: typeof ListTodo }[] = [
+  { v: "ranking", l: "Ranking", Icon: Trophy },
   { v: "fila", l: "Fila", Icon: ListTodo },
   { v: "pedidos", l: "Pedidos", Icon: Inbox },
   { v: "calendario", l: "Calendário", Icon: CalendarDays },
@@ -48,14 +49,14 @@ export function BottomNav({ view, setView }: { view: View; setView: (v: View) =>
   const ap = useParaAprovar();
   return (
     <nav aria-label="Visões do painel" className="pb-safe fixed inset-x-0 bottom-0 z-30 border-t bg-card/95 backdrop-blur-md md:hidden">
-      <ul className="grid grid-cols-5" style={{ paddingLeft: "env(safe-area-inset-left,0px)", paddingRight: "env(safe-area-inset-right,0px)" }}>
+      <ul className="grid" style={{ gridTemplateColumns: `repeat(${ITEMS.length}, minmax(0, 1fr))`, paddingLeft: "env(safe-area-inset-left,0px)", paddingRight: "env(safe-area-inset-right,0px)" }}>
         {ITEMS.map(({ v, l, Icon }) => (
           <li key={v}>
             <button
               type="button"
               onClick={() => setView(v)}
               aria-current={view === v ? "page" : undefined}
-              className={cn("relative flex h-16 w-full flex-col items-center justify-center gap-1 text-xs font-medium focus-visible:bg-accent focus-visible:outline-none", view === v ? "text-ink" : "text-muted-foreground")}
+              className={cn("relative flex h-16 w-full flex-col items-center justify-center gap-1 text-xs font-medium tracking-tight focus-visible:bg-accent focus-visible:outline-none", view === v ? "text-ink" : "text-muted-foreground")}
             >
               {view === v ? <span className="absolute inset-x-5 top-0 h-[3px] rounded-b-sm bg-bronze" aria-hidden /> : null}
               <Icon className="size-5" aria-hidden />
@@ -71,6 +72,7 @@ export function BottomNav({ view, setView }: { view: View; setView: (v: View) =>
 }
 
 const BUSCA: Record<View, string> = {
+  ranking: "Buscar no ranking",
   fila: "Buscar na fila",
   pedidos: "Buscar nos pedidos",
   calendario: "Buscar no calendário",
