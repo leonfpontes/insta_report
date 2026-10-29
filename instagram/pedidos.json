@@ -1,0 +1,16 @@
+{
+ "pedidos": [
+  {
+   "id": "pd-20261029-091424",
+   "criadoEm": "2026-10-29T12:14:25.405Z",
+   "atualizadoEm": "2026-10-29T12:14:25.405Z",
+   "status": "novo",
+   "conta": "GiraHub",
+   "formato": "auto",
+   "quando": "2026-11-04T08:00:00-03:00",
+   "texto": "Crie um Reel para novembro. precisa ter música real que combine. Utilize o editor que está em /Documentos/Dev/edicao-video para potencializar a edição, baixando novas trilhas e deixando como assets. O conteúdo precisa ser novidade e viralizar, então busque o que está em alta sobre o tema e combine com o produto faz.",
+   "anexos": [],
+   "conversa": []
+  }
+ ]
+}
