@@ -16,6 +16,6 @@ export default async function handler(req, res) {
     responder(res, 202, { ok: true });
   } catch (error) {
     console.error(error);
-    responder(res, 502, { erro: "Não consegui acionar o publicador agora." });
+    responder(res, 502, { erro: `Não consegui acionar o publicador agora. (${error.message})` });
   }
 }

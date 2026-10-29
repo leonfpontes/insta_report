@@ -136,12 +136,16 @@
    "conta": "GiraHub",
    "quando": "2026-10-29T08:30:00-03:00",
    "formato": "story",
-   "status": "agendado",
+   "status": "publicado",
    "titulo": "Stories — qui 29/10",
    "midia": [
     "midia/girahub/gh-1029-0830-01.jpg"
    ],
-   "postizId": "cmvi89fgy0i10ta0y0rurahd5"
+   "postizId": "cmvi89fgy0i10ta0y0rurahd5",
+   "publicadoEm": "2026-10-29T11:15:20.512Z",
+   "midiaId": "18179150986443858",
+   "link": "https://www.instagram.com/stories/girahuboficial/4018583483454684461",
+   "erro": null
   },
   {
    "id": "gh-1029-1200",

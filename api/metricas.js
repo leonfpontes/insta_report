@@ -8,6 +8,6 @@ export default async function handler(req, res) {
     responder(res, 202, { ok: true });
   } catch (error) {
     console.error(error);
-    responder(res, 502, { erro: "Não consegui acionar a coleta agora." });
+    responder(res, 502, { erro: `Não consegui acionar a coleta agora. (${error.message})` });
   }
 }
