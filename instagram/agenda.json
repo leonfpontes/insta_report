@@ -1503,6 +1503,24 @@
      "y": 0.3
     }
    ]
+  },
+  {
+   "id": "lp-1029-1800",
+   "conta": "leopontesrp",
+   "quando": "2026-10-29T18:00:00-03:00",
+   "formato": "reel",
+   "status": "agendado",
+   "titulo": "Reel: selfies de caretas e sorrisos com a Camila",
+   "legenda": "Era pra ser só uma foto bonitinha… 📸\n\nDoze tentativas depois, a gente desistiu de fazer pose. E ficou muito melhor assim. 🤪❤️\n\nObrigado por topar todas as caretas, @camilacgod. Meu amor.\n\nQual foi a melhor careta? Conta aqui 👇\n\n#casal #nosdois #amor #selfie",
+   "midia": [
+    "midia/leopontesrp/lp-1029-1800.mp4"
+   ],
+   "capa": "midia/leopontesrp/lp-1029-1800-capa.jpg",
+   "marcacoes": [
+    {
+     "usuario": "camilacgod"
+    }
+   ]
   }
  ]
 }
