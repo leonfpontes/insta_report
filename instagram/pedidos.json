@@ -1,56 +1,61 @@
 {
- "pedidos": [
-  {
-   "id": "pd-20261029-091424",
-   "criadoEm": "2026-10-29T12:14:25.405Z",
-   "atualizadoEm": "2026-10-29T12:33:37.048Z",
-   "status": "ajuste",
-   "conta": "GiraHub",
-   "formato": "auto",
-   "quando": "2026-11-04T08:00:00-03:00",
-   "texto": "Crie um Reel para novembro. precisa ter música real que combine. Utilize o editor que está em /Documentos/Dev/edicao-video para potencializar a edição, baixando novas trilhas e deixando como assets. O conteúdo precisa ser novidade e viralizar, então busque o que está em alta sobre o tema e combine com o produto faz.",
-   "anexos": [],
-   "conversa": [
+  "pedidos": [
     {
-     "de": "claude",
-     "em": "2026-10-29T12:21:28.171Z",
-     "texto": "Fiz um Reel de 22 s sobre o feriadão de sexta, 20/11, com samba de fundo. Usei uma trilha de licença livre para uso comercial, e por isso o crédito vai no fim da legenda. Música famosa não dá para pôr pela API: o Instagram silencia ou derruba o Reel. Se quiser um áudio em alta do próprio app, recuse, me avise, e eu deixo o post para você publicar à mão. As outras 3 trilhas que baixei ficaram em edicao-video/assets/trilhas, com os créditos."
-    },
-    {
-     "de": "claude",
-     "em": "2026-10-29T12:27:56.000Z",
-     "texto": "Baixei a música em 30%, como você pediu no chat. O vídeo e a legenda continuam iguais."
-    },
-    {
-     "de": "leonardo",
-     "em": "2026-10-29T12:33:11.314Z",
-     "texto": "Eu quero publicar este Rios ao meio-dia e na verdade eu preciso de um ajuste em todas as publicações agendadas do gira Rubi eu quero que você passe todos os rios das do período da noite para meio-dia e coloque o Carrossel que estava no meio-dia para o período da noite assim o público vai engajar mais nos rios durante o dia e ver os carrosseis à noite"
-    },
-    {
-     "de": "leonardo",
-     "em": "2026-10-29T12:33:37.048Z",
-     "texto": "Esse reels é meio dia de hoje"
-    }
-   ],
-   "proposta": {
-    "em": "2026-10-29T12:21:28.171Z",
-    "resumo": "Reel de 22 s com samba de fundo (licença CC BY, crédito na legenda). O assunto em alta é o feriadão de sexta, 20/11: casa cheia na gira. O Reel abre com o gancho já na tela, mostra a confusão no portão e depois as telas reais do link da senha e da Porta. Fecha com o que vem no plano Gratuito e o CTA. Ficou para 04/11 às 08h, como você pediu.",
-    "posts": [
-     {
-      "id": "gh-1104-0800",
+      "id": "pd-20261029-091424",
+      "criadoEm": "2026-10-29T12:14:25.405Z",
+      "atualizadoEm": "2026-10-29T12:35:47.000Z",
+      "status": "proposta",
       "conta": "GiraHub",
+      "formato": "auto",
       "quando": "2026-11-04T08:00:00-03:00",
-      "formato": "reel",
-      "status": "agendado",
-      "titulo": "Reels 04/11 — Feriadão de sexta: senha da gira para a casa cheia",
-      "legenda": "Senha da gira no feriadão: casa cheia e portão em paz.\n\nSexta, 20/11, é feriado nacional. Em muita casa, isso quer dizer gira lotada e fila na calçada desde cedo.\n\nCom o GiraHub, o consulente recebe o link da senha no WhatsApp, a Porta marca quem chegou e o Modo TV chama a senha na ordem. Tudo isso já no plano Gratuito.\n\nManda pra quem cuida da porta da sua casa 🤍\n\n🌐 girahub.com.br (link na bio)\n\n#GestãoDeTerreiro #Umbanda #GiraHub\n\nMúsica: \"Samba Jazz Sunny Cafe Fast Bright Samba\" de Alex Morgan (CC BY 4.0)",
-      "midia": [
-       "midia/girahub/gh-1104-0800.mp4"
+      "texto": "Crie um Reel para novembro. precisa ter música real que combine. Utilize o editor que está em /Documentos/Dev/edicao-video para potencializar a edição, baixando novas trilhas e deixando como assets. O conteúdo precisa ser novidade e viralizar, então busque o que está em alta sobre o tema e combine com o produto faz.",
+      "anexos": [],
+      "conversa": [
+        {
+          "de": "claude",
+          "em": "2026-10-29T12:21:28.171Z",
+          "texto": "Fiz um Reel de 22 s sobre o feriadão de sexta, 20/11, com samba de fundo. Usei uma trilha de licença livre para uso comercial, e por isso o crédito vai no fim da legenda. Música famosa não dá para pôr pela API: o Instagram silencia ou derruba o Reel. Se quiser um áudio em alta do próprio app, recuse, me avise, e eu deixo o post para você publicar à mão. As outras 3 trilhas que baixei ficaram em edicao-video/assets/trilhas, com os créditos."
+        },
+        {
+          "de": "claude",
+          "em": "2026-10-29T12:27:56.000Z",
+          "texto": "Baixei a música em 30%, como você pediu no chat. O vídeo e a legenda continuam iguais."
+        },
+        {
+          "de": "leonardo",
+          "em": "2026-10-29T12:33:11.314Z",
+          "texto": "Eu quero publicar este Rios ao meio-dia e na verdade eu preciso de um ajuste em todas as publicações agendadas do gira Rubi eu quero que você passe todos os rios das do período da noite para meio-dia e coloque o Carrossel que estava no meio-dia para o período da noite assim o público vai engajar mais nos rios durante o dia e ver os carrosseis à noite"
+        },
+        {
+          "de": "leonardo",
+          "em": "2026-10-29T12:33:37.048Z",
+          "texto": "Esse reels é meio dia de hoje"
+        },
+        {
+          "de": "claude",
+          "em": "2026-10-29T12:35:47.000Z",
+          "texto": "Passei o Reel para hoje, 29/10, às 12h. Para não sair junto com ele, o carrossel das 12h de hoje vai para as 21h, e o Reel das 21h (Relatório da gira) vai para 04/11 às 12h, no lugar que este ocupava. A troca dos outros dias (Reels da noite para o meio-dia, carrossel do meio-dia para a noite) está no PR da agenda que te mandei no chat. Aprove este pedido antes das 11h55."
+        }
       ],
-      "capa": "midia/girahub/gh-1104-0800-capa.jpg"
-     }
-    ]
-   }
-  }
- ]
+      "proposta": {
+        "em": "2026-10-29T12:35:47.000Z",
+        "resumo": "O mesmo Reel de 22 s, com a música 30% mais baixa, agora hoje, 29/10, ao meio-dia, como você pediu. A troca dos outros Reels para o meio-dia e dos carrosséis para a noite vai num PR separado da agenda.",
+        "posts": [
+          {
+            "id": "gh-1029-1200b",
+            "conta": "GiraHub",
+            "quando": "2026-10-29T12:00:00-03:00",
+            "formato": "reel",
+            "status": "agendado",
+            "titulo": "Reels 29/10 — Feriadão de sexta: senha da gira para a casa cheia",
+            "legenda": "Senha da gira no feriadão: casa cheia e portão em paz.\n\nSexta, 20/11, é feriado nacional. Em muita casa, isso quer dizer gira lotada e fila na calçada desde cedo.\n\nCom o GiraHub, o consulente recebe o link da senha no WhatsApp, a Porta marca quem chegou e o Modo TV chama a senha na ordem. Tudo isso já no plano Gratuito.\n\nManda pra quem cuida da porta da sua casa 🤍\n\n🌐 girahub.com.br (link na bio)\n\n#GestãoDeTerreiro #Umbanda #GiraHub\n\nMúsica: \"Samba Jazz Sunny Cafe Fast Bright Samba\" de Alex Morgan (CC BY 4.0)",
+            "midia": [
+              "midia/girahub/gh-1029-1200b.mp4"
+            ],
+            "capa": "midia/girahub/gh-1029-1200b-capa.jpg"
+          }
+        ]
+      }
+    }
+  ]
 }
