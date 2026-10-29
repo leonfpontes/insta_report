@@ -24,7 +24,7 @@
       "headers": [{ "key": "Content-Type", "value": "video/mp4" }]
     },
     {
-      "source": "/m/(.*)\\.jpe?g",
+      "source": "/m/(.*)\\.jpg",
       "headers": [{ "key": "Content-Type", "value": "image/jpeg" }]
     },
     {
