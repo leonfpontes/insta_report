@@ -1565,7 +1565,7 @@
    "conta": "leopontesrp",
    "quando": "2026-10-29T18:00:00-03:00",
    "formato": "reel",
-   "status": "agendado",
+   "status": "publicado",
    "titulo": "Reel: selfies de caretas e sorrisos com a Camila",
    "legenda": "Era pra ser só uma foto bonitinha…\n\nNo meio das caretas eu lembrei de uma coisa: a gente não precisa posar pra ser feliz. O melhor da vida a dois mora nesses minutos sem roteiro, rindo um da cara do outro.\n\nObrigado por deixar tudo mais leve, @camilacgod. Meu amor. ❤️\n\n#casal #nosdois #amor",
    "midia": [
@@ -1576,7 +1576,11 @@
     {
      "usuario": "camilacgod"
     }
-   ]
+   ],
+   "publicadoEm": "2026-10-29T21:15:32.175Z",
+   "midiaId": "18058758503567506",
+   "link": "https://www.instagram.com/reel/DfF8vgkkn4F/",
+   "erro": null
   },
   {
    "id": "gh-1118-1900",
