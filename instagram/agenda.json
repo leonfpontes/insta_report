@@ -181,20 +181,24 @@
     "midia/o02-2026-10-29-06.jpg"
    ],
    "postizId": "cmvrewuqb42okp71c507ovz0v",
-   "tentativas": 1,
-   "erro": "/me/media: Only photo or video can be accepted as media type. (The media could not be fetched from this URI: https://cdn.jsdelivr.net/gh/leonfpontes/insta_report@11714a5675a62b955e77f7cbe5e5628ca49625c8/instagram/midia/o02-2026-10-29-01.jpg.Please check the limitations section in our development document for more information: https://developers.facebook.com/docs/instagram-platform/instagram-graph-api/reference/ig-user/media#creating)"
+   "tentativas": 2,
+   "erro": "/me/media: Only photo or video can be accepted as media type. (The media could not be fetched from this URI: https://cdn.jsdelivr.net/gh/leonfpontes/insta_report@f73408977d741937b12d9b5c8695abec80b163c8/instagram/midia/o02-2026-10-29-05.jpg.Please check the limitations section in our development document for more information: https://developers.facebook.com/docs/instagram-platform/instagram-graph-api/reference/ig-user/media#creating)"
   },
   {
    "id": "gh-1029-1230",
    "conta": "GiraHub",
    "quando": "2026-10-29T12:30:00-03:00",
    "formato": "story",
-   "status": "agendado",
+   "status": "publicado",
    "titulo": "Stories — qui 29/10",
    "midia": [
     "midia/girahub/gh-1029-1230-01.jpg"
    ],
-   "postizId": "cmvi89h860i11ta0yls4e0hr9"
+   "postizId": "cmvi89h860i11ta0yls4e0hr9",
+   "publicadoEm": "2026-10-29T15:39:20.993Z",
+   "midiaId": "18121680205979395",
+   "link": "https://www.instagram.com/stories/girahuboficial/4018716372855566784",
+   "erro": null
   },
   {
    "id": "gh-1029-1900",
