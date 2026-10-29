@@ -95,6 +95,15 @@ Não preencha estes campos ao criar um post.
 
 PNG não publica: a API só aceita JPEG para imagem.
 
+**Cada arquivo de mídia pode ter no máximo 20 MB.** O Instagram e o painel baixam a mídia pelo
+jsDelivr, que recusa arquivos maiores com 403: o vídeo não abre no painel e o post falha com
+"Media download has failed". Um reel de 30 s em 1080×1920 cabe com folga em ~5 Mbps:
+
+```bash
+ffmpeg -i entrada.mp4 -c:v libx264 -profile:v high -pix_fmt yuv420p -crf 20 \
+  -maxrate 4800k -bufsize 9600k -c:a copy -movflags +faststart saida.mp4
+```
+
 ## Status
 
 ```mermaid
@@ -126,7 +135,7 @@ node -e "JSON.parse(require('fs').readFileSync('instagram/agenda.json'))"   # JS
 npm run check                                                               # sintaxe dos scripts
 ```
 
-Ids repetidos, contas que não existem e mídia faltando não quebram o JSON, mas quebram a
+Ids repetidos, contas que não existem, mídia faltando e mídia acima de 20 MB não quebram o JSON, mas quebram a
 publicação. Este trecho confere os três:
 
 ```bash
@@ -138,6 +147,7 @@ for (const p of a.posts) {
   if (!a.contas[p.conta]) { console.log("conta desconhecida", p.id, p.conta); ok=false }
   for (const m of [...(p.midia||[]), ...(p.capa?[p.capa]:[])])
     if (!fs.existsSync("instagram/"+m)) { console.log("mídia faltando", p.id, m); ok=false }
+    else if (fs.statSync("instagram/"+m).size > 20e6) { console.log("mídia acima de 20 MB", p.id, m); ok=false }
   if (!/[+-]\d\d:\d\d$/.test(p.quando)) { console.log("quando sem fuso", p.id); ok=false }
 }
 console.log(ok ? "agenda ok" : "corrija os itens acima"); process.exit(ok?0:1)'
