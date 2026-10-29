@@ -98,6 +98,26 @@ function midiaParams(arquivo) {
   return ehVideo(arquivo) ? { video_url: urlMidia(arquivo) } : { image_url: urlMidia(arquivo) };
 }
 
+/** Marcações da foto de índice `i` (0 = primeira), no formato de `user_tags` da API. */
+function userTags(post, i) {
+  const tags = (post.marcacoes ?? [])
+    .filter((m) => (m.foto ?? 1) === i + 1)
+    .map((m) => ({ username: m.usuario, x: m.x ?? 0.5, y: m.y ?? 0.5 }));
+  return tags.length ? JSON.stringify(tags) : null;
+}
+
+/** Cria o container de uma imagem com as marcações; se a API recusar, cria sem elas para o post não falhar. */
+async function criarComMarcacao(params, post, i, token) {
+  const tags = params.image_url ? userTags(post, i) : null;
+  if (!tags) return api("POST", "/me/media", params, token);
+  try {
+    return await api("POST", "/me/media", { ...params, user_tags: tags }, token);
+  } catch (e) {
+    console.log(`${post.id}: marcação da foto ${i + 1} recusada (${e.message}); segue sem ela`);
+    return api("POST", "/me/media", params, token);
+  }
+}
+
 /** Cria os containers do formato do post e devolve o id do container final. */
 async function montar(post, token) {
   const arquivos = post.midia;
@@ -112,13 +132,13 @@ async function montar(post, token) {
     return (await api("POST", "/me/media", { media_type: "REELS", caption: post.legenda, ...colab, ...capa, ...midiaParams(arquivos[0]) }, token)).id;
   }
   if (arquivos.length === 1) {
-    return (await api("POST", "/me/media", { caption: post.legenda, ...colab, ...midiaParams(arquivos[0]) }, token)).id;
+    return (await criarComMarcacao({ caption: post.legenda, ...colab, ...midiaParams(arquivos[0]) }, post, 0, token)).id;
   }
   if (arquivos.length > 20) throw new Error("carrossel com mais de 20 itens");
   const filhos = [];
   for (const arquivo of arquivos) {
     const extra = ehVideo(arquivo) ? { media_type: "VIDEO" } : {};
-    const { id } = await api("POST", "/me/media", { is_carousel_item: "true", ...extra, ...midiaParams(arquivo) }, token);
+    const { id } = await criarComMarcacao({ is_carousel_item: "true", ...extra, ...midiaParams(arquivo) }, post, filhos.length, token);
     filhos.push(id);
   }
   for (const id of filhos) await aguardarContainer(id, token);

@@ -89,6 +89,7 @@ Na maior parte das tarefas, **o seu trabalho é editar a agenda e as mídias, po
 | `midia` | Caminhos relativos a `instagram/`, na ordem |
 | `nota` | Instruções para quem posta à mão. Ex.: "Sticker de enquete: Sim · Não" |
 | `colaboradores` | Collab: até 3 @ sem arroba, ex. `["camilacgod"]`. Feed e reel. A pessoa recebe convite e precisa aceitar |
+| `marcacoes` | Marcar pessoas na foto: `[{ "usuario": "luiza_tp14", "foto": 2, "x": 0.5, "y": 0.3 }]`. Só imagens de post e carrossel. Se a API recusar, sai sem a marcação |
 
 Use `manual` para story com sticker, enquete, link ou música, que a API não aceita.
 
