@@ -1448,6 +1448,20 @@
    "midia": [
     "midia/leopontesrp/lp-1031-1900-01.jpg",
     "midia/leopontesrp/lp-1031-1900-02.jpg"
+   ],
+   "marcacoes": [
+    {
+     "usuario": "camilacgod",
+     "foto": 1,
+     "x": 0.3,
+     "y": 0.45
+    },
+    {
+     "usuario": "camilacgod",
+     "foto": 2,
+     "x": 0.25,
+     "y": 0.4
+    }
    ]
   },
   {
