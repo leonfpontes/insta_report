@@ -1505,6 +1505,27 @@
    ]
   },
   {
+   "id": "lp-1030-1800",
+   "conta": "leopontesrp",
+   "quando": "2026-10-30T18:00:00-03:00",
+   "formato": "carrossel",
+   "status": "agendado",
+   "titulo": "Rockfeller Caffè: uma pausa com a Camila",
+   "legenda": "A gente vive correndo. Agenda cheia, celular na mão, café tomado em pé.\n\nNessa tarde no Rockfeller Caffè foi diferente: poltrona, conversa sem pressa e a @camilacgod do lado. A xícara era enorme, mas o que ficou mesmo foi o tempo junto.\n\nAprendendo a viver a vida: desacelerar também é escolha. ☕❤️\n\n#rockfellercaffe #pausa #juntos #momentos",
+   "midia": [
+    "midia/leopontesrp/lp-1030-1800-01.jpg",
+    "midia/leopontesrp/lp-1030-1800-02.jpg"
+   ],
+   "marcacoes": [
+    {
+     "usuario": "camilacgod",
+     "foto": 2,
+     "x": 0.47,
+     "y": 0.42
+    }
+   ]
+  },
+  {
    "id": "lp-1101-1800",
    "conta": "leopontesrp",
    "quando": "2026-11-01T18:00:00-03:00",
