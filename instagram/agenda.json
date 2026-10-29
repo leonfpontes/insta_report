@@ -1524,6 +1524,24 @@
      "y": 0.42
     }
    ]
+  },
+  {
+   "id": "lp-1101-1800",
+   "conta": "leopontesrp",
+   "quando": "2026-11-01T18:00:00-03:00",
+   "formato": "reel",
+   "status": "agendado",
+   "titulo": "Reel: Pedra do Índio em Botucatu com a Camila",
+   "legenda": "Tem lugar que a gente sobe para ver a paisagem e descobre que a vista mais bonita estava do lado o tempo todo.\n\nPedra do Índio, em Botucatu (SP), com a @camilacgod: um sorriso, algumas caretas e aquele silêncio bom de quem olha longe junto. ⛰️\n\n#botucatu #pedradoindio #cuestadebotucatu #interiorpaulista #viagememcasal\n\n🎵 \"Bossa Antigua\", Kevin MacLeod (incompetech.com), licença CC BY 4.0",
+   "midia": [
+    "midia/leopontesrp/lp-1101-1800.mp4"
+   ],
+   "capa": "midia/leopontesrp/lp-1101-1800-capa.jpg",
+   "marcacoes": [
+    {
+     "usuario": "camilacgod"
+    }
+   ]
   }
  ]
 }
