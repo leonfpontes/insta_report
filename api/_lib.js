@@ -68,7 +68,9 @@ export async function gh(rota, opcoes = {}) {
     signal: AbortSignal.timeout(15_000),
   });
   if (!resposta.ok) {
-    const e = new Error(`GitHub ${resposta.status} em ${rota}`);
+    const corpo = await resposta.json().catch(() => ({}));
+    const rotaCurta = rota.replace(`/repos/${REPO}`, "").split("?")[0];
+    const e = new Error(`GitHub ${resposta.status} em ${rotaCurta}${corpo.message ? `: ${corpo.message}` : ""}`);
     e.status = resposta.status;
     throw e;
   }
@@ -110,6 +112,8 @@ export async function disparar(workflow, inputs) {
     await gh(`/repos/${REPO}/dispatches`, {
       method: "POST",
       body: JSON.stringify({ event_type: workflow.replace(/\.ya?ml$/, ""), client_payload: inputs ?? {} }),
+    }).catch((segundo) => {
+      throw new Error(`${error.message}; ${segundo.message}`);
     });
   }
 }
