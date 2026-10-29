@@ -169,7 +169,7 @@
    "conta": "pontes_brain",
    "quando": "2026-10-29T12:15:00-03:00",
    "formato": "carrossel",
-   "status": "agendado",
+   "status": "falhou",
    "titulo": "Portfólio no limite não avisa. Ele vai travando aos poucos: todo mundo ocupado, nada termi",
    "legenda": "Portfólio no limite não avisa. Ele vai travando aos poucos: todo mundo ocupado, nada terminando.\n\n4 sinais: gente em 4 projetos, projeto entrando sem nenhum sair, status de atividade em vez de resultado e ninguém sabendo o que é mais importante.\n\nQuantos você marcou? Comenta de 0 a 4 👇\n\n👉 Mentoria 1:1 para PMs, POs e líderes de PMO: leopontes.com.br/mentoria-produto (link na bio)\n\n#gestaodeportfolio #pmo #gestaodeprojetos #priorizacao #governanca #lideranca",
    "midia": [
@@ -181,8 +181,8 @@
     "midia/o02-2026-10-29-06.jpg"
    ],
    "postizId": "cmvrewuqb42okp71c507ovz0v",
-   "tentativas": 2,
-   "erro": "/me/media: Only photo or video can be accepted as media type. (The media could not be fetched from this URI: https://cdn.jsdelivr.net/gh/leonfpontes/insta_report@f73408977d741937b12d9b5c8695abec80b163c8/instagram/midia/o02-2026-10-29-05.jpg.Please check the limitations section in our development document for more information: https://developers.facebook.com/docs/instagram-platform/instagram-graph-api/reference/ig-user/media#creating)"
+   "tentativas": 3,
+   "erro": "/me/media: Only photo or video can be accepted as media type. (The media could not be fetched from this URI: https://cdn.jsdelivr.net/gh/leonfpontes/insta_report@9ea6f693138387eba68392843e126c34fe8d06ee/instagram/midia/o02-2026-10-29-03.jpg.Please check the limitations section in our development document for more information: https://developers.facebook.com/docs/instagram-platform/instagram-graph-api/reference/ig-user/media#creating)"
   },
   {
    "id": "gh-1029-1230",
