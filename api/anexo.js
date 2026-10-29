@@ -4,7 +4,7 @@ import { REPO, ID_PEDIDO, autorizado, responder, gh } from "./_lib.js";
 // arquivos grandes em partes de até 2,8 MB: cada parte vira instagram/pedidos/<pedido>/<nome>.parteNN,
 // e quem processa o pedido junta as partes com cat (doc/pedidos.md). Arquivo de uma parte só fica
 // com o nome original.
-const NOME = /^[a-z0-9][a-z0-9._-]{0,80}\.(jpe?g|png|webp|heic|gif|mp4|mov|m4v|webm)$/;
+const NOME = /^[a-z0-9][a-z0-9._-]{0,80}\.(jpe?g|png|webp|heic|gif|mp4|mov|m4v|webm|m4a|mp3|ogg|wav|aac)$/;
 const PARTE_MAX = 3_000_000;
 
 export default async function handler(req, res) {

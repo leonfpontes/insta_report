@@ -8,7 +8,7 @@ import { TZ } from "./model";
 export type PedidoStatus = "novo" | "producao" | "duvida" | "proposta" | "ajuste" | "aprovado" | "recusado";
 
 export interface Anexo {
-  arquivo: string; nome: string; tipo: "imagem" | "video"; bytes: number; partes: number;
+  arquivo: string; nome: string; tipo: "imagem" | "video" | "audio"; bytes: number; partes: number;
   /** Miniatura (só imagem de uma parte) e arquivo original (imagem ou vídeo de uma parte). */
   img?: string; url?: string;
 }
@@ -70,7 +70,8 @@ const PARTE = 2_800_000;
 export const VIDEO_MAX = 150e6;
 export const ANEXOS_MAX = 10;
 
-export const ehVideo = (f: File) => f.type.startsWith("video/") || /\.(mp4|mov|m4v|webm)$/i.test(f.name);
+export const ehAudio = (f: File) => f.type.startsWith("audio/") || /\.(m4a|mp3|ogg|wav|aac)$/i.test(f.name);
+export const ehVideo = (f: File) => !ehAudio(f) && (f.type.startsWith("video/") || /\.(mp4|mov|m4v|webm)$/i.test(f.name));
 
 /** Nome seguro para o repositório: minúsculas, sem acento, com o número na frente. */
 export function nomeArquivo(f: File, i: number, ext?: string) {
@@ -104,8 +105,9 @@ const base64 = (b: Blob) => new Promise<string>((ok, erro) => {
 /** Sobe um anexo em partes, repetindo cada parte até 3 vezes; avisa o progresso de 0 a 1. */
 export async function enviarAnexo(pedido: string, f: File, i: number, progresso: (p: number) => void): Promise<Anexo> {
   const video = ehVideo(f);
+  const audio = ehAudio(f);
   if (video && f.size > VIDEO_MAX) throw new Error(`${f.name} tem ${MB(f.size)}. O limite é ${MB(VIDEO_MAX)}.`);
-  const reduzida = video ? null : await reduzir(f);
+  const reduzida = video || audio ? null : await reduzir(f);
   const blob: Blob = reduzida ?? f;
   const nome = nomeArquivo(f, i, reduzida ? "jpg" : undefined);
   const total = Math.max(1, Math.ceil(blob.size / PARTE));
@@ -123,5 +125,5 @@ export async function enviarAnexo(pedido: string, f: File, i: number, progresso:
     }
     progresso(parte / total);
   }
-  return { arquivo: total === 1 ? arquivo : `pedidos/${pedido}/${nome}`, nome: f.name, tipo: video ? "video" : "imagem", bytes: blob.size, partes: total };
+  return { arquivo: total === 1 ? arquivo : `pedidos/${pedido}/${nome}`, nome: f.name, tipo: audio ? "audio" : video ? "video" : "imagem", bytes: blob.size, partes: total };
 }

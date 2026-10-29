@@ -33,6 +33,12 @@ cat instagram/pedidos/<id>/02-video.mov.parte* > /tmp/02-video.mov
 Fotos chegam reduzidas a 2160 px no lado maior, em JPEG. HEIC que o navegador não abriu chega como
 veio.
 
+O Leonardo pode **falar** o pedido. No Chrome, no Edge e no Safari do iPhone, o navegador transcreve
+e o texto já chega em `texto`. Onde o navegador não transcreve (Firefox, por exemplo), o painel grava
+um áudio e manda como anexo `{ "tipo": "audio" }` (`.m4a`, `.webm` ou `.ogg`). Nesse caso, transcreva
+o áudio e trate a transcrição como parte do `texto`; se não der para entender, pergunte na
+`conversa` (status `duvida`).
+
 ## Um pedido
 
 ```json
