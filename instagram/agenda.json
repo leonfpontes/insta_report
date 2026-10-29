@@ -1462,6 +1462,33 @@
     "midia/leopontesrp/lp-1029-1200-01.jpg",
     "midia/leopontesrp/lp-1029-1200-02.jpg"
    ]
+  },
+  {
+   "id": "lp-1030-1200",
+   "conta": "leopontesrp",
+   "quando": "2026-10-30T12:00:00-03:00",
+   "formato": "carrossel",
+   "status": "agendado",
+   "titulo": "Meus amores: Camila no pôr do sol e abraço com a Luiza",
+   "legenda": "Meus amores. ❤️\n\nUm pôr do sol do lado da @camilacgod e um abraço apertado da minha filha @luiza_tp14. Aprendendo a viver a vida, e com elas fica tudo mais leve. ✨\n\n#meusamores #familia #gratidao",
+   "midia": [
+    "midia/leopontesrp/lp-1030-1200-01.jpg",
+    "midia/leopontesrp/lp-1030-1200-02.jpg"
+   ],
+   "marcacoes": [
+    {
+     "usuario": "camilacgod",
+     "foto": 1,
+     "x": 0.35,
+     "y": 0.5
+    },
+    {
+     "usuario": "luiza_tp14",
+     "foto": 2,
+     "x": 0.45,
+     "y": 0.3
+    }
+   ]
   }
  ]
 }
