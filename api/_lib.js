@@ -92,9 +92,24 @@ export async function gravarJson(caminho, dados, sha, mensagem) {
   });
 }
 
+/**
+ * Aciona um workflow. Tenta o workflow_dispatch, que pede "Actions: Read and write" no
+ * GITHUB_TOKEN; se o token não tiver essa permissão (403/404), cai no repository_dispatch, que só
+ * pede "Contents: Read and write" (a mesma de "Já postei"). O tipo do evento é o nome do arquivo
+ * sem ".yml", e os workflows leem as entradas de client_payload.
+ */
 export async function disparar(workflow, inputs) {
-  await gh(`/repos/${REPO}/actions/workflows/${workflow}/dispatches`, {
-    method: "POST",
-    body: JSON.stringify({ ref: "main", ...(inputs ? { inputs } : {}) }),
-  });
+  try {
+    await gh(`/repos/${REPO}/actions/workflows/${workflow}/dispatches`, {
+      method: "POST",
+      body: JSON.stringify({ ref: "main", ...(inputs ? { inputs } : {}) }),
+    });
+  } catch (error) {
+    if (error.status !== 403 && error.status !== 404) throw error;
+    console.warn(`workflow_dispatch recusado (${error.status}); usando repository_dispatch`);
+    await gh(`/repos/${REPO}/dispatches`, {
+      method: "POST",
+      body: JSON.stringify({ event_type: workflow.replace(/\.ya?ml$/, ""), client_payload: inputs ?? {} }),
+    });
+  }
 }
