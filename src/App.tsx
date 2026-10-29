@@ -11,6 +11,7 @@ import { BottomNav, Toolbar } from "@/components/nav";
 import { Detail } from "@/components/detail";
 import { Login } from "@/components/login";
 import { FilaView } from "@/components/views/fila";
+import { PedidosView } from "@/components/views/pedidos";
 import { CalendarioView } from "@/components/views/calendario";
 import { PublicadosView } from "@/components/views/publicados";
 import { ExecucoesView } from "@/components/views/execucoes";
@@ -26,6 +27,8 @@ function salvarPref(p: object) { try { localStorage.setItem(KEY, JSON.stringify(
 function fromHash(): { view?: View; post?: string } {
   const h = decodeURIComponent(location.hash.slice(1));
   if (VIEWS.includes(h as View)) return { view: h as View };
+  // #pedido-<id> abre a aba Pedidos; a própria aba abre o pedido (views/pedidos.tsx).
+  if (h.startsWith("pedido-")) return { view: "pedidos" };
   if (h.startsWith("post-")) return { post: h.slice(5) };
   return {};
 }
@@ -117,6 +120,7 @@ export default function App() {
     marcar: async (id) => {
       try { await acao("/api/manual", { id }); toast.success("Story marcado como postado"); await load(); } catch (e) { falha(e); }
     },
+    recarregar: load,
   };
 
   const checar = async () => {
@@ -147,10 +151,10 @@ export default function App() {
           <Accounts />
           <Tabs id="vista" value={view} onValueChange={(v) => setView(v as View)} className="scroll-mt-36 gap-5">
             <Toolbar view={view} />
-            <h1 className="sr-only">Agenda do Instagram: {({ fila: "Fila", calendario: "Calendário", publicados: "Publicados", execucoes: "Execuções" } as const)[view]}</h1>
+            <h1 className="sr-only">Agenda do Instagram: {({ fila: "Fila", pedidos: "Pedidos", calendario: "Calendário", publicados: "Publicados", execucoes: "Execuções" } as const)[view]}</h1>
             {VIEWS.map((v) => (
               <TabsContent key={v} value={v} forceMount hidden={view !== v} className="focus-visible:outline-none">
-                {view === v ? (v === "fila" ? <FilaView /> : v === "calendario" ? <CalendarioView /> : v === "publicados" ? <PublicadosView /> : <ExecucoesView />) : null}
+                {view === v ? (v === "fila" ? <FilaView /> : v === "pedidos" ? <PedidosView /> : v === "calendario" ? <CalendarioView /> : v === "publicados" ? <PublicadosView /> : <ExecucoesView />) : null}
               </TabsContent>
             ))}
           </Tabs>

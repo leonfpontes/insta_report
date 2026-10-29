@@ -1,8 +1,8 @@
 import { createContext, useContext } from "react";
 import type { Conta, Model } from "./model";
 
-export type View = "fila" | "calendario" | "publicados" | "execucoes";
-export const VIEWS: View[] = ["fila", "calendario", "publicados", "execucoes"];
+export type View = "fila" | "pedidos" | "calendario" | "publicados" | "execucoes";
+export const VIEWS: View[] = ["fila", "pedidos", "calendario", "publicados", "execucoes"];
 
 export interface Painel {
   m: Model;
@@ -22,6 +22,8 @@ export interface Painel {
   saindo: Record<string, number>;
   publicar: (id: string) => Promise<void>;
   marcar: (id: string) => Promise<void>;
+  /** Relê os dados do painel (depois de criar ou aprovar um pedido). */
+  recarregar: () => Promise<void>;
 }
 
 export const PainelCtx = createContext<Painel | null>(null);

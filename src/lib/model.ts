@@ -65,6 +65,8 @@ export interface Dados {
   galeria: Record<string, GalItem[]>;
   /** Mídias originais de cada post (agenda: id; Instagram: ig:<id>). */
   arquivos?: Record<string, { url: string; nome: string }[]>;
+  /** Pedidos de publicação (src/lib/pedidos.ts). */
+  pedidos?: import("./pedidos").Pedido[];
   execucoes: { runs: { id: number; quando: string; evento: string; job: string; resultado: string; link: string }[] };
   lidoEm: string;
 }

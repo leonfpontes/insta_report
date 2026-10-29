@@ -6,6 +6,9 @@ export const REPO = process.env.GITHUB_REPO || "leonfpontes/insta_report";
 const SENHA = process.env.PAINEL_SENHA || "";
 const DIAS = 30;
 
+/** Id de um pedido de publicação: pd-AAAAMMDD-HHMMSS (hora de Brasília em que foi aberto). */
+export const ID_PEDIDO = /^pd-\d{8}-\d{6}$/;
+
 // A chave da sessão sai da própria senha: trocar a senha na Vercel derruba todas as sessões.
 const chave = () => crypto.createHash("sha256").update("insta_report:sessao:" + SENHA).digest();
 const hmac = (texto) => crypto.createHmac("sha256", chave()).update(texto).digest("base64url");
