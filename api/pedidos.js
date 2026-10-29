@@ -49,7 +49,7 @@ async function criar(b) {
   const anexos = (Array.isArray(b.anexos) ? b.anexos : []).slice(0, 20).map((a) => ({
     arquivo: String(a.arquivo ?? ""),
     nome: texto(a.nome, 120),
-    tipo: a.tipo === "video" ? "video" : "imagem",
+    tipo: a.tipo === "video" || a.tipo === "audio" ? a.tipo : "imagem",
     bytes: Number(a.bytes) || 0,
     partes: Math.max(1, Number(a.partes) || 1),
   }));

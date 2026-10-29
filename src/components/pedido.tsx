@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { CalendarClock, Check, Film, Loader2, MessageSquare, X } from "lucide-react";
+import { CalendarClock, Check, Film, Loader2, MessageSquare, Mic, X } from "lucide-react";
 import { toast } from "sonner";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -11,6 +11,7 @@ import { Sheet, SheetContent, SheetDescription, SheetTitle } from "@/components/
 import { AlertDialog, AlertDialogAction, AlertDialogCancel, AlertDialogContent, AlertDialogDescription, AlertDialogFooter, AlertDialogHeader, AlertDialogTitle } from "@/components/ui/alert-dialog";
 import { Monogram } from "@/components/bits";
 import { Gallery } from "@/components/gallery";
+import { BotaoVoz, juntarTexto } from "@/components/voz";
 import { DownloadButton } from "@/components/downloads";
 import { usePainel } from "@/lib/ctx";
 import { acao, SemSessao } from "@/lib/api";
@@ -50,8 +51,9 @@ function Secao({ titulo, children, extra }: { titulo: string; children: React.Re
 }
 
 function Anexos({ anexos }: { anexos: Anexo[] }) {
-  const comPrevia = anexos.filter((a) => a.img || a.url);
-  const semPrevia = anexos.filter((a) => !a.img && !a.url);
+  const audios = anexos.filter((a) => a.tipo === "audio");
+  const comPrevia = anexos.filter((a) => a.tipo !== "audio" && (a.img || a.url));
+  const semPrevia = anexos.filter((a) => a.tipo !== "audio" && !a.img && !a.url);
   return (
     <div className="flex flex-col gap-2">
       {comPrevia.length ? (
@@ -61,6 +63,12 @@ function Anexos({ anexos }: { anexos: Anexo[] }) {
           titulo="Anexos do pedido"
         />
       ) : null}
+      {audios.map((a) => (
+        <div key={a.arquivo} className="flex flex-col gap-2 rounded-md border bg-background px-3 py-2.5 text-sm">
+          <span className="flex items-center gap-2 text-ink"><Mic className="size-4 text-bronze-ink" aria-hidden />Áudio do pedido</span>
+          {a.url ? <audio src={a.url} controls preload="none" className="h-10 w-full" /> : null}
+        </div>
+      ))}
       {semPrevia.map((a) => (
         <div key={a.arquivo} className="flex items-center gap-3 rounded-md border bg-background px-3 py-2.5 text-sm">
           <Film className="size-5 shrink-0 text-bronze-ink" aria-hidden />
@@ -146,6 +154,7 @@ function Corpo({ p, onClose }: { p: Pedido; onClose: () => void }) {
   const [aj, setAj] = useState<Record<string, Ajuste>>(inicial);
   const [modo, setModo] = useState<"" | "ajuste">("");
   const [msg, setMsg] = useState("");
+  const [parcial, setParcial] = useState("");
   const [busy, setBusy] = useState<"" | "aprovar" | "ajuste" | "recusar">("");
   const [confirmar, setConfirmar] = useState(false);
   const versao = useRef(p.proposta?.em);
@@ -224,6 +233,8 @@ function Corpo({ p, onClose }: { p: Pedido; onClose: () => void }) {
             <div className="flex flex-col gap-2">
               <Label htmlFor={`msg-${p.id}`} className="text-sm text-ink">{proposta ? "O que precisa mudar?" : duvida ? "Sua resposta" : "Quer acrescentar algum detalhe?"}</Label>
               <Textarea id={`msg-${p.id}`} value={msg} onChange={(e) => setMsg(e.target.value)} rows={2} maxLength={4000} className="bg-background text-base" placeholder={proposta ? "Ex.: troque a 3ª foto, legenda mais curta e sem emoji." : "Ex.: use a foto 2 como capa."} autoFocus={!duvida} />
+              {parcial ? <p className="text-sm text-muted-foreground italic" aria-live="polite">{parcial}…</p> : null}
+              <BotaoVoz className="self-start" onTexto={(t) => setMsg((x) => juntarTexto(x, t))} onParcial={setParcial} />
             </div>
           ) : null}
           <div className="flex flex-wrap items-center gap-2">

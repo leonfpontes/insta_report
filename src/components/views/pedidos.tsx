@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from "react";
-import { CalendarClock, ChevronRight, Film, ImagePlus, Loader2, Send, X } from "lucide-react";
+import { CalendarClock, ChevronDown, ChevronRight, Film, ImagePlus, Loader2, Mic, Send, SlidersHorizontal, X } from "lucide-react";
 import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -8,19 +8,20 @@ import { Progress } from "@/components/ui/progress";
 import { Textarea } from "@/components/ui/textarea";
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
 import { Empty } from "@/components/bits";
+import { BotaoVoz, juntarTexto } from "@/components/voz";
 import { PedidoDetalhe, PedidoBadge } from "@/components/pedido";
 import { usePainel } from "@/lib/ctx";
 import { acao, SemSessao } from "@/lib/api";
 import { ACC, CONTAS, FMT, ddmmhm } from "@/lib/model";
 import {
-  ABERTO, ANEXOS_MAX, MB, RITMO, VIDEO_MAX, doCampo, ehVideo, enviarAnexo, ha, novoId,
+  ABERTO, ANEXOS_MAX, MB, RITMO, VIDEO_MAX, doCampo, ehAudio, ehVideo, enviarAnexo, ha, novoId,
   type Anexo, type Pedido,
 } from "@/lib/pedidos";
 import { cn } from "@/lib/utils";
 
 const FORMATOS: [string, string][] = [["auto", "O Claude escolhe"], ["post", "Post"], ["carrossel", "Carrossel"], ["reel", "Reel"], ["story", "Story"], ["story-video", "Story em vídeo"]];
 
-interface Arquivo { f: File; url: string; video: boolean; p: number }
+interface Arquivo { f: File; url: string; video: boolean; audio?: boolean; p: number }
 
 /** Botão em forma de chip, para conta, formato e horário. */
 function Chip({ on, onClick, children, label }: { on: boolean; onClick: () => void; children: React.ReactNode; label?: string }) {
@@ -58,6 +59,8 @@ function Composer() {
   const [escolherHora, setEscolherHora] = useState(false);
   const [arqs, setArqs] = useState<Arquivo[]>([]);
   const [enviando, setEnviando] = useState(false);
+  const [parcial, setParcial] = useState("");
+  const [opcoes, setOpcoes] = useState(false);
   const [faltaConta, setFaltaConta] = useState(false);
   const input = useRef<HTMLInputElement>(null);
   const [arrastando, setArrastando] = useState(false);
@@ -69,6 +72,7 @@ function Composer() {
     const novos: Arquivo[] = [];
     for (const f of Array.from(lista)) {
       const video = ehVideo(f);
+      if (ehAudio(f)) { novos.push({ f, url: URL.createObjectURL(f), video: false, audio: true, p: 0 }); continue; }
       if (!video && !f.type.startsWith("image/") && !/\.heic$/i.test(f.name)) { toast.error(`${f.name} não é foto nem vídeo.`); continue; }
       if (video && f.size > VIDEO_MAX) { toast.error(`${f.name} tem ${MB(f.size)}. Mande vídeos de até ${MB(VIDEO_MAX)}.`); continue; }
       novos.push({ f, url: URL.createObjectURL(f), video, p: 0 });
@@ -99,7 +103,7 @@ function Composer() {
       await acao("/api/pedidos", { acao: "criar", id, conta, formato, quando: escolherHora ? doCampo(quando) : "", texto, anexos });
       toast.success("Pedido enviado", { description: `${RITMO} A proposta volta aqui para você aprovar.` });
       arqs.forEach((a) => URL.revokeObjectURL(a.url));
-      setArqs([]); setTexto(""); setFormato("auto"); setQuando(""); setEscolherHora(false);
+      setArqs([]); setTexto(""); setFormato("auto"); setQuando(""); setEscolherHora(false); setOpcoes(false);
       await recarregar();
     } catch (e) {
       if (e instanceof SemSessao) { toast.error("Sua sessão expirou. Entre de novo e reenvie o pedido."); return; }
@@ -112,7 +116,7 @@ function Composer() {
     <section aria-labelledby="novo-pedido" className="flex flex-col gap-5 rounded-xl border bg-card p-4 md:p-5">
       <div className="flex flex-col gap-1">
         <h2 id="novo-pedido" className="text-lg font-medium text-ink">Novo pedido</h2>
-        <p className="text-sm text-muted-foreground">Mande fotos, vídeos ou só uma ideia. O Claude prepara o post e devolve aqui para você aprovar.</p>
+        <p className="text-sm text-muted-foreground">Fale, escreva ou mande fotos e vídeos. O Claude prepara o post e devolve aqui para você aprovar.</p>
       </div>
 
       <Campo titulo="Conta" id="pedido-conta">
@@ -131,71 +135,87 @@ function Composer() {
 
       <div className="flex flex-col gap-2">
         <Label htmlFor="pedido-texto" className="text-sm font-medium text-ink">O que você quer publicar?</Label>
-        <Textarea
-          id="pedido-texto"
-          value={texto}
-          onChange={(e) => setTexto(e.target.value)}
-          rows={4}
-          maxLength={4000}
-          className="min-h-28 bg-background text-base"
-          placeholder="Ex.: carrossel com estas fotos do workshop de ontem, legenda sobre o que a turma aprendeu no gate 2. Ou: um reel curto explicando por que projeto sem business case atrasa."
-        />
-      </div>
-
-      <div className="flex flex-col gap-2">
-        <span className="text-sm font-medium text-ink" id="anexos-titulo">Fotos e vídeos <span className="font-normal text-muted-foreground">· opcional</span></span>
+        {/* Caixa única, como um chat: texto em cima, microfone e anexos embaixo. */}
         <div
           onDragOver={(e) => { e.preventDefault(); setArrastando(true); }}
           onDragLeave={() => setArrastando(false)}
           onDrop={(e) => { e.preventDefault(); setArrastando(false); juntar(e.dataTransfer.files); }}
-          className={cn("grid grid-cols-3 gap-2 rounded-lg sm:grid-cols-4 md:grid-cols-6", arrastando && "ring-[3px] ring-ring/50")}
-          aria-labelledby="anexos-titulo"
-          role="list"
+          className={cn("flex flex-col rounded-lg border border-input bg-background transition-shadow focus-within:border-ring focus-within:ring-[3px] focus-within:ring-ring/50", arrastando && "ring-[3px] ring-ring/50")}
         >
-          {arqs.map((a, i) => (
-            <div key={a.url} role="listitem" className="relative aspect-square overflow-hidden rounded-md border bg-muted">
-              {a.video ? <video src={a.url} muted playsInline preload="metadata" className="size-full object-cover" /> : <img src={a.url} alt={a.f.name} className="size-full object-cover" />}
-              {a.video ? <span className="absolute bottom-1.5 left-1.5 inline-flex items-center gap-1 rounded-sm bg-black/60 px-1.5 py-0.5 text-xs text-white"><Film className="size-3" aria-hidden />{MB(a.f.size)}</span> : null}
-              {enviando ? (
-                <span className="absolute inset-x-0 bottom-0 h-1.5 bg-black/30"><span className="block h-full bg-bronze transition-[width]" style={{ width: `${Math.round(a.p * 100)}%` }} /></span>
-              ) : (
-                <button type="button" onClick={() => tirar(i)} className="absolute top-1.5 right-1.5 inline-flex size-8 items-center justify-center rounded-full bg-black/60 text-white hover:bg-black/75 focus-visible:ring-[3px] focus-visible:ring-ring/50 focus-visible:outline-none" aria-label={`Tirar ${a.f.name}`}>
-                  <X className="size-4" aria-hidden />
-                </button>
-              )}
+          <Textarea
+            id="pedido-texto"
+            value={texto}
+            onChange={(e) => setTexto(e.target.value)}
+            rows={4}
+            maxLength={4000}
+            className="min-h-32 resize-none border-0 bg-transparent text-base shadow-none focus-visible:ring-0"
+            placeholder="Toque em Falar e conte a ideia, ou escreva. Ex.: carrossel com estas fotos do workshop, legenda sobre o que a turma aprendeu."
+          />
+          {parcial ? <p className="px-3 pb-2 text-base text-muted-foreground italic" aria-live="polite">{parcial}…</p> : null}
+          {arqs.length ? (
+            <div className="grid grid-cols-4 gap-2 px-3 pb-3 sm:grid-cols-6 md:grid-cols-8" role="list" aria-label="Anexos">
+              {arqs.map((a, i) => (
+                <div key={a.url} role="listitem" className="relative aspect-square overflow-hidden rounded-md border bg-muted">
+                  {a.audio ? (
+                    <span className="flex size-full flex-col items-center justify-center gap-1 bg-accent text-ink"><Mic className="size-5 text-bronze-ink" aria-hidden /><span className="text-xs">Áudio</span></span>
+                  ) : a.video ? <video src={a.url} muted playsInline preload="metadata" className="size-full object-cover" /> : <img src={a.url} alt={a.f.name} className="size-full object-cover" />}
+                  {a.video ? <span className="absolute bottom-1 left-1 inline-flex items-center gap-1 rounded-sm bg-black/60 px-1 py-0.5 text-[11px] text-white"><Film className="size-3" aria-hidden />{MB(a.f.size)}</span> : null}
+                  {enviando ? (
+                    <span className="absolute inset-x-0 bottom-0 h-1.5 bg-black/30"><span className="block h-full bg-bronze transition-[width]" style={{ width: `${Math.round(a.p * 100)}%` }} /></span>
+                  ) : (
+                    <button type="button" onClick={() => tirar(i)} className="absolute top-1 right-1 inline-flex size-7 items-center justify-center rounded-full bg-black/60 text-white hover:bg-black/75 focus-visible:ring-[3px] focus-visible:ring-ring/50 focus-visible:outline-none" aria-label={`Tirar ${a.audio ? "o áudio" : a.f.name}`}>
+                      <X className="size-4" aria-hidden />
+                    </button>
+                  )}
+                </div>
+              ))}
             </div>
-          ))}
-          {arqs.length < ANEXOS_MAX ? (
-            <button
-              type="button"
-              onClick={() => input.current?.click()}
-              disabled={enviando}
-              className="flex aspect-square flex-col items-center justify-center gap-1.5 rounded-md border border-dashed border-input/80 bg-background px-2 text-center text-sm text-ink hover:bg-accent focus-visible:ring-[3px] focus-visible:ring-ring/50 focus-visible:outline-none disabled:opacity-50"
-            >
-              <ImagePlus className="size-6 text-bronze-ink" aria-hidden />
-              {arqs.length ? "Mais" : "Anexar"}
-            </button>
           ) : null}
+          <div className="flex items-center gap-2 border-t px-2 py-2">
+            <BotaoVoz
+              onTexto={(t) => setTexto((x) => juntarTexto(x, t))}
+              onParcial={setParcial}
+              onAudio={(f) => setArqs((a) => [...a, { f, url: URL.createObjectURL(f), video: false, audio: true, p: 0 }])}
+            />
+            <Button type="button" variant="ghost" className="h-11 rounded-full px-4 text-ink" onClick={() => input.current?.click()} disabled={enviando || arqs.length >= ANEXOS_MAX}>
+              <ImagePlus className="text-bronze-ink" aria-hidden />Fotos e vídeos
+            </Button>
+            <span className="num ml-auto pr-2 text-xs text-muted-foreground" aria-hidden>{texto.length ? `${texto.length}` : ""}</span>
+          </div>
         </div>
         <input ref={input} type="file" accept="image/*,video/*,.heic,.mov" multiple hidden onChange={(e) => { juntar(e.target.files); e.target.value = ""; }} />
         <p className="text-xs text-muted-foreground">Até {ANEXOS_MAX} arquivos. Vídeo de até {MB(VIDEO_MAX)}; mande o original, não o do WhatsApp.</p>
       </div>
 
-      <div className="grid gap-5 md:grid-cols-2">
-        <Campo titulo="Formato">
-          <div className="no-scrollbar -mx-4 flex gap-2 overflow-x-auto px-4 md:mx-0 md:flex-wrap md:px-0" role="group" aria-label="Formato">
-            {FORMATOS.map(([k, l]) => <Chip key={k} on={formato === k} onClick={() => setFormato(k)}>{l}</Chip>)}
+      {/* Formato e horário ficam num resumo de uma linha; quase sempre o padrão serve. */}
+      <div className="flex flex-col gap-4">
+        <button type="button" onClick={() => setOpcoes((o) => !o)} aria-expanded={opcoes} className="flex min-h-11 items-center gap-3 rounded-lg border border-input/60 bg-background px-3 text-left text-sm focus-visible:ring-[3px] focus-visible:ring-ring/50 focus-visible:outline-none">
+          <SlidersHorizontal className="size-4 shrink-0 text-bronze-ink" aria-hidden />
+          <span className="min-w-0 flex-1 truncate text-ink">
+            {FORMATOS.find(([k]) => k === formato)?.[1]}<span className="text-muted-foreground"> · </span>
+            {escolherHora && quando ? <span className="num">{quando.slice(8, 10)}/{quando.slice(5, 7)} {quando.slice(11, 16)}</span> : "Melhor horário"}
+          </span>
+          <span className="sr-only md:not-sr-only md:text-muted-foreground">Ajustar</span>
+          <ChevronDown className={cn("size-4 text-muted-foreground transition-transform", opcoes && "rotate-180")} aria-hidden />
+        </button>
+        {opcoes ? (
+          <div className="grid gap-5 md:grid-cols-2">
+            <Campo titulo="Formato">
+              <div className="flex flex-wrap gap-2" role="group" aria-label="Formato">
+                {FORMATOS.map(([k, l]) => <Chip key={k} on={formato === k} onClick={() => setFormato(k)}>{l}</Chip>)}
+              </div>
+            </Campo>
+            <Campo titulo="Quando">
+              <div className="flex flex-wrap gap-2" role="group" aria-label="Quando publicar">
+                <Chip on={!escolherHora} onClick={() => setEscolherHora(false)}>Melhor horário</Chip>
+                <Chip on={escolherHora} onClick={() => setEscolherHora(true)}><CalendarClock className="size-4" aria-hidden />Escolher</Chip>
+              </div>
+              {escolherHora ? (
+                <Input type="datetime-local" value={quando} onChange={(e) => setQuando(e.target.value)} min={new Date(Date.now() + 3600e3 - new Date().getTimezoneOffset() * 60e3).toISOString().slice(0, 16)} className="h-10 bg-background md:w-64" aria-label="Data e hora, no horário de Brasília" />
+              ) : null}
+            </Campo>
           </div>
-        </Campo>
-        <Campo titulo="Quando">
-          <div className="flex flex-wrap gap-2" role="group" aria-label="Quando publicar">
-            <Chip on={!escolherHora} onClick={() => setEscolherHora(false)}>Melhor horário</Chip>
-            <Chip on={escolherHora} onClick={() => setEscolherHora(true)}><CalendarClock className="size-4" aria-hidden />Escolher</Chip>
-          </div>
-          {escolherHora ? (
-            <Input type="datetime-local" value={quando} onChange={(e) => setQuando(e.target.value)} min={new Date(Date.now() + 3600e3 - new Date().getTimezoneOffset() * 60e3).toISOString().slice(0, 16)} className="h-10 bg-background md:w-64" aria-label="Data e hora, no horário de Brasília" />
-          ) : null}
-        </Campo>
+        ) : null}
       </div>
 
       <div className="flex flex-col gap-3 border-t pt-4 md:flex-row md:items-center md:justify-between">
