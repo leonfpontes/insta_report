@@ -3,14 +3,39 @@
   {
    "id": "pd-20261029-091424",
    "criadoEm": "2026-10-29T12:14:25.405Z",
-   "atualizadoEm": "2026-10-29T12:15:08.592Z",
-   "status": "producao",
+   "atualizadoEm": "2026-10-29T12:21:28.171Z",
+   "status": "proposta",
    "conta": "GiraHub",
    "formato": "auto",
    "quando": "2026-11-04T08:00:00-03:00",
    "texto": "Crie um Reel para novembro. precisa ter música real que combine. Utilize o editor que está em /Documentos/Dev/edicao-video para potencializar a edição, baixando novas trilhas e deixando como assets. O conteúdo precisa ser novidade e viralizar, então busque o que está em alta sobre o tema e combine com o produto faz.",
    "anexos": [],
-   "conversa": []
+   "conversa": [
+    {
+     "de": "claude",
+     "em": "2026-10-29T12:21:28.171Z",
+     "texto": "Fiz um Reel de 22 s sobre o feriadão de sexta, 20/11, com samba de fundo. Usei uma trilha de licença livre para uso comercial, e por isso o crédito vai no fim da legenda. Música famosa não dá para pôr pela API: o Instagram silencia ou derruba o Reel. Se quiser um áudio em alta do próprio app, recuse, me avise, e eu deixo o post para você publicar à mão. As outras 3 trilhas que baixei ficaram em edicao-video/assets/trilhas, com os créditos."
+    }
+   ],
+   "proposta": {
+    "em": "2026-10-29T12:21:28.171Z",
+    "resumo": "Reel de 22 s com samba de fundo (licença CC BY, crédito na legenda). O assunto em alta é o feriadão de sexta, 20/11: casa cheia na gira. O Reel abre com o gancho já na tela, mostra a confusão no portão e depois as telas reais do link da senha e da Porta. Fecha com o que vem no plano Gratuito e o CTA. Ficou para 04/11 às 08h, como você pediu.",
+    "posts": [
+     {
+      "id": "gh-1104-0800",
+      "conta": "GiraHub",
+      "quando": "2026-11-04T08:00:00-03:00",
+      "formato": "reel",
+      "status": "agendado",
+      "titulo": "Reels 04/11 — Feriadão de sexta: senha da gira para a casa cheia",
+      "legenda": "Senha da gira no feriadão: casa cheia e portão em paz.\n\nSexta, 20/11, é feriado nacional. Em muita casa, isso quer dizer gira lotada e fila na calçada desde cedo.\n\nCom o GiraHub, o consulente recebe o link da senha no WhatsApp, a Porta marca quem chegou e o Modo TV chama a senha na ordem. Tudo isso já no plano Gratuito.\n\nManda pra quem cuida da porta da sua casa 🤍\n\n🌐 girahub.com.br (link na bio)\n\n#GestãoDeTerreiro #Umbanda #GiraHub\n\nMúsica: \"Samba Jazz Sunny Cafe Fast Bright Samba\" de Alex Morgan (CC BY 4.0)",
+      "midia": [
+       "midia/girahub/gh-1104-0800.mp4"
+      ],
+      "capa": "midia/girahub/gh-1104-0800-capa.jpg"
+     }
+    ]
+   }
   }
  ]
 }
