@@ -180,7 +180,9 @@
     "midia/o02-2026-10-29-05.jpg",
     "midia/o02-2026-10-29-06.jpg"
    ],
-   "postizId": "cmvrewuqb42okp71c507ovz0v"
+   "postizId": "cmvrewuqb42okp71c507ovz0v",
+   "tentativas": 1,
+   "erro": "/me/media: Only photo or video can be accepted as media type. (The media could not be fetched from this URI: https://cdn.jsdelivr.net/gh/leonfpontes/insta_report@11714a5675a62b955e77f7cbe5e5628ca49625c8/instagram/midia/o02-2026-10-29-01.jpg.Please check the limitations section in our development document for more information: https://developers.facebook.com/docs/instagram-platform/instagram-graph-api/reference/ig-user/media#creating)"
   },
   {
    "id": "gh-1029-1230",
@@ -1574,7 +1576,7 @@
    "conta": "GiraHub",
    "quando": "2026-10-29T12:00:00-03:00",
    "formato": "reel",
-   "status": "agendado",
+   "status": "publicado",
    "titulo": "Reels 29/10 — Feriadão de sexta: senha da gira para a casa cheia",
    "legenda": "Senha da gira no feriadão: casa cheia e portão em paz.\n\nSexta, 20/11, é feriado nacional. Em muita casa, isso quer dizer gira lotada e fila na calçada desde cedo.\n\nCom o GiraHub, o consulente recebe o link da senha no WhatsApp, a Porta marca quem chegou e o Modo TV chama a senha na ordem. Tudo isso já no plano Gratuito.\n\nManda pra quem cuida da porta da sua casa 🤍\n\n🌐 girahub.com.br (link na bio)\n\n#GestãoDeTerreiro #Umbanda #GiraHub\n\nMúsica: \"Samba Jazz Sunny Cafe Fast Bright Samba\" de Alex Morgan (CC BY 4.0)",
    "midia": [
@@ -1583,7 +1585,10 @@
    "capa": "midia/girahub/gh-1029-1200b-capa.jpg",
    "pedido": "pd-20261029-091424",
    "tentativas": 1,
-   "erro": "container 18230850484326478 ficou ERROR"
+   "erro": null,
+   "publicadoEm": "2026-10-29T15:27:50.053Z",
+   "midiaId": "17973059973185047",
+   "link": "https://www.instagram.com/reel/DfFU96NlIEw/"
   }
  ]
 }
