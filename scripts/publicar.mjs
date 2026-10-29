@@ -223,7 +223,8 @@ async function main() {
       falhas.push({ ...post, erro: `falta o segredo ${tokenEnv(post.conta)}` });
       continue;
     }
-    if (!process.env.MIDIA_BASE) MIDIA_BASE = BASES[(post.tentativas ?? 0) >= MAX_TENTATIVAS - 1 ? BASES.length - 1 : 0];
+    // Reserva só na última tentativa normal; um post reenviado com "Publicar agora" volta ao /m/.
+    if (!process.env.MIDIA_BASE) MIDIA_BASE = BASES[(post.tentativas ?? 0) === MAX_TENTATIVAS - 1 ? BASES.length - 1 : 0];
     if (SIMULAR) {
       console.log(`SIMULAR ${rotulo}: ${post.formato}, ${post.midia.map(urlMidia).join(" ")}`);
       continue;
