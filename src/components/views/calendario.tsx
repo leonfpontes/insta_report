@@ -43,7 +43,7 @@ function Legend() {
       {ativas.length > 1 ? ativas.map((k) => <span key={k} data-a={k}><i className={cn(i, "w-1 bg-[var(--c)]")} />{ACC[k].label}</span>) : null}
       <span><i className={cn(i, "border-[1.5px] border-input")} />Agendado</span>
       <span><i className={cn(i, "border border-ok/40 bg-ok-soft")} />Publicado</span>
-      <span><i className={cn(i, "border-[1.5px] border-dashed border-muted-foreground")} />Story à mão</span>
+      <span><i className={cn(i, "border-[1.5px] border-dashed border-manual bg-manual-soft")} />Story à mão</span>
       <span><i className={cn(i, "border-[1.5px] border-crit bg-crit-soft")} />Falha ou atraso</span>
     </div>
   );
@@ -52,7 +52,7 @@ function Legend() {
 const tom = (r: Row) => cn(
   "border border-l-[3px] border-l-[var(--c)] bg-card",
   r.eff === "publicado" && "bg-ok-soft",
-  (r.eff === "manual" || r.eff === "pendente") && "border-[1.5px] border-l-[3px] border-dashed border-[var(--c)] [border-left-style:solid]",
+  (r.eff === "manual" || r.eff === "pendente") && "border-[1.5px] border-l-[3px] border-dashed border-manual border-l-[var(--c)] bg-manual-soft [border-left-style:solid]",
   (r.eff === "falhou" || r.eff === "atrasado") && "border-crit bg-crit-soft",
 );
 
@@ -95,14 +95,14 @@ function Mes({ k, byDay, irDia }: { k: string; byDay: Map<string, Row[]>; irDia:
               {evs.slice(0, extra > 0 ? lim - 1 : lim).map((r) => desktop ? (
                 <button key={r.id} type="button" data-a={r.conta} onClick={() => open(r.id)} title={`${ACC[r.conta]?.label} · ${cleanTitle(r.titulo, r.legenda)}`}
                   className={cn("flex w-full min-w-0 items-center gap-1.5 rounded-sm px-1 py-0.5 text-left text-xs hover:bg-accent focus-visible:ring-[3px] focus-visible:ring-ring/50 focus-visible:outline-none", (r.eff === "falhou" || r.eff === "atrasado") && "bg-crit-soft text-crit")}>
-                  <span className={cn("size-2 shrink-0 rounded-full bg-[var(--c)]", (r.eff === "manual" || r.eff === "pendente") && "border-[1.5px] border-dashed border-[var(--c)] bg-transparent")} aria-hidden />
+                  <span className={cn("size-2 shrink-0 rounded-full bg-[var(--c)]", (r.eff === "manual" || r.eff === "pendente") && "border-[1.5px] border-dashed border-manual bg-manual-soft")} aria-hidden />
                   <span className="num shrink-0 text-muted-foreground">{hm(r.quando)}</span>
                   <span className="truncate text-ink">{cleanTitle(r.titulo, r.legenda)}</span>
                   <Marcas r={r} />
                 </button>
               ) : (
                 <button key={r.id} type="button" data-a={r.conta} onClick={() => open(r.id)} aria-label={`${hm(r.quando)} ${ACC[r.conta]?.label}: ${cleanTitle(r.titulo, r.legenda)}`}
-                  className={cn("h-1.5 w-full rounded-full bg-[var(--c)]", r.eff === "publicado" && "opacity-50", (r.eff === "manual" || r.eff === "pendente") && "border border-dashed border-[var(--c)] bg-transparent", (r.eff === "falhou" || r.eff === "atrasado") && "bg-crit")} />
+                  className={cn("h-1.5 w-full rounded-full bg-[var(--c)]", r.eff === "publicado" && "opacity-50", (r.eff === "manual" || r.eff === "pendente") && "border border-dashed border-manual bg-manual-soft", (r.eff === "falhou" || r.eff === "atrasado") && "bg-crit")} />
               ))}
               {extra > 0 ? (
                 <button type="button" onClick={() => irDia(d)} className="rounded-sm px-1 text-left text-xs font-medium text-ink hover:bg-accent max-md:text-center">
