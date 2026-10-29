@@ -169,7 +169,7 @@
    "conta": "pontes_brain",
    "quando": "2026-10-29T12:15:00-03:00",
    "formato": "carrossel",
-   "status": "agendado",
+   "status": "falhou",
    "titulo": "Portfólio no limite não avisa. Ele vai travando aos poucos: todo mundo ocupado, nada termi",
    "legenda": "Portfólio no limite não avisa. Ele vai travando aos poucos: todo mundo ocupado, nada terminando.\n\n4 sinais: gente em 4 projetos, projeto entrando sem nenhum sair, status de atividade em vez de resultado e ninguém sabendo o que é mais importante.\n\nQuantos você marcou? Comenta de 0 a 4 👇\n\n👉 Mentoria 1:1 para PMs, POs e líderes de PMO: leopontes.com.br/mentoria-produto (link na bio)\n\n#gestaodeportfolio #pmo #gestaodeprojetos #priorizacao #governanca #lideranca",
    "midia": [
@@ -180,19 +180,25 @@
     "midia/o02-2026-10-29-05.jpg",
     "midia/o02-2026-10-29-06.jpg"
    ],
-   "postizId": "cmvrewuqb42okp71c507ovz0v"
+   "postizId": "cmvrewuqb42okp71c507ovz0v",
+   "tentativas": 4,
+   "erro": "/me/media: Only photo or video can be accepted as media type. (The media could not be fetched from this URI: https://cdn.jsdelivr.net/gh/leonfpontes/insta_report@5e4940fc857b1e8cdf7e3e7c0084c3eefaa31dfe/instagram/midia/o02-2026-10-29-04.jpg.Please check the limitations section in our development document for more information: https://developers.facebook.com/docs/instagram-platform/instagram-graph-api/reference/ig-user/media#creating)"
   },
   {
    "id": "gh-1029-1230",
    "conta": "GiraHub",
    "quando": "2026-10-29T12:30:00-03:00",
    "formato": "story",
-   "status": "agendado",
+   "status": "publicado",
    "titulo": "Stories — qui 29/10",
    "midia": [
     "midia/girahub/gh-1029-1230-01.jpg"
    ],
-   "postizId": "cmvi89h860i11ta0yls4e0hr9"
+   "postizId": "cmvi89h860i11ta0yls4e0hr9",
+   "publicadoEm": "2026-10-29T15:39:20.993Z",
+   "midiaId": "18121680205979395",
+   "link": "https://www.instagram.com/stories/girahuboficial/4018716372855566784",
+   "erro": null
   },
   {
    "id": "gh-1029-1900",
@@ -1574,7 +1580,7 @@
    "conta": "GiraHub",
    "quando": "2026-10-29T12:00:00-03:00",
    "formato": "reel",
-   "status": "agendado",
+   "status": "publicado",
    "titulo": "Reels 29/10 — Feriadão de sexta: senha da gira para a casa cheia",
    "legenda": "Senha da gira no feriadão: casa cheia e portão em paz.\n\nSexta, 20/11, é feriado nacional. Em muita casa, isso quer dizer gira lotada e fila na calçada desde cedo.\n\nCom o GiraHub, o consulente recebe o link da senha no WhatsApp, a Porta marca quem chegou e o Modo TV chama a senha na ordem. Tudo isso já no plano Gratuito.\n\nManda pra quem cuida da porta da sua casa 🤍\n\n🌐 girahub.com.br (link na bio)\n\n#GestãoDeTerreiro #Umbanda #GiraHub\n\nMúsica: \"Samba Jazz Sunny Cafe Fast Bright Samba\" de Alex Morgan (CC BY 4.0)",
    "midia": [
@@ -1583,7 +1589,38 @@
    "capa": "midia/girahub/gh-1029-1200b-capa.jpg",
    "pedido": "pd-20261029-091424",
    "tentativas": 1,
-   "erro": "container 18230850484326478 ficou ERROR"
+   "erro": null,
+   "publicadoEm": "2026-10-29T15:27:50.053Z",
+   "midiaId": "17973059973185047",
+   "link": "https://www.instagram.com/reel/DfFU96NlIEw/"
+  },
+  {
+   "id": "gh-1102-0800",
+   "conta": "GiraHub",
+   "quando": "2026-11-02T08:00:00-03:00",
+   "formato": "reel",
+   "status": "agendado",
+   "titulo": "Reels 02/11 — Finados: lembrar de quem veio antes",
+   "legenda": "Hoje é dia de lembrar de quem veio antes. 🕯️\n\nDe quem abriu caminho, firmou a casa e cuidou de tanta gente antes de nós. Cada casa tem o seu jeito de lembrar os seus, e todos merecem respeito.\n\nÀs famílias de axé que hoje acendem uma vela pelos que já fizeram a passagem, o nosso carinho e a nossa luz junto com a de vocês.\n\nManda para alguém da sua casa que hoje está com saudade.\n\n🎵 Música: \"Dreamer\", Kevin MacLeod (incompetech.com), licença CC BY 4.0\n\n🌐 girahub.com.br (link na bio)\n\n#Finados #Umbanda #Candomblé",
+   "midia": [
+    "midia/girahub/gh-1102-0800.mp4"
+   ],
+   "capa": "midia/girahub/gh-1102-0800-capa.jpg",
+   "nota": "Arquivos do card do Trello BHvcPmLb."
+  },
+  {
+   "id": "gh-1118-1900",
+   "conta": "GiraHub",
+   "quando": "2026-11-18T19:00:00-03:00",
+   "formato": "reel",
+   "status": "agendado",
+   "titulo": "Reels 18/11 — Feriadão de sexta: senha da gira para a casa cheia",
+   "legenda": "Senha da gira no feriadão: casa cheia e portão em paz.\n\nSexta, 20/11, é feriado nacional. Em muita casa, isso quer dizer gira lotada e fila na calçada desde cedo.\n\nCom o GiraHub, o consulente recebe o link da senha no WhatsApp, a Porta marca quem chegou e o Modo TV chama a senha na ordem. Tudo isso já no plano Gratuito.\n\nManda pra quem cuida da porta da sua casa 🤍\n\n🌐 girahub.com.br (link na bio)\n\n#GestãoDeTerreiro #Umbanda #GiraHub\n\nMúsica: \"Samba Jazz Sunny Cafe Fast Bright Samba\" de Alex Morgan (CC BY 4.0)",
+   "midia": [
+    "midia/girahub/gh-1029-1200b.mp4"
+   ],
+   "capa": "midia/girahub/gh-1029-1200b-capa.jpg",
+   "nota": "Reagendamento do gh-1029-1200b (publicado cedo demais em 29/10, https://www.instagram.com/reel/DfFU96NlIEw/)."
   }
  ]
 }
