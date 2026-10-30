@@ -243,13 +243,14 @@
    "conta": "pontes_brain",
    "quando": "2026-10-30T07:30:00-03:00",
    "formato": "story",
-   "status": "manual",
+   "status": "publicado",
    "titulo": "Story do dia",
    "midia": [
     "midia/stories/so3-2026-10-30.jpg"
    ],
-   "nota": "Sticker de perguntas: “Pergunta pro Leo”. Story manual com sticker interativo (publicar no app). No horário do post do feed, repostar com o sticker \"post novo\".",
-   "legenda": "Leo responde\n\nManda sua dúvida de carreira ou portfólio.\n\nRespondo na série de novembro."
+   "nota": "Publicado à mão pelo Leonardo.",
+   "legenda": "Leo responde\n\nManda sua dúvida de carreira ou portfólio.\n\nRespondo na série de novembro.",
+   "publicadoEm": "2026-10-30T12:48:54.216Z"
   },
   {
    "id": "gh-1030-0830",
@@ -2338,6 +2339,110 @@
     "midia/girahub/gh-1124-0800-01.jpg"
    ],
    "nota": "Aprovado pelo Leonardo no Trello: https://trello.com/c/sHfQRzZK"
+  },
+  {
+   "id": "gh-1111-0800",
+   "conta": "GiraHub",
+   "quando": "2026-11-11T08:00:00-03:00",
+   "formato": "post",
+   "status": "agendado",
+   "titulo": "Post 11/11 — Erva: guiné",
+   "legenda": "Erva da semana: guiné. 🌿\n\nA guiné é conhecida como erva forte: em muitas casas ela entra nos banhos de descarrego e nos benzimentos, para cortar e proteger. Aparece ligada a Ogum, a Oxóssi e a outros Orixás, conforme o fundamento de cada casa.\n\nJustamente por ser forte, não é erva para usar sem orientação. Antes de qualquer banho, pergunte a quem dirige a sua casa.\n\nSalva pra lembrar da próxima erva da semana.\n\n🌐 girahub.com.br (link na bio)\n\n#ErvasDeAxé #Umbanda #Guiné",
+   "midia": [
+    "midia/girahub/gh-1111-0800-01.jpg"
+   ],
+   "nota": "Aprovado pelo Leonardo no Trello: https://trello.com/c/NjXN4tjl"
+  },
+  {
+   "id": "gh-1114-0800",
+   "conta": "GiraHub",
+   "quando": "2026-11-14T08:00:00-03:00",
+   "formato": "post",
+   "status": "agendado",
+   "titulo": "Post 14/11 — Erva: alfazema",
+   "legenda": "Erva da semana: alfazema. 💜\n\nA alfazema, ou lavanda, é das ervas mais lembradas para harmonizar e tranquilizar. Em muitas casas aparece ligada a Oxalá, Oxum e Iemanjá, nos banhos e nas defumações que acalmam a cabeça.\n\nO uso de cada folha é fundamento da sua casa. Na dúvida, pergunte a quem dirige antes de preparar qualquer banho.\n\nSalva pra lembrar da próxima erva da semana.\n\n🌐 girahub.com.br (link na bio)\n\n#ErvasDeAxé #Umbanda #Alfazema",
+   "midia": [
+    "midia/girahub/gh-1114-0800-01.jpg"
+   ],
+   "nota": "Aprovado pelo Leonardo no Trello: https://trello.com/c/jqTBlDYa"
+  },
+  {
+   "id": "gh-1125-0800",
+   "conta": "GiraHub",
+   "quando": "2026-11-25T08:00:00-03:00",
+   "formato": "post",
+   "status": "agendado",
+   "titulo": "Post 25/11 — Logunã e o Tempo",
+   "legenda": "Oyá Logunã, a senhora do Tempo. ⏳\n\nEm muitas casas de Umbanda, Logunã é a Orixá do Tempo e da fé, lembrada pela espiral que vai e volta. Ela ensina que tudo tem a sua hora e que nem tudo o que demora está perdido. Em muitas casas, ela é estudada como Orixá distinta de Iansã.\n\nOlha o Tempo, minha mãe! Manda pra alguém que está esperando a hora certa.\n\n🌐 girahub.com.br (link na bio)\n\n#Logunã #Orixás #Umbanda",
+   "midia": [
+    "midia/girahub/gh-1125-0800-01.jpg"
+   ],
+   "nota": "Aprovado pelo Leonardo no Trello: https://trello.com/c/EpVlpiYx"
+  },
+  {
+   "id": "gh-1126-0800",
+   "conta": "GiraHub",
+   "quando": "2026-11-26T08:00:00-03:00",
+   "formato": "post",
+   "status": "agendado",
+   "titulo": "Post 26/11 — Omolu e a cura",
+   "legenda": "Omolu é ligado à cura. 🤍\n\nMuita gente associa Omolu só ao cemitério. Mas, na tradição iorubá, ele é ligado à medicina, à saúde e à terra. Coberto de palha, ele guarda um mistério que não precisa ser mostrado para ser respeitado.\n\nAtotô! Manda pra alguém que está cuidando da saúde.\n\n🌐 girahub.com.br (link na bio)\n\n#Omolu #Orixás #Umbanda",
+   "midia": [
+    "midia/girahub/gh-1126-0800-01.jpg"
+   ],
+   "nota": "Aprovado pelo Leonardo no Trello: https://trello.com/c/U8Qxs0Gm"
+  },
+  {
+   "id": "gh-1127-0800",
+   "conta": "GiraHub",
+   "quando": "2026-11-27T08:00:00-03:00",
+   "formato": "post",
+   "status": "agendado",
+   "titulo": "Post 27/11 — Obá e o conhecimento",
+   "legenda": "Obá, a senhora do conhecimento e da terra fértil. 🌱\n\nEm muitas casas, Obá é estudada no sentido do Conhecimento, ao lado de Oxóssi. Ela é a terra fértil que permite que a semente cresça: antes de colher, é preciso conhecer e preparar o chão.\n\nAkirô Obá Yê! Manda pra alguém que está estudando e plantando o próprio caminho.\n\n🌐 girahub.com.br (link na bio)\n\n#Obá #Orixás #Umbanda",
+   "midia": [
+    "midia/girahub/gh-1127-0800-01.jpg"
+   ],
+   "nota": "Aprovado pelo Leonardo no Trello: https://trello.com/c/uxQJ3gq8"
+  },
+  {
+   "id": "gh-1128-0800",
+   "conta": "GiraHub",
+   "quando": "2026-11-28T08:00:00-03:00",
+   "formato": "post",
+   "status": "agendado",
+   "titulo": "Post 28/11 — Boiadeiro: conduz e traz de volta",
+   "legenda": "O Boiadeiro conduz e traz de volta. 🤠\n\nNas casas, a corda é um dos elementos mais ligados ao Boiadeiro: ela laça, conduz e traz de volta quem se perdeu no caminho. É uma linha de trabalho firme, que atua no tempo da travessia.\n\nCada casa tem o seu fundamento. Manda pra alguém que está precisando de rumo.\n\n🌐 girahub.com.br (link na bio)\n\n#Boiadeiro #Umbanda #CulturaDeTerreiro",
+   "midia": [
+    "midia/girahub/gh-1128-0800-01.jpg"
+   ],
+   "nota": "Aprovado pelo Leonardo no Trello: https://trello.com/c/JJVxXjZr"
+  },
+  {
+   "id": "gh-1129-0800",
+   "conta": "GiraHub",
+   "quando": "2026-11-29T08:00:00-03:00",
+   "formato": "post",
+   "status": "agendado",
+   "titulo": "Post 29/11 — Oroiná, o fogo que purifica",
+   "legenda": "Oroiná é o fogo que purifica. 🔥\n\nEm muitas casas de Umbanda, Oroiná (também chamada Egunitá) é estudada no sentido da Justiça, ao lado de Xangô. É o fogo que consome o que desequilibra e devolve a energia ao que precisa ser reposto.\n\nCada casa tem o seu fundamento. Manda pra alguém que está precisando renovar as forças.\n\n🌐 girahub.com.br (link na bio)\n\n#Oroiná #Orixás #Umbanda",
+   "midia": [
+    "midia/girahub/gh-1129-0800-01.jpg"
+   ],
+   "nota": "Aprovado pelo Leonardo no Trello: https://trello.com/c/22gFwcbc"
+  },
+  {
+   "id": "gh-1130-0800",
+   "conta": "GiraHub",
+   "quando": "2026-11-30T08:00:00-03:00",
+   "formato": "post",
+   "status": "agendado",
+   "titulo": "Post 30/11 — A gira começa por Exu",
+   "legenda": "Por que, em muitas casas, a gira começa por Exu? 🗝️\n\nPorque Exu é o mensageiro, o movimento, o que abre o caminho. Em muitas casas se ensina que o começo da gira repete o começo de tudo: primeiro se saúda Exu, depois se segue.\n\nCada casa tem o seu fundamento. Como é na sua? Conta aqui.\n\n🌐 girahub.com.br (link na bio)\n\n#Exu #Umbanda #CulturaDeTerreiro",
+   "midia": [
+    "midia/girahub/gh-1130-0800-01.jpg"
+   ],
+   "nota": "Aprovado pelo Leonardo no Trello: https://trello.com/c/MxvPGrUD"
   }
  ]
 }
