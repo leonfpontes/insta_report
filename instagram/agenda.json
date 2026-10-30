@@ -2443,6 +2443,25 @@
     "midia/girahub/gh-1130-0800-01.jpg"
    ],
    "nota": "Aprovado pelo Leonardo no Trello: https://trello.com/c/MxvPGrUD"
+  },
+  {
+   "id": "lp-1031-1200",
+   "conta": "leopontesrp",
+   "quando": "2026-10-31T12:00:00-03:00",
+   "formato": "reel",
+   "status": "agendado",
+   "titulo": "Reel: nossas viagens, caretas e pores do sol com a Camila",
+   "legenda": "Já subimos serra, esperamos o sol ir embora e rimos de careta no meio da estrada. A melhor parte nunca foi o destino.\n\nFoi achar uma loja com o nome dela, dividir a batata frita e ficar quietinho abraçado na neblina com a @camilacgod. O lugar muda; o que faz a viagem é com quem a gente está.\n\nAprendendo a viver a vida.\n\n#viagememcasal #casal #amor #vidareal #pordosol #serra #viajarjuntos\n\n🎵 Música: \"Bossa Nova Sunny Cafe Easy Major Key\" de Alex Morgan (Free Music Archive), CC BY 4.0",
+   "midia": [
+    "midia/leopontesrp/lp-1031-1200.mp4"
+   ],
+   "capa": "midia/leopontesrp/lp-1031-1200-capa.jpg",
+   "marcacoes": [
+    {
+     "usuario": "camilacgod"
+    }
+   ],
+   "nota": "Se a marcação da @camilacgod não pegar pela API, marcar à mão no app (Editar > Marcar pessoas)."
   }
  ]
 }
