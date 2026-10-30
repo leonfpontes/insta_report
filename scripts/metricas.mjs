@@ -58,9 +58,10 @@ function valores(json) {
 // Números extras, que nem todo tipo de post ou versão da API aceita: pedidos à parte, um a um,
 // para que a recusa de um não apague os outros.
 const EXTRAS = {
-  FEED: ["follows", "profile_visits", "likes", "comments", "reposts"],
+  FEED: ["follows", "profile_visits", "likes", "comments"],
+  // reposts ficou de fora: a API de insights de mídia recusa (testado em 30/10/2026).
   // reels_skip_rate: taxa de reels pulados, estimada pela Meta (métrica ainda "em desenvolvimento").
-  REELS: ["likes", "comments", "ig_reels_video_view_total_time", "reposts", "reels_skip_rate"],
+  REELS: ["likes", "comments", "ig_reels_video_view_total_time", "reels_skip_rate"],
   STORY: ["follows", "profile_visits", "navigation"],
 };
 const recusadas = new Set();
