@@ -243,13 +243,14 @@
    "conta": "pontes_brain",
    "quando": "2026-10-30T07:30:00-03:00",
    "formato": "story",
-   "status": "manual",
+   "status": "publicado",
    "titulo": "Story do dia",
    "midia": [
     "midia/stories/so3-2026-10-30.jpg"
    ],
-   "nota": "Sticker de perguntas: “Pergunta pro Leo”. Story manual com sticker interativo (publicar no app). No horário do post do feed, repostar com o sticker \"post novo\".",
-   "legenda": "Leo responde\n\nManda sua dúvida de carreira ou portfólio.\n\nRespondo na série de novembro."
+   "nota": "Publicado à mão pelo Leonardo.",
+   "legenda": "Leo responde\n\nManda sua dúvida de carreira ou portfólio.\n\nRespondo na série de novembro.",
+   "publicadoEm": "2026-10-30T12:48:54.216Z"
   },
   {
    "id": "gh-1030-0830",
