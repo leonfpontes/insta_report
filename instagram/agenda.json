@@ -307,7 +307,7 @@
    "conta": "GiraHub",
    "quando": "2026-10-30T19:00:00-03:00",
    "formato": "carrossel",
-   "status": "agendado",
+   "status": "publicado",
    "titulo": "Carrossel — Site do terreiro: o que não pode faltar",
    "legenda": "Site do terreiro: quando alguém procura a sua casa na internet, encontra o quê?\n\nO que não pode faltar na página da casa:\n1. Endereço e como chegar\n2. Dias e horários das giras\n3. Um botão para pegar a senha\n4. Quem é a casa, contado com as palavras de vocês\n5. Um jeito fácil de falar com a casa\n\nNo GiraHub, o site do terreiro já traz a agenda das próximas giras com o botão \"Retire sua senha\" em cada uma (a partir do plano Pro).\n\n🔖 Salva pra montar a página da sua casa.\n\n🌐 girahub.com.br (link na bio)\n\n#GestãoDeTerreiro #Umbanda #GiraHub",
    "midia": [
@@ -316,7 +316,11 @@
     "midia/girahub/gh-1030-1900-03.jpg",
     "midia/girahub/gh-1030-1900-04.jpg"
    ],
-   "postizId": "cmvi8qap90i7eoh0yxw35vohr"
+   "postizId": "cmvi8qap90i7eoh0yxw35vohr",
+   "publicadoEm": "2026-10-30T22:10:33.615Z",
+   "midiaId": "17921974470452029",
+   "link": "https://www.instagram.com/p/DfIn5D4iW4y/",
+   "erro": null
   },
   {
    "id": "gh-1030-2000",
