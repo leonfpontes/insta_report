@@ -327,12 +327,16 @@
    "conta": "GiraHub",
    "quando": "2026-10-30T20:00:00-03:00",
    "formato": "story",
-   "status": "agendado",
+   "status": "publicado",
    "titulo": "Stories — sex 30/10",
    "midia": [
     "midia/girahub/gh-1030-2000-01.jpg"
    ],
-   "postizId": "cmvi89kst0i15ta0yzzv1io6y"
+   "postizId": "cmvi89kst0i15ta0yzzv1io6y",
+   "publicadoEm": "2026-10-30T23:11:01.838Z",
+   "midiaId": "17945041944091654",
+   "link": "https://www.instagram.com/stories/girahuboficial/4019668555343686069",
+   "erro": null
   },
   {
    "id": "gh-1030-2100",
