@@ -1,5 +1,5 @@
 import { useRef, useState } from "react";
-import { Copy, ExternalLink, X } from "lucide-react";
+import { Bookmark, Copy, ExternalLink, Heart, MessageCircle, Repeat2, Send, SkipForward, X } from "lucide-react";
 import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
@@ -57,11 +57,13 @@ function Comparacao({ c }: { c: Cmp | null }) {
               return (
                 <div key={k} className="grid grid-cols-[8.5em_minmax(0,1fr)_auto] items-center gap-2.5 text-sm">
                   <dt className="text-muted-foreground">{l}</dt>
-                  <dd className="relative h-2.5 rounded-sm bg-muted" role="img" aria-label={`${n(m.v)} contra a média de ${n(Math.round(m.base))}`}>
-                    <i className={cn("absolute inset-y-0 left-0 rounded-sm", L === "up" ? "bg-ok" : L === "down" ? "bg-crit" : "bg-muted-foreground/70")} style={{ width: `${(100 * m.v / mx).toFixed(1)}%` }} />
-                    <b className="absolute -inset-y-1 w-0.5 rounded-sm bg-ink" style={{ left: `${(100 * m.base / mx).toFixed(1)}%` }} />
+                  <dd className="contents">
+                    <span className="relative block h-2.5 rounded-sm bg-muted" role="img" aria-label={`${n(m.v)} contra a média de ${n(Math.round(m.base))}`}>
+                      <i className={cn("absolute inset-y-0 left-0 rounded-sm", L === "up" ? "bg-ok" : L === "down" ? "bg-crit" : "bg-muted-foreground/70")} style={{ width: `${(100 * m.v / mx).toFixed(1)}%` }} />
+                      <b className="absolute -inset-y-1 w-0.5 rounded-sm bg-ink" style={{ left: `${(100 * m.base / mx).toFixed(1)}%` }} />
+                    </span>
+                    <span className="num flex items-center gap-1.5 text-right">{n(m.v)} <Delta m={m} always /></span>
                   </dd>
-                  <span className="num flex items-center gap-1.5 text-right">{n(m.v)} <Delta m={m} always /></span>
                 </div>
               );
             })}
@@ -108,6 +110,42 @@ function Publico({ conta, ig }: { conta: Conta; ig: IgMedia }) {
   );
 }
 
+/** Taxa sobre as contas alcançadas, como no app do Instagram ("O que afeta suas visualizações"). */
+const taxa = (v?: number | null, base?: number | null) => (v == null || !base ? "–" : (100 * v / base).toLocaleString("pt-BR", { maximumFractionDigits: 1 }) + "%");
+// A Meta entrega a taxa de pulados como porcentagem; se vier como fração (0 a 1), converte.
+const pulados = (v?: number | null) => (v == null ? "–" : (v <= 1 ? v * 100 : v).toLocaleString("pt-BR", { maximumFractionDigits: 1 }) + "%");
+
+function Taxas({ ig, isReel }: { ig: IgMedia; isReel: boolean }) {
+  const i = ig.insights || {};
+  const base = i.reach;
+  const linhas: [typeof Heart, string, string][] = [
+    ...(isReel ? [[SkipForward, "Taxa de reels pulados", pulados(i.reels_skip_rate)] as [typeof Heart, string, string]] : []),
+    [Send, "Taxa de compartilhamentos", taxa(i.shares, base)],
+    [Heart, "Taxa de curtidas", taxa(ig.curtidas ?? i.likes, base)],
+    [Bookmark, "Taxa de salvamentos", taxa(i.saved, base)],
+    [Repeat2, "Taxa de repost", taxa(i.reposts, base)],
+    [MessageCircle, "Taxa de comentários", taxa(ig.comentarios ?? i.comments, base)],
+  ];
+  return (
+    <div className="flex flex-col gap-2">
+      <h4 className="font-medium text-ink">O que afeta as visualizações</h4>
+      <ul className="divide-y rounded-lg border bg-background">
+        {linhas.map(([Icon, l, v]) => (
+          <li key={l} className="flex items-center gap-3 px-3 py-2.5 text-sm">
+            <Icon className="size-4 shrink-0 text-muted-foreground" aria-hidden />
+            <span className="flex-1">{l}</span>
+            <span className="num font-medium text-ink">{v}</span>
+          </li>
+        ))}
+      </ul>
+      <p className="text-xs text-muted-foreground">
+        {isReel ? "A taxa de pulados é estimada pelo Instagram: quantos passaram o reel nos primeiros segundos. " : ""}
+        As outras taxas são cada número dividido pelas contas alcançadas.{i.reposts == null || (isReel && i.reels_skip_rate == null) ? " Reposts e taxa de pulados começam a aparecer a partir da próxima coleta." : ""}
+      </p>
+    </div>
+  );
+}
+
 function Insights({ r, ig }: { r: Row; ig: IgMedia }) {
   const { m } = usePainel();
   const [metric, setMetric] = useState("views");
@@ -139,6 +177,7 @@ function Insights({ r, ig }: { r: Row; ig: IgMedia }) {
             {isReel ? <><Big l="Tempo médio assistido" v={seg(i.ig_reels_avg_watch_time)} /><Big l="Tempo total assistido" v={min(i.ig_reels_video_view_total_time)} /></>
               : <><Big l="Visitas ao perfil" v={n(i.profile_visits)} /><Big l="Seguidores ganhos" v={n(i.follows)} /></>}
           </dl>
+          {!isStory ? <Taxas ig={ig} isReel={isReel} /> : null}
           {!isStory ? (
             <div className="flex flex-col gap-2" data-a={r.conta}>
               <h4 className="font-medium text-ink">{SMETRICS.find((x) => x[0] === metric)![1]} ao longo do tempo</h4>
@@ -156,7 +195,7 @@ function Insights({ r, ig }: { r: Row; ig: IgMedia }) {
           <h4 className="font-medium text-ink">Interações</h4>
           <dl className="divide-y text-sm">
             {(isStory ? [["Respostas", i.replies], ["Compartilhamentos", i.shares], ["Total", i.total_interactions]]
-              : [["Curtidas", ig.curtidas ?? i.likes], ["Comentários", ig.comentarios ?? i.comments], ["Compartilhamentos", i.shares], ["Salvamentos", i.saved], ["Total", i.total_interactions]]
+              : [["Curtidas", ig.curtidas ?? i.likes], ["Comentários", ig.comentarios ?? i.comments], ["Reposts", i.reposts], ["Compartilhamentos", i.shares], ["Salvamentos", i.saved], ["Total", i.total_interactions]]
             ).map(([l, v]) => <div key={l as string} className="flex justify-between py-2"><dt>{l}</dt><dd className="num">{n(v as number)}</dd></div>)}
           </dl>
           <p className="text-sm text-muted-foreground">Engajamento sobre o alcance: {pct(i.total_interactions, i.reach)}.</p>
