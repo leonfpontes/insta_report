@@ -331,14 +331,18 @@
    "conta": "GiraHub",
    "quando": "2026-10-30T12:00:00-03:00",
    "formato": "reel",
-   "status": "agendado",
+   "status": "publicado",
    "titulo": "Reels 30/10 — Associados: quem ajuda a casa sem ser da corrente",
    "legenda": "O nome de quem ajuda a casa sem ser da corrente ainda tá no caderno?\n\nNo GiraHub, os associados têm cadastro próprio: nome, e-mail e telefone num lugar só.\nNa gira, o relatório mostra separado quantos associados foram atendidos.\n\nManda pra quem cuida da tesouraria e dos amigos da casa.\n\n🌐 girahub.com.br (link na bio)\n\n#GestãoDeTerreiro #Umbanda #GiraHub",
    "midia": [
     "midia/girahub/gh-1030-2100.mp4"
    ],
    "postizId": "cmvkz9qzt3kl8lh0y0urhdiqj",
-   "capa": "midia/girahub/gh-1030-2100-capa.jpg"
+   "capa": "midia/girahub/gh-1030-2100-capa.jpg",
+   "publicadoEm": "2026-10-30T15:13:48.447Z",
+   "midiaId": "18238102249321619",
+   "link": "https://www.instagram.com/reel/DfH4IfeiD9K/",
+   "erro": null
   },
   {
    "id": "so4",
@@ -1512,7 +1516,7 @@
    "conta": "leopontesrp",
    "quando": "2026-10-30T12:00:00-03:00",
    "formato": "carrossel",
-   "status": "agendado",
+   "status": "publicado",
    "titulo": "Meus amores: Camila no pôr do sol e abraço com a Luiza",
    "legenda": "Meus amores. ❤️\n\nUm pôr do sol do lado da @camilacgod e um abraço apertado da minha filha @luiza_tp14. Aprendendo a viver a vida, e com elas fica tudo mais leve. ✨\n\n#meusamores #familia #gratidao",
    "midia": [
@@ -1532,7 +1536,11 @@
      "x": 0.45,
      "y": 0.3
     }
-   ]
+   ],
+   "publicadoEm": "2026-10-30T15:14:15.694Z",
+   "midiaId": "17909857179586648",
+   "link": "https://www.instagram.com/p/DfH4P4sG1xD/",
+   "erro": null
   },
   {
    "id": "lp-1030-1800",
