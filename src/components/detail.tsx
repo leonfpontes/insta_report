@@ -1,5 +1,5 @@
 import { useRef, useState } from "react";
-import { Bookmark, Copy, ExternalLink, Heart, MessageCircle, Repeat2, Send, SkipForward, X } from "lucide-react";
+import { Bookmark, Copy, ExternalLink, Heart, MessageCircle, Send, SkipForward, X } from "lucide-react";
 import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
@@ -123,7 +123,6 @@ function Taxas({ ig, isReel }: { ig: IgMedia; isReel: boolean }) {
     [Send, "Taxa de compartilhamentos", taxa(i.shares, base)],
     [Heart, "Taxa de curtidas", taxa(ig.curtidas ?? i.likes, base)],
     [Bookmark, "Taxa de salvamentos", taxa(i.saved, base)],
-    [Repeat2, "Taxa de repost", taxa(i.reposts, base)],
     [MessageCircle, "Taxa de comentários", taxa(ig.comentarios ?? i.comments, base)],
   ];
   return (
@@ -140,7 +139,7 @@ function Taxas({ ig, isReel }: { ig: IgMedia; isReel: boolean }) {
       </ul>
       <p className="text-xs text-muted-foreground">
         {isReel ? "A taxa de pulados é estimada pelo Instagram: quantos passaram o reel nos primeiros segundos. " : ""}
-        As outras taxas são cada número dividido pelas contas alcançadas.{i.reposts == null || (isReel && i.reels_skip_rate == null) ? " Reposts e taxa de pulados começam a aparecer a partir da próxima coleta." : ""}
+        As outras taxas são cada número dividido pelas contas alcançadas.{isReel && i.reels_skip_rate == null ? " O Instagram não mandou a taxa de pulados deste reel." : ""} A API do Instagram não informa reposts.
       </p>
     </div>
   );
@@ -195,7 +194,7 @@ function Insights({ r, ig }: { r: Row; ig: IgMedia }) {
           <h4 className="font-medium text-ink">Interações</h4>
           <dl className="divide-y text-sm">
             {(isStory ? [["Respostas", i.replies], ["Compartilhamentos", i.shares], ["Total", i.total_interactions]]
-              : [["Curtidas", ig.curtidas ?? i.likes], ["Comentários", ig.comentarios ?? i.comments], ["Reposts", i.reposts], ["Compartilhamentos", i.shares], ["Salvamentos", i.saved], ["Total", i.total_interactions]]
+              : [["Curtidas", ig.curtidas ?? i.likes], ["Comentários", ig.comentarios ?? i.comments], ["Compartilhamentos", i.shares], ["Salvamentos", i.saved], ["Total", i.total_interactions]]
             ).map(([l, v]) => <div key={l as string} className="flex justify-between py-2"><dt>{l}</dt><dd className="num">{n(v as number)}</dd></div>)}
           </dl>
           <p className="text-sm text-muted-foreground">Engajamento sobre o alcance: {pct(i.total_interactions, i.reach)}.</p>
