@@ -96,7 +96,7 @@ function Publico({ conta, ig }: { conta: Conta; ig: IgMedia }) {
         <div className="flex flex-col gap-2">
           <h4 className="font-medium text-ink">Detalhes do público da conta</h4>
           <p className="text-sm text-muted-foreground">{demo[0] === "engajados" ? "Quem interagiu com a conta neste mês" : "Quem segue a conta"}. O Instagram não abre esses dados por post.</p>
-          <ToggleGroup type="single" variant="outline" value={cut} onValueChange={(v) => v && setCut(v)} aria-label="Corte do público" className="flex-wrap">
+          <ToggleGroup type="single" variant="outline" value={cut} onValueChange={(v) => v && setCut(v)} aria-label="Corte do público" className="w-full [&>*]:min-w-0 [&>*]:flex-1">
             <ToggleGroupItem value="age">Idade</ToggleGroupItem><ToggleGroupItem value="country">País</ToggleGroupItem><ToggleGroupItem value="city">Cidade</ToggleGroupItem><ToggleGroupItem value="gender">Gênero</ToggleGroupItem>
           </ToggleGroup>
           {ent.length ? <Bars entries={ent.slice(0, 8)} /> : <p className="text-sm text-muted-foreground">Sem dados para este corte.</p>}
@@ -142,8 +142,9 @@ function Insights({ r, ig }: { r: Row; ig: IgMedia }) {
           {!isStory ? (
             <div className="flex flex-col gap-2" data-a={r.conta}>
               <h4 className="font-medium text-ink">{SMETRICS.find((x) => x[0] === metric)![1]} ao longo do tempo</h4>
-              <ToggleGroup type="single" variant="outline" size="sm" value={metric} onValueChange={(v) => v && setMetric(v)} aria-label="Métrica do gráfico" className="flex-wrap">
-                {SMETRICS.map(([k, l]) => <ToggleGroupItem key={k} value={k}>{l}</ToggleGroupItem>)}
+              {/* Uma linha só, dividida por igual: no celular os quatro cabem sem quebrar. */}
+              <ToggleGroup type="single" variant="outline" size="sm" value={metric} onValueChange={(v) => v && setMetric(v)} aria-label="Métrica do gráfico" className="w-full">
+                {SMETRICS.map(([k, l]) => <ToggleGroupItem key={k} value={k} className="h-9 min-w-0 flex-auto px-1.5 text-[13px] sm:px-3 sm:text-sm">{l}</ToggleGroupItem>)}
               </ToggleGroup>
               <TimeLine pts={m.seriesOf(ig, metric)} label={SMETRICS.find((x) => x[0] === metric)![1]} modo="hora" />
               <p className="text-xs text-muted-foreground">Um ponto por coleta: de hora em hora nas primeiras 48 horas, depois um por dia. O Instagram não guarda esse histórico, então a linha começa na primeira coleta do painel.</p>
