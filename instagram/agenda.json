@@ -432,7 +432,7 @@
    "conta": "GiraHub",
    "quando": "2026-10-31T17:00:00-03:00",
    "formato": "carrossel",
-   "status": "agendado",
+   "status": "publicado",
    "titulo": "Carrossel — Gestão de terreiro não cabe numa pessoa só",
    "legenda": "Gestão de terreiro não cabe numa pessoa só. Tem quem fica na porta, quem cuida do dinheiro, quem dirige a casa.\n\nNo GiraHub, cada um entra com o próprio acesso e vê o que precisa: a porta vê a Porta, a tesouraria vê o financeiro, a direção vê tudo. Ninguém precisa dividir a mesma senha de login.\n\nE os usuários são ilimitados em todos os planos, até no grátis. Não tem cobrança por pessoa.\n\nMarca aqui quem segura as pontas com você. 🤝\n\n🌐 girahub.com.br (link na bio)\n\n#GestãoDeTerreiro #Umbanda #GiraHub",
    "midia": [
@@ -441,7 +441,11 @@
     "midia/girahub/gh-1031-1700-03.jpg",
     "midia/girahub/gh-1031-1700-04.jpg"
    ],
-   "postizId": "cmvi8qcc80ia8ta0ywkcumlum"
+   "postizId": "cmvi8qcc80ia8ta0ywkcumlum",
+   "publicadoEm": "2026-10-31T20:12:41.073Z",
+   "midiaId": "17978668914138632",
+   "link": "https://www.instagram.com/p/DfK_LqXmowy/",
+   "erro": null
   },
   {
    "id": "gh-1031-1730",
