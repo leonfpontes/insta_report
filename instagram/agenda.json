@@ -460,14 +460,18 @@
    "conta": "GiraHub",
    "quando": "2026-10-31T12:00:00-03:00",
    "formato": "reel",
-   "status": "agendado",
+   "status": "publicado",
    "titulo": "Reels 31/10 — Senha com horário marcado",
    "legenda": "Gira marcada pras sete e todo mundo chega às sete na porta?\n\nCom a senha com horário marcado do GiraHub, o consulente escolhe a hora de ser atendido na hora de pegar a senha. Cada horário tem suas vagas e, quando enche, fecha sozinho.\nA assistência chega espalhada e a porta fica em paz.\n\nSalva pra mostrar na próxima reunião da casa.\n\n🌐 girahub.com.br (link na bio)\n\n#GestãoDeTerreiro #Umbanda #GiraHub",
    "midia": [
     "midia/girahub/gh-1031-2100.mp4"
    ],
    "postizId": "cmvkz9tdw3kljlh0yogzjnqpi",
-   "capa": "midia/girahub/gh-1031-2100-capa.jpg"
+   "capa": "midia/girahub/gh-1031-2100-capa.jpg",
+   "publicadoEm": "2026-10-31T15:10:41.825Z",
+   "midiaId": "18120735298766484",
+   "link": "https://www.instagram.com/reel/DfKclhViRbK/",
+   "erro": null
   },
   {
    "id": "so5",
@@ -2489,7 +2493,7 @@
    "conta": "leopontesrp",
    "quando": "2026-10-31T12:00:00-03:00",
    "formato": "reel",
-   "status": "agendado",
+   "status": "publicado",
    "titulo": "Reel: nossas viagens, caretas e pores do sol com a Camila",
    "legenda": "Já subimos serra, esperamos o sol ir embora e rimos de careta no meio da estrada. A melhor parte nunca foi o destino.\n\nFoi achar uma loja com o nome dela, dividir a batata frita e ficar quietinho abraçado na neblina com a @camilacgod. O lugar muda; o que faz a viagem é com quem a gente está.\n\nAprendendo a viver a vida.\n\n#viagememcasal #casal #amor #vidareal #pordosol #serra #viajarjuntos\n\n🎵 Música: \"Bossa Nova Sunny Cafe Easy Major Key\" de Alex Morgan (Free Music Archive), CC BY 4.0",
    "midia": [
@@ -2501,7 +2505,11 @@
      "usuario": "camilacgod"
     }
    ],
-   "nota": "Se a marcação da @camilacgod não pegar pela API, marcar à mão no app (Editar > Marcar pessoas)."
+   "nota": "Se a marcação da @camilacgod não pegar pela API, marcar à mão no app (Editar > Marcar pessoas).",
+   "publicadoEm": "2026-10-31T15:12:03.732Z",
+   "midiaId": "18118060760066727",
+   "link": "https://www.instagram.com/reel/DfKcvU7ABCZ/",
+   "erro": null
   }
  ]
 }
