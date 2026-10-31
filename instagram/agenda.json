@@ -273,7 +273,7 @@
    "conta": "GiraHub",
    "quando": "2026-10-30T21:00:00-03:00",
    "formato": "carrossel",
-   "status": "agendado",
+   "status": "publicado",
    "titulo": "Carrossel — Gira lotou: fila de espera e horário marcado",
    "legenda": "Senha de gira esgotada em minutos? Dois jeitos de ninguém ficar perdido quando a gira lota.\n\n1. Fila de espera: acabaram as senhas, quem chega pelo link entra na espera. Se alguém cancela, o próximo recebe aviso para confirmar. Não confirmou a tempo, a vaga passa para o seguinte.\n2. Horário marcado: a casa divide as vagas por horário e cada consulente escolhe o seu. Ninguém precisa chegar de madrugada.\n\nFila de espera e horário marcado são do plano Premium, e dá para testar 30 dias sem cartão.\n\nManda pra quem vive dizendo \"acabou a senha\". 😅\n\n🌐 girahub.com.br (link na bio)\n\n#GestãoDeTerreiro #Umbanda #GiraHub",
    "midia": [
@@ -283,7 +283,11 @@
     "midia/girahub/gh-1030-1200-04.jpg",
     "midia/girahub/gh-1030-1200-05.jpg"
    ],
-   "postizId": "cmvi8q9cr0i7coh0yrvqcqvb8"
+   "postizId": "cmvi8q9cr0i7coh0yrvqcqvb8",
+   "publicadoEm": "2026-10-31T00:31:50.672Z",
+   "midiaId": "18074260985489274",
+   "link": "https://www.instagram.com/p/DfI4EAGjhW5/",
+   "erro": null
   },
   {
    "id": "o03",
