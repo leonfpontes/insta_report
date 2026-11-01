@@ -571,13 +571,17 @@
    "conta": "pontes_brain",
    "quando": "2026-11-01T19:30:00-03:00",
    "formato": "post",
-   "status": "agendado",
+   "status": "publicado",
    "titulo": "Amanhã começa a série de novembro: um post por dia sobre portfólio, PMO e carreira em prod",
    "legenda": "Amanhã começa a série de novembro: um post por dia sobre portfólio, PMO e carreira em produto.\n\nAntes de começar, quero ouvir você. O que você quer aprender primeiro?\nA) Priorizar projetos sem briga\nB) Montar um business case que a diretoria aprova\nC) Medir o benefício depois da entrega\nD) Crescer na carreira de produto\n\nResponde com a letra 👇\n\n👉 Mentoria 1:1 para PMs, POs e líderes de PMO: leopontes.com.br/mentoria-produto (link na bio)\n\n#productmanager #productowner #carreiraemproduto #mentoria #produtodigital #carreira",
    "midia": [
     "midia/o05-2026-11-01.jpg"
    ],
-   "postizId": "cmvrex0cj42b6pi1c6qa9wf4f"
+   "postizId": "cmvrex0cj42b6pi1c6qa9wf4f",
+   "publicadoEm": "2026-11-01T22:36:13.127Z",
+   "midiaId": "17974716048174731",
+   "link": "https://www.instagram.com/p/DfN0ZvXkbNu/",
+   "erro": null
   },
   {
    "id": "gh-1101-2100",
