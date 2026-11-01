@@ -520,12 +520,16 @@
    "conta": "GiraHub",
    "quando": "2026-11-01T10:30:00-03:00",
    "formato": "story",
-   "status": "agendado",
+   "status": "publicado",
    "titulo": "Stories — dom 01/11",
    "midia": [
     "midia/girahub/gh-1101-1030-01.jpg"
    ],
-   "postizId": "cmvi89qvz0hwroh0y72yke4sv"
+   "postizId": "cmvi89qvz0hwroh0y72yke4sv",
+   "publicadoEm": "2026-11-01T13:35:54.990Z",
+   "midiaId": "18133207918808595",
+   "link": "https://www.instagram.com/stories/girahuboficial/4020828571853784430",
+   "erro": null
   },
   {
    "id": "gh-1101-1400",
