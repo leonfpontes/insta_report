@@ -574,14 +574,18 @@
    "conta": "GiraHub",
    "quando": "2026-11-01T12:00:00-03:00",
    "formato": "reel",
-   "status": "agendado",
+   "status": "publicado",
    "titulo": "Reels 01/11 — Site do terreiro",
    "legenda": "\"Que dia tem gira mesmo?\" Quantas vezes essa pergunta aparece no grupo da casa?\n\nCom o site do terreiro do GiraHub, a casa ganha uma página própria com as próximas giras, o botão de retirar senha e como chegar.\nO site já vem montado com o que a casa tem no GiraHub. É só escolher as cores e publicar.\n\nManda pra quem responde o WhatsApp do terreiro.\n\n🌐 girahub.com.br (link na bio)\n\n#GestãoDeTerreiro #Umbanda #GiraHub",
    "midia": [
     "midia/girahub/gh-1101-2100.mp4"
    ],
    "postizId": "cmvkz9vqt3kltlh0yz15pqav6",
-   "capa": "midia/girahub/gh-1101-2100-capa.jpg"
+   "capa": "midia/girahub/gh-1101-2100-capa.jpg",
+   "publicadoEm": "2026-11-01T15:11:04.647Z",
+   "midiaId": "18109492001355187",
+   "link": "https://www.instagram.com/reel/DfNBaxdCvis/",
+   "erro": null
   },
   {
    "id": "s01",
