@@ -554,13 +554,17 @@
    "conta": "GiraHub",
    "quando": "2026-11-01T18:00:00-03:00",
    "formato": "post",
-   "status": "agendado",
+   "status": "publicado",
    "titulo": "Imagem — Qual trabalho da gira ninguém vê?",
    "legenda": "Dia de gira tem trabalho que a assistência nunca vê. 🤍\n\nA faxina do salão antes de abrir, o café da corrente, quem fica na porta do começo ao fim, quem acende e apaga as velas, quem lava a roupa branca...\n\nQual trabalho da sua casa ninguém vê, mas sem ele a gira não acontece? Conta aqui e marca essa pessoa.\n\n🌐 girahub.com.br (link na bio)\n\n#GestãoDeTerreiro #Umbanda #GiraHub",
    "midia": [
     "midia/girahub/gh-1101-1800-01.jpg"
    ],
-   "postizId": "cmvi8qhg00i7koh0ylo3ep757"
+   "postizId": "cmvi8qhg00i7koh0ylo3ep757",
+   "publicadoEm": "2026-11-01T21:10:34.127Z",
+   "midiaId": "18138265297725261",
+   "link": "https://www.instagram.com/p/DfNqmLWGHVo/",
+   "erro": null
   },
   {
    "id": "o05",
@@ -1634,7 +1638,7 @@
    "conta": "leopontesrp",
    "quando": "2026-11-01T18:00:00-03:00",
    "formato": "reel",
-   "status": "agendado",
+   "status": "publicado",
    "titulo": "Reel: Pedra do Índio em Botucatu com a Camila",
    "legenda": "Tem lugar que a gente sobe para ver a paisagem e descobre que a vista mais bonita estava do lado o tempo todo.\n\nPedra do Índio, em Botucatu (SP), com a @camilacgod: um sorriso, algumas caretas e aquele silêncio bom de quem olha longe junto. ⛰️\n\n#botucatu #pedradoindio #cuestadebotucatu #interiorpaulista #viagememcasal\n\n🎵 \"Bossa Antigua\", Kevin MacLeod (incompetech.com), licença CC BY 4.0",
    "midia": [
@@ -1645,7 +1649,11 @@
     {
      "usuario": "camilacgod"
     }
-   ]
+   ],
+   "publicadoEm": "2026-11-01T21:11:12.867Z",
+   "midiaId": "18152157829554030",
+   "link": "https://www.instagram.com/reel/DfNqpEBoFH_/",
+   "erro": null
   },
   {
    "id": "lp-1029-1800",
