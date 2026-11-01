@@ -365,13 +365,14 @@
    "conta": "pontes_brain",
    "quando": "2026-10-31T07:30:00-03:00",
    "formato": "story",
-   "status": "manual",
+   "status": "publicado",
    "titulo": "Story do dia",
    "midia": [
     "midia/stories/so4-2026-10-31.jpg"
    ],
-   "nota": "Sticker de quiz: “1 a 2” · “3 a 5” · “Perdi a conta”. Story manual com sticker interativo (publicar no app). No horário do post do feed, repostar com o sticker \"post novo\".",
-   "legenda": "Bom sábado · quiz\n\nQuantos projetos o seu time toca ao mesmo tempo?\n\nPerdi a conta também vale."
+   "nota": "Publicado à mão pelo Leonardo.",
+   "legenda": "Bom sábado · quiz\n\nQuantos projetos o seu time toca ao mesmo tempo?\n\nPerdi a conta também vale.",
+   "publicadoEm": "2026-11-01T16:28:28.963Z"
   },
   {
    "id": "o04",
