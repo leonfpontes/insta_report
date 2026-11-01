@@ -499,7 +499,7 @@
    "conta": "GiraHub",
    "quando": "2026-11-01T10:00:00-03:00",
    "formato": "carrossel",
-   "status": "agendado",
+   "status": "publicado",
    "titulo": "Carrossel — Associados: quem ajuda a casa sem ser da corrente",
    "legenda": "Associados do terreiro: aquele consulente fiel, a família de médium, o amigo que contribui todo mês. Eles também merecem um lugar organizado.\n\nNo GiraHub, a casa cadastra os associados e controla a mensalidade deles separada da corrente: quem pagou, quem está em aberto e quem é isento, sem expor ninguém.\n\nE no dia de gira, o associado aparece com estrela na Porta, com a senha começando com P.\n\nAssociados é do plano Premium, e dá para testar 30 dias sem cartão.\n\nManda pra quem cuida dos associados da sua casa. 🤍\n\n🌐 girahub.com.br (link na bio)\n\n#GestãoDeTerreiro #Umbanda #GiraHub",
    "midia": [
@@ -509,7 +509,11 @@
     "midia/girahub/gh-1101-1000-04.jpg",
     "midia/girahub/gh-1101-1000-05.jpg"
    ],
-   "postizId": "cmvi8qf240iaata0yzh2xd04c"
+   "postizId": "cmvi8qf240iaata0yzh2xd04c",
+   "publicadoEm": "2026-11-01T13:12:14.024Z",
+   "midiaId": "18125262214930686",
+   "link": "https://www.instagram.com/p/DfMz28zHB_G/",
+   "erro": null
   },
   {
    "id": "gh-1101-1030",
