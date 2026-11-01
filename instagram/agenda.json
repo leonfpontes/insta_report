@@ -487,13 +487,14 @@
    "conta": "pontes_brain",
    "quando": "2026-11-01T07:30:00-03:00",
    "formato": "story",
-   "status": "manual",
+   "status": "publicado",
    "titulo": "Story do dia",
    "midia": [
     "midia/stories/so5-2026-11-01.jpg"
    ],
-   "nota": "Sticker de enquete: “Bora!” · “Já ativei o sininho”. Story manual com sticker interativo (publicar no app). No horário do post do feed, repostar com o sticker \"post novo\".",
-   "legenda": "Domingo · enquete\n\nAmanhã começa a série diária. Bora?\n\nTe vejo amanhã!"
+   "nota": "Publicado à mão pelo Leonardo.",
+   "legenda": "Domingo · enquete\n\nAmanhã começa a série diária. Bora?\n\nTe vejo amanhã!",
+   "publicadoEm": "2026-11-01T16:29:12.788Z"
   },
   {
    "id": "gh-1101-1000",
