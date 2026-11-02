@@ -619,13 +619,17 @@
    "conta": "GiraHub",
    "quando": "2026-11-02T10:00:00-03:00",
    "formato": "post",
-   "status": "agendado",
+   "status": "publicado",
    "titulo": "Imagem — Finados",
    "legenda": "Hoje é Dia de Finados.\n\nDia de lembrar, com carinho e respeito, de quem já fez a passagem. Às famílias de axé que hoje acendem uma vela pelos seus, nosso respeito e a nossa luz junto com a de vocês. 🕯️\n\n🌐 girahub.com.br (link na bio)\n\n#Finados #Umbanda #Candomblé",
    "midia": [
     "midia/girahub/gh-1102-1000-01.jpg"
    ],
-   "postizId": "cmvi8qk5x0iajta0yyw2a8j11"
+   "postizId": "cmvi8qk5x0iajta0yyw2a8j11",
+   "publicadoEm": "2026-11-02T13:14:17.572Z",
+   "midiaId": "18120114943785912",
+   "link": "https://www.instagram.com/p/DfPY4w3miUn/",
+   "erro": null
   },
   {
    "id": "gh-1102-1030",
