@@ -636,12 +636,16 @@
    "conta": "GiraHub",
    "quando": "2026-11-02T10:30:00-03:00",
    "formato": "story",
-   "status": "agendado",
+   "status": "publicado",
    "titulo": "Stories — seg 02/11 (Finados)",
    "midia": [
     "midia/girahub/gh-1102-1030-01.jpg"
    ],
-   "postizId": "cmvi89ufl0hwtoh0yzw390fx2"
+   "postizId": "cmvi89ufl0hwtoh0yzw390fx2",
+   "publicadoEm": "2026-11-02T13:37:39.354Z",
+   "midiaId": "18184290307441387",
+   "link": "https://www.instagram.com/stories/girahuboficial/4021554236097887556",
+   "erro": null
   },
   {
    "id": "d01",
