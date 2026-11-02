@@ -652,13 +652,17 @@
    "conta": "pontes_brain",
    "quando": "2026-11-02T12:15:00-03:00",
    "formato": "reel",
-   "status": "agendado",
+   "status": "publicado",
    "titulo": "Reel: Seu time está ocupado. Nada termina.",
    "legenda": "Ocupação mede esforço. Entrega mede valor.\n\nO teste que eu faço em todo diagnóstico, leva 5 minutos:\n1. Liste tudo que o time está tocando, inclusive o que \"não é projeto\".\n2. Marque o que terminou nos últimos 30 dias.\n3. Para cada item novo do próximo mês, escreva qual item sai.\n\nSe o passo 3 travou, o seu G1 Intake não está funcionando.\n\nComenta PORTFÓLIO que eu te mando o teste dos 3 sinais no direct 👇\n\n👉 Diagnóstico de portfólio e mentoria 1:1: leopontes.com.br/mentoria-produto (link na bio)\n\n#gestaodeportfolio #pmo #gestaodeprojetos #priorizacao #lideranca",
    "midia": [
     "midia/r01-2026-11-02.mp4"
    ],
-   "capa": "midia/r01-2026-11-02-capa.jpg"
+   "capa": "midia/r01-2026-11-02-capa.jpg",
+   "publicadoEm": "2026-11-02T15:16:34.465Z",
+   "midiaId": "18138246526634016",
+   "link": "https://www.instagram.com/reel/DfPm2NvEmNI/",
+   "erro": null
   },
   {
    "id": "gh-1102-1900",
@@ -694,14 +698,18 @@
    "conta": "GiraHub",
    "quando": "2026-11-02T12:00:00-03:00",
    "formato": "reel",
-   "status": "agendado",
+   "status": "publicado",
    "titulo": "Reels 02/11 — A casa é feita de muitas mãos",
    "legenda": "Nenhuma casa se sustenta numa pessoa só.\n\nHoje, dia de lembrar com carinho de quem veio antes, a gente agradece também a cada mão que cuida da casa agora: quem abre a porta, quem anota, quem cuida da tesouraria.\nNo GiraHub, cada pessoa tem o próprio acesso e vê só o que cuida, com grupos de permissão. E os usuários são ilimitados em todos os planos, inclusive no Gratuito.\n\nManda pra quem divide com você o cuidado da casa.\n\n🌐 girahub.com.br (link na bio)\n\n#GestãoDeTerreiro #Umbanda #GiraHub",
    "midia": [
     "midia/girahub/gh-1102-2100.mp4"
    ],
    "postizId": "cmvkz9yga3km3lh0yfk5npnx0",
-   "capa": "midia/girahub/gh-1102-2100-capa.jpg"
+   "capa": "midia/girahub/gh-1102-2100-capa.jpg",
+   "publicadoEm": "2026-11-02T15:15:55.073Z",
+   "midiaId": "18135731446678804",
+   "link": "https://www.instagram.com/reel/DfPmw6bAtbl/",
+   "erro": null
   },
   {
    "id": "d02",
