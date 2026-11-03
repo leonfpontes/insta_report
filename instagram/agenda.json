@@ -758,12 +758,16 @@
    "conta": "GiraHub",
    "quando": "2026-11-03T12:30:00-03:00",
    "formato": "story",
-   "status": "agendado",
+   "status": "publicado",
    "titulo": "Stories — ter 03/11",
    "midia": [
     "midia/girahub/gh-1103-1230-01.jpg"
    ],
-   "postizId": "cmvi89war0hwuoh0yp22od50m"
+   "postizId": "cmvi89war0hwuoh0yp22od50m",
+   "publicadoEm": "2026-11-03T15:37:24.176Z",
+   "midiaId": "17900215761609664",
+   "link": "https://www.instagram.com/stories/girahuboficial/4022339258970888858",
+   "erro": null
   },
   {
    "id": "gh-1103-1900",
