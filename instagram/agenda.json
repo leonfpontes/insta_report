@@ -799,14 +799,18 @@
    "conta": "GiraHub",
    "quando": "2026-11-03T12:00:00-03:00",
    "formato": "reel",
-   "status": "agendado",
+   "status": "publicado",
    "titulo": "Reels 03/11 — Relatórios de atendimento",
    "legenda": "A assistência da casa cresceu ou caiu nos últimos meses?\n\nOs relatórios de atendimento do GiraHub mostram quantas senhas saíram, quantas foram usadas, a taxa de uso e quem chegou sem senha, por período ou por gira.\nEscolhe 7, 30 ou 90 dias e compara, sem montar planilha.\n\nSalva pra levar na próxima reunião da casa.\n\n🌐 girahub.com.br (link na bio)\n\n#GestãoDeTerreiro #Umbanda #GiraHub",
    "midia": [
     "midia/girahub/gh-1103-2100.mp4"
    ],
    "postizId": "cmvkza0sd3km9lh0ytea2hhyf",
-   "capa": "midia/girahub/gh-1103-2100-capa.jpg"
+   "capa": "midia/girahub/gh-1103-2100-capa.jpg",
+   "publicadoEm": "2026-11-03T15:12:22.866Z",
+   "midiaId": "18155769523523158",
+   "link": "https://www.instagram.com/reel/DfSLKn3FYVd/",
+   "erro": null
   },
   {
    "id": "d03",
