@@ -229,14 +229,18 @@
    "conta": "GiraHub",
    "quando": "2026-11-04T12:00:00-03:00",
    "formato": "reel",
-   "status": "agendado",
+   "status": "publicado",
    "titulo": "Reels 04/11 — Relatório da gira: quem veio, quem atendeu",
    "legenda": "Quantos vieram na gira de sábado? E quantos faltaram?\n\nO relatório da gira do GiraHub responde na hora: total de senhas, quem foi atendido, quem não veio e quem chegou sem senha.\nCada atendimento com o médium e o cambone da noite. E baixa em PDF para guardar na pasta da casa.\n\nManda pra quem cuida da secretaria do terreiro.\n\n🌐 girahub.com.br (link na bio)\n\n#GestãoDeTerreiro #Umbanda #GiraHub",
    "midia": [
     "midia/girahub/gh-1029-2100.mp4"
    ],
    "postizId": "cmvkz9omj0wq3mk0yklo1zjfi",
-   "capa": "midia/girahub/gh-1029-2100-capa.jpg"
+   "capa": "midia/girahub/gh-1029-2100-capa.jpg",
+   "publicadoEm": "2026-11-04T15:14:54.009Z",
+   "midiaId": "18155632792536836",
+   "link": "https://www.instagram.com/reel/DfUwPAaEq8i/",
+   "erro": null
   },
   {
    "id": "so3",
