@@ -742,7 +742,7 @@
    "conta": "GiraHub",
    "quando": "2026-11-03T21:00:00-03:00",
    "formato": "carrossel",
-   "status": "agendado",
+   "status": "publicado",
    "titulo": "Carrossel — A senha com a cara da sua casa",
    "legenda": "Senha de gira com a cara da sua casa: o consulente vê o nome, a logo e as cores do terreiro, não a gente. 🎨\n\nE quando ele pega a senha, chega um e-mail com o número, a gira, o dia, o endereço e um botão para cancelar se não puder ir. Menos gente perguntando a mesma coisa no grupo.\n\nLogo e cores da casa e o e-mail da senha estão no GiraHub a partir do plano Pro.\n\nManda pra quem cuida da comunicação aí na sua casa.\n\n🌐 girahub.com.br (link na bio)\n\n#GestãoDeTerreiro #Umbanda #GiraHub",
    "midia": [
@@ -751,7 +751,11 @@
     "midia/girahub/gh-1103-1200-03.jpg",
     "midia/girahub/gh-1103-1200-04.jpg"
    ],
-   "postizId": "cmvi8qp7s0ialta0yhozm5prs"
+   "postizId": "cmvi8qp7s0ialta0yhozm5prs",
+   "publicadoEm": "2026-11-04T00:33:08.196Z",
+   "midiaId": "18083561456356507",
+   "link": "https://www.instagram.com/p/DfTLXlnCc_m/",
+   "erro": null
   },
   {
    "id": "gh-1103-1230",
