@@ -837,13 +837,17 @@
    "conta": "pontes_brain",
    "quando": "2026-11-04T19:00:00-03:00",
    "formato": "reel",
-   "status": "agendado",
+   "status": "publicado",
    "titulo": "Reel: Seu CV conta tarefas. Recrutador quer resultado.",
    "legenda": "Antes e depois de uma linha de CV:\n\nAntes: \"Responsável pela gestão do backlog do produto.\"\nDepois: \"Reorganizei o backlog com o time e reduzi o lead time de 30 para 12 dias.\"\n\nTrês ajustes que fazem essa diferença:\n• Comece com verbo de ação (reduzi, lancei, encerrei).\n• Diga para quem mudou (cliente, time, diretoria).\n• Sem número? \"Antes o time X, agora Y\" já resolve.\n\nComenta CV e me manda uma linha no direct. Eu reviso as primeiras que chegarem 👇\n\n👉 Mentoria 1:1 para PMs e POs: leopontes.com.br/mentoria-produto (link na bio)\n\n#productmanager #productowner #carreiraemproduto #curriculo #carreira",
    "midia": [
     "midia/r03-2026-11-04.mp4"
    ],
-   "capa": "midia/r03-2026-11-04-capa.jpg"
+   "capa": "midia/r03-2026-11-04-capa.jpg",
+   "publicadoEm": "2026-11-04T22:12:29.371Z",
+   "midiaId": "18075670988741907",
+   "link": "https://www.instagram.com/reel/DfVgCGeFPIi/",
+   "erro": null
   },
   {
    "id": "d04",
@@ -1783,7 +1787,7 @@
    "conta": "GiraHub",
    "quando": "2026-11-04T19:00:00-03:00",
    "formato": "carrossel",
-   "status": "agendado",
+   "status": "publicado",
    "titulo": "Carrossel 04/11 — Exu e a Porta que não cai com a internet",
    "legenda": "Porta do terreiro: a internet caiu bem na hora da gira? A fila não para. 🗝️\n\nQuem guarda o portão não pode parar, e a Porta do GiraHub também não:\n• instala no celular ou no tablet como um app;\n• se a conexão cai, avisa e continua mostrando a última fila;\n• quando a internet volta, atualiza sozinha. As senhas já emitidas seguem valendo.\n\nTudo isso já no plano Gratuito. Salva pra lembrar de instalar antes da próxima gira.\n\n🌐 girahub.com.br (link na bio)\n\n#GestãoDeTerreiro #Umbanda #GiraHub",
    "midia": [
@@ -1793,7 +1797,11 @@
     "midia/girahub/gh-1104-1900-04.jpg",
     "midia/girahub/gh-1104-1900-05.jpg"
    ],
-   "nota": "Aprovado pelo Leonardo no Trello: https://trello.com/c/06T7tJRI"
+   "nota": "Aprovado pelo Leonardo no Trello: https://trello.com/c/06T7tJRI",
+   "publicadoEm": "2026-11-04T22:12:58.551Z",
+   "midiaId": "17942560824379896",
+   "link": "https://www.instagram.com/p/DfVgJRMnINk/",
+   "erro": null
   },
   {
    "id": "gh-1105-0800",
