@@ -1808,13 +1808,17 @@
    "conta": "GiraHub",
    "quando": "2026-11-05T08:00:00-03:00",
    "formato": "post",
-   "status": "agendado",
+   "status": "publicado",
    "titulo": "Post 05/11 — Erva: alecrim",
    "legenda": "Erva da semana: alecrim. 🌿\n\nNas casas de Umbanda, o alecrim costuma ser tratado como erva morna: equilibra sem pesar. Por isso aparece tanto nos banhos que acalmam, junto da alfazema e da camomila, e é muito ligado a Oxalá.\n\nCada casa tem o seu jeito de usar as folhas, e o fundamento é de quem dirige. Na dúvida, pergunte ao seu pai ou mãe de santo antes de preparar qualquer banho.\n\nSalva pra lembrar da próxima erva da semana.\n\n🌐 girahub.com.br (link na bio)\n\n#ErvasDeAxé #Umbanda #Alecrim",
    "midia": [
     "midia/girahub/gh-1105-0800-01.jpg"
    ],
-   "nota": "Aprovado pelo Leonardo no Trello: https://trello.com/c/pcb7VAX6"
+   "nota": "Aprovado pelo Leonardo no Trello: https://trello.com/c/pcb7VAX6",
+   "publicadoEm": "2026-11-05T11:11:16.913Z",
+   "midiaId": "18637983049021248",
+   "link": "https://www.instagram.com/p/DfW5NwhEXQA/",
+   "erro": null
   },
   {
    "id": "gh-1105-1900",
