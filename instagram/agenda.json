@@ -1829,7 +1829,7 @@
    "conta": "GiraHub",
    "quando": "2026-11-05T19:00:00-03:00",
    "formato": "carrossel",
-   "status": "agendado",
+   "status": "publicado",
    "titulo": "Carrossel 05/11 — Preto Velho e a prioridade na fila",
    "legenda": "Prioridade na fila da gira: quem tem mais idade não deveria esperar em pé. 🤍\n\nO Preto Velho ensina a ter paciência com o tempo de cada um. No GiraHub, a casa marca quem é preferencial (idosos, gestantes e quem mais a direção definir), a prioridade aparece em destaque na lista da gira e o administrador ajusta na hora, se precisar.\n\nManda pra quem organiza a entrada da sua casa.\n\n🌐 girahub.com.br (link na bio)\n\n#GestãoDeTerreiro #Umbanda #GiraHub",
    "midia": [
@@ -1839,7 +1839,11 @@
     "midia/girahub/gh-1105-1900-04.jpg",
     "midia/girahub/gh-1105-1900-05.jpg"
    ],
-   "nota": "Aprovado pelo Leonardo no Trello: https://trello.com/c/AJCMEvLz"
+   "nota": "Aprovado pelo Leonardo no Trello: https://trello.com/c/AJCMEvLz",
+   "publicadoEm": "2026-11-05T22:12:57.822Z",
+   "midiaId": "18107570222315596",
+   "link": "https://www.instagram.com/p/DfYE6wuiWTQ/",
+   "erro": null
   },
   {
    "id": "gh-1106-0800",
