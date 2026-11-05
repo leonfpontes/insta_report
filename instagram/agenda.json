@@ -2021,14 +2021,18 @@
    "conta": "GiraHub",
    "quando": "2026-11-05T12:00:00-03:00",
    "formato": "reel",
-   "status": "agendado",
+   "status": "publicado",
    "titulo": "Reels 05/11 — Boiadeiro: a Porta chama na ordem",
    "legenda": "Fila na porta do terreiro sem tumulto: o Boiadeiro conduz, e a Porta chama na ordem. 🤠\n\nNo dia da gira, a Porta do GiraHub mostra quem já chegou e chama um por um, num toque. Quem chega sem senha entra na hora, sem passar na frente de ninguém.\n\nJá vem no plano Gratuito. Manda pra quem cuida da porta da sua casa 🤍\n\n🎵 Música: \"Bossa Antigua\" – Kevin MacLeod (incompetech.com), CC BY 4.0 (creativecommons.org/licenses/by/4.0)\n\n🌐 girahub.com.br (link na bio)\n\n#GestãoDeTerreiro #Umbanda #GiraHub",
    "midia": [
     "midia/girahub/gh-1105-1200.mp4"
    ],
    "capa": "midia/girahub/gh-1105-1200-capa.jpg",
-   "nota": "Aprovado pelo Leonardo no Trello (v2): https://trello.com/c/4D2eJFuy"
+   "nota": "Aprovado pelo Leonardo no Trello (v2): https://trello.com/c/4D2eJFuy",
+   "publicadoEm": "2026-11-05T15:14:33.719Z",
+   "midiaId": "18094288235285735",
+   "link": "https://www.instagram.com/reel/DfXU_6elAvV/",
+   "erro": null
   },
   {
    "id": "gh-1106-1200",
