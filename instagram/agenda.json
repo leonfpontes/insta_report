@@ -1850,13 +1850,17 @@
    "conta": "GiraHub",
    "quando": "2026-11-06T08:00:00-03:00",
    "formato": "post",
-   "status": "agendado",
+   "status": "publicado",
    "titulo": "Post 06/11 — Ogum antes da guerra",
    "legenda": "Ogum é conhecido como guerreiro. Mas, antes da guerra, vem a forja. ⚒️\n\nNas tradições de terreiro, Ogum é o senhor do ferro: das ferramentas que plantam, constroem e abrem estradas. O ferro nasce da terra e vira ferramenta quando passa pelo fogo e pelo trabalho. Por isso tanta gente pede a Ogum caminho aberto e força pra seguir.\n\nSalva pra lembrar quando a semana pesar.\n\n🌐 girahub.com.br (link na bio)\n\n#Ogum #Orixás #Umbanda",
    "midia": [
     "midia/girahub/gh-1106-0800-01.jpg"
    ],
-   "nota": "Aprovado pelo Leonardo no Trello: https://trello.com/c/lvb8hHUF"
+   "nota": "Aprovado pelo Leonardo no Trello: https://trello.com/c/lvb8hHUF",
+   "publicadoEm": "2026-11-06T11:12:31.506Z",
+   "midiaId": "18117075272024202",
+   "link": "https://www.instagram.com/p/DfZeInQnFkF/",
+   "erro": null
   },
   {
    "id": "gh-1106-1900",
