@@ -1871,7 +1871,7 @@
    "conta": "GiraHub",
    "quando": "2026-11-06T19:00:00-03:00",
    "formato": "carrossel",
-   "status": "agendado",
+   "status": "publicado",
    "titulo": "Carrossel 06/11 — Pombogira e o histórico de alterações",
    "legenda": "Histórico de alterações no terreiro: quem mudou a gira de horário? 🌹\n\nDizem que Exu guarda por fora e a Pombogira guarda por dentro. No GiraHub, o histórico de alterações cuida do lado de dentro: cada mudança no painel fica anotada, com o que mudou, quando e por quem. Não é pra apontar dedo, é pra casa entender e acertar junto.\n\nDisponível a partir do plano Pro. Manda pra quem divide o painel com você.\n\n🌐 girahub.com.br (link na bio)\n\n#GestãoDeTerreiro #Umbanda #GiraHub",
    "midia": [
@@ -1881,7 +1881,11 @@
     "midia/girahub/gh-1106-1900-04.jpg",
     "midia/girahub/gh-1106-1900-05.jpg"
    ],
-   "nota": "Aprovado pelo Leonardo no Trello: https://trello.com/c/oTIt3ZKP"
+   "nota": "Aprovado pelo Leonardo no Trello: https://trello.com/c/oTIt3ZKP",
+   "publicadoEm": "2026-11-06T22:13:02.470Z",
+   "midiaId": "18133736224704070",
+   "link": "https://www.instagram.com/p/DfapubJCXQe/",
+   "erro": null
   },
   {
    "id": "gh-1107-0800",
