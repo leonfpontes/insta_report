@@ -2051,14 +2051,18 @@
    "conta": "GiraHub",
    "quando": "2026-11-06T12:00:00-03:00",
    "formato": "reel",
-   "status": "agendado",
+   "status": "publicado",
    "titulo": "Reels 06/11 — Marinheiro e o Modo TV",
    "legenda": "Senha da gira chamada no grito? Deixa a TV do salão avisar. 📺\n\nO Marinheiro navega com calma até no mar agitado. No Modo TV do GiraHub, a senha da vez aparece grande na TV, com aviso sonoro, e as próximas logo abaixo. Quem está na assistência acompanha sem levantar.\n\nJá vem no plano Gratuito. Manda pra quem chama as senhas na sua casa.\n\n🎵 Música: \"Wholesome\" – Kevin MacLeod (incompetech.com), CC BY 4.0 (creativecommons.org/licenses/by/4.0)\n\n🌐 girahub.com.br (link na bio)\n\n#GestãoDeTerreiro #Umbanda #GiraHub",
    "midia": [
     "midia/girahub/gh-1106-1200.mp4"
    ],
    "capa": "midia/girahub/gh-1106-1200-capa.jpg",
-   "nota": "Aprovado pelo Leonardo no Trello (v2): https://trello.com/c/MdDWYjrs"
+   "nota": "Aprovado pelo Leonardo no Trello (v2): https://trello.com/c/MdDWYjrs",
+   "publicadoEm": "2026-11-06T15:13:08.846Z",
+   "midiaId": "18110910190900276",
+   "link": "https://www.instagram.com/reel/DfZ5poSiWIa/",
+   "erro": null
   },
   {
    "id": "gh-1108-1200",
