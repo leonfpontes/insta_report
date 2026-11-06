@@ -875,13 +875,17 @@
    "conta": "pontes_brain",
    "quando": "2026-11-06T18:30:00-03:00",
    "formato": "reel",
-   "status": "agendado",
+   "status": "publicado",
    "titulo": "Reel: Seu status report ninguém lê.",
    "legenda": "Quem nunca saiu de uma reunião de status sem saber o que precisava decidir? 😅\n\nComo montar o seu em 10 minutos:\n• Uma linha por pergunta, no máximo três linhas cada.\n• Risco sempre com dono e data.\n• A decisão vem com duas opções, não com um problema aberto.\n• Gráfico, cronograma e lista de tarefas vão para o anexo.\n\nComenta STATUS que eu te mando o modelo de 1 página no direct 👇\n\n👉 Mentoria 1:1 para PMs, POs e líderes de PMO: leopontes.com.br/mentoria-produto (link na bio)\n\n#gestaodeprojetos #pmo #statusreport #productmanager #lideranca",
    "midia": [
     "midia/r05-2026-11-06.mp4"
    ],
-   "capa": "midia/r05-2026-11-06-capa.jpg"
+   "capa": "midia/r05-2026-11-06-capa.jpg",
+   "publicadoEm": "2026-11-06T21:39:24.753Z",
+   "midiaId": "18114284726595196",
+   "link": "https://www.instagram.com/reel/Dfal1Z5juuI/",
+   "erro": null
   },
   {
    "id": "s02",
