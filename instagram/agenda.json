@@ -1931,7 +1931,7 @@
    "conta": "GiraHub",
    "quando": "2026-11-07T19:00:00-03:00",
    "formato": "carrossel",
-   "status": "agendado",
+   "status": "publicado",
    "titulo": "Carrossel 07/11 — Erê e os aniversariantes da semana",
    "legenda": "Aniversariantes da corrente: esqueceu o aniversário de um filho da casa? 🎈\n\nOs Erês lembram que alegria também é cuidado. No GiraHub, com a corrente cadastrada, o painel mostra quem faz aniversário na semana. Dá tempo de preparar um parabéns na gira, uma palavra da direção, um abraço.\n\nCadastro da corrente a partir do plano Basic. Marca aqui quem faz aniversário este mês na sua casa 🤍\n\n🌐 girahub.com.br (link na bio)\n\n#GestãoDeTerreiro #Umbanda #GiraHub",
    "midia": [
@@ -1941,7 +1941,11 @@
     "midia/girahub/gh-1107-1900-04.jpg",
     "midia/girahub/gh-1107-1900-05.jpg"
    ],
-   "nota": "Aprovado pelo Leonardo no Trello: https://trello.com/c/Z5bNJA4C"
+   "nota": "Aprovado pelo Leonardo no Trello: https://trello.com/c/Z5bNJA4C",
+   "publicadoEm": "2026-11-07T22:12:05.825Z",
+   "midiaId": "17873452683646395",
+   "link": "https://www.instagram.com/p/DfdOaJqGSOI/",
+   "erro": null
   },
   {
    "id": "gh-1108-0800",
