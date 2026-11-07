@@ -1892,13 +1892,17 @@
    "conta": "GiraHub",
    "quando": "2026-11-07T08:00:00-03:00",
    "formato": "post",
-   "status": "agendado",
+   "status": "publicado",
    "titulo": "Post 07/11 — Licença para colher erva",
    "legenda": "Antes de colher erva, peça licença à mata. 🌿\n\nEm muitas casas, quem vai colher folha fresca pede licença antes, porque a mata é morada e força de Oxóssi e dos Caboclos. Colher com calma, sem arrancar tudo e deixando a planta viva também é parte do respeito.\n\nCada casa tem o seu jeito de pedir licença. Como é na sua? Conta aqui nos comentários.\n\n🌐 girahub.com.br (link na bio)\n\n#Caboclos #Umbanda #ErvasDeAxé",
    "midia": [
     "midia/girahub/gh-1107-0800-01.jpg"
    ],
-   "nota": "Aprovado pelo Leonardo no Trello: https://trello.com/c/LV73almK"
+   "nota": "Aprovado pelo Leonardo no Trello: https://trello.com/c/LV73almK",
+   "publicadoEm": "2026-11-07T11:09:44.124Z",
+   "midiaId": "18138571696646980",
+   "link": "https://www.instagram.com/p/DfcCm62lhc2/",
+   "erro": null
   },
   {
    "id": "gh-1107-1200",
