@@ -905,13 +905,17 @@
    "conta": "pontes_brain",
    "quando": "2026-11-07T10:00:00-03:00",
    "formato": "post",
-   "status": "agendado",
+   "status": "publicado",
    "titulo": "Data no roadmap vira compromisso na cabeça de quem lê. Critério vira conversa.",
    "legenda": "Data no roadmap vira compromisso na cabeça de quem lê. Critério vira conversa.\n\nPrefiro um roadmap que diz \"por que isto vem antes daquilo\" a um que diz \"entrega em 15/03\".\n\nConcorda ou discorda? 👇\n\n👉 Mentoria 1:1 para PMs, POs e líderes de PMO: leopontes.com.br/mentoria-produto (link na bio)\n\n#roadmap #produtodigital #productmanagement #priorizacao",
    "midia": [
     "midia/d06-2026-11-07.jpg"
    ],
-   "postizId": "cmvr1kg6w3ivkpi1cbh5b6xny"
+   "postizId": "cmvr1kg6w3ivkpi1cbh5b6xny",
+   "publicadoEm": "2026-11-07T13:11:48.750Z",
+   "midiaId": "17972213154192961",
+   "link": "https://www.instagram.com/p/DfcQlHmEfCC/",
+   "erro": null
   },
   {
    "id": "d07",
