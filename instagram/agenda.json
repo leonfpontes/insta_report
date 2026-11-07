@@ -1913,14 +1913,18 @@
    "conta": "GiraHub",
    "quando": "2026-11-07T12:00:00-03:00",
    "formato": "reel",
-   "status": "agendado",
+   "status": "publicado",
    "titulo": "Reels 07/11 — Caboclo e o link único do terreiro",
    "legenda": "Link da senha da gira: um só, pra todas as giras da casa. 🏹\n\nO Caboclo não desperdiça flecha. Com o link do terreiro no GiraHub, você manda um único link no grupo do WhatsApp e ele vale pra todas as giras: o consulente abre, escolhe a gira e pega a senha no celular.\n\nJá vem no plano Gratuito. Salva pra fixar o link no grupo da sua casa.\n\n🎵 Música: \"Easy Lemon\" – Kevin MacLeod (incompetech.com), CC BY 4.0 (creativecommons.org/licenses/by/4.0)\n\n🌐 girahub.com.br (link na bio)\n\n#GestãoDeTerreiro #Umbanda #GiraHub",
    "midia": [
     "midia/girahub/gh-1107-1200.mp4"
    ],
    "capa": "midia/girahub/gh-1107-1200-capa.jpg",
-   "nota": "Aprovado pelo Leonardo no Trello: https://trello.com/c/YW5WvZl0"
+   "nota": "Aprovado pelo Leonardo no Trello: https://trello.com/c/YW5WvZl0",
+   "publicadoEm": "2026-11-07T15:11:40.011Z",
+   "midiaId": "18136148695672583",
+   "link": "https://www.instagram.com/reel/DfceRtOHLw3/",
+   "erro": null
   },
   {
    "id": "gh-1107-1900",
