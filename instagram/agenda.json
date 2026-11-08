@@ -2097,14 +2097,18 @@
    "conta": "GiraHub",
    "quando": "2026-11-08T12:00:00-03:00",
    "formato": "reel",
-   "status": "agendado",
+   "status": "publicado",
    "titulo": "Reels 08/11 — Malandro: testar antes de pagar",
    "legenda": "Sistema para terreiro: dá pra testar antes de pagar? Dá sim. 🎩\n\nTodo terreiro novo no GiraHub começa com 30 dias de Premium, com tudo liberado e sem cartão. Depois do teste, a casa volta sozinha para o plano Gratuito, sem fidelidade e sem multa. Fica no plano pago só quem quiser.\n\nManda pra quem dirige uma casa e ainda organiza tudo no caderno.\n\n🎵 Música: \"Easy Lemon\" – Kevin MacLeod (incompetech.com), CC BY 4.0 (creativecommons.org/licenses/by/4.0)\n\n🌐 girahub.com.br (link na bio)\n\n#GestãoDeTerreiro #Umbanda #GiraHub",
    "midia": [
     "midia/girahub/gh-1108-1200.mp4"
    ],
    "capa": "midia/girahub/gh-1108-1200-capa.jpg",
-   "nota": "Aprovado pelo Leonardo no Trello (v2): https://trello.com/c/2VuHX8iF"
+   "nota": "Aprovado pelo Leonardo no Trello (v2): https://trello.com/c/2VuHX8iF",
+   "publicadoEm": "2026-11-08T15:11:52.508Z",
+   "midiaId": "18375363784300171",
+   "link": "https://www.instagram.com/reel/DffDE9VD_HT/",
+   "erro": null
   },
   {
    "id": "gh-1109-1900",
