@@ -1969,7 +1969,7 @@
    "conta": "GiraHub",
    "quando": "2026-11-08T19:00:00-03:00",
    "formato": "carrossel",
-   "status": "agendado",
+   "status": "publicado",
    "titulo": "Carrossel 08/11 — Malandra e as contas da casa",
    "legenda": "Contas do terreiro: a conta de luz da casa vence quando? 💡\n\nA Malandra não deixa conta pegar ninguém de surpresa. No financeiro do GiraHub, a casa registra contas a pagar (luz, água, aluguel, material de gira) e a receber (doações, rifas, festas), com vencimento, fluxo de caixa e contas bancárias no mesmo lugar.\n\nDisponível no plano Premium. Salva pra organizar as contas antes do fim do mês.\n\n🌐 girahub.com.br (link na bio)\n\n#GestãoDeTerreiro #Umbanda #GiraHub",
    "midia": [
@@ -1979,7 +1979,11 @@
     "midia/girahub/gh-1108-1900-04.jpg",
     "midia/girahub/gh-1108-1900-05.jpg"
    ],
-   "nota": "Aprovado pelo Leonardo no Trello: https://trello.com/c/AQL0Wc9a"
+   "nota": "Aprovado pelo Leonardo no Trello: https://trello.com/c/AQL0Wc9a",
+   "publicadoEm": "2026-11-08T22:12:20.013Z",
+   "midiaId": "17941668555391506",
+   "link": "https://www.instagram.com/p/DffzOu1FqpN/",
+   "erro": null
   },
   {
    "id": "gh-1109-0800",
