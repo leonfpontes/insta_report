@@ -1952,13 +1952,17 @@
    "conta": "GiraHub",
    "quando": "2026-11-08T08:00:00-03:00",
    "formato": "post",
-   "status": "agendado",
+   "status": "publicado",
    "titulo": "Post 08/11 — Oxum e a prosperidade",
    "legenda": "Oxum não dá prosperidade. Ela desperta a que já existe em você. 💛\n\nUm ensinamento bonito que circula nas casas: Mãe Oxum, senhora das águas doces, do amor e do ouro, não entrega riqueza pronta. Ela torna ativa a prosperidade que já mora em cada um, e a gente faz a parte da gente.\n\nOra Iê Iê, Mamãe Oxum! Manda pra alguém que está precisando lembrar do próprio valor.\n\n🌐 girahub.com.br (link na bio)\n\n#Oxum #Orixás #Umbanda",
    "midia": [
     "midia/girahub/gh-1108-0800-01.jpg"
    ],
-   "nota": "Aprovado pelo Leonardo no Trello: https://trello.com/c/mgFrIFLe"
+   "nota": "Aprovado pelo Leonardo no Trello: https://trello.com/c/mgFrIFLe",
+   "publicadoEm": "2026-11-08T11:09:48.672Z",
+   "midiaId": "17966033676224829",
+   "link": "https://www.instagram.com/p/Dfenbc8mzXo/",
+   "erro": null
   },
   {
    "id": "gh-1108-1900",
