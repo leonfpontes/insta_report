@@ -2135,7 +2135,7 @@
    "conta": "GiraHub",
    "quando": "2026-11-09T19:00:00-03:00",
    "formato": "carrossel",
-   "status": "agendado",
+   "status": "publicado",
    "titulo": "Carrossel 09/11 — Os sentidos e seus Orixás",
    "legenda": "Orixás e os sentidos da vida: você conhece essa leitura? ✨\n\nEm muitas casas de Umbanda, os Orixás são estudados aos pares, cada par regendo um sentido da vida: Fé, Amor, Conhecimento, Justiça, Lei, Evolução e Geração. Nos próximos slides, a gente mostra essa grade com o sentido e o fator de cada Orixá, com os avatares que vão acompanhar os nossos posts.\n\nÉ uma das formas de ensinar, não a única. Cada casa tem o seu fundamento, e todas merecem respeito.\n\nSalva pra estudar com calma.\n\n🌐 girahub.com.br (link na bio)\n\n#Orixás #Umbanda #CulturaDeTerreiro",
    "midia": [
@@ -2146,7 +2146,11 @@
     "midia/girahub/gh-1109-1900-05.jpg",
     "midia/girahub/gh-1109-1900-06.jpg"
    ],
-   "nota": "Aprovado pelo Leonardo no Trello (v2): https://trello.com/c/T55zZ8Mi"
+   "nota": "Aprovado pelo Leonardo no Trello (v2): https://trello.com/c/T55zZ8Mi",
+   "publicadoEm": "2026-11-09T22:11:32.478Z",
+   "midiaId": "18122411902976788",
+   "link": "https://www.instagram.com/p/DfiX783mEpA/",
+   "erro": null
   },
   {
    "id": "gh-1110-1200",
