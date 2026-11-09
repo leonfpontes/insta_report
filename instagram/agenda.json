@@ -1994,13 +1994,17 @@
    "conta": "GiraHub",
    "quando": "2026-11-09T08:00:00-03:00",
    "formato": "post",
-   "status": "agendado",
+   "status": "publicado",
    "titulo": "Post 09/11 — Erva: manjericão",
    "legenda": "Erva da semana: manjericão. 🌿\n\nO manjericão é daquelas ervas que circulam por muitos caminhos. Em muitas casas aparece entre as ervas mornas de Oxóssi, entre as de Iemanjá, e o manjericão roxo é lembrado junto de Nanã. Erva morna é a que equilibra sem pesar.\n\nO uso de cada folha é fundamento da sua casa. Pergunte sempre a quem dirige.\n\nSalva pra lembrar da próxima erva da semana.\n\n🌐 girahub.com.br (link na bio)\n\n#ErvasDeAxé #Umbanda #Manjericão",
    "midia": [
     "midia/girahub/gh-1109-0800-01.jpg"
    ],
-   "nota": "Aprovado pelo Leonardo no Trello: https://trello.com/c/DLxFO3vN"
+   "nota": "Aprovado pelo Leonardo no Trello: https://trello.com/c/DLxFO3vN",
+   "publicadoEm": "2026-11-09T11:12:34.591Z",
+   "midiaId": "17965997595219237",
+   "link": "https://www.instagram.com/p/DfhMhhzmzh3/",
+   "erro": null
   },
   {
    "id": "gh-1109-1200",
