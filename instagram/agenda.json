@@ -2011,14 +2011,18 @@
    "conta": "GiraHub",
    "quando": "2026-11-09T12:00:00-03:00",
    "formato": "reel",
-   "status": "agendado",
+   "status": "publicado",
    "titulo": "Reels 09/11 — Preta Velha e o lembrete na agenda",
    "legenda": "Senha da gira no celular: pegou a senha e esqueceu do dia? A Preta Velha lembra, com carinho. 🕯️\n\nNo GiraHub, o bilhete da senha fica no celular do consulente, com o endereço da casa, a data e o horário. E tem o botão de adicionar à agenda: um toque, e a gira fica marcada no celular.\n\nJá vem no plano Gratuito. Manda pra quem sempre esquece o dia da gira 😄\n\n🎵 Música: \"Wallpaper\" – Kevin MacLeod (incompetech.com), CC BY 4.0 (creativecommons.org/licenses/by/4.0)\n\n🌐 girahub.com.br (link na bio)\n\n#GestãoDeTerreiro #Umbanda #GiraHub",
    "midia": [
     "midia/girahub/gh-1109-1200.mp4"
    ],
    "capa": "midia/girahub/gh-1109-1200-capa.jpg",
-   "nota": "Aprovado pelo Leonardo no Trello: https://trello.com/c/jwqSvXSG"
+   "nota": "Aprovado pelo Leonardo no Trello: https://trello.com/c/jwqSvXSG",
+   "publicadoEm": "2026-11-09T15:13:51.459Z",
+   "midiaId": "18101813384409883",
+   "link": "https://www.instagram.com/reel/DfhoGVADaKC/",
+   "erro": null
   },
   {
    "id": "gh-1110-0800",
