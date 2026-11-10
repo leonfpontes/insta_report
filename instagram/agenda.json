@@ -982,7 +982,7 @@
    "conta": "pontes_brain",
    "quando": "2026-11-10T07:45:00-03:00",
    "formato": "carrossel",
-   "status": "agendado",
+   "status": "publicado",
    "titulo": "Business case não precisa de 40 slides. Precisa caber em uma página e terminar pedindo uma",
    "legenda": "Business case não precisa de 40 slides. Precisa caber em uma página e terminar pedindo uma decisão.\n\nOs 5 blocos: problema, aposta, custo, benefício e decisão.\n\nComenta UMA PÁGINA que eu te mando o modelo no direct. 👇\n\n👉 Mentoria 1:1 para PMs, POs e líderes de PMO: leopontes.com.br/mentoria-produto (link na bio)\n\n#gestaodeportfolio #pmo #gestaodeprojetos #priorizacao #governanca #lideranca #businesscase",
    "midia": [
@@ -994,7 +994,11 @@
     "midia/d09-2026-11-10-06.jpg",
     "midia/d09-2026-11-10-07.jpg"
    ],
-   "postizId": "cmvr2h5se3l1xpi1cljh8c8ix"
+   "postizId": "cmvr2h5se3l1xpi1cljh8c8ix",
+   "publicadoEm": "2026-11-10T10:46:22.846Z",
+   "midiaId": "17891437686477735",
+   "link": "https://www.instagram.com/p/DfjuUZIFdZ8/",
+   "erro": null
   },
   {
    "id": "s06",
