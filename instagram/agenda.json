@@ -2037,13 +2037,17 @@
    "conta": "GiraHub",
    "quando": "2026-11-10T08:00:00-03:00",
    "formato": "post",
-   "status": "agendado",
+   "status": "publicado",
    "titulo": "Post 10/11 — Iemanjá, dona das cabeças",
    "legenda": "Iemanjá não é só a rainha do mar. Em muitas casas, ela é a dona de todas as cabeças. 🌊\n\nO nome vem de uma expressão iorubá que fala da mãe cujos filhos são peixes: a que guia o cardume. Por isso tanta gente pede a ela calma, cuidado e cabeça no lugar. E vale lembrar: Iemanjá é uma Orixá africana, negra, e é assim que a gente escolheu desenhá-la.\n\nManda pra um filho ou filha de Iemanjá.\n\n🌐 girahub.com.br (link na bio)\n\n#Iemanjá #Orixás #Umbanda",
    "midia": [
     "midia/girahub/gh-1110-0800-01.jpg"
    ],
-   "nota": "Aprovado pelo Leonardo no Trello: https://trello.com/c/FAaUQWLJ"
+   "nota": "Aprovado pelo Leonardo no Trello: https://trello.com/c/FAaUQWLJ",
+   "publicadoEm": "2026-11-10T11:10:50.309Z",
+   "midiaId": "18132746482696824",
+   "link": "https://www.instagram.com/p/DfjxHeAkcQk/",
+   "erro": null
   },
   {
    "id": "gh-1110-1900",
