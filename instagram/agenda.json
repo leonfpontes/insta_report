@@ -2165,14 +2165,18 @@
    "conta": "GiraHub",
    "quando": "2026-11-10T12:00:00-03:00",
    "formato": "reel",
-   "status": "agendado",
+   "status": "publicado",
    "titulo": "Reels 10/11 — Preto Velho e o e-mail da senha",
    "legenda": "Confirmação da senha por e-mail: perdeu a mensagem no meio de tanto grupo? Calma, filho. 🤍\n\nO Preto Velho ensina que nada se perde quando é bem guardado. No GiraHub, o consulente também recebe a senha por e-mail, com a confirmação da gira. Se o celular apagar a conversa, a senha continua lá.\n\nDisponível a partir do plano Pro. Manda pra quem vive perguntando \"qual era a minha senha?\"\n\n🎵 Música: \"Clean Soul\" – Kevin MacLeod (incompetech.com), CC BY 4.0 (creativecommons.org/licenses/by/4.0)\n\n🌐 girahub.com.br (link na bio)\n\n#GestãoDeTerreiro #Umbanda #GiraHub",
    "midia": [
     "midia/girahub/gh-1110-1200.mp4"
    ],
    "capa": "midia/girahub/gh-1110-1200-capa.jpg",
-   "nota": "Aprovado pelo Leonardo no Trello (v2): https://trello.com/c/hjW3Vhbg"
+   "nota": "Aprovado pelo Leonardo no Trello (v2): https://trello.com/c/hjW3Vhbg",
+   "publicadoEm": "2026-11-10T15:11:38.134Z",
+   "midiaId": "18107250863371320",
+   "link": "https://www.instagram.com/reel/DfkMpENgaDW/",
+   "erro": null
   },
   {
    "id": "gh-1111-1200",
