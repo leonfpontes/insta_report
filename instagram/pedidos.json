@@ -64,8 +64,8 @@
   {
    "id": "pd-20261111-090109",
    "criadoEm": "2026-11-11T12:01:20.049Z",
-   "atualizadoEm": "2026-11-11T13:04:08.374Z",
-   "status": "producao",
+   "atualizadoEm": "2026-11-11T13:04:20.069Z",
+   "status": "proposta",
    "conta": "leopontesrp",
    "formato": "post",
    "quando": "2026-11-11T12:00:00-03:00",
@@ -103,11 +103,16 @@
      "de": "leonardo",
      "em": "2026-11-11T12:59:55.318Z",
      "texto": "Troque essa descrição por uma mensagem direta para a Camila. Declaração de amor mesmo. Termine com Lhi Amo"
+    },
+    {
+     "de": "claude",
+     "em": "2026-11-11T13:04:20.069Z",
+     "texto": "Troquei a legenda por uma declaração para a Camila, falando direto com ela e terminando com \"Lhi Amo\", escrito do jeito que você mandou. Tirei as hashtags para a frase final fechar o texto. As fotos e a marcação dela continuam iguais, e o post sai hoje às 12h se você aprovar antes."
     }
    ],
    "proposta": {
-    "em": "2026-11-11T12:05:04.211Z",
-    "resumo": "Carrossel com as 3 fotos no teatro, recortadas em 4:5 e com o mesmo tratamento: cor mais quente, um pouco de contraste e uma vinheta leve. Legenda curta e direta, com a Camila marcada nas 3 fotos. Hoje às 12h, como você pediu (o pedido veio como post, mas com 3 fotos fiz carrossel).",
+    "em": "2026-11-11T13:04:20.069Z",
+    "resumo": "Troquei a legenda por uma declaração direta para a Camila, terminando com \"Lhi Amo\" como você pediu. Fotos, marcações e horário (hoje às 12h) continuam iguais.",
     "posts": [
      {
       "id": "lp-1111-1200",
@@ -115,8 +120,8 @@
       "quando": "2026-11-11T12:00:00-03:00",
       "formato": "carrossel",
       "status": "agendado",
-      "titulo": "Teatro com a Camila no Theatro Pedro II",
-      "legenda": "Ontem foi noite de teatro com a @camilacgod. 🎭\n\nFomos no Theatro Pedro II ver Os Quatro Amigos e, quando acabou, ainda saímos pra dar uma volta pela cidade. Noite simples e das boas.\n\n#theatropedroii #teatro #ribeiraopreto",
+      "titulo": "Declaração para a Camila (teatro)",
+      "legenda": "@camilacgod, ontem no teatro eu me peguei olhando mais pra você do que pro palco.\n\nObrigado por topar tudo comigo, do espetáculo até aquela volta sem rumo pela cidade depois. Com você do lado, uma terça qualquer vira uma noite que eu quero guardar pra sempre.\n\nVocê é a melhor parte dos meus dias.\n\nLhi Amo",
       "midia": [
        "midia/leopontesrp/lp-1111-1200-01.jpg",
        "midia/leopontesrp/lp-1111-1200-02.jpg",
