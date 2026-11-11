@@ -64,8 +64,8 @@
   {
    "id": "pd-20261111-090109",
    "criadoEm": "2026-11-11T12:01:20.049Z",
-   "atualizadoEm": "2026-11-11T13:04:20.069Z",
-   "status": "proposta",
+   "atualizadoEm": "2026-11-11T13:25:48.531Z",
+   "status": "aprovado",
    "conta": "leopontesrp",
    "formato": "post",
    "quando": "2026-11-11T12:00:00-03:00",
@@ -149,7 +149,11 @@
       ]
      }
     ]
-   }
+   },
+   "aprovadoEm": "2026-11-11T13:25:48.531Z",
+   "agendados": [
+    "lp-1111-1200"
+   ]
   }
  ]
 }
