@@ -64,8 +64,8 @@
   {
    "id": "pd-20261111-090109",
    "criadoEm": "2026-11-11T12:01:20.049Z",
-   "atualizadoEm": "2026-11-11T12:05:04.211Z",
-   "status": "proposta",
+   "atualizadoEm": "2026-11-11T12:59:55.318Z",
+   "status": "ajuste",
    "conta": "leopontesrp",
    "formato": "post",
    "quando": "2026-11-11T12:00:00-03:00",
@@ -98,6 +98,11 @@
      "de": "claude",
      "em": "2026-11-11T12:05:04.211Z",
      "texto": "Fiz um carrossel com as 3 fotos, todas com o mesmo acabamento (mais quentes, com um pouco de contraste e vinheta leve) e a Camila marcada em cada uma. Escrevi uma legenda curta, do jeito que você contaria. As 3 fotos são de dentro do teatro; se quiser uma do passeio pela cidade, é só mandar que eu incluo. Sai hoje às 12h se você aprovar antes."
+    },
+    {
+     "de": "leonardo",
+     "em": "2026-11-11T12:59:55.318Z",
+     "texto": "Troque essa descrição por uma mensagem direta para a Camila. Declaração de amor mesmo. Termine com Lhi Amo"
     }
    ],
    "proposta": {
