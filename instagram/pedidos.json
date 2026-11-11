@@ -60,6 +60,40 @@
    "agendados": [
     "gh-1029-1200b"
    ]
+  },
+  {
+   "id": "pd-20261111-090109",
+   "criadoEm": "2026-11-11T12:01:20.049Z",
+   "atualizadoEm": "2026-11-11T12:01:20.049Z",
+   "status": "novo",
+   "conta": "leopontesrp",
+   "formato": "post",
+   "quando": "2026-11-11T12:00:00-03:00",
+   "texto": "Preciso de um Carrossel para essas três fotos ontem eu e a Camila fomos no teatro Pedro II assistir o espetáculo os quatro amigos. E depois a gente saiu e fomos dar uma volta pela cidade.  Pense numa descrição que não seja tão artificial que pareça que sou eu que tô escrevendo mesmo, porque geralmente você tá fazendo umas descrições muito artificiais.  As imagens deixa elas bonitas aplique os efeitos para o Carrossel que você julgar melhores e manda para eu aprovar. Marque a Camila.",
+   "anexos": [
+    {
+     "arquivo": "pedidos/pd-20261111-090109/01-1000501958.jpg",
+     "nome": "1000501958.jpg",
+     "tipo": "imagem",
+     "bytes": 675732,
+     "partes": 1
+    },
+    {
+     "arquivo": "pedidos/pd-20261111-090109/02-1000501959.jpg",
+     "nome": "1000501959.jpg",
+     "tipo": "imagem",
+     "bytes": 713753,
+     "partes": 1
+    },
+    {
+     "arquivo": "pedidos/pd-20261111-090109/03-1000501960.jpg",
+     "nome": "1000501960.jpg",
+     "tipo": "imagem",
+     "bytes": 802199,
+     "partes": 1
+    }
+   ],
+   "conversa": []
   }
  ]
 }
