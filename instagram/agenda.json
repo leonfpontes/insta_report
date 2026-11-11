@@ -2591,13 +2591,17 @@
    "conta": "GiraHub",
    "quando": "2026-11-11T08:00:00-03:00",
    "formato": "post",
-   "status": "agendado",
+   "status": "publicado",
    "titulo": "Post 11/11 — Erva: guiné",
    "legenda": "Erva da semana: guiné. 🌿\n\nA guiné é conhecida como erva forte: em muitas casas ela entra nos banhos de descarrego e nos benzimentos, para cortar e proteger. Aparece ligada a Ogum, a Oxóssi e a outros Orixás, conforme o fundamento de cada casa.\n\nJustamente por ser forte, não é erva para usar sem orientação. Antes de qualquer banho, pergunte a quem dirige a sua casa.\n\nSalva pra lembrar da próxima erva da semana.\n\n🌐 girahub.com.br (link na bio)\n\n#ErvasDeAxé #Umbanda #Guiné",
    "midia": [
     "midia/girahub/gh-1111-0800-01.jpg"
    ],
-   "nota": "Aprovado pelo Leonardo no Trello: https://trello.com/c/NjXN4tjl"
+   "nota": "Aprovado pelo Leonardo no Trello: https://trello.com/c/NjXN4tjl",
+   "publicadoEm": "2026-11-11T11:12:07.627Z",
+   "midiaId": "18114928202617603",
+   "link": "https://www.instagram.com/p/DfmWFL8oFxB/",
+   "erro": null
   },
   {
    "id": "gh-1114-0800",
