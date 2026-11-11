@@ -2187,14 +2187,18 @@
    "conta": "GiraHub",
    "quando": "2026-11-11T12:00:00-03:00",
    "formato": "reel",
-   "status": "agendado",
+   "status": "publicado",
    "titulo": "Reels 11/11 — Exu: senha sem baixar aplicativo",
    "legenda": "Senha da gira sem baixar aplicativo: o consulente só toca no link. 🗝️\n\nExu abre caminho, e um caminho sem pedra é aquele que todo mundo consegue andar. No GiraHub, a senha abre no navegador do celular: nome, telefone e pronto, a senha já sai. Sem app, sem cadastro complicado.\n\nJá vem no plano Gratuito. Manda pra quem ainda acha que sistema é coisa difícil.\n\n🎵 Música: \"Bossa Antigua\" – Kevin MacLeod (incompetech.com), CC BY 4.0 (creativecommons.org/licenses/by/4.0)\n\n🌐 girahub.com.br (link na bio)\n\n#GestãoDeTerreiro #Umbanda #GiraHub",
    "midia": [
     "midia/girahub/gh-1111-1200.mp4"
    ],
    "capa": "midia/girahub/gh-1111-1200-capa.jpg",
-   "nota": "Aprovado pelo Leonardo no Trello: https://trello.com/c/3dtoSXP7"
+   "nota": "Aprovado pelo Leonardo no Trello: https://trello.com/c/3dtoSXP7",
+   "publicadoEm": "2026-11-11T15:12:44.168Z",
+   "midiaId": "17883680061627453",
+   "link": "https://www.instagram.com/reel/DfmxkexDgkc/",
+   "erro": null
   },
   {
    "id": "gh-1111-1900",
@@ -2722,7 +2726,7 @@
    "conta": "leopontesrp",
    "quando": "2026-11-11T12:00:00-03:00",
    "formato": "carrossel",
-   "status": "agendado",
+   "status": "publicado",
    "titulo": "Declaração para a Camila (teatro)",
    "legenda": "@camilacgod, ontem no teatro eu me peguei olhando mais pra você do que pro palco.\n\nObrigado por topar tudo comigo, do espetáculo até aquela volta sem rumo pela cidade depois. Com você do lado, uma terça qualquer vira uma noite que eu quero guardar pra sempre.\n\nVocê é a melhor parte dos meus dias.\n\nLhi Amo",
    "midia": [
@@ -2750,7 +2754,11 @@
      "y": 0.56
     }
    ],
-   "pedido": "pd-20261111-090109"
+   "pedido": "pd-20261111-090109",
+   "publicadoEm": "2026-11-11T15:13:30.665Z",
+   "midiaId": "18115037072272052",
+   "link": "https://www.instagram.com/p/Dfmxrj7kVQL/",
+   "erro": null
   }
  ]
 }
