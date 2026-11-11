@@ -1018,13 +1018,17 @@
    "conta": "pontes_brain",
    "quando": "2026-11-11T19:00:00-03:00",
    "formato": "reel",
-   "status": "agendado",
+   "status": "publicado",
    "titulo": "Reel: O erro que reprova PM na entrevista.",
    "legenda": "Treino de 10 minutos para a próxima entrevista:\n1. Escolha um app que você usa todo dia.\n2. Pergunte: qual problema ele resolve, para quem?\n3. Escolha UMA métrica que mostraria sucesso.\n4. Liste 3 hipóteses de melhoria e escolha uma.\n5. Fale em voz alta por 2 minutos, gravando no celular.\n\nOuvir a própria gravação mostra onde você pula etapas.\n\nComenta CASE que eu te mando o roteiro completo no direct 👇\n\n👉 Na mentoria a gente simula cases com feedback na hora: leopontes.com.br/mentoria-produto (link na bio)\n\n#productmanager #entrevistadeemprego #carreiraemproduto #productowner #carreira",
    "midia": [
     "midia/r10-2026-11-11.mp4"
    ],
-   "capa": "midia/r10-2026-11-11-capa.jpg"
+   "capa": "midia/r10-2026-11-11-capa.jpg",
+   "publicadoEm": "2026-11-11T22:11:25.618Z",
+   "midiaId": "18104296868384897",
+   "link": "https://www.instagram.com/reel/DfnhfB2mc2u/",
+   "erro": null
   },
   {
    "id": "s26",
@@ -2205,7 +2209,7 @@
    "conta": "GiraHub",
    "quando": "2026-11-11T19:00:00-03:00",
    "formato": "carrossel",
-   "status": "agendado",
+   "status": "publicado",
    "titulo": "Carrossel 11/11 — Gira no feriado: 4 cuidados",
    "legenda": "Gira no feriado: casa cheia e fila andando em paz. Sua casa já se preparou? 🤠\n\nO Boiadeiro sabe: quem conduz muita gente precisa combinar o caminho antes. Quatro cuidados que fazem diferença:\n1. Mande o link da senha no grupo com antecedência.\n2. Combine quem fica na porta.\n3. Deixe a Porta aberta no celular de quem cuida da entrada.\n4. Marque a prioridade de idosos, gestantes e preferenciais.\n\nSalva pra conferir antes da próxima gira de feriado.\n\n🌐 girahub.com.br (link na bio)\n\n#GestãoDeTerreiro #Umbanda #GiraHub",
    "midia": [
@@ -2215,7 +2219,11 @@
     "midia/girahub/gh-1111-1900-04.jpg",
     "midia/girahub/gh-1111-1900-05.jpg"
    ],
-   "nota": "Aprovado pelo Leonardo no Trello: https://trello.com/c/DgOHhot2"
+   "nota": "Aprovado pelo Leonardo no Trello: https://trello.com/c/DgOHhot2",
+   "publicadoEm": "2026-11-11T22:12:02.385Z",
+   "midiaId": "18022114766734955",
+   "link": "https://www.instagram.com/p/DfnhlavFLr0/",
+   "erro": null
   },
   {
    "id": "gh-1112-0800",
