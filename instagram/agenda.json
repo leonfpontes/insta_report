@@ -2247,14 +2247,18 @@
    "conta": "GiraHub",
    "quando": "2026-11-12T12:00:00-03:00",
    "formato": "reel",
-   "status": "agendado",
+   "status": "publicado",
    "titulo": "Reels 12/11 — Pombogira e a mensalidade sem constrangimento",
    "legenda": "Mensalidade do terreiro sem constrangimento: ninguém precisa ser cobrado na frente da corrente. 🌹\n\nA Pombogira cuida do lado de dentro, com discrição. No GiraHub, a direção vê a mensalidade de cada médium: quem pagou, quem está em aberto e o comprovante de cada mês. A conversa fica entre quem cuida do dinheiro e o médium, do jeito certo.\n\nDisponível a partir do plano Basic. Manda pra quem cuida das mensalidades da sua casa.\n\n🎵 Música: \"Bossa Antigua\" – Kevin MacLeod (incompetech.com), CC BY 4.0 (creativecommons.org/licenses/by/4.0)\n\n🌐 girahub.com.br (link na bio)\n\n#GestãoDeTerreiro #Umbanda #GiraHub",
    "midia": [
     "midia/girahub/gh-1112-1200.mp4"
    ],
    "capa": "midia/girahub/gh-1112-1200-capa.jpg",
-   "nota": "Aprovado pelo Leonardo no Trello: https://trello.com/c/SnX2IzQU"
+   "nota": "Aprovado pelo Leonardo no Trello: https://trello.com/c/SnX2IzQU",
+   "publicadoEm": "2026-11-12T15:13:52.640Z",
+   "midiaId": "18117007793108515",
+   "link": "https://www.instagram.com/reel/DfpWfq-Emtt/",
+   "erro": null
   },
   {
    "id": "gh-1112-1900",
