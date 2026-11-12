@@ -2230,13 +2230,17 @@
    "conta": "GiraHub",
    "quando": "2026-11-12T08:00:00-03:00",
    "formato": "post",
-   "status": "agendado",
+   "status": "publicado",
    "titulo": "Post 12/11 — Xangô e a cachoeira",
    "legenda": "Por que, em muitas casas, não se leva oferenda a Xangô na cachoeira? 🔥\n\nXangô é o Orixá da justiça, do fogo e das pedreiras. O ensinamento que circula nas casas é simples: água apaga fogo. Por isso o lugar de força dele é a pedreira, ao sol, e não a beira d'água.\n\nCada casa tem o seu fundamento. Você já tinha ouvido isso? Conta aqui.\n\n🌐 girahub.com.br (link na bio)\n\n#Xangô #Orixás #Umbanda",
    "midia": [
     "midia/girahub/gh-1112-0800-01.jpg"
    ],
-   "nota": "Aprovado pelo Leonardo no Trello: https://trello.com/c/lfxUhpYQ"
+   "nota": "Aprovado pelo Leonardo no Trello: https://trello.com/c/lfxUhpYQ",
+   "publicadoEm": "2026-11-12T11:12:41.082Z",
+   "midiaId": "18134024842772363",
+   "link": "https://www.instagram.com/p/Dfo68AQIK8b/",
+   "erro": null
   },
   {
    "id": "gh-1112-1200",
