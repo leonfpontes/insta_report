@@ -2269,7 +2269,7 @@
    "conta": "GiraHub",
    "quando": "2026-11-12T19:00:00-03:00",
    "formato": "carrossel",
-   "status": "agendado",
+   "status": "publicado",
    "titulo": "Carrossel 12/11 — As linhas que vão aparecer por aqui",
    "legenda": "Linhas de trabalho da Umbanda: você reconhece todos os personagens que aparecem por aqui? ✨\n\nExu, Pombogira, Malandro, Malandra, Caboclo, Boiadeiro, Marinheiro, Erê, Preto Velho e Preta Velha. Nos próximos posts, eles contam histórias do dia a dia da gira, do portão à mensalidade.\n\nÉ uma forma carinhosa de falar da nossa cultura. O fundamento e a fé são de cada casa, e todas merecem respeito.\n\nQual linha você mais gosta de ver na gira? Conta aqui.\n\n🌐 girahub.com.br (link na bio)\n\n#Umbanda #CulturaDeTerreiro #Entidades",
    "midia": [
@@ -2279,7 +2279,11 @@
     "midia/girahub/gh-1112-1900-04.jpg",
     "midia/girahub/gh-1112-1900-05.jpg"
    ],
-   "nota": "Aprovado pelo Leonardo no Trello: https://trello.com/c/3Xo08ZM7"
+   "nota": "Aprovado pelo Leonardo no Trello: https://trello.com/c/3Xo08ZM7",
+   "publicadoEm": "2026-11-12T22:11:43.362Z",
+   "midiaId": "18042850865839509",
+   "link": "https://www.instagram.com/p/DfqGWzbH3Rz/",
+   "erro": null
   },
   {
    "id": "gh-1113-0800",
