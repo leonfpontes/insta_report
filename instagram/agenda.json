@@ -2307,14 +2307,18 @@
    "conta": "GiraHub",
    "quando": "2026-11-13T12:00:00-03:00",
    "formato": "reel",
-   "status": "agendado",
+   "status": "publicado",
    "titulo": "Reels 13/11 — Caboclo e o site do terreiro",
    "legenda": "Site do terreiro: quando alguém procura a sua casa na internet, o que encontra? 🏹\n\nO Caboclo conhece cada trilha da mata. No GiraHub, a casa ganha um site com endereço, próximas giras, inscrição em cursos e o botão \"Retire sua senha\". Quem procura, encontra, e já sai com a senha.\n\nDisponível a partir do plano Pro. Manda pra quem cuida da comunicação da sua casa.\n\n🎵 Música: \"Wholesome\" – Kevin MacLeod (incompetech.com), CC BY 4.0 (creativecommons.org/licenses/by/4.0)\n\n🌐 girahub.com.br (link na bio)\n\n#GestãoDeTerreiro #Umbanda #GiraHub",
    "midia": [
     "midia/girahub/gh-1113-1200.mp4"
    ],
    "capa": "midia/girahub/gh-1113-1200-capa.jpg",
-   "nota": "Aprovado pelo Leonardo no Trello: https://trello.com/c/06PAcFEz"
+   "nota": "Aprovado pelo Leonardo no Trello: https://trello.com/c/06PAcFEz",
+   "publicadoEm": "2026-11-13T15:12:58.550Z",
+   "midiaId": "18224499166342379",
+   "link": "https://www.instagram.com/reel/Dfr7LAMAmY-/",
+   "erro": null
   },
   {
    "id": "gh-1113-1900",
