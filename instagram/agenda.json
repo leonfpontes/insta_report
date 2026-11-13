@@ -2329,7 +2329,7 @@
    "conta": "GiraHub",
    "quando": "2026-11-13T19:00:00-03:00",
    "formato": "carrossel",
-   "status": "agendado",
+   "status": "publicado",
    "titulo": "Carrossel 13/11 — Programa de Parceiros",
    "legenda": "Programa de Parceiros do GiraHub: tem loja de artigos religiosos ou conversa com muitas casas? 🗝️\n\nA casa que você indica ganha 20% de desconto nos três primeiros meses de um plano pago. Você ganha 20% de comissão por 12 meses, paga no PIX até o dia 10 (a partir de R$ 30).\n\nÉ para lojas, criadores de conteúdo e federações. Manda pra quem tem loja de artigos religiosos.\n\n🌐 girahub.com.br/parceiros (link na bio)\n\n#GiraHub #Umbanda #Candomblé",
    "midia": [
@@ -2339,7 +2339,11 @@
     "midia/girahub/gh-1113-1900-04.jpg",
     "midia/girahub/gh-1113-1900-05.jpg"
    ],
-   "nota": "Aprovado pelo Leonardo no Trello: https://trello.com/c/PRnh3TqM"
+   "nota": "Aprovado pelo Leonardo no Trello: https://trello.com/c/PRnh3TqM",
+   "publicadoEm": "2026-11-13T22:12:33.448Z",
+   "midiaId": "18186139219442343",
+   "link": "https://www.instagram.com/p/DfsrOx0FfTV/",
+   "erro": null
   },
   {
    "id": "gh-1114-1200",
