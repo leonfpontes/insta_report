@@ -2290,13 +2290,17 @@
    "conta": "GiraHub",
    "quando": "2026-11-13T08:00:00-03:00",
    "formato": "post",
-   "status": "agendado",
+   "status": "publicado",
    "titulo": "Post 13/11 — Erê não é bagunça",
    "legenda": "Erê não é bagunça. 🎈\n\nEm muitas casas se ensina que a linha das crianças é das mais delicadas: quando o Erê vem, ele descarrega, reorganiza e renova. A alegria tem função. Doce demais, bolo no ventilador e bala jogada na cabeça dos outros não são coisa do Erê.\n\nCada casa tem o seu jeito de festejar. Manda pra quem ama a gira das crianças.\n\n🌐 girahub.com.br (link na bio)\n\n#Erê #Umbanda #CulturaDeTerreiro",
    "midia": [
     "midia/girahub/gh-1113-0800-01.jpg"
    ],
-   "nota": "Aprovado pelo Leonardo no Trello: https://trello.com/c/gpD8GSZi"
+   "nota": "Aprovado pelo Leonardo no Trello: https://trello.com/c/gpD8GSZi",
+   "publicadoEm": "2026-11-13T11:11:58.161Z",
+   "midiaId": "18131529055833830",
+   "link": "https://www.instagram.com/p/DfrfonCoDkc/",
+   "erro": null
   },
   {
    "id": "gh-1113-1200",
