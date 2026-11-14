@@ -2372,7 +2372,7 @@
    "conta": "GiraHub",
    "quando": "2026-11-14T19:00:00-03:00",
    "formato": "carrossel",
-   "status": "agendado",
+   "status": "publicado",
    "titulo": "Carrossel 14/11 — Falar de dinheiro com a corrente",
    "legenda": "Mensalidade do terreiro: falar de dinheiro com a corrente não precisa ser climão. 🎩\n\nO Malandro ensina bom senso. Quatro jeitos:\n1. Combine valor e dia de pagar às claras.\n2. Mostre para onde vai o dinheiro.\n3. Fale de atraso no particular.\n4. Registre tudo, sem depender da memória.\n\nNo GiraHub, a direção vê quem pagou e quem está em aberto, com o comprovante de cada mês. Disponível a partir do plano Basic.\n\nSalva pra conversar com a direção da sua casa.\n\n🌐 girahub.com.br (link na bio)\n\n#GestãoDeTerreiro #Umbanda #GiraHub",
    "midia": [
@@ -2382,7 +2382,11 @@
     "midia/girahub/gh-1114-1900-04.jpg",
     "midia/girahub/gh-1114-1900-05.jpg"
    ],
-   "nota": "Aprovado pelo Leonardo no Trello: https://trello.com/c/GMIl658T"
+   "nota": "Aprovado pelo Leonardo no Trello: https://trello.com/c/GMIl658T",
+   "publicadoEm": "2026-11-14T22:11:58.685Z",
+   "midiaId": "18037413893885537",
+   "link": "https://www.instagram.com/p/DfvP-ubm-36/",
+   "erro": null
   },
   {
    "id": "gh-1115-0800",
