@@ -2393,13 +2393,17 @@
    "conta": "GiraHub",
    "quando": "2026-11-15T08:00:00-03:00",
    "formato": "post",
-   "status": "agendado",
+   "status": "publicado",
    "titulo": "Post 15/11 — Dia Nacional da Umbanda",
    "legenda": "Hoje, 15 de novembro, é Dia Nacional da Umbanda. 🤍\n\nUma data reconhecida por lei federal desde 2012, que lembra 15 de novembro de 1908. Em muitas casas se diz que \"umbandar\" é a arte de curar, e que o Preto Velho curador já existia muito antes, na senzala.\n\nSalve a Umbanda, e salve cada casa, cada mãe e pai de santo, cada médium e cambone que mantém a gira de pé.\n\nManda pra alguém da sua casa com um abraço.\n\n🌐 girahub.com.br (link na bio)\n\n#DiaDaUmbanda #Umbanda #CulturaDeTerreiro",
    "midia": [
     "midia/girahub/gh-1115-0800-01.jpg"
    ],
-   "nota": "Aprovado pelo Leonardo no Trello: https://trello.com/c/wECxNxei"
+   "nota": "Aprovado pelo Leonardo no Trello: https://trello.com/c/wECxNxei",
+   "publicadoEm": "2026-11-15T11:09:44.627Z",
+   "midiaId": "18143212954615779",
+   "link": "https://www.instagram.com/p/Dfwo97WIBuL/",
+   "erro": null
   },
   {
    "id": "gh-1115-1200",
