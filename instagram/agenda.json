@@ -119,19 +119,6 @@
    "erro": null
   },
   {
-   "id": "so2",
-   "conta": "pontes_brain",
-   "quando": "2026-10-29T07:30:00-03:00",
-   "formato": "story",
-   "status": "manual",
-   "titulo": "Story do dia",
-   "midia": [
-    "midia/stories/so2-2026-10-29.jpg"
-   ],
-   "nota": "Sticker de enquete: “Sim” · “Não”. Story manual com sticker interativo (publicar no app). No horário do post do feed, repostar com o sticker \"post novo\".",
-   "legenda": "Bom dia · enquete\n\nAlguém do seu time está em 4 projetos?\n\nSem citar nomes rs"
-  },
-  {
    "id": "gh-1029-0830",
    "conta": "GiraHub",
    "quando": "2026-10-29T08:30:00-03:00",
@@ -606,19 +593,6 @@
    "erro": null
   },
   {
-   "id": "s01",
-   "conta": "pontes_brain",
-   "quando": "2026-11-02T07:30:00-03:00",
-   "formato": "story",
-   "status": "manual",
-   "titulo": "Enquete",
-   "midia": [
-    "midia/stories/s01-2026-11-02.jpg"
-   ],
-   "nota": "Sticker de enquete: “Até 3” · “Mais de 3”. Story de abertura do dia, com enquete. Às 12h15, repostar o post do feed com o sticker \"post novo\".",
-   "legenda": "Bom dia · enquete\n\nQuantos projetos o seu time toca ao mesmo tempo?\n\nPode ser sincero, seu chefe não está vendo."
-  },
-  {
    "id": "gh-1102-1000",
    "conta": "GiraHub",
    "quando": "2026-11-02T10:00:00-03:00",
@@ -691,14 +665,14 @@
   {
    "id": "s03",
    "conta": "pontes_brain",
-   "quando": "2026-11-02T20:30:00-03:00",
+   "quando": "2026-11-16T20:30:00-03:00",
    "formato": "story-video",
    "status": "manual",
    "titulo": "Apresentação",
    "midia": [
     "midia/stories/s03-story-leo-apresentacao.mp4"
    ],
-   "nota": "Vídeo sem som: põe a música no app. Story de apresentação do Leo 3D (10 s). Fixar nos Destaques como \"Leo\".",
+   "nota": "Vídeo sem som: põe a música no app. Depois fixe nos Destaques como \"Leo\".",
    "legenda": "Mentoria e diagnóstico de projetos.\n\nOi! Eu sou o Leo.\nAqui eu falo de portfólio, PMO e carreira em produto.\nUm post por dia. Bora?\n\nSegue o @pontes_brain"
   },
   {
@@ -888,19 +862,6 @@
    "erro": null
   },
   {
-   "id": "s02",
-   "conta": "pontes_brain",
-   "quando": "2026-11-06T20:30:00-03:00",
-   "formato": "story",
-   "status": "manual",
-   "titulo": "Caixinha",
-   "midia": [
-    "midia/stories/s02-2026-11-06.jpg"
-   ],
-   "nota": "Sticker de perguntas: “Pergunta pro Leo”. Caixinha de perguntas. As respostas viram o post de sexta da semana 2.",
-   "legenda": "Leo responde\n\nManda sua dúvida de carreira ou portfólio.\n\nAs melhores eu respondo na sexta que vem."
-  },
-  {
    "id": "d06",
    "conta": "pontes_brain",
    "quando": "2026-11-07T10:00:00-03:00",
@@ -935,19 +896,6 @@
    "erro": null
   },
   {
-   "id": "s04",
-   "conta": "pontes_brain",
-   "quando": "2026-11-09T07:30:00-03:00",
-   "formato": "story",
-   "status": "manual",
-   "titulo": "Story do dia",
-   "midia": [
-    "midia/stories/s04-2026-11-09.jpg"
-   ],
-   "nota": "Sticker de enquete: “Tem, sim” · “Não que eu saiba”. Story de abertura do dia com sticker interativo. No horário do post do feed, repostar com o sticker \"post novo\".",
-   "legenda": "Bom dia · enquete\n\nTem projeto zumbi no seu portfólio?\n\nNão que eu saiba também conta rs"
-  },
-  {
    "id": "d08",
    "conta": "pontes_brain",
    "quando": "2026-11-09T12:15:00-03:00",
@@ -967,15 +915,15 @@
   {
    "id": "s05",
    "conta": "pontes_brain",
-   "quando": "2026-11-10T07:30:00-03:00",
+   "quando": "2026-11-19T20:30:00-03:00",
    "formato": "story",
    "status": "manual",
-   "titulo": "Story do dia",
+   "titulo": "Seu business case cabe em uma página?",
    "midia": [
-    "midia/stories/s05-2026-11-10.jpg"
+    "midia/stories/s05-2026-11-19-info.jpg"
    ],
-   "nota": "Sticker de enquete: “Cabia” · “Tinha 40 slides”. Story de abertura do dia com sticker interativo. No horário do post do feed, repostar com o sticker \"post novo\".",
-   "legenda": "Bom dia · quiz\n\nSeu último business case cabia em uma página?\n\nHoje tem o modelo no feed."
+   "nota": "Story informativo, sem sticker. Só põe a música no app e publica.",
+   "legenda": "Business case\n\nSeu business case cabe em uma página?\n\nCinco blocos bastam: problema, aposta, custo, benefício e decisão. O resto é anexo.\n\nE termina pedindo uma decisão.\n\nMentoria 1:1: leopontes.com.br/mentoria-produto (link na bio)"
   },
   {
    "id": "d09",
@@ -1003,15 +951,15 @@
   {
    "id": "s06",
    "conta": "pontes_brain",
-   "quando": "2026-11-11T07:30:00-03:00",
+   "quando": "2026-11-23T20:30:00-03:00",
    "formato": "story",
    "status": "manual",
-   "titulo": "Story do dia",
+   "titulo": "Treino de 10 minutos para o case.",
    "midia": [
-    "midia/stories/s06-2026-11-11.jpg"
+    "midia/stories/s06-2026-11-23-info.jpg"
    ],
-   "nota": "Sticker de enquete: “Já fiz” · “Ainda não”. Story de abertura do dia com sticker interativo. No horário do post do feed, repostar com o sticker \"post novo\".",
-   "legenda": "Bom dia · enquete\n\nVocê já fez entrevista com case de produto?\n\nÀ noite tem dica no feed."
+   "nota": "Story informativo, sem sticker. Só põe a música no app e publica.",
+   "legenda": "Entrevista de produto\n\nTreino de 10 minutos para o case.\n\nEscolha um app que você usa. Diga o problema que ele resolve, uma métrica de sucesso e uma hipótese de melhoria. Grave 2 minutos.\n\nOuvir a gravação ensina muito.\n\nMentoria 1:1: leopontes.com.br/mentoria-produto (link na bio)"
   },
   {
    "id": "d10",
@@ -1033,28 +981,28 @@
   {
    "id": "s26",
    "conta": "pontes_brain",
-   "quando": "2026-11-11T20:30:00-03:00",
+   "quando": "2026-11-17T20:30:00-03:00",
    "formato": "story-video",
    "status": "manual",
    "titulo": "Leo explica",
    "midia": [
     "midia/stories/story-s26-2026-11-11.mp4"
    ],
-   "nota": "Vídeo sem som: põe a música no app. Story animado do Leo falando (Como encerrar um projeto zumbi). Repostar o post do dia com o sticker \"post novo\".",
+   "nota": "Vídeo sem som: põe a música no app e publica. Junta o tema do s04 (projeto zumbi).",
    "legenda": "Leo explica · G1 Intake: Como encerrar um projeto zumbi.\n\nSabe aquele projeto que ninguém defende?\nDê uma data de revisão e um critério de saída.\nEncerrar também é gestão.\n\nPost completo no feed"
   },
   {
    "id": "s07",
    "conta": "pontes_brain",
-   "quando": "2026-11-12T07:30:00-03:00",
+   "quando": "2026-11-21T20:30:00-03:00",
    "formato": "story",
    "status": "manual",
-   "titulo": "Story do dia",
+   "titulo": "A diretoria não quer % concluído.",
    "midia": [
-    "midia/stories/s07-2026-11-12.jpg"
+    "midia/stories/s07-2026-11-21-info.jpg"
    ],
-   "nota": "Sticker de pergunta: “Responda aqui”. Story de abertura do dia com sticker interativo. No horário do post do feed, repostar com o sticker \"post novo\".",
-   "legenda": "Bom dia · pergunta\n\nQual métrica de portfólio sua diretoria pede?\n\nSpoiler: não é % concluído."
+   "nota": "Story informativo, sem sticker. Só põe a música no app e publica.",
+   "legenda": "Métricas de portfólio\n\nA diretoria não quer % concluído.\n\nQuer saber se o dinheiro está indo para o lugar certo: lead time, % estratégico, projetos em paralelo, benefício realizado.\n\nMede isso e a conversa muda.\n\nMentoria 1:1: leopontes.com.br/mentoria-produto (link na bio)"
   },
   {
    "id": "d11",
@@ -1080,19 +1028,6 @@
    "erro": null
   },
   {
-   "id": "s08",
-   "conta": "pontes_brain",
-   "quando": "2026-11-13T07:30:00-03:00",
-   "formato": "story",
-   "status": "manual",
-   "titulo": "Story do dia",
-   "midia": [
-    "midia/stories/s08-2026-11-13.jpg"
-   ],
-   "nota": "Sticker de perguntas: “Pergunta pro Leo”. Story de abertura do dia com sticker interativo. No horário do post do feed, repostar com o sticker \"post novo\".",
-   "legenda": "Leo responde\n\nManda sua dúvida de carreira ou portfólio.\n\nRespondo na sexta que vem."
-  },
-  {
    "id": "d12",
    "conta": "pontes_brain",
    "quando": "2026-11-13T18:30:00-03:00",
@@ -1110,19 +1045,6 @@
    "erro": null
   },
   {
-   "id": "s09",
-   "conta": "pontes_brain",
-   "quando": "2026-11-14T07:30:00-03:00",
-   "formato": "story",
-   "status": "manual",
-   "titulo": "Story do dia",
-   "midia": [
-    "midia/stories/s09-2026-11-14.jpg"
-   ],
-   "nota": "Sticker de enquete: “Toda semana” · “Quase nunca”. Story de abertura do dia com sticker interativo. No horário do post do feed, repostar com o sticker \"post novo\".",
-   "legenda": "Bom sábado · enquete\n\nSeu time conversa com usuário toda semana?\n\nSem julgamento, prometo."
-  },
-  {
    "id": "d13",
    "conta": "pontes_brain",
    "quando": "2026-11-14T10:00:00-03:00",
@@ -1138,19 +1060,6 @@
    "midiaId": "18141946330713412",
    "link": "https://www.instagram.com/p/DfuSETAIPNM/",
    "erro": null
-  },
-  {
-   "id": "s10",
-   "conta": "pontes_brain",
-   "quando": "2026-11-15T07:30:00-03:00",
-   "formato": "story",
-   "status": "manual",
-   "titulo": "Story do dia",
-   "midia": [
-    "midia/stories/s10-2026-11-15.jpg"
-   ],
-   "nota": "Sticker de pergunta: “Responda aqui”. Story de abertura do dia com sticker interativo. No horário do post do feed, repostar com o sticker \"post novo\".",
-   "legenda": "Domingo · pergunta\n\nQual reunião você cancelaria amanhã?\n\nEu já sei a minha rs"
   },
   {
    "id": "d14",
@@ -1171,12 +1080,12 @@
    "quando": "2026-11-16T07:30:00-03:00",
    "formato": "story",
    "status": "manual",
-   "titulo": "Story do dia",
+   "titulo": "3 meses de atraso custam mais do que parece.",
    "midia": [
-    "midia/stories/s11-2026-11-16.jpg"
+    "midia/stories/s11-2026-11-16-info.jpg"
    ],
-   "nota": "Sticker de quiz: projeto de R$ 100 mil/mês: “R$ 0” · “R$ 100 mil” · “R$ 300 mil”. Story de abertura do dia com sticker interativo. No horário do post do feed, repostar com o sticker \"post novo\".",
-   "legenda": "Bom dia · quiz\n\nQuanto custa 3 meses de atraso?\n\nA conta assusta."
+   "nota": "Story informativo, sem sticker. Só põe a música no app e publica.",
+   "legenda": "Bom dia · custo do atraso\n\n3 meses de atraso custam mais do que parece.\n\nProjeto que gera R$ 100 mil por mês e atrasa 3 meses: R$ 300 mil que não voltam. E ninguém lança essa conta.\n\nReel ao meio-dia.\n\nMentoria 1:1: leopontes.com.br/mentoria-produto (link na bio)"
   },
   {
    "id": "d15",
@@ -1197,12 +1106,12 @@
    "quando": "2026-11-17T07:30:00-03:00",
    "formato": "story",
    "status": "manual",
-   "titulo": "Story do dia",
+   "titulo": "PO e PM não são degraus.",
    "midia": [
-    "midia/stories/s12-2026-11-17.jpg"
+    "midia/stories/s12-2026-11-17-info.jpg"
    ],
-   "nota": "Sticker de enquete: “PO” · “PM”. Story de abertura do dia com sticker interativo. No horário do post do feed, repostar com o sticker \"post novo\".",
-   "legenda": "Bom dia · enquete\n\nHoje você é mais PO ou PM?\n\nCarrossel novo no feed."
+   "nota": "Story informativo, sem sticker. Só põe a música no app e publica.",
+   "legenda": "Bom dia · carreira\n\nPO e PM não são degraus.\n\nPO: sprint, como, time, entrega.\nPM: trimestre, por quê, mercado, resultado.\n\nCarrossel novo no feed.\n\nMentoria 1:1: leopontes.com.br/mentoria-produto (link na bio)"
   },
   {
    "id": "d16",
@@ -1228,12 +1137,12 @@
    "quando": "2026-11-18T07:30:00-03:00",
    "formato": "story",
    "status": "manual",
-   "titulo": "Story do dia",
+   "titulo": "Trabalhar mais não te promove.",
    "midia": [
-    "midia/stories/s13-2026-11-18.jpg"
+    "midia/stories/s13-2026-11-18-info.jpg"
    ],
-   "nota": "Sticker de pergunta: “Responda aqui”. Story de abertura do dia com sticker interativo. No horário do post do feed, repostar com o sticker \"post novo\".",
-   "legenda": "Bom dia · pergunta\n\nO que você está fazendo para a próxima promoção?\n\nHora extra não vale rs"
+   "nota": "Story informativo, sem sticker. Só põe a música no app e publica.",
+   "legenda": "Bom dia · carreira\n\nTrabalhar mais não te promove.\n\nO que aparece na avaliação: resolver o que fica entre dois times, trazer dados e ensinar o que você faz bem.\n\nHora extra não vale rs\n\nMentoria 1:1: leopontes.com.br/mentoria-produto (link na bio)"
   },
   {
    "id": "d17",
@@ -1258,7 +1167,7 @@
    "midia": [
     "midia/stories/story-s27-2026-11-18.mp4"
    ],
-   "nota": "Vídeo sem som: põe a música no app. Story animado do Leo falando (Do status ao benefício). Repostar o post do dia com o sticker \"post novo\".",
+   "nota": "Vídeo sem som: põe a música no app e publica.",
    "legenda": "Leo explica · G4 Benefits: Do status ao benefício.\n\nProjeto 90% pronto gera quanto de valor?\nZero, até ser entregue!\nMeça o benefício aos 30, 90 e 180 dias.\n\nCarrossel completo no feed"
   },
   {
@@ -1267,12 +1176,12 @@
    "quando": "2026-11-19T07:30:00-03:00",
    "formato": "story",
    "status": "manual",
-   "titulo": "Story do dia",
+   "titulo": "Entregar não é o fim.",
    "midia": [
-    "midia/stories/s14-2026-11-19.jpg"
+    "midia/stories/s14-2026-11-19-info.jpg"
    ],
-   "nota": "Sticker de enquete: “Mede” · “Entrega e esquece”. Story de abertura do dia com sticker interativo. No horário do post do feed, repostar com o sticker \"post novo\".",
-   "legenda": "Bom dia · enquete\n\nSua empresa mede o benefício depois da entrega?\n\nHoje é dia de G4."
+   "nota": "Story informativo, sem sticker. Só põe a música no app e publica.",
+   "legenda": "Bom dia · G4 Benefits\n\nEntregar não é o fim.\n\nG4 é o gate que quase toda empresa pula: confere se o benefício prometido no business case apareceu.\n\nHoje é dia de G4.\n\nMentoria 1:1: leopontes.com.br/mentoria-produto (link na bio)"
   },
   {
    "id": "d18",
@@ -1299,12 +1208,12 @@
    "quando": "2026-11-20T07:30:00-03:00",
    "formato": "story",
    "status": "manual",
-   "titulo": "Story do dia",
+   "titulo": "Onde seu portfólio trava?",
    "midia": [
-    "midia/stories/s15-2026-11-20.jpg"
+    "midia/stories/s15-2026-11-20-info.jpg"
    ],
-   "nota": "Sticker de perguntas: “Pergunta pro Leo”. Story de abertura do dia com sticker interativo. No horário do post do feed, repostar com o sticker \"post novo\".",
-   "legenda": "Leo responde\n\nManda sua dúvida para o Leo.\n\nAs melhores viram post."
+   "nota": "Story informativo, sem sticker. Só põe a música no app e publica.",
+   "legenda": "Diagnóstico de PMO\n\nOnde seu portfólio trava?\n\nEm 3 semanas: nota de 0 a 5 em cada gate, mapa dos gargalos e roadmap priorizado para o seu time.\n\nReel hoje às 18h30.\n\nDiagnóstico: leopontes.com.br/mentoria-produto (link na bio)"
   },
   {
    "id": "d19",
@@ -1325,12 +1234,12 @@
    "quando": "2026-11-21T07:30:00-03:00",
    "formato": "story",
    "status": "manual",
-   "titulo": "Story do dia",
+   "titulo": "Lista com 12 prioridades é lista de desejos.",
    "midia": [
-    "midia/stories/s16-2026-11-21.jpg"
+    "midia/stories/s16-2026-11-21-info.jpg"
    ],
-   "nota": "Sticker de pergunta: “Responda aqui”. Story de abertura do dia com sticker interativo. No horário do post do feed, repostar com o sticker \"post novo\".",
-   "legenda": "Bom sábado · pergunta\n\nA que você disse não esta semana?\n\nDizer não é estratégia."
+   "nota": "Story informativo, sem sticker. Só põe a música no app e publica.",
+   "legenda": "Bom sábado · prioridade\n\nLista com 12 prioridades é lista de desejos.\n\nPrioridade de verdade aparece no que você deixa de fazer para proteger o que importa.\n\nDizer não é estratégia.\n\nMentoria 1:1: leopontes.com.br/mentoria-produto (link na bio)"
   },
   {
    "id": "d20",
@@ -1351,12 +1260,12 @@
    "quando": "2026-11-22T07:30:00-03:00",
    "formato": "story",
    "status": "manual",
-   "titulo": "Story do dia",
+   "titulo": "O melhor líder que eu tive perguntava primeiro.",
    "midia": [
-    "midia/stories/s17-2026-11-22.jpg"
+    "midia/stories/s17-2026-11-22-info.jpg"
    ],
-   "nota": "Sticker de enquete: “Tive” · “Ainda procuro”. Story de abertura do dia com sticker interativo. No horário do post do feed, repostar com o sticker \"post novo\".",
-   "legenda": "Domingo · enquete\n\nVocê já teve um líder inesquecível?\n\nConta no post de hoje."
+   "nota": "Story informativo, sem sticker. Só põe a música no app e publica.",
+   "legenda": "Domingo · liderança\n\nO melhor líder que eu tive perguntava primeiro.\n\n\"O que você precisa de mim?\" antes de cobrar qualquer coisa. Aprendi com ele.\n\nPost hoje às 19h30.\n\nMentoria 1:1: leopontes.com.br/mentoria-produto (link na bio)"
   },
   {
    "id": "d21",
@@ -1377,12 +1286,12 @@
    "quando": "2026-11-23T07:30:00-03:00",
    "formato": "story",
    "status": "manual",
-   "titulo": "Story do dia",
+   "titulo": "Ideia parada há um ano não é prioridade.",
    "midia": [
-    "midia/stories/s18-2026-11-23.jpg"
+    "midia/stories/s18-2026-11-23-info.jpg"
    ],
-   "nota": "Sticker de enquete: “Várias” · “Nenhuma”. Story de abertura do dia com sticker interativo. No horário do post do feed, repostar com o sticker \"post novo\".",
-   "legenda": "Bom dia · enquete\n\nTem ideia no backlog há mais de um ano?\n\nVárias, né? rs"
+   "nota": "Story informativo, sem sticker. Só põe a música no app e publica.",
+   "legenda": "Bom dia · backlog\n\nIdeia parada há um ano não é prioridade.\n\nDê a ela um dono com nome e uma data de decisão. Sem dono até a data, sai do backlog.\n\nReel ao meio-dia.\n\nMentoria 1:1: leopontes.com.br/mentoria-produto (link na bio)"
   },
   {
    "id": "d22",
@@ -1403,12 +1312,12 @@
    "quando": "2026-11-24T07:30:00-03:00",
    "formato": "story",
    "status": "manual",
-   "titulo": "Story do dia",
+   "titulo": "Cada pergunta pede um método.",
    "midia": [
-    "midia/stories/s19-2026-11-24.jpg"
+    "midia/stories/s19-2026-11-24-info.jpg"
    ],
-   "nota": "Sticker de quiz: “RICE” · “MoSCoW” · “Custo do atraso” · “O mais barulhento”. Story de abertura do dia com sticker interativo. No horário do post do feed, repostar com o sticker \"post novo\".",
-   "legenda": "Bom dia · quiz\n\nQual método de priorização vocês usam?\n\nHoje explico os três."
+   "nota": "Story informativo, sem sticker. Só põe a música no app e publica.",
+   "legenda": "Bom dia · priorização\n\nCada pergunta pede um método.\n\nRICE: muitas ideias pequenas.\nMoSCoW: escopo com prazo fixo.\nCusto do atraso: sequência do portfólio.\n\nCarrossel completo no feed.\n\nMentoria 1:1: leopontes.com.br/mentoria-produto (link na bio)"
   },
   {
    "id": "d23",
@@ -1434,12 +1343,12 @@
    "quando": "2026-11-25T07:30:00-03:00",
    "formato": "story",
    "status": "manual",
-   "titulo": "Story do dia",
+   "titulo": "Quer virar PM? Não comece pelo curso.",
    "midia": [
-    "midia/stories/s20-2026-11-25.jpg"
+    "midia/stories/s20-2026-11-25-info.jpg"
    ],
-   "nota": "Sticker de enquete: “Estou” · “Já fiz”. Story de abertura do dia com sticker interativo. No horário do post do feed, repostar com o sticker \"post novo\".",
-   "legenda": "Bom dia · enquete\n\nVocê está em transição para produto?\n\nÀ noite tem o passo a passo."
+   "nota": "Story informativo, sem sticker. Só põe a música no app e publica.",
+   "legenda": "Bom dia · transição\n\nQuer virar PM? Não comece pelo curso.\n\nComece por um problema real da sua área: a pergunta que mais se repete, a planilha manual, o chamado que sempre volta.\n\nÀ noite tem o passo a passo.\n\nMentoria 1:1: leopontes.com.br/mentoria-produto (link na bio)"
   },
   {
    "id": "d24",
@@ -1464,7 +1373,7 @@
    "midia": [
     "midia/stories/story-s28-2026-11-25.mp4"
    ],
-   "nota": "Vídeo sem som: põe a música no app. Story animado do Leo falando (Vagas fundador). Repostar o post do dia com o sticker \"post novo\".",
+   "nota": "Vídeo sem som: põe a música no app e publica. Depois fixe nos Destaques como \"Mentoria\".",
    "legenda": "Vagas fundador: Mentoria e diagnóstico, vagas fundador.\n\nQuer ir além do conteúdo?\nMentoria 1:1 com 5 vagas fundador.\nDiagnóstico de PMO com 3 vagas. Chama no direct!\n\nLink na bio"
   },
   {
@@ -1473,12 +1382,12 @@
    "quando": "2026-11-26T07:30:00-03:00",
    "formato": "story",
    "status": "manual",
-   "titulo": "Story do dia",
+   "titulo": "IA no PMO precisa de base.",
    "midia": [
-    "midia/stories/s21-2026-11-26.jpg"
+    "midia/stories/s21-2026-11-26-info.jpg"
    ],
-   "nota": "Sticker de enquete: “Já usa” · “Ainda não”. Story de abertura do dia com sticker interativo. No horário do post do feed, repostar com o sticker \"post novo\".",
-   "legenda": "Bom dia · enquete\n\nSeu PMO já usa IA?\n\nChecklist no feed."
+   "nota": "Story informativo, sem sticker. Só põe a música no app e publica.",
+   "legenda": "Bom dia · IA no PMO\n\nIA no PMO precisa de base.\n\nDados num lugar só, status padronizado, critérios escritos, dono da governança e um caso de uso pequeno.\n\nChecklist no feed.\n\nMentoria 1:1: leopontes.com.br/mentoria-produto (link na bio)"
   },
   {
    "id": "d25",
@@ -1505,12 +1414,12 @@
    "quando": "2026-11-27T07:30:00-03:00",
    "formato": "story",
    "status": "manual",
-   "titulo": "Story do dia",
+   "titulo": "PMP vale a pena? Depende.",
    "midia": [
-    "midia/stories/s22-2026-11-27.jpg"
+    "midia/stories/s22-2026-11-27-info.jpg"
    ],
-   "nota": "Sticker de perguntas: “Pergunta pro Leo”. Story de abertura do dia com sticker interativo. No horário do post do feed, repostar com o sticker \"post novo\".",
-   "legenda": "Leo responde\n\nManda sua dúvida para o Leo.\n\nHoje respondo sobre PMP."
+   "nota": "Story informativo, sem sticker. Só põe a música no app e publica.",
+   "legenda": "Leo responde\n\nPMP vale a pena? Depende.\n\nAjuda quem mira setor público, grandes empresas e consultorias. Não resolve sozinha falta de experiência em priorizar e medir.\n\nReel hoje às 18h30.\n\nMentoria 1:1: leopontes.com.br/mentoria-produto (link na bio)"
   },
   {
    "id": "d26",
@@ -1531,12 +1440,12 @@
    "quando": "2026-11-28T07:30:00-03:00",
    "formato": "story",
    "status": "manual",
-   "titulo": "Story do dia",
+   "titulo": "O go-live é o meio do caminho.",
    "midia": [
-    "midia/stories/s23-2026-11-28.jpg"
+    "midia/stories/s23-2026-11-28-info.jpg"
    ],
-   "nota": "Sticker de enquete: “Mede” · “Nunca medi”. Story de abertura do dia com sticker interativo. No horário do post do feed, repostar com o sticker \"post novo\".",
-   "legenda": "Bom sábado · enquete\n\nVocê mede o que entrega depois de 90 dias?\n\nMedir é o fim."
+   "nota": "Story informativo, sem sticker. Só põe a música no app e publica.",
+   "legenda": "Bom sábado · resultado\n\nO go-live é o meio do caminho.\n\nO fim é conferir o benefício aos 30, 90 e 180 dias, e levar o aprendizado para o próximo projeto.\n\nMedir é o fim.\n\nMentoria 1:1: leopontes.com.br/mentoria-produto (link na bio)"
   },
   {
    "id": "d27",
@@ -1557,12 +1466,12 @@
    "quando": "2026-11-29T07:30:00-03:00",
    "formato": "story",
    "status": "manual",
-   "titulo": "Story do dia",
+   "titulo": "Um mês de conteúdo. Dá para ir além.",
    "midia": [
-    "midia/stories/s24-2026-11-29.jpg"
+    "midia/stories/s24-2026-11-29-info.jpg"
    ],
-   "nota": "Sticker de pergunta: “Responda aqui”. Story de abertura do dia com sticker interativo. No horário do post do feed, repostar com o sticker \"post novo\".",
-   "legenda": "Domingo · pergunta\n\nO que você quer aprender em dezembro?\n\nVou montar a série com isso."
+   "nota": "Story informativo, sem sticker. Só põe a música no app e publica.",
+   "legenda": "Domingo · vagas fundador\n\nUm mês de conteúdo. Dá para ir além.\n\nMentoria 1:1 com 5 vagas fundador e Diagnóstico de PMO com 3. A conversa inicial de 30 minutos é gratuita.\n\nChama no direct!\n\nMentoria 1:1: leopontes.com.br/mentoria-produto (link na bio)"
   },
   {
    "id": "d28",
@@ -1583,12 +1492,12 @@
    "quando": "2026-11-30T07:30:00-03:00",
    "formato": "story",
    "status": "manual",
-   "titulo": "Story do dia",
+   "titulo": "Novembro em 4 gates.",
    "midia": [
-    "midia/stories/s25-2026-11-30.jpg"
+    "midia/stories/s25-2026-11-30-info.jpg"
    ],
-   "nota": "Sticker de enquete: “G1/G2” · “G3/G4”. Story de abertura do dia com sticker interativo. No horário do post do feed, repostar com o sticker \"post novo\".",
-   "legenda": "Bom dia · enquete\n\nQual gate puxa a série de dezembro?\n\nVota aí!"
+   "nota": "Story informativo, sem sticker. Só põe a música no app e publica.",
+   "legenda": "Bom dia · novembro em 4 gates\n\nNovembro em 4 gates.\n\nG1 Intake · G2 Business case · G3 Delivery · G4 Benefits. Um ciclo PDCA para o portfólio.\n\nObrigado por este mês!\n\nMentoria 1:1: leopontes.com.br/mentoria-produto (link na bio)"
   },
   {
    "id": "d29",
