@@ -2319,14 +2319,18 @@
    "conta": "GiraHub",
    "quando": "2026-11-15T12:00:00-03:00",
    "formato": "reel",
-   "status": "agendado",
+   "status": "publicado",
    "titulo": "Reels 15/11 — Dia Nacional da Umbanda",
    "legenda": "Dia Nacional da Umbanda: hoje é dia de agradecer. 🤍\n\nA cada casa que abre o portão, a cada médium e cambone, a cada mãe e pai de santo que mantém a gira de pé com trabalho, fé e muitas mãos: o nosso respeito e a nossa gratidão.\n\nManda pra alguém da sua casa.\n\n🎵 Música: \"Touching Moments Four - Melody\" – Kevin MacLeod (incompetech.com), CC BY 4.0 (creativecommons.org/licenses/by/4.0)\n\n🌐 girahub.com.br (link na bio)\n\n#DiaDaUmbanda #Umbanda #CulturaDeTerreiro",
    "midia": [
     "midia/girahub/gh-1115-1200.mp4"
    ],
    "capa": "midia/girahub/gh-1115-1200-capa.jpg",
-   "nota": "Aprovado pelo Leonardo no Trello: https://trello.com/c/7zN58TnB"
+   "nota": "Aprovado pelo Leonardo no Trello: https://trello.com/c/7zN58TnB",
+   "publicadoEm": "2026-11-15T15:10:24.833Z",
+   "midiaId": "17972113365197679",
+   "link": "https://www.instagram.com/reel/DfxEebbjECR/",
+   "erro": null
   },
   {
    "id": "gh-1115-1900",
