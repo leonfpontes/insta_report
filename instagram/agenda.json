@@ -2337,7 +2337,7 @@
    "conta": "GiraHub",
    "quando": "2026-11-15T19:00:00-03:00",
    "formato": "carrossel",
-   "status": "agendado",
+   "status": "publicado",
    "titulo": "Carrossel 15/11 — Umbanda: 3 coisas que valem lembrar",
    "legenda": "Dia Nacional da Umbanda: três coisas que valem lembrar hoje. ✨\n\n1. Desde 2012, o 15 de novembro é data nacional, por lei.\n2. Em muitas casas se ensina que umbandar é a arte de curar.\n3. Orixá é preto, Preto Velho é preto. Contar essa história sem embranquecer também é respeito.\n\nSalve a Umbanda. Salva este post pra compartilhar com quem está chegando agora.\n\n🌐 girahub.com.br (link na bio)\n\n#DiaDaUmbanda #Umbanda #CulturaDeTerreiro",
    "midia": [
@@ -2347,7 +2347,11 @@
     "midia/girahub/gh-1115-1900-04.jpg",
     "midia/girahub/gh-1115-1900-05.jpg"
    ],
-   "nota": "Aprovado pelo Leonardo no Trello: https://trello.com/c/Uyejvj5Q"
+   "nota": "Aprovado pelo Leonardo no Trello: https://trello.com/c/Uyejvj5Q",
+   "publicadoEm": "2026-11-15T22:12:07.033Z",
+   "midiaId": "17957630772036254",
+   "link": "https://www.instagram.com/p/Dfx0xSoIOA9/",
+   "erro": null
   },
   {
    "id": "gh-1116-0800",
