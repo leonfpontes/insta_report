@@ -667,12 +667,12 @@
    "conta": "pontes_brain",
    "quando": "2026-11-16T20:30:00-03:00",
    "formato": "story-video",
-   "status": "manual",
+   "status": "agendado",
    "titulo": "Apresentação",
    "midia": [
     "midia/stories/s03-story-leo-apresentacao.mp4"
    ],
-   "nota": "Vídeo sem som: põe a música no app. Depois fixe nos Destaques como \"Leo\".",
+   "nota": "Sai automático e sem som. Depois fixe nos Destaques como \"Leo\".",
    "legenda": "Mentoria e diagnóstico de projetos.\n\nOi! Eu sou o Leo.\nAqui eu falo de portfólio, PMO e carreira em produto.\nUm post por dia. Bora?\n\nSegue o @pontes_brain"
   },
   {
@@ -917,12 +917,12 @@
    "conta": "pontes_brain",
    "quando": "2026-11-19T20:30:00-03:00",
    "formato": "story",
-   "status": "manual",
+   "status": "agendado",
    "titulo": "Seu business case cabe em uma página?",
    "midia": [
     "midia/stories/s05-2026-11-19-info.jpg"
    ],
-   "nota": "Story informativo, sem sticker. Só põe a música no app e publica.",
+   "nota": "Sai automático pelo publicador.",
    "legenda": "Business case\n\nSeu business case cabe em uma página?\n\nCinco blocos bastam: problema, aposta, custo, benefício e decisão. O resto é anexo.\n\nE termina pedindo uma decisão.\n\nMentoria 1:1: leopontes.com.br/mentoria-produto (link na bio)"
   },
   {
@@ -953,12 +953,12 @@
    "conta": "pontes_brain",
    "quando": "2026-11-23T20:30:00-03:00",
    "formato": "story",
-   "status": "manual",
+   "status": "agendado",
    "titulo": "Treino de 10 minutos para o case.",
    "midia": [
     "midia/stories/s06-2026-11-23-info.jpg"
    ],
-   "nota": "Story informativo, sem sticker. Só põe a música no app e publica.",
+   "nota": "Sai automático pelo publicador.",
    "legenda": "Entrevista de produto\n\nTreino de 10 minutos para o case.\n\nEscolha um app que você usa. Diga o problema que ele resolve, uma métrica de sucesso e uma hipótese de melhoria. Grave 2 minutos.\n\nOuvir a gravação ensina muito.\n\nMentoria 1:1: leopontes.com.br/mentoria-produto (link na bio)"
   },
   {
@@ -983,12 +983,12 @@
    "conta": "pontes_brain",
    "quando": "2026-11-17T20:30:00-03:00",
    "formato": "story-video",
-   "status": "manual",
+   "status": "agendado",
    "titulo": "Leo explica",
    "midia": [
     "midia/stories/story-s26-2026-11-11.mp4"
    ],
-   "nota": "Vídeo sem som: põe a música no app e publica. Junta o tema do s04 (projeto zumbi).",
+   "nota": "Sai automático e sem som.",
    "legenda": "Leo explica · G1 Intake: Como encerrar um projeto zumbi.\n\nSabe aquele projeto que ninguém defende?\nDê uma data de revisão e um critério de saída.\nEncerrar também é gestão.\n\nPost completo no feed"
   },
   {
@@ -996,12 +996,12 @@
    "conta": "pontes_brain",
    "quando": "2026-11-21T20:30:00-03:00",
    "formato": "story",
-   "status": "manual",
+   "status": "agendado",
    "titulo": "A diretoria não quer % concluído.",
    "midia": [
     "midia/stories/s07-2026-11-21-info.jpg"
    ],
-   "nota": "Story informativo, sem sticker. Só põe a música no app e publica.",
+   "nota": "Sai automático pelo publicador.",
    "legenda": "Métricas de portfólio\n\nA diretoria não quer % concluído.\n\nQuer saber se o dinheiro está indo para o lugar certo: lead time, % estratégico, projetos em paralelo, benefício realizado.\n\nMede isso e a conversa muda.\n\nMentoria 1:1: leopontes.com.br/mentoria-produto (link na bio)"
   },
   {
@@ -1079,12 +1079,12 @@
    "conta": "pontes_brain",
    "quando": "2026-11-16T07:30:00-03:00",
    "formato": "story",
-   "status": "manual",
+   "status": "agendado",
    "titulo": "3 meses de atraso custam mais do que parece.",
    "midia": [
     "midia/stories/s11-2026-11-16-info.jpg"
    ],
-   "nota": "Story informativo, sem sticker. Só põe a música no app e publica.",
+   "nota": "Sai automático pelo publicador.",
    "legenda": "Bom dia · custo do atraso\n\n3 meses de atraso custam mais do que parece.\n\nProjeto que gera R$ 100 mil por mês e atrasa 3 meses: R$ 300 mil que não voltam. E ninguém lança essa conta.\n\nReel ao meio-dia.\n\nMentoria 1:1: leopontes.com.br/mentoria-produto (link na bio)"
   },
   {
@@ -1105,12 +1105,12 @@
    "conta": "pontes_brain",
    "quando": "2026-11-17T07:30:00-03:00",
    "formato": "story",
-   "status": "manual",
+   "status": "agendado",
    "titulo": "PO e PM não são degraus.",
    "midia": [
     "midia/stories/s12-2026-11-17-info.jpg"
    ],
-   "nota": "Story informativo, sem sticker. Só põe a música no app e publica.",
+   "nota": "Sai automático pelo publicador.",
    "legenda": "Bom dia · carreira\n\nPO e PM não são degraus.\n\nPO: sprint, como, time, entrega.\nPM: trimestre, por quê, mercado, resultado.\n\nCarrossel novo no feed.\n\nMentoria 1:1: leopontes.com.br/mentoria-produto (link na bio)"
   },
   {
@@ -1136,12 +1136,12 @@
    "conta": "pontes_brain",
    "quando": "2026-11-18T07:30:00-03:00",
    "formato": "story",
-   "status": "manual",
+   "status": "agendado",
    "titulo": "Trabalhar mais não te promove.",
    "midia": [
     "midia/stories/s13-2026-11-18-info.jpg"
    ],
-   "nota": "Story informativo, sem sticker. Só põe a música no app e publica.",
+   "nota": "Sai automático pelo publicador.",
    "legenda": "Bom dia · carreira\n\nTrabalhar mais não te promove.\n\nO que aparece na avaliação: resolver o que fica entre dois times, trazer dados e ensinar o que você faz bem.\n\nHora extra não vale rs\n\nMentoria 1:1: leopontes.com.br/mentoria-produto (link na bio)"
   },
   {
@@ -1162,12 +1162,12 @@
    "conta": "pontes_brain",
    "quando": "2026-11-18T20:30:00-03:00",
    "formato": "story-video",
-   "status": "manual",
+   "status": "agendado",
    "titulo": "Leo explica",
    "midia": [
     "midia/stories/story-s27-2026-11-18.mp4"
    ],
-   "nota": "Vídeo sem som: põe a música no app e publica.",
+   "nota": "Sai automático e sem som.",
    "legenda": "Leo explica · G4 Benefits: Do status ao benefício.\n\nProjeto 90% pronto gera quanto de valor?\nZero, até ser entregue!\nMeça o benefício aos 30, 90 e 180 dias.\n\nCarrossel completo no feed"
   },
   {
@@ -1175,12 +1175,12 @@
    "conta": "pontes_brain",
    "quando": "2026-11-19T07:30:00-03:00",
    "formato": "story",
-   "status": "manual",
+   "status": "agendado",
    "titulo": "Entregar não é o fim.",
    "midia": [
     "midia/stories/s14-2026-11-19-info.jpg"
    ],
-   "nota": "Story informativo, sem sticker. Só põe a música no app e publica.",
+   "nota": "Sai automático pelo publicador.",
    "legenda": "Bom dia · G4 Benefits\n\nEntregar não é o fim.\n\nG4 é o gate que quase toda empresa pula: confere se o benefício prometido no business case apareceu.\n\nHoje é dia de G4.\n\nMentoria 1:1: leopontes.com.br/mentoria-produto (link na bio)"
   },
   {
@@ -1207,12 +1207,12 @@
    "conta": "pontes_brain",
    "quando": "2026-11-20T07:30:00-03:00",
    "formato": "story",
-   "status": "manual",
+   "status": "agendado",
    "titulo": "Onde seu portfólio trava?",
    "midia": [
     "midia/stories/s15-2026-11-20-info.jpg"
    ],
-   "nota": "Story informativo, sem sticker. Só põe a música no app e publica.",
+   "nota": "Sai automático pelo publicador.",
    "legenda": "Diagnóstico de PMO\n\nOnde seu portfólio trava?\n\nEm 3 semanas: nota de 0 a 5 em cada gate, mapa dos gargalos e roadmap priorizado para o seu time.\n\nReel hoje às 18h30.\n\nDiagnóstico: leopontes.com.br/mentoria-produto (link na bio)"
   },
   {
@@ -1233,12 +1233,12 @@
    "conta": "pontes_brain",
    "quando": "2026-11-21T07:30:00-03:00",
    "formato": "story",
-   "status": "manual",
+   "status": "agendado",
    "titulo": "Lista com 12 prioridades é lista de desejos.",
    "midia": [
     "midia/stories/s16-2026-11-21-info.jpg"
    ],
-   "nota": "Story informativo, sem sticker. Só põe a música no app e publica.",
+   "nota": "Sai automático pelo publicador.",
    "legenda": "Bom sábado · prioridade\n\nLista com 12 prioridades é lista de desejos.\n\nPrioridade de verdade aparece no que você deixa de fazer para proteger o que importa.\n\nDizer não é estratégia.\n\nMentoria 1:1: leopontes.com.br/mentoria-produto (link na bio)"
   },
   {
@@ -1259,12 +1259,12 @@
    "conta": "pontes_brain",
    "quando": "2026-11-22T07:30:00-03:00",
    "formato": "story",
-   "status": "manual",
+   "status": "agendado",
    "titulo": "O melhor líder que eu tive perguntava primeiro.",
    "midia": [
     "midia/stories/s17-2026-11-22-info.jpg"
    ],
-   "nota": "Story informativo, sem sticker. Só põe a música no app e publica.",
+   "nota": "Sai automático pelo publicador.",
    "legenda": "Domingo · liderança\n\nO melhor líder que eu tive perguntava primeiro.\n\n\"O que você precisa de mim?\" antes de cobrar qualquer coisa. Aprendi com ele.\n\nPost hoje às 19h30.\n\nMentoria 1:1: leopontes.com.br/mentoria-produto (link na bio)"
   },
   {
@@ -1285,12 +1285,12 @@
    "conta": "pontes_brain",
    "quando": "2026-11-23T07:30:00-03:00",
    "formato": "story",
-   "status": "manual",
+   "status": "agendado",
    "titulo": "Ideia parada há um ano não é prioridade.",
    "midia": [
     "midia/stories/s18-2026-11-23-info.jpg"
    ],
-   "nota": "Story informativo, sem sticker. Só põe a música no app e publica.",
+   "nota": "Sai automático pelo publicador.",
    "legenda": "Bom dia · backlog\n\nIdeia parada há um ano não é prioridade.\n\nDê a ela um dono com nome e uma data de decisão. Sem dono até a data, sai do backlog.\n\nReel ao meio-dia.\n\nMentoria 1:1: leopontes.com.br/mentoria-produto (link na bio)"
   },
   {
@@ -1311,12 +1311,12 @@
    "conta": "pontes_brain",
    "quando": "2026-11-24T07:30:00-03:00",
    "formato": "story",
-   "status": "manual",
+   "status": "agendado",
    "titulo": "Cada pergunta pede um método.",
    "midia": [
     "midia/stories/s19-2026-11-24-info.jpg"
    ],
-   "nota": "Story informativo, sem sticker. Só põe a música no app e publica.",
+   "nota": "Sai automático pelo publicador.",
    "legenda": "Bom dia · priorização\n\nCada pergunta pede um método.\n\nRICE: muitas ideias pequenas.\nMoSCoW: escopo com prazo fixo.\nCusto do atraso: sequência do portfólio.\n\nCarrossel completo no feed.\n\nMentoria 1:1: leopontes.com.br/mentoria-produto (link na bio)"
   },
   {
@@ -1342,12 +1342,12 @@
    "conta": "pontes_brain",
    "quando": "2026-11-25T07:30:00-03:00",
    "formato": "story",
-   "status": "manual",
+   "status": "agendado",
    "titulo": "Quer virar PM? Não comece pelo curso.",
    "midia": [
     "midia/stories/s20-2026-11-25-info.jpg"
    ],
-   "nota": "Story informativo, sem sticker. Só põe a música no app e publica.",
+   "nota": "Sai automático pelo publicador.",
    "legenda": "Bom dia · transição\n\nQuer virar PM? Não comece pelo curso.\n\nComece por um problema real da sua área: a pergunta que mais se repete, a planilha manual, o chamado que sempre volta.\n\nÀ noite tem o passo a passo.\n\nMentoria 1:1: leopontes.com.br/mentoria-produto (link na bio)"
   },
   {
@@ -1368,12 +1368,12 @@
    "conta": "pontes_brain",
    "quando": "2026-11-25T20:30:00-03:00",
    "formato": "story-video",
-   "status": "manual",
+   "status": "agendado",
    "titulo": "Leo explica",
    "midia": [
     "midia/stories/story-s28-2026-11-25.mp4"
    ],
-   "nota": "Vídeo sem som: põe a música no app e publica. Depois fixe nos Destaques como \"Mentoria\".",
+   "nota": "Sai automático e sem som. Depois fixe nos Destaques como \"Mentoria\".",
    "legenda": "Vagas fundador: Mentoria e diagnóstico, vagas fundador.\n\nQuer ir além do conteúdo?\nMentoria 1:1 com 5 vagas fundador.\nDiagnóstico de PMO com 3 vagas. Chama no direct!\n\nLink na bio"
   },
   {
@@ -1381,12 +1381,12 @@
    "conta": "pontes_brain",
    "quando": "2026-11-26T07:30:00-03:00",
    "formato": "story",
-   "status": "manual",
+   "status": "agendado",
    "titulo": "IA no PMO precisa de base.",
    "midia": [
     "midia/stories/s21-2026-11-26-info.jpg"
    ],
-   "nota": "Story informativo, sem sticker. Só põe a música no app e publica.",
+   "nota": "Sai automático pelo publicador.",
    "legenda": "Bom dia · IA no PMO\n\nIA no PMO precisa de base.\n\nDados num lugar só, status padronizado, critérios escritos, dono da governança e um caso de uso pequeno.\n\nChecklist no feed.\n\nMentoria 1:1: leopontes.com.br/mentoria-produto (link na bio)"
   },
   {
@@ -1413,12 +1413,12 @@
    "conta": "pontes_brain",
    "quando": "2026-11-27T07:30:00-03:00",
    "formato": "story",
-   "status": "manual",
+   "status": "agendado",
    "titulo": "PMP vale a pena? Depende.",
    "midia": [
     "midia/stories/s22-2026-11-27-info.jpg"
    ],
-   "nota": "Story informativo, sem sticker. Só põe a música no app e publica.",
+   "nota": "Sai automático pelo publicador.",
    "legenda": "Leo responde\n\nPMP vale a pena? Depende.\n\nAjuda quem mira setor público, grandes empresas e consultorias. Não resolve sozinha falta de experiência em priorizar e medir.\n\nReel hoje às 18h30.\n\nMentoria 1:1: leopontes.com.br/mentoria-produto (link na bio)"
   },
   {
@@ -1439,12 +1439,12 @@
    "conta": "pontes_brain",
    "quando": "2026-11-28T07:30:00-03:00",
    "formato": "story",
-   "status": "manual",
+   "status": "agendado",
    "titulo": "O go-live é o meio do caminho.",
    "midia": [
     "midia/stories/s23-2026-11-28-info.jpg"
    ],
-   "nota": "Story informativo, sem sticker. Só põe a música no app e publica.",
+   "nota": "Sai automático pelo publicador.",
    "legenda": "Bom sábado · resultado\n\nO go-live é o meio do caminho.\n\nO fim é conferir o benefício aos 30, 90 e 180 dias, e levar o aprendizado para o próximo projeto.\n\nMedir é o fim.\n\nMentoria 1:1: leopontes.com.br/mentoria-produto (link na bio)"
   },
   {
@@ -1465,12 +1465,12 @@
    "conta": "pontes_brain",
    "quando": "2026-11-29T07:30:00-03:00",
    "formato": "story",
-   "status": "manual",
+   "status": "agendado",
    "titulo": "Um mês de conteúdo. Dá para ir além.",
    "midia": [
     "midia/stories/s24-2026-11-29-info.jpg"
    ],
-   "nota": "Story informativo, sem sticker. Só põe a música no app e publica.",
+   "nota": "Sai automático pelo publicador.",
    "legenda": "Domingo · vagas fundador\n\nUm mês de conteúdo. Dá para ir além.\n\nMentoria 1:1 com 5 vagas fundador e Diagnóstico de PMO com 3. A conversa inicial de 30 minutos é gratuita.\n\nChama no direct!\n\nMentoria 1:1: leopontes.com.br/mentoria-produto (link na bio)"
   },
   {
@@ -1491,12 +1491,12 @@
    "conta": "pontes_brain",
    "quando": "2026-11-30T07:30:00-03:00",
    "formato": "story",
-   "status": "manual",
+   "status": "agendado",
    "titulo": "Novembro em 4 gates.",
    "midia": [
     "midia/stories/s25-2026-11-30-info.jpg"
    ],
-   "nota": "Story informativo, sem sticker. Só põe a música no app e publica.",
+   "nota": "Sai automático pelo publicador.",
    "legenda": "Bom dia · novembro em 4 gates\n\nNovembro em 4 gates.\n\nG1 Intake · G2 Business case · G3 Delivery · G4 Benefits. Um ciclo PDCA para o portfólio.\n\nObrigado por este mês!\n\nMentoria 1:1: leopontes.com.br/mentoria-produto (link na bio)"
   },
   {
