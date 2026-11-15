@@ -2758,6 +2758,58 @@
     "midia/r-brain-2026-11-16.mp4"
    ],
    "capa": "midia/r-brain-2026-11-16-capa.jpg"
+  },
+  {
+   "id": "pb-1117-1200",
+   "conta": "pontes_brain",
+   "quando": "2026-11-17T12:00:00-03:00",
+   "formato": "reel",
+   "status": "agendado",
+   "titulo": "Reel: A equipe de IA que trabalha enquanto eu durmo",
+   "legenda": "Enquanto eu durmo, uma equipe de IA trabalha.\n\nCurador organiza o vault. Money cuida das finanças. Lar cuida da casa e da agenda do casal. Pena escreve no LinkedIn. Mentor acompanha os mentorados. Gram cuida do Instagram.\n\nCada agente tem uma função clara, e no Brain Copilot eu vejo cada um deles trabalhando ao vivo: a nota que ele lê acende no cérebro.\n\nO meu trabalho virou outro: aprovar o que importa. \"Ok 1 e 3, pode seguir.\"\n\nQuer uma equipe dessas trabalhando pra você? Mentoria de produto com IA em leopontes.com.br/mentoria-produto (link na bio).\n\n#inteligenciaartificial #agentesdeia #automacao #produtividade #mentoria",
+   "midia": [
+    "midia/r-brain-2026-11-17.mp4"
+   ],
+   "capa": "midia/r-brain-2026-11-17-capa.jpg"
+  },
+  {
+   "id": "pb-1118-1200",
+   "conta": "pontes_brain",
+   "quando": "2026-11-18T12:00:00-03:00",
+   "formato": "reel",
+   "status": "agendado",
+   "titulo": "Reel: O mesmo cérebro, 6 jeitos de ver",
+   "legenda": "O mesmo cérebro, 6 jeitos de ver.\n\nNo Brain Copilot, cada lente pinta as minhas notas por um critério: área da vida, o que mexi agora, o que é canônico ou rascunho, tipo de nota, temas que o próprio Brain descobriu e as notas-ponte que ligam mundos que quase não conversam.\n\nQuando a tela polui, eu desligo camadas. Quando quero só contemplar, modo cinema. E no celular, tudo igual.\n\nDado bom não é dado guardado: é dado que você consegue enxergar.\n\nQuer enxergar o seu negócio assim? Mentoria de produto com IA em leopontes.com.br/mentoria-produto (link na bio).\n\n#visualizacaodedados #segundocerebro #obsidian #produtividade #mentoria",
+   "midia": [
+    "midia/r-brain-2026-11-18.mp4"
+   ],
+   "capa": "midia/r-brain-2026-11-18-capa.jpg"
+  },
+  {
+   "id": "pb-1119-1200",
+   "conta": "pontes_brain",
+   "quando": "2026-11-19T12:00:00-03:00",
+   "formato": "reel",
+   "status": "agendado",
+   "titulo": "Reel: Anatomia da memória",
+   "legenda": "Cada memória no seu lugar.\n\nO Brain Copilot organiza as minhas notas como um cérebro de verdade: projetos no pré-frontal, atas de reunião no hipocampo, família na amígdala, transcrições no córtex auditivo, aulas na área de Wernicke, pessoas no giro fusiforme e os agentes que rodam no automático no cerebelo.\n\nNão é só bonito. Quando um assunto esquenta, eu vejo a região acender e sei onde está a minha cabeça naquela semana.\n\nNeurociência aplicada às notas.\n\nQuer organizar a sua cabeça (e o seu negócio)? Mentoria de produto com IA em leopontes.com.br/mentoria-produto (link na bio).\n\n#neurociencia #segundocerebro #obsidian #produtividade #mentoria",
+   "midia": [
+    "midia/r-brain-2026-11-19.mp4"
+   ],
+   "capa": "midia/r-brain-2026-11-19-capa.jpg"
+  },
+  {
+   "id": "pb-1120-1200",
+   "conta": "pontes_brain",
+   "quando": "2026-11-20T12:00:00-03:00",
+   "formato": "reel",
+   "status": "agendado",
+   "titulo": "Reel: Por trás do Brain Copilot",
+   "legenda": "Como o Brain Copilot funciona por trás.\n\n1. Eu escrevo no Obsidian.\n2. O Mac publica cada mudança em até 1 minuto.\n3. A Vercel e o banco guardam e servem o cérebro.\n4. No Brain 3D, os agentes acendem cada nota que leem.\n\nSão 25 recursos, todos num guia só, e tudo foi construído por mim com o Claude: da ideia à entrega, do jeito que eu ensino na mentoria.\n\nQuer tirar a sua ideia do papel? Mentoria de produto com IA em leopontes.com.br/mentoria-produto (link na bio).\n\n#inteligenciaartificial #desenvolvimentodeproduto #segundocerebro #claude #mentoria",
+   "midia": [
+    "midia/r-brain-2026-11-20.mp4"
+   ],
+   "capa": "midia/r-brain-2026-11-20-capa.jpg"
   }
  ]
 }
