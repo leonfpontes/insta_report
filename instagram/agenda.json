@@ -2734,13 +2734,17 @@
    "conta": "pontes_brain",
    "quando": "2026-11-15T12:00:00-03:00",
    "formato": "reel",
-   "status": "agendado",
+   "status": "publicado",
    "titulo": "Reel: Meu Obsidian virou um cérebro 3D (Brain Copilot)",
    "legenda": "Eu transformei meu Obsidian num cérebro 3D. E ele tem uma equipe de IA trabalhando dentro.\n\nEsse é o Brain Copilot, meu novo projeto. Cada nota do meu vault vira um ponto de luz, na região do cérebro que guarda aquele tipo de memória: reuniões no hipocampo, projetos no pré-frontal, transcrições no córtex auditivo.\n\nEm volta dele orbita uma equipe de agentes de IA, coordenada pelo Barão. Quando um agente lê ou escreve uma nota, ela acende na hora. E o Barão conversa comigo, lendo o vault, a agenda, o e-mail, o Drive e a internet.\n\nNão é só uma visualização bonita: é um produto pensado do problema à entrega, do jeito que eu ensino na mentoria.\n\nQuer tirar a sua ideia do papel com IA? Mentoria de produto em leopontes.com.br/mentoria-produto (link na bio).\n\n#inteligenciaartificial #segundocerebro #obsidian #gestaodeprodutos #mentoria",
    "midia": [
     "midia/r-brain-2026-11-15.mp4"
    ],
-   "capa": "midia/r-brain-2026-11-15-capa.jpg"
+   "capa": "midia/r-brain-2026-11-15-capa.jpg",
+   "publicadoEm": "2026-11-15T13:59:27.374Z",
+   "midiaId": "18079624106728848",
+   "link": "https://www.instagram.com/reel/Dfw8WsOkWzf/",
+   "erro": null
   }
  ]
 }
