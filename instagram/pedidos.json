@@ -158,8 +158,8 @@
   {
    "id": "pd-20261115-184121",
    "criadoEm": "2026-11-15T21:41:31.928Z",
-   "atualizadoEm": "2026-11-15T22:03:28.098Z",
-   "status": "producao",
+   "atualizadoEm": "2026-11-15T22:04:35.157Z",
+   "status": "proposta",
    "conta": "GiraHub",
    "formato": "auto",
    "texto": "Faça um carrossel de publicação, aqui é uma aula de ervas do terreiro da tia Maria",
@@ -186,7 +186,33 @@
      "partes": 1
     }
    ],
-   "conversa": []
+   "conversa": [
+    {
+     "de": "claude",
+     "em": "2026-11-15T22:04:35.157Z",
+     "texto": "Fiz um carrossel com as 3 fotos, recortadas em 4:5. A primeira mostra a roda inteira, e as outras duas chegam perto das ervas. Marquei quarta 18/11 às 12h, o primeiro horário livre da conta. A legenda fala da aula e da casa cheia, sem vender o GiraHub, e pergunta se outras casas também fazem aula de ervas. Se quiser outro dia ou mencionar o nome da casa, me diga."
+    }
+   ],
+   "proposta": {
+    "em": "2026-11-15T22:04:35.157Z",
+    "resumo": "Carrossel de 3 fotos, abrindo pela roda inteira e fechando nas ervas. Quarta 18/11 às 12h, o primeiro horário livre do GiraHub (08h e 19h já estão ocupados). Legenda de comunidade, sem chamada de venda.",
+    "posts": [
+     {
+      "id": "gh-1118-1200",
+      "conta": "GiraHub",
+      "quando": "2026-11-18T12:00:00-03:00",
+      "formato": "carrossel",
+      "status": "agendado",
+      "titulo": "Carrossel 18/11 — Aula de ervas no terreiro da tia Maria",
+      "legenda": "Aula de ervas no terreiro da tia Maria.\n\nA corrente sentada em roda, as folhas frescas ao longo da parede e muita escuta. Conhecimento de erva passa assim, de quem cuida pra quem está chegando, com tempo e com respeito.\n\nQue bonito ver a casa cheia pra aprender 🌿\n\nNa sua casa também tem aula de ervas? Conta aqui nos comentários.\n\n#GiraHub #Umbanda #Terreiro #ErvasSagradas #CorrenteEspiritual #AxéDeTerreiro",
+      "midia": [
+       "midia/girahub/gh-1118-1200-01.jpg",
+       "midia/girahub/gh-1118-1200-02.jpg",
+       "midia/girahub/gh-1118-1200-03.jpg"
+      ]
+     }
+    ]
+   }
   }
  ]
 }
