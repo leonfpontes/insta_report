@@ -154,6 +154,39 @@
    "agendados": [
     "lp-1111-1200"
    ]
+  },
+  {
+   "id": "pd-20261115-184121",
+   "criadoEm": "2026-11-15T21:41:31.928Z",
+   "atualizadoEm": "2026-11-15T21:41:31.928Z",
+   "status": "novo",
+   "conta": "GiraHub",
+   "formato": "auto",
+   "texto": "Faça um carrossel de publicação, aqui é uma aula de ervas do terreiro da tia Maria",
+   "anexos": [
+    {
+     "arquivo": "pedidos/pd-20261115-184121/01-1000505960.jpg",
+     "nome": "1000505960.jpg",
+     "tipo": "imagem",
+     "bytes": 722365,
+     "partes": 1
+    },
+    {
+     "arquivo": "pedidos/pd-20261115-184121/02-1000505959.jpg",
+     "nome": "1000505959.jpg",
+     "tipo": "imagem",
+     "bytes": 777035,
+     "partes": 1
+    },
+    {
+     "arquivo": "pedidos/pd-20261115-184121/03-1000505961.jpg",
+     "nome": "1000505961.jpg",
+     "tipo": "imagem",
+     "bytes": 857718,
+     "partes": 1
+    }
+   ],
+   "conversa": []
   }
  ]
 }
