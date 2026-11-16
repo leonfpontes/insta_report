@@ -2366,13 +2366,17 @@
    "conta": "GiraHub",
    "quando": "2026-11-16T08:00:00-03:00",
    "formato": "post",
-   "status": "agendado",
+   "status": "publicado",
    "titulo": "Post 16/11 — Iansã e o movimento",
    "legenda": "Iansã não exige perfeição. Exige movimento. 🌪️\n\nSenhora dos ventos e das tempestades, Iansã é lembrada nas casas como quem tira do lugar o que ficou parado demais. Tem até um ensinamento sobre as ervas dela: elas não acalmam, movimentam. Por isso não são de usar todo dia.\n\nEparrei! Manda pra alguém que está precisando dar o primeiro passo.\n\n🌐 girahub.com.br (link na bio)\n\n#Iansã #Orixás #Umbanda",
    "midia": [
     "midia/girahub/gh-1116-0800-01.jpg"
    ],
-   "nota": "Aprovado pelo Leonardo no Trello: https://trello.com/c/8u1rqQeY"
+   "nota": "Aprovado pelo Leonardo no Trello: https://trello.com/c/8u1rqQeY",
+   "publicadoEm": "2026-11-16T11:17:18.931Z",
+   "midiaId": "18147337693720208",
+   "link": "https://www.instagram.com/p/DfzOoWFG4Xl/",
+   "erro": null
   },
   {
    "id": "gh-1116-1200",
