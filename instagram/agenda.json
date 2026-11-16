@@ -2405,7 +2405,7 @@
    "conta": "GiraHub",
    "quando": "2026-11-16T19:00:00-03:00",
    "formato": "carrossel",
-   "status": "agendado",
+   "status": "publicado",
    "titulo": "Carrossel 16/11 — Estoque da festa: o que não pode faltar",
    "legenda": "Estoque do terreiro: festa na casa? Confere antes o que não pode faltar. 🕯️\n\nA Pombogira gosta de festa bem cuidada. Três passos:\n1. Liste o que a festa usa (velas, ervas, bebidas, copos, limpeza).\n2. Registre doações e compras na hora.\n3. Uma semana antes, olhe o saldo e compre só o que falta.\n\nNo GiraHub, o estoque mostra entradas, saídas e saldo. Disponível no plano Premium.\n\nSalva pra usar na próxima festa da sua casa.\n\n🌐 girahub.com.br (link na bio)\n\n#GestãoDeTerreiro #Umbanda #GiraHub",
    "midia": [
@@ -2415,7 +2415,11 @@
     "midia/girahub/gh-1116-1900-04.jpg",
     "midia/girahub/gh-1116-1900-05.jpg"
    ],
-   "nota": "Aprovado pelo Leonardo no Trello: https://trello.com/c/BwVMR2zh"
+   "nota": "Aprovado pelo Leonardo no Trello: https://trello.com/c/BwVMR2zh",
+   "publicadoEm": "2026-11-16T22:11:23.269Z",
+   "midiaId": "18118682375109574",
+   "link": "https://www.instagram.com/p/Df0Zf_nmeO_/",
+   "erro": null
   },
   {
    "id": "gh-1117-0800",
