@@ -667,13 +667,17 @@
    "conta": "pontes_brain",
    "quando": "2026-11-16T20:30:00-03:00",
    "formato": "story-video",
-   "status": "agendado",
+   "status": "publicado",
    "titulo": "Apresentação",
    "midia": [
     "midia/stories/s03-story-leo-apresentacao.mp4"
    ],
    "nota": "Sai automático e sem som. Depois fixe nos Destaques como \"Leo\".",
-   "legenda": "Mentoria e diagnóstico de projetos.\n\nOi! Eu sou o Leo.\nAqui eu falo de portfólio, PMO e carreira em produto.\nUm post por dia. Bora?\n\nSegue o @pontes_brain"
+   "legenda": "Mentoria e diagnóstico de projetos.\n\nOi! Eu sou o Leo.\nAqui eu falo de portfólio, PMO e carreira em produto.\nUm post por dia. Bora?\n\nSegue o @pontes_brain",
+   "publicadoEm": "2026-11-16T23:36:45.324Z",
+   "midiaId": "18025965272706455",
+   "link": "https://www.instagram.com/stories/pontes_brain/4032002492928698834",
+   "erro": null
   },
   {
    "id": "gh-1102-2100",
