@@ -1100,13 +1100,17 @@
    "conta": "pontes_brain",
    "quando": "2026-11-16T12:15:00-03:00",
    "formato": "reel",
-   "status": "agendado",
+   "status": "publicado",
    "titulo": "Reel: Esse atraso custou R$ 300 mil. Ninguém viu.",
    "legenda": "A conta do custo do atraso em 3 passos:\n1. Quanto o projeto gera (ou economiza) por mês depois de pronto.\n2. Quantos meses de atraso ele tem hoje.\n3. Multiplique. Esse é o valor que ninguém lança em lugar nenhum.\n\nFaça para os 3 maiores projetos e ordene pelo resultado. Muita reunião de priorização acaba aí.\n\nComenta ATRASO que eu te mando a planilha no direct 👇\n\n👉 Diagnóstico de portfólio e PMO: leopontes.com.br/mentoria-produto (link na bio)\n\n#gestaodeportfolio #priorizacao #businesscase #pmo #gestaodeprojetos",
    "midia": [
     "midia/r15-2026-11-16.mp4"
    ],
-   "capa": "midia/r15-2026-11-16-capa.jpg"
+   "capa": "midia/r15-2026-11-16-capa.jpg",
+   "publicadoEm": "2026-11-16T15:21:32.148Z",
+   "midiaId": "17992672848110306",
+   "link": "https://www.instagram.com/reel/DfzqjAJG44V/",
+   "erro": null
   },
   {
    "id": "s12",
@@ -2383,14 +2387,18 @@
    "conta": "GiraHub",
    "quando": "2026-11-16T12:00:00-03:00",
    "formato": "reel",
-   "status": "agendado",
+   "status": "publicado",
    "titulo": "Reels 16/11 — Marinheiro e a fila de espera",
    "legenda": "Gira lotou: a fila de espera anda sozinha. ⚓\n\nO Marinheiro navega com calma até em mar cheio. No GiraHub, quando a gira atinge o limite, quem chega depois entra na fila de espera. Se alguém cancela, o próximo sobe sozinho, sem ninguém precisar mandar mensagem.\n\nDisponível no plano Premium. Manda pra quem cuida das senhas da sua casa.\n\n🎵 Música: \"Lasting Hope\" – Kevin MacLeod (incompetech.com), CC BY 4.0 (creativecommons.org/licenses/by/4.0)\n\n🌐 girahub.com.br (link na bio)\n\n#GestãoDeTerreiro #Umbanda #GiraHub",
    "midia": [
     "midia/girahub/gh-1116-1200.mp4"
    ],
    "capa": "midia/girahub/gh-1116-1200-capa.jpg",
-   "nota": "Aprovado pelo Leonardo no Trello: https://trello.com/c/lEaQ25MX"
+   "nota": "Aprovado pelo Leonardo no Trello: https://trello.com/c/lEaQ25MX",
+   "publicadoEm": "2026-11-16T15:19:54.791Z",
+   "midiaId": "17998193798840150",
+   "link": "https://www.instagram.com/reel/DfzqWyvkUoS/",
+   "erro": null
   },
   {
    "id": "gh-1116-1900",
@@ -2771,13 +2779,17 @@
    "conta": "pontes_brain",
    "quando": "2026-11-16T12:00:00-03:00",
    "formato": "reel",
-   "status": "agendado",
+   "status": "publicado",
    "titulo": "Reel: Conheça o Barão (Brain Copilot)",
    "legenda": "Conheça o Barão: o chefe da minha equipe de IA.\n\nNo Brain Copilot, eu não converso com 13 agentes. Eu converso com um. O Barão lê o meu vault, a agenda, o e-mail, o Drive e a internet, distribui o trabalho para a equipe e me devolve o resultado pronto.\n\nEu pergunto \"o que a equipe fez hoje?\" e em segundos sei o que o Curador organizou, o que o Money fechou e o que está esperando a minha aprovação. Enquanto ele lê, as notas acendem no cérebro 3D.\n\nUm ponto de entrada, uma equipe inteira por trás. É assim que IA vira produtividade de verdade, e não mais uma aba aberta.\n\nQuer montar um Barão para o seu negócio? Mentoria de produto com IA em leopontes.com.br/mentoria-produto (link na bio).\n\n#inteligenciaartificial #agentesdeia #segundocerebro #produtividade #mentoria",
    "midia": [
     "midia/r-brain-2026-11-16.mp4"
    ],
-   "capa": "midia/r-brain-2026-11-16-capa.jpg"
+   "capa": "midia/r-brain-2026-11-16-capa.jpg",
+   "publicadoEm": "2026-11-16T15:20:53.739Z",
+   "midiaId": "18118522514277112",
+   "link": "https://www.instagram.com/reel/Dfzqb4rEm_O/",
+   "erro": null
   },
   {
    "id": "pb-1117-1200",
