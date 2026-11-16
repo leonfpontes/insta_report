@@ -1083,13 +1083,17 @@
    "conta": "pontes_brain",
    "quando": "2026-11-16T07:30:00-03:00",
    "formato": "story",
-   "status": "agendado",
+   "status": "publicado",
    "titulo": "3 meses de atraso custam mais do que parece.",
    "midia": [
     "midia/stories/s11-2026-11-16-info.jpg"
    ],
    "nota": "Sai automático pelo publicador.",
-   "legenda": "Bom dia · custo do atraso\n\n3 meses de atraso custam mais do que parece.\n\nProjeto que gera R$ 100 mil por mês e atrasa 3 meses: R$ 300 mil que não voltam. E ninguém lança essa conta.\n\nReel ao meio-dia.\n\nMentoria 1:1: leopontes.com.br/mentoria-produto (link na bio)"
+   "legenda": "Bom dia · custo do atraso\n\n3 meses de atraso custam mais do que parece.\n\nProjeto que gera R$ 100 mil por mês e atrasa 3 meses: R$ 300 mil que não voltam. E ninguém lança essa conta.\n\nReel ao meio-dia.\n\nMentoria 1:1: leopontes.com.br/mentoria-produto (link na bio)",
+   "publicadoEm": "2026-11-16T10:30:17.687Z",
+   "midiaId": "18149569528606025",
+   "link": "https://www.instagram.com/stories/pontes_brain/4031606786151063968",
+   "erro": null
   },
   {
    "id": "d15",
