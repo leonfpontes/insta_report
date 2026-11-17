@@ -1121,13 +1121,17 @@
    "conta": "pontes_brain",
    "quando": "2026-11-17T07:30:00-03:00",
    "formato": "story",
-   "status": "agendado",
+   "status": "publicado",
    "titulo": "PO e PM não são degraus.",
    "midia": [
     "midia/stories/s12-2026-11-17-info.jpg"
    ],
    "nota": "Sai automático pelo publicador.",
-   "legenda": "Bom dia · carreira\n\nPO e PM não são degraus.\n\nPO: sprint, como, time, entrega.\nPM: trimestre, por quê, mercado, resultado.\n\nCarrossel novo no feed.\n\nMentoria 1:1: leopontes.com.br/mentoria-produto (link na bio)"
+   "legenda": "Bom dia · carreira\n\nPO e PM não são degraus.\n\nPO: sprint, como, time, entrega.\nPM: trimestre, por quê, mercado, resultado.\n\nCarrossel novo no feed.\n\nMentoria 1:1: leopontes.com.br/mentoria-produto (link na bio)",
+   "publicadoEm": "2026-11-17T10:36:59.733Z",
+   "midiaId": "18111901433338998",
+   "link": "https://www.instagram.com/stories/pontes_brain/4032334923214681912",
+   "erro": null
   },
   {
    "id": "d16",
