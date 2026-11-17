@@ -987,13 +987,17 @@
    "conta": "pontes_brain",
    "quando": "2026-11-17T20:30:00-03:00",
    "formato": "story-video",
-   "status": "agendado",
+   "status": "publicado",
    "titulo": "Leo explica",
    "midia": [
     "midia/stories/story-s26-2026-11-11.mp4"
    ],
    "nota": "Sai automático e sem som.",
-   "legenda": "Leo explica · G1 Intake: Como encerrar um projeto zumbi.\n\nSabe aquele projeto que ninguém defende?\nDê uma data de revisão e um critério de saída.\nEncerrar também é gestão.\n\nPost completo no feed"
+   "legenda": "Leo explica · G1 Intake: Como encerrar um projeto zumbi.\n\nSabe aquele projeto que ninguém defende?\nDê uma data de revisão e um critério de saída.\nEncerrar também é gestão.\n\nPost completo no feed",
+   "publicadoEm": "2026-11-17T23:36:42.391Z",
+   "midiaId": "18099844544406752",
+   "link": "https://www.instagram.com/stories/pontes_brain/4032727212021897608",
+   "erro": null
   },
   {
    "id": "s07",
