@@ -2473,7 +2473,7 @@
    "conta": "GiraHub",
    "quando": "2026-11-17T19:00:00-03:00",
    "formato": "carrossel",
-   "status": "agendado",
+   "status": "publicado",
    "titulo": "Carrossel 17/11 — Cada filho da casa com seu acesso",
    "legenda": "Usuários do terreiro: todo mundo entrando com a mesma senha do sistema? 📿\n\nA Preta Velha ensina que, na casa, cada um tem o seu lugar. No GiraHub, os usuários são ilimitados em todos os planos, inclusive no Gratuito. Cada filho da casa entra com o próprio login e vê só o que a função dele precisa. Saiu da função? É só tirar o acesso.\n\nManda pra quem administra o sistema da sua casa.\n\n🌐 girahub.com.br (link na bio)\n\n#GestãoDeTerreiro #Umbanda #GiraHub",
    "midia": [
@@ -2483,7 +2483,11 @@
     "midia/girahub/gh-1117-1900-04.jpg",
     "midia/girahub/gh-1117-1900-05.jpg"
    ],
-   "nota": "Aprovado pelo Leonardo no Trello: https://trello.com/c/jjL5b4eT"
+   "nota": "Aprovado pelo Leonardo no Trello: https://trello.com/c/jjL5b4eT",
+   "publicadoEm": "2026-11-17T22:11:36.702Z",
+   "midiaId": "17922661188454036",
+   "link": "https://www.instagram.com/p/Df2-TJVGV-I/",
+   "erro": null
   },
   {
    "id": "gh-1118-0800",
