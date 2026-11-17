@@ -2455,14 +2455,18 @@
    "conta": "GiraHub",
    "quando": "2026-11-17T12:00:00-03:00",
    "formato": "reel",
-   "status": "agendado",
+   "status": "publicado",
    "titulo": "Reels 17/11 — Boiadeiro e o relatório da gira",
    "legenda": "Relatório da gira: quantos vieram, quem faltou e a que horas a porta mais encheu? 🤠\n\nQuem conhece a boiada, conduz melhor. No GiraHub, o relatório de cada gira mostra quantas senhas saíram, quem compareceu, as faltas, o horário de pico e o atendimento por médium e cambone.\n\nDisponível a partir do plano Basic. Manda pra quem organiza as giras da sua casa.\n\n🎵 Música: \"Easy Lemon\" – Kevin MacLeod (incompetech.com), CC BY 4.0 (creativecommons.org/licenses/by/4.0)\n\n🌐 girahub.com.br (link na bio)\n\n#GestãoDeTerreiro #Umbanda #GiraHub",
    "midia": [
     "midia/girahub/gh-1117-1200.mp4"
    ],
    "capa": "midia/girahub/gh-1117-1200-capa.jpg",
-   "nota": "Aprovado pelo Leonardo no Trello: https://trello.com/c/u9DSFxZB"
+   "nota": "Aprovado pelo Leonardo no Trello: https://trello.com/c/u9DSFxZB",
+   "publicadoEm": "2026-11-17T15:14:29.204Z",
+   "midiaId": "18078458174489859",
+   "link": "https://www.instagram.com/reel/Df2OiuGFSBI/",
+   "erro": null
   },
   {
    "id": "gh-1117-1900",
@@ -2816,13 +2820,17 @@
    "conta": "pontes_brain",
    "quando": "2026-11-17T12:00:00-03:00",
    "formato": "reel",
-   "status": "agendado",
+   "status": "publicado",
    "titulo": "Reel: A equipe de IA que trabalha enquanto eu durmo",
    "legenda": "Enquanto eu durmo, uma equipe de IA trabalha.\n\nCurador organiza o vault. Money cuida das finanças. Lar cuida da casa e da agenda do casal. Pena escreve no LinkedIn. Mentor acompanha os mentorados. Gram cuida do Instagram.\n\nCada agente tem uma função clara, e no Brain Copilot eu vejo cada um deles trabalhando ao vivo: a nota que ele lê acende no cérebro.\n\nO meu trabalho virou outro: aprovar o que importa. \"Ok 1 e 3, pode seguir.\"\n\nQuer uma equipe dessas trabalhando pra você? Mentoria de produto com IA em leopontes.com.br/mentoria-produto (link na bio).\n\n#inteligenciaartificial #agentesdeia #automacao #produtividade #mentoria",
    "midia": [
     "midia/r-brain-2026-11-17-narrado.mp4"
    ],
-   "capa": "midia/r-brain-2026-11-17-capa.jpg"
+   "capa": "midia/r-brain-2026-11-17-capa.jpg",
+   "publicadoEm": "2026-11-17T15:16:29.293Z",
+   "midiaId": "18112465082186481",
+   "link": "https://www.instagram.com/reel/Df2OuO2jl8p/",
+   "erro": null
   },
   {
    "id": "pb-1118-1200",
