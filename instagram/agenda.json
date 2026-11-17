@@ -2438,13 +2438,17 @@
    "conta": "GiraHub",
    "quando": "2026-11-17T08:00:00-03:00",
    "formato": "post",
-   "status": "agendado",
+   "status": "publicado",
    "titulo": "Post 17/11 — Oxóssi e a vela na mata",
    "legenda": "Na mata de Oxóssi, não se acende vela. 🏹\n\nUm ensinamento simples e cheio de sentido: a mata é morada do caçador, e fogo na mata é risco para ela. Oxóssi é o Orixá do conhecimento e da busca, de quem não se acomoda na rotina. Okê Arô!\n\nCada casa tem o seu fundamento. Manda pra um filho ou filha de Oxóssi.\n\n🌐 girahub.com.br (link na bio)\n\n#Oxóssi #Orixás #Umbanda",
    "midia": [
     "midia/girahub/gh-1117-0800-01.jpg"
    ],
-   "nota": "Aprovado pelo Leonardo no Trello: https://trello.com/c/Qduud2Nn"
+   "nota": "Aprovado pelo Leonardo no Trello: https://trello.com/c/Qduud2Nn",
+   "publicadoEm": "2026-11-17T11:11:59.678Z",
+   "midiaId": "18102886835431828",
+   "link": "https://www.instagram.com/p/Df1y1eIlSR2/",
+   "erro": null
   },
   {
    "id": "gh-1117-1200",
