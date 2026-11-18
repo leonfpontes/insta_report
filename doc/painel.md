@@ -109,7 +109,7 @@ cabeçalho `X-Painel: 1`, que um formulário de outro site não consegue mandar.
 | --- | --- |
 | `agenda` | `contas` e os posts só com os campos que o painel usa, mais `itens` (quantidade de mídias) |
 | `metricas` | Por conta: perfil, resumo, posts e stories com `serie` compacta, histórico, conexão |
-| `imagens` | Miniaturas por id (`/_vercel/image?url=…&w=640`), incluindo fotos de perfil e posts do Instagram (`ig:<id>`) |
+| `imagens` | Miniaturas por id. Mídia do repositório passa pela otimização da Vercel (`/_vercel/image?url=…&w=640`, 31 dias de cache); foto de perfil e posts do Instagram (`ig:<id>`) vão no endereço original, porque mudam a cada coleta e cada endereço novo gastaria uma transformação |
 | `galeria` | Todas as mídias de cada carrossel ou vídeo, em 1080 px |
 | `arquivos` | URLs dos originais para o botão Baixar mídias |
 | `execucoes` | As últimas rodadas no formato `{id, quando, evento, job, resultado, link}` |

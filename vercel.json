@@ -11,11 +11,9 @@
   "images": {
     "sizes": [640, 1080],
     "formats": ["image/webp"],
-    "minimumCacheTTL": 86400,
+    "minimumCacheTTL": 2678400,
     "remotePatterns": [
-      { "protocol": "https", "hostname": "raw.githubusercontent.com", "pathname": "/leonfpontes/insta_report/**" },
-      { "protocol": "https", "hostname": "**.cdninstagram.com" },
-      { "protocol": "https", "hostname": "**.fbcdn.net" }
+      { "protocol": "https", "hostname": "raw.githubusercontent.com", "pathname": "/leonfpontes/insta_report/**" }
     ]
   },
   "headers": [
