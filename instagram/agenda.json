@@ -1164,13 +1164,17 @@
    "conta": "pontes_brain",
    "quando": "2026-11-18T07:30:00-03:00",
    "formato": "story",
-   "status": "agendado",
+   "status": "publicado",
    "titulo": "Trabalhar mais não te promove.",
    "midia": [
     "midia/stories/s13-2026-11-18-info.jpg"
    ],
    "nota": "Sai automático pelo publicador.",
-   "legenda": "Bom dia · carreira\n\nTrabalhar mais não te promove.\n\nO que aparece na avaliação: resolver o que fica entre dois times, trazer dados e ensinar o que você faz bem.\n\nHora extra não vale rs\n\nMentoria 1:1: leopontes.com.br/mentoria-produto (link na bio)"
+   "legenda": "Bom dia · carreira\n\nTrabalhar mais não te promove.\n\nO que aparece na avaliação: resolver o que fica entre dois times, trazer dados e ensinar o que você faz bem.\n\nHora extra não vale rs\n\nMentoria 1:1: leopontes.com.br/mentoria-produto (link na bio)",
+   "publicadoEm": "2026-11-18T10:36:54.793Z",
+   "midiaId": "18142330585716499",
+   "link": "https://www.instagram.com/stories/pontes_brain/4033059661297289440",
+   "erro": null
   },
   {
    "id": "d17",
