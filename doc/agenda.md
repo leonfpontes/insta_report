@@ -126,7 +126,7 @@ stateDiagram-v2
   jsDelivr no commit da rodada.
 - Nomes sem espaço nem acento evitam surpresa em URL.
 - Vídeo de story vai sem áudio quando a música vai ser posta à mão no app.
-- O painel gera miniaturas pela otimização de imagem da Vercel. Não precisa criar miniatura.
+- O painel gera miniaturas pela otimização de imagem da Vercel (só da mídia do repositório). Não precisa criar miniatura.
 
 ## Conferir antes do PR
 
