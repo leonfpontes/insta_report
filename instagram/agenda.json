@@ -1198,13 +1198,17 @@
    "conta": "pontes_brain",
    "quando": "2026-11-18T20:30:00-03:00",
    "formato": "story-video",
-   "status": "agendado",
+   "status": "publicado",
    "titulo": "Leo explica",
    "midia": [
     "midia/stories/story-s27-2026-11-18.mp4"
    ],
    "nota": "Sai automático e sem som.",
-   "legenda": "Leo explica · G4 Benefits: Do status ao benefício.\n\nProjeto 90% pronto gera quanto de valor?\nZero, até ser entregue!\nMeça o benefício aos 30, 90 e 180 dias.\n\nCarrossel completo no feed"
+   "legenda": "Leo explica · G4 Benefits: Do status ao benefício.\n\nProjeto 90% pronto gera quanto de valor?\nZero, até ser entregue!\nMeça o benefício aos 30, 90 e 180 dias.\n\nCarrossel completo no feed",
+   "publicadoEm": "2026-11-18T23:37:05.753Z",
+   "midiaId": "17899509345615053",
+   "link": "https://www.instagram.com/stories/pontes_brain/4033452197995439288",
+   "erro": null
   },
   {
    "id": "s14",
