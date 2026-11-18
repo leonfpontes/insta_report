@@ -2502,13 +2502,17 @@
    "conta": "GiraHub",
    "quando": "2026-11-18T08:00:00-03:00",
    "formato": "post",
-   "status": "agendado",
+   "status": "publicado",
    "titulo": "Post 18/11 — Oxumarê: primeiro dilui, depois renova",
    "legenda": "Oxumarê ensina: primeiro se dilui, depois se renova. 🌈\n\nO Orixá do arco-íris e dos ciclos é lembrado nas casas como quem não vem para acomodar, e sim para amadurecer. Antes do novo, tem o tempo de soltar o que já não serve.\n\nArroboboi! Manda pra alguém que está num recomeço.\n\n🌐 girahub.com.br (link na bio)\n\n#Oxumarê #Orixás #Umbanda",
    "midia": [
     "midia/girahub/gh-1118-0800-01.jpg"
    ],
-   "nota": "Aprovado pelo Leonardo no Trello: https://trello.com/c/vdxqTIx2"
+   "nota": "Aprovado pelo Leonardo no Trello: https://trello.com/c/vdxqTIx2",
+   "publicadoEm": "2026-11-18T11:12:23.847Z",
+   "midiaId": "18004801029008656",
+   "link": "https://www.instagram.com/p/Df4XrTdG6uo/",
+   "erro": null
   },
   {
    "id": "gh-1119-0800",
