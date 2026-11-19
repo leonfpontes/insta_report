@@ -2890,13 +2890,17 @@
    "conta": "pontes_brain",
    "quando": "2026-11-19T12:00:00-03:00",
    "formato": "reel",
-   "status": "agendado",
+   "status": "publicado",
    "titulo": "Reel: Anatomia da memória",
    "legenda": "Cada memória no seu lugar.\n\nO Brain Copilot organiza as minhas notas como um cérebro de verdade: projetos no pré-frontal, atas de reunião no hipocampo, família na amígdala, transcrições no córtex auditivo, aulas na área de Wernicke, pessoas no giro fusiforme e os agentes que rodam no automático no cerebelo.\n\nNão é só bonito. Quando um assunto esquenta, eu vejo a região acender e sei onde está a minha cabeça naquela semana.\n\nNeurociência aplicada às notas.\n\nQuer organizar a sua cabeça (e o seu negócio)? Mentoria de produto com IA em leopontes.com.br/mentoria-produto (link na bio).\n\n#neurociencia #segundocerebro #obsidian #produtividade #mentoria",
    "midia": [
     "midia/r-brain-2026-11-19-narrado.mp4"
    ],
-   "capa": "midia/r-brain-2026-11-19-capa.jpg"
+   "capa": "midia/r-brain-2026-11-19-capa.jpg",
+   "publicadoEm": "2026-11-19T15:14:02.492Z",
+   "midiaId": "18067427624538436",
+   "link": "https://www.instagram.com/reel/Df7YD-emfGa/",
+   "erro": null
   },
   {
    "id": "pb-1120-1200",
