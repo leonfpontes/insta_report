@@ -1215,13 +1215,17 @@
    "conta": "pontes_brain",
    "quando": "2026-11-19T07:30:00-03:00",
    "formato": "story",
-   "status": "agendado",
+   "status": "publicado",
    "titulo": "Entregar não é o fim.",
    "midia": [
     "midia/stories/s14-2026-11-19-info.jpg"
    ],
    "nota": "Sai automático pelo publicador.",
-   "legenda": "Bom dia · G4 Benefits\n\nEntregar não é o fim.\n\nG4 é o gate que quase toda empresa pula: confere se o benefício prometido no business case apareceu.\n\nHoje é dia de G4.\n\nMentoria 1:1: leopontes.com.br/mentoria-produto (link na bio)"
+   "legenda": "Bom dia · G4 Benefits\n\nEntregar não é o fim.\n\nG4 é o gate que quase toda empresa pula: confere se o benefício prometido no business case apareceu.\n\nHoje é dia de G4.\n\nMentoria 1:1: leopontes.com.br/mentoria-produto (link na bio)",
+   "publicadoEm": "2026-11-19T10:37:39.065Z",
+   "midiaId": "18377400745214073",
+   "link": "https://www.instagram.com/stories/pontes_brain/4033784807201410229",
+   "erro": null
   },
   {
    "id": "d18",
