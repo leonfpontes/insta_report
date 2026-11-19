@@ -921,13 +921,17 @@
    "conta": "pontes_brain",
    "quando": "2026-11-19T20:30:00-03:00",
    "formato": "story",
-   "status": "agendado",
+   "status": "publicado",
    "titulo": "Seu business case cabe em uma página?",
    "midia": [
     "midia/stories/s05-2026-11-19-info.jpg"
    ],
    "nota": "Sai automático pelo publicador.",
-   "legenda": "Business case\n\nSeu business case cabe em uma página?\n\nCinco blocos bastam: problema, aposta, custo, benefício e decisão. O resto é anexo.\n\nE termina pedindo uma decisão.\n\nMentoria 1:1: leopontes.com.br/mentoria-produto (link na bio)"
+   "legenda": "Business case\n\nSeu business case cabe em uma página?\n\nCinco blocos bastam: problema, aposta, custo, benefício e decisão. O resto é anexo.\n\nE termina pedindo uma decisão.\n\nMentoria 1:1: leopontes.com.br/mentoria-produto (link na bio)",
+   "publicadoEm": "2026-11-19T23:38:31.660Z",
+   "midiaId": "18129310289487284",
+   "link": "https://www.instagram.com/stories/pontes_brain/4034177831839543663",
+   "erro": null
   },
   {
    "id": "d09",
