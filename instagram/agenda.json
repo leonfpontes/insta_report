@@ -2535,13 +2535,17 @@
    "conta": "GiraHub",
    "quando": "2026-11-19T08:00:00-03:00",
    "formato": "post",
-   "status": "agendado",
+   "status": "publicado",
    "titulo": "Post 19/11 — Nanã, a mais velha",
    "legenda": "Nanã Buruquê é lembrada como a mais velha das Yabás. 💜\n\nSenhora da lama e das águas paradas, onde a vida começa e para onde volta, Nanã guarda um dos mistérios mais fechados das tradições de terreiro. Na Umbanda, quem a manifesta nas linhas de trabalho são as senhoras Pretas-Velhas.\n\nSaluba, Nanã! Manda pra uma filha ou filho de Nanã.\n\n🌐 girahub.com.br (link na bio)\n\n#Nanã #Orixás #Umbanda",
    "midia": [
     "midia/girahub/gh-1119-0800-01.jpg"
    ],
-   "nota": "Aprovado pelo Leonardo no Trello: https://trello.com/c/yQ8SDBQ1"
+   "nota": "Aprovado pelo Leonardo no Trello: https://trello.com/c/yQ8SDBQ1",
+   "publicadoEm": "2026-11-19T11:12:43.639Z",
+   "midiaId": "17968887155981882",
+   "link": "https://www.instagram.com/p/Df68fN7G2cZ/",
+   "erro": null
   },
   {
    "id": "gh-1120-0800",
