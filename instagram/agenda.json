@@ -1259,13 +1259,17 @@
    "conta": "pontes_brain",
    "quando": "2026-11-20T07:30:00-03:00",
    "formato": "story",
-   "status": "agendado",
+   "status": "publicado",
    "titulo": "Onde seu portfólio trava?",
    "midia": [
     "midia/stories/s15-2026-11-20-info.jpg"
    ],
    "nota": "Sai automático pelo publicador.",
-   "legenda": "Diagnóstico de PMO\n\nOnde seu portfólio trava?\n\nEm 3 semanas: nota de 0 a 5 em cada gate, mapa dos gargalos e roadmap priorizado para o seu time.\n\nReel hoje às 18h30.\n\nDiagnóstico: leopontes.com.br/mentoria-produto (link na bio)"
+   "legenda": "Diagnóstico de PMO\n\nOnde seu portfólio trava?\n\nEm 3 semanas: nota de 0 a 5 em cada gate, mapa dos gargalos e roadmap priorizado para o seu time.\n\nReel hoje às 18h30.\n\nDiagnóstico: leopontes.com.br/mentoria-produto (link na bio)",
+   "publicadoEm": "2026-11-20T10:36:53.558Z",
+   "midiaId": "18185535448429090",
+   "link": "https://www.instagram.com/stories/pontes_brain/4034509208716809403",
+   "erro": null
   },
   {
    "id": "d19",
