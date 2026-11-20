@@ -2603,7 +2603,7 @@
    "conta": "GiraHub",
    "quando": "2026-11-20T19:00:00-03:00",
    "formato": "carrossel",
-   "status": "agendado",
+   "status": "publicado",
    "titulo": "Carrossel 20/11 — Consciência Negra e terreiro",
    "legenda": "Consciência Negra: três memórias que o terreiro guarda. ✊🏿\n\n1. Muitos santos ao lado dos Orixás nasceram como sincretismo de sobrevivência, quando cultuar era proibido.\n2. Em muitas casas se ensina que o Preto Velho curador já existia na senzala.\n3. Orixá é preto, Preto Velho é preto. Contar a história como ela é também é cuidar dela.\n\nSalva e manda pra quem está chegando agora na religião.\n\n🌐 girahub.com.br (link na bio)\n\n#ConsciênciaNegra #Umbanda #Candomblé",
    "midia": [
@@ -2613,7 +2613,11 @@
     "midia/girahub/gh-1120-1900-04.jpg",
     "midia/girahub/gh-1120-1900-05.jpg"
    ],
-   "nota": "Aprovado pelo Leonardo no Trello: https://trello.com/c/EZfIMf0p"
+   "nota": "Aprovado pelo Leonardo no Trello: https://trello.com/c/EZfIMf0p",
+   "publicadoEm": "2026-11-20T22:10:41.141Z",
+   "midiaId": "18094623980291989",
+   "link": "https://www.instagram.com/p/Df-slPencyf/",
+   "erro": null
   },
   {
    "id": "gh-1121-0800",
