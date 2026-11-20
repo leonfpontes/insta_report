@@ -2581,14 +2581,18 @@
    "conta": "GiraHub",
    "quando": "2026-11-20T12:00:00-03:00",
    "formato": "reel",
-   "status": "agendado",
+   "status": "publicado",
    "titulo": "Reels 20/11 — Consciência Negra",
    "legenda": "Dia da Consciência Negra: dia de lembrar de onde a gente veio. ✊🏿\n\nA fé atravessou o mar guardada no coração do povo preto e chegou até cada terreiro. Axé a quem guarda essa memória: cada casa, cada gira, cada filho.\n\nManda pra alguém da sua casa.\n\n🎵 Música: \"Touching Moments Four - Melody\" – Kevin MacLeod (incompetech.com), CC BY 4.0 (creativecommons.org/licenses/by/4.0)\n\n🌐 girahub.com.br (link na bio)\n\n#ConsciênciaNegra #Umbanda #Candomblé",
    "midia": [
     "midia/girahub/gh-1120-1200.mp4"
    ],
    "capa": "midia/girahub/gh-1120-1200-capa.jpg",
-   "nota": "Aprovado pelo Leonardo no Trello: https://trello.com/c/YTMMYsTY"
+   "nota": "Aprovado pelo Leonardo no Trello: https://trello.com/c/YTMMYsTY",
+   "publicadoEm": "2026-11-20T15:13:08.125Z",
+   "midiaId": "18103284782374102",
+   "link": "https://www.instagram.com/reel/Df98wqWnGRn/",
+   "erro": null
   },
   {
    "id": "gh-1120-1900",
@@ -2923,13 +2927,17 @@
    "conta": "pontes_brain",
    "quando": "2026-11-20T12:00:00-03:00",
    "formato": "reel",
-   "status": "agendado",
+   "status": "publicado",
    "titulo": "Reel: Sua empresa sabe muito. Mas não lembra.",
    "legenda": "Sua empresa sabe muito. Mas não lembra.\n\nO que foi decidido na reunião de março. Por que aquele cliente saiu. O que o gerente que pediu demissão sabia e ninguém anotou. Todo dia, conhecimento caro vira esquecimento.\n\nAgora imagina tudo o que a sua empresa sabe acendendo num só lugar, com uma IA que responde com o contexto do seu negócio:\n\n1. Decisão com contexto, em segundos, não em reuniões.\n2. Conhecimento que fica, mesmo quando alguém sai.\n3. Uma equipe de IA trabalhando enquanto você dorme.\n4. Tudo sob medida para o jeito do seu negócio.\n\nEu construí o meu. Agora eu construo o seu.\n\nQuer um cérebro para a sua empresa? Mentoria e consultoria em produto com IA: leopontes.com.br/mentoria-produto (link na bio).\n\n#inteligenciaartificial #gestaodoconhecimento #transformacaodigital #lideranca #mentoria",
    "midia": [
     "midia/r-brain-2026-11-20-narrado.mp4"
    ],
-   "capa": "midia/r-brain-2026-11-20-capa.jpg"
+   "capa": "midia/r-brain-2026-11-20-capa.jpg",
+   "publicadoEm": "2026-11-20T15:13:59.105Z",
+   "midiaId": "18109967144645606",
+   "link": "https://www.instagram.com/reel/Df981wAAbDn/",
+   "erro": null
   }
  ]
 }
