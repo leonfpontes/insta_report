@@ -2564,13 +2564,17 @@
    "conta": "GiraHub",
    "quando": "2026-11-20T08:00:00-03:00",
    "formato": "post",
-   "status": "agendado",
+   "status": "publicado",
    "titulo": "Post 20/11 — Dia da Consciência Negra",
    "legenda": "20 de novembro, Dia da Consciência Negra. ✊🏿\n\nAs religiões de matriz africana são memória viva de um povo que atravessou o mar à força e, mesmo assim, guardou seus Orixás, seus cantos e sua fé. Nas casas se repete: Orixá é preto, Preto Velho é preto. Contar essa história sem embranquecer também é respeito.\n\nAxé a todas as casas que mantêm essa memória de pé.\n\n🌐 girahub.com.br (link na bio)\n\n#ConsciênciaNegra #Umbanda #Candomblé",
    "midia": [
     "midia/girahub/gh-1120-0800-01.jpg"
    ],
-   "nota": "Aprovado pelo Leonardo no Trello: https://trello.com/c/NXMpPNGM"
+   "nota": "Aprovado pelo Leonardo no Trello: https://trello.com/c/NXMpPNGM",
+   "publicadoEm": "2026-11-20T11:12:06.340Z",
+   "midiaId": "18034853264861141",
+   "link": "https://www.instagram.com/p/Df9hNnBFiaK/",
+   "erro": null
   },
   {
    "id": "gh-1120-1200",
