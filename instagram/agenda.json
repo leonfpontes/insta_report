@@ -1293,13 +1293,17 @@
    "conta": "pontes_brain",
    "quando": "2026-11-21T07:30:00-03:00",
    "formato": "story",
-   "status": "agendado",
+   "status": "publicado",
    "titulo": "Lista com 12 prioridades é lista de desejos.",
    "midia": [
     "midia/stories/s16-2026-11-21-info.jpg"
    ],
    "nota": "Sai automático pelo publicador.",
-   "legenda": "Bom sábado · prioridade\n\nLista com 12 prioridades é lista de desejos.\n\nPrioridade de verdade aparece no que você deixa de fazer para proteger o que importa.\n\nDizer não é estratégia.\n\nMentoria 1:1: leopontes.com.br/mentoria-produto (link na bio)"
+   "legenda": "Bom sábado · prioridade\n\nLista com 12 prioridades é lista de desejos.\n\nPrioridade de verdade aparece no que você deixa de fazer para proteger o que importa.\n\nDizer não é estratégia.\n\nMentoria 1:1: leopontes.com.br/mentoria-produto (link na bio)",
+   "publicadoEm": "2026-11-21T10:36:28.311Z",
+   "midiaId": "18111249260253197",
+   "link": "https://www.instagram.com/stories/pontes_brain/4035233764801060585",
+   "erro": null
   },
   {
    "id": "d20",
