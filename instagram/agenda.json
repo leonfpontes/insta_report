@@ -2628,13 +2628,17 @@
    "conta": "GiraHub",
    "quando": "2026-11-21T08:00:00-03:00",
    "formato": "post",
-   "status": "agendado",
+   "status": "publicado",
    "titulo": "Post 21/11 — Marinheiro: sair navegando",
    "legenda": "Quem passa pelo Marinheiro sai navegando. ⚓\n\nEm muitas casas, a linha dos Marinheiros é lembrada como a que alivia e restaura: a gente chega pesado e sai leve. E não é só o marujo de navio: é também o pescador simples, o ribeirinho, gente que conhece as águas, as estrelas e as marés.\n\nManda pra quem está precisando de leveza.\n\n🌐 girahub.com.br (link na bio)\n\n#Marinheiros #Umbanda #CulturaDeTerreiro",
    "midia": [
     "midia/girahub/gh-1121-0800-01.jpg"
    ],
-   "nota": "Aprovado pelo Leonardo no Trello: https://trello.com/c/tWMFCdkT"
+   "nota": "Aprovado pelo Leonardo no Trello: https://trello.com/c/tWMFCdkT",
+   "publicadoEm": "2026-11-21T11:09:53.652Z",
+   "midiaId": "18150244438539420",
+   "link": "https://www.instagram.com/p/DgAFwQEIOvf/",
+   "erro": null
   },
   {
    "id": "gh-1122-0800",
